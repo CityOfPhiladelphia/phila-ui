@@ -1,10 +1,11 @@
 import component from './main.vue';
 
 // Declare install function executed by Vue.use()
-export function install(Vue) {
+export function install(Vue, settings) {
   if (install.installed) return;
   install.installed = true;
-  Vue.component('Header', component);
+  const name = settings.altName || 'Header';
+  Vue.component(name, component);
 };
 
 // Create module definition for Vue.use()

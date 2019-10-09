@@ -361,10 +361,11 @@ __vue_render__._withStripped = true;
   );
 
 // Declare install function executed by Vue.use()
-function install$1(Vue) {
+function install$1(Vue, settings) {
   if (install$1.installed) { return; }
   install$1.installed = true;
-  Vue.component('Header', component$1);
+  var name = settings.altName || 'Header';
+  Vue.component(name, component$1);
 }
 // Create module definition for Vue.use()
 var plugin = {
