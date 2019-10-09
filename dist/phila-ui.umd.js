@@ -1167,6 +1167,8 @@
 
   // Base Styles
 
+  // import MyComponent from './components/MyComponent';
+
   var PhilaUI = {
     Header: component$1,
     InputCheckbox: component$2,
@@ -1174,6 +1176,8 @@
     InputSelect: component$4,
     InputText: component$5,
     InputTextarea: component$6,
+
+    // MyComponent
   };
 
   PhilaUI.install = function (Vue) {
