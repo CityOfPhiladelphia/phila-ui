@@ -10,6 +10,8 @@ import InputSelect from './components/InputSelect';
 import InputText from './components/InputText';
 import InputTextarea from './components/InputTextarea';
 
+// import MyComponent from './components/MyComponent';
+
 const PhilaUI = {
   Header,
   InputCheckbox,
@@ -17,6 +19,8 @@ const PhilaUI = {
   InputSelect,
   InputText,
   InputTextarea,
+
+  // MyComponent
 };
 
 PhilaUI.install = function (Vue) {
