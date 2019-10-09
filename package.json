@@ -1,0 +1,40 @@
+{
+  "name": "phila-ui",
+  "version": "0.0.1",
+  "description": "City of Philadelphia Vue App Components and Standards",
+  "main": "dist/phila-ui.umd.js",
+  "module": "dist/my-component.esm.js",
+  "unpkg": "dist/my-component.min.js",
+  "scripts": {
+    "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/phila-ui.umd.js",
+    "build:es": "rollup --config build/rollup.config.js --format es --file dist/phila-ui.esm.js",
+    "build:unpkg": "rollup --config build/rollup.config.js  --extend --format iife --file dist/phila-ui.min.js"
+  },
+  "keywords": [
+    "Vue",
+    "Vuejs",
+    "Framework",
+    "City",
+    "of",
+    "Philadelphia",
+    "Phila",
+    "IU",
+    "Front-end",
+    "Components"
+  ],
+  "author": "City of Philadelphia",
+  "license": "MIT",
+  "devDependencies": {
+    "bulma": "^0.7.5",
+    "rollup": "^1.23.1",
+    "rollup-plugin-alias": "^2.0.1",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-multi-entry": "^2.1.0",
+    "rollup-plugin-sass": "^1.2.2",
+    "rollup-plugin-vue": "^5.0.1",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10"
+  }
+}

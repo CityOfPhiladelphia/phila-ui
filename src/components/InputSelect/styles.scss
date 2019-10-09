@@ -1,0 +1,9 @@
+// @import '../base.scss';
+@import '../../styles/inputs.scss';
+
+select {
+    &:focus {
+        border-width: 2px;
+        padding-bottom: 0;
+    }
+}

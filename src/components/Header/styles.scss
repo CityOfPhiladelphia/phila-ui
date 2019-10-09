@@ -1,0 +1,40 @@
+.hero {
+  .navbar {
+    background: $primary;
+  }
+}
+
+.navbar {
+  .navbar-burger {
+    height: auto;
+
+    span {
+      height: 3px;
+      width: 30px;
+      left: calc(50% - 15px);
+
+      &:nth-child(1) {
+        top: calc(50% - 10px);
+      }
+
+      &:nth-child(3) {
+        top: calc(50% + 8px);
+      }
+    }
+  }
+
+  .page-title {
+    h1,
+    h2 {
+      line-height: 110%;
+    }
+  }
+
+  .vertical-separator {
+    width: 1px;
+    height: 45px;
+    background-color: #fff;
+    margin-left: rem-calc(15px);
+  }
+  border-bottom: 5px solid $electric-blue;
+}

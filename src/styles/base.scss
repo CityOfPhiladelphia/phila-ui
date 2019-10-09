@@ -1,0 +1,115 @@
+@import './colors.scss';
+
+$radius: 0;
+
+$radius-large: 0;
+$notification-padding: 1rem 2.5rem 1rem 1rem;
+$link: $dark-ben-franklin;
+$link-hover: $electric-blue;
+
+// NAVBAR OVERRIDES
+$navbar-item-img-max-height: 75px;
+$navbar-padding-vertical: 0.5rem;
+$navbar-padding-horizontal: 1rem;
+$navbar-background-color: $primary;
+$navbar-item-color: $white;
+$navbar-item-hover-background-color: transparent;
+$navbar-item-hover-color: $electric-blue;
+
+$navbar-dropdown-radius: 0;
+$navbar-dropdown-boxed-radius: 0;
+$navbar-dropdown-boxed-shadow: none;
+
+// FOOTER OVERRIDES
+$footer-background-color: $dark-ben-franklin;
+
+// INPUT OVERRIDES
+$input-background-color: $ghost-gray;
+$input-focus-box-shadow-size: none;
+$input-border-color: transparent;
+$input-hover-border-color: transparent;
+$input-focus-border-color: $electric-blue;
+$input-shadow: none;
+
+// TABS
+$tabs-boxed-link-hover-background-color: none;
+$tabs-link-hover-color: $dark-ben-franklin;
+
+// TABLES
+$table-striped-row-even-background-color: $ghost-gray;
+
+// MODALS
+$modal-content-width: 760px;
+$modal-card-head-padding: 15px;
+$modal-card-body-padding: 15px;
+
+// GLOBAL TO LINKS
+a {
+  transition: all 0.25s ease;
+}
+
+.is-fullwidth {
+  width: 100%;
+}
+.is-justified-center {
+  justify-content: center !important;
+}
+.is-justified-start {
+  justify-content: flex-start !important;
+}
+.is-justified-end {
+  justify-content: flex-end !important;
+}
+.is-justified-space-between {
+  justify-content: space-between !important;
+}
+
+header,
+footer {
+  a {
+    color: #fff;
+    &:hover {
+      color: $electric-blue !important;
+    }
+  }
+}
+
+@import "~bulma/bulma.sass";
+
+/** Custom Styles **/
+.table-responsive {
+  width: 100%;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.tabs {
+  & + .fix-margin {
+    margin-top: -1.5rem;
+    padding-top: 1.5rem;
+  }
+  &.is-boxed + .tabs-container {
+    border: 1px solid $tabs-border-bottom-color;
+    border-top: 0;
+  }
+}
+
+.tabs-container {
+  padding: $tabs-link-padding;
+}
+
+.container {
+  &.main {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+table {
+  &.is-align-middle {
+    td,
+    th {
+      vertical-align: middle;
+    }
+  }
+}

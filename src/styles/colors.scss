@@ -1,0 +1,65 @@
+$ben-franklin-blue: hsl(211, 73%, 48%);
+$dark-ben-franklin: hsl(211, 81%, 31%);
+$light-ben-franklin: hsl(211, 100%, 79%);
+$electric-blue: hsl(192, 93%, 56%);
+
+$bell-yellow: hsl(48, 90%, 51%);
+$light-bell: hsl(50, 100%, 82%);
+
+$pride-purple: hsl(285, 100%, 39%);
+$punk-pink: hsl(340, 73%, 51%);
+
+$phanatic-green: hsl(122, 39%, 37%);
+$kelly-drive-green: hsl(114, 48%, 53%);
+$light-kelly-drive: hsl(113, 71%, 82%);
+
+$flyers-orange: hsl(35, 100%, 49%);
+$love-park-red: hsl(14, 100%, 40%);
+$light-red: hsl(0, 96%, 91%);
+$light-blue: hsl(208, 95%, 93%);
+
+$dark-gray: hsl(0, 0%, 27%);
+$medium-gray: hsl(0, 0%, 63%);
+$sidewalk: hsl(0, 0%, 81%);
+$ghost-gray: hsl(0, 0%, 94%);
+
+$white: hsl(0, 0%, 100%);
+$black: hsl(0, 0%, 0%);
+
+$dark-invert: #111111;
+
+
+$black:        hsl(0, 0%, 4%) !default;
+$black-bis:    hsl(0, 0%, 7%) !default;
+$black-ter:    hsl(0, 0%, 14%) !default;
+
+$grey-darker:  hsl(0, 0%, 21%) !default;
+$grey-dark:    hsl(0, 0%, 29%) !default;
+$grey:         hsl(0, 0%, 48%) !default;
+$grey-light:   hsl(0, 0%, 71%) !default;
+$grey-lighter: hsl(0, 0%, 86%) !default;
+
+$white-ter:    hsl(0, 0%, 96%) !default;
+$white-bis:    hsl(0, 0%, 98%) !default;
+$white:        hsl(0, 0%, 100%) !default;
+
+$orange:       $flyers-orange !default;
+$yellow:       $bell-yellow !default;
+$green:        $kelly-drive-green !default;
+$turquoise:    $dark-ben-franklin !default;
+$cyan:         $ben-franklin-blue !default;
+$blue:         $light-ben-franklin !default;
+$purple:       $pride-purple !default;
+$red:          $love-park-red !default;
+
+// // Colors and Inversions
+$primary: $dark-ben-franklin !default;
+
+$info: $light-ben-franklin !default;
+$success: $green !default;
+$warning: $bell-yellow !default;
+$danger: $love-park-red !default;
+
+$info-invert: $dark-invert;
+$success-invert: $dark-invert;
+$warning-invert: $dark-invert;
