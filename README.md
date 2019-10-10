@@ -4,14 +4,14 @@ City of Philadelphia Vue Applications Standards and Components
 Depends on [Bulma.io](https://bulma.io/) (_bulma is already imported in the project_).
 
 ## How to Extend
-- Clonse this repo.
-- Copy and Past `MyComponent` (this is an example folder) into `src/components/` and program your `main.vue` component.
-- In `wrapper.js` create a new `import` with your component (_there is a commented out code example_) and add it to the `PhilaUI` object.
-- Upgrade the app version in `package.json`
+- Clone this repo.
+- Copy and paste `MyComponent` (this is an example folder) into `src/components/` and create your `main.vue` component.
+- In `wrapper.js` create a new `import` with your component (_look for the commented code example_) and add it to the `PhilaUI` object.
+- Upgrade the app version in `package.json` (using [Semantic Versioning](https://semver.org/)).
 - Run `npm run build` to build all distributable files.
 
 ## How to Use
-- Run `npm install --save CityOfPhiladelphia/phila-ui#master` (_this until we have a `public distribution` in npm registries_)
+- Run `npm install --save CityOfPhiladelphia/phila-ui#master` (_until there is a `public distribution` in npm_)
 
 ### Import Everything
 - In your `main.js` add `import PhilaUI from phila-ui;`
@@ -23,8 +23,7 @@ Depends on [Bulma.io](https://bulma.io/) (_bulma is already imported in the proj
 - That's it =)
 
 Note:
-
-If you want to use the City of Philadelphia SCSS Colors and Functions in your project, modify your `vue.config.js` with this code:
+To import the City's sass colors and functions to your project, add the following to `vue.config.js`:
 
 ```
 module.exports = {
@@ -40,9 +39,6 @@ module.exports = {
   },
 };
 ```
-
-NOTE: 
-
 ## License
 
 [MIT](LICENSE)
