@@ -3,13 +3,14 @@
   "version": "0.0.1",
   "description": "City of Philadelphia Vue App Components and Standards",
   "main": "dist/phila-ui.umd.js",
-  "module": "dist/my-component.esm.js",
-  "unpkg": "dist/my-component.min.js",
+  "module": "dist/phila-ui.esm.js",
+  "unpkg": "dist/phila-ui.min.js",
   "scripts": {
     "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
-    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/phila-ui.umd.js",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --name \"PhilaUI\" --file dist/phila-ui.umd.js",
     "build:es": "rollup --config build/rollup.config.js --format es --file dist/phila-ui.esm.js",
-    "build:unpkg": "rollup --config build/rollup.config.js  --extend --format iife --file dist/phila-ui.min.js"
+    "build:unpkg": "rollup --config build/rollup.config.js --extend --format iife --file dist/phila-ui.min.js",
+    "lint": "vue-cli-service lint"
   },
   "keywords": [
     "Vue",
@@ -26,9 +27,15 @@
   "author": "City of Philadelphia",
   "license": "MIT",
   "devDependencies": {
+    "@vue/cli-plugin-eslint": "^3.11.0",
+    "@vue/cli-service": "^3.11.0",
+    "babel-eslint": "^10.0.3",
     "bulma": "^0.7.5",
+    "eslint": "^6.5.1",
+    "eslint-plugin-vue": "^5.2.3",
     "rollup": "^1.23.1",
     "rollup-plugin-alias": "^2.0.1",
+    "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-buble": "^0.19.8",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-multi-entry": "^2.1.0",

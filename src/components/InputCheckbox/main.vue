@@ -1,6 +1,6 @@
 <template>
   <div class="input-wrap input-checkbox">
-    <label 
+    <label
       :for="id"
       class="checkbox"
     >

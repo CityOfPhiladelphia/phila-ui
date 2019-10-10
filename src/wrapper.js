@@ -23,12 +23,24 @@ const PhilaUI = {
   // MyComponent
 };
 
-PhilaUI.install = function (Vue) {
-  if (install.installed) return;
-  install.installed = true;
-  for (component in PhilaUI) {
-    if (component === 'install') continue;
-    Vue.component(`${component}`, PhilaUI[component]);
+PhilaUI.install = function(Vue, settings) {
+  if (PhilaUI.installed) {
+    return;
+  }
+
+  PhilaUI.installed = true;
+
+  for (let componentName in PhilaUI) {
+    if (componentName === 'install'
+      || componentName === 'installed') {
+      continue;
+    }
+
+    let componentSettings = settings[componentName] || {};
+
+    if (typeof PhilaUI[componentName].install === 'function') {
+      PhilaUI[componentName].install.call(null, Vue, componentSettings);
+    }
   }
 };
 

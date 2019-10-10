@@ -1,6 +1,8 @@
 # phila-ui
 City of Philadelphia Vue Applications Standards and Components
 
+Depents on [Bulma.io](https://bulma.io/) (_bulma is already imported in the project_).
+
 ## How to Extend
 - Clonse this repo.
 - Copy and Past `MyComponent` (this is an example folder) into `src/components/` and program your `main.vue` component.
@@ -12,12 +14,12 @@ City of Philadelphia Vue Applications Standards and Components
 ## How to Use
 - Run `npm install --save CityOfPhiladelphia/phila-ui#master` (_this until we have a `public distribution` in npm registries_)
 
-### Usage method 1
-- In your `main.js` add `import PhilaUI from phila-ui`
-- Then `Vue.use(PhilaUI)`
-
-### Usage method 2
--
+### Import Everything
+- In your `main.js` add `import PhilaUI from phila-ui;`
+- Then `Vue.use(PhilaUI, settings);` the only parameter we currently have by component is `altName: [name]`, this is to set the component using a diferent name. E.g `Vue.use(PhilaUI, { Header: { altName: 'PhlHeader' }});`.
+- Or `Vue.use(PhilaUI.Header, { altName: 'PhlHeader' });` to use a single component;
+- Also you can do `import { Header } from 'phila-ui';` (not fully tested yet, but it should work).
+- That's it =)
 
 ## License
 

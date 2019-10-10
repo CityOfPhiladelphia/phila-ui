@@ -1,12 +1,12 @@
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
   },
   "extends": [
     "eslint:recommended",
     "plugin:vue/essential",
-    "plugin:vue/recommended"
+    "plugin:vue/recommended",
   ],
   rules: {
     // Disabled only on development
@@ -16,20 +16,20 @@ module.exports = {
 
     // Eslint Rules
     "brace-style": "error",
-    "nonblock-statement-body-position": ["error", "below"],
-    "curly": ["error", "all"],
-    "indent": ["error", 2],
+    "nonblock-statement-body-position": [ "error", "below" ],
+    "curly": [ "error", "all" ],
+    "indent": [ "error", 2 ],
     "no-else-return": "error",
-    "object-curly-spacing": ["error", "always", {
+    "object-curly-spacing": [ "error", "always", {
       arraysInObjects: false,
-      objectsInObjects: false
+      objectsInObjects: false,
     }],
-    "array-bracket-spacing": ["error", "always", {
+    "array-bracket-spacing": [ "error", "always", {
       objectsInArrays: false,
-      arraysInArrays: false
+      arraysInArrays: false,
     }],
-    "comma-dangle": ["error", "always-multiline"],
-    "semi": ["error", "always"],
+    "comma-dangle": [ "error", "always-multiline" ],
+    "semi": [ "error", "always" ],
 
     // Vue Rules
     "vue/no-v-html": "off",
@@ -37,6 +37,6 @@ module.exports = {
     "vue/attributes-order": "error",
   },
   parserOptions: {
-    parser: "babel-eslint"
-  }
-}
+    parser: "babel-eslint",
+  },
+};

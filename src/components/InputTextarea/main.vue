@@ -31,7 +31,7 @@ export default {
     placeholder: {
       type: String,
       default: 'Insert label placeholder here',
-    }
+    },
   },
 };
 </script>

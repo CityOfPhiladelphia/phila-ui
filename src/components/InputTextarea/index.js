@@ -1,15 +1,20 @@
+// Import vue component
 import component from './main.vue';
 
 // Declare install function executed by Vue.use()
-export function install(Vue) {
-  if (install.installed) return;
-  install.installed = true;
-  Vue.component('InputTextarea', component);
+component.install = function(Vue, settings) {
+  if (component.installed) {
+    return;
+  }
+  component.installed = true;
+
+  const name = settings.altName ? settings.altName : component.name;
+  Vue.component(name, component);
 };
 
 // Create module definition for Vue.use()
 const plugin = {
-  install,
+  install: component.install,
 };
 
 // Auto-install when vue is found (eg. in browser via <script> tag)

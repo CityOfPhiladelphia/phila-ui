@@ -5,17 +5,17 @@ import vue from 'rollup-plugin-vue'; // Handle .vue SFC files
 import buble from 'rollup-plugin-buble'; // Transpile/polyfill with reasonable browser support
 
 export default {
-  input: "src/wrapper.js",
+  input: [ 'src/wrapper.js' ],
   output: {
     name: 'phila-ui',
     exports: 'named',
   },
   plugins: [
     // multiEntry(),
+    commonjs(),
     sass({
       insert: true,
     }),
-    commonjs(),
     vue({
       css: true, // Dynamically inject css as a <style> tag
       compileTemplate: true, // Explicitly convert template to render function,
@@ -27,7 +27,7 @@ export default {
                 @import "./src/styles/colors.scss";
             `,
           },
-        }
+        },
       },
     }),
     buble(), // Transpile to ES5
