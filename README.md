@@ -5,10 +5,10 @@ Depends on [Bulma.io](https://bulma.io/) (_bulma is already imported in the proj
 
 ## How to Extend
 1. Clone this repo.
-- Copy and paste `MyComponent` (this is an example folder) into `src/components/` and create your `main.vue` component.
-- In `wrapper.js` create a new `import` with your component (_look for the commented code example_) and add it to the `PhilaUI` object.
-- Upgrade the app version in `package.json` (using [Semantic Versioning](https://semver.org/)).
-- Run `npm run build` to build all distributable files.
+2. Copy and paste `MyComponent` (this is an example folder) into `src/components/` and create your `main.vue` component.
+3. In `wrapper.js` create a new `import` with your component (_look for the commented code example_) and add it to the `PhilaUI` object.
+4.  Upgrade the app version in `package.json` (using [Semantic Versioning](https://semver.org/)).
+5. Run `npm run build` to build all distributable files.
 
 ## How to Use
 Run `npm install --save CityOfPhiladelphia/phila-ui#master` (_until there is a `public distribution` in npm_)
