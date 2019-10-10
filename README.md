@@ -1,7 +1,7 @@
 # phila-ui
 City of Philadelphia Vue Applications Standards and Components
 
-Depents on [Bulma.io](https://bulma.io/) (_bulma is already imported in the project_).
+Depends on [Bulma.io](https://bulma.io/) (_bulma is already imported in the project_).
 
 ## How to Extend
 - Clonse this repo.
