@@ -3,6 +3,7 @@ import './styles/base.scss';
 
 // Components
 
+import Callout from './components/Callout';
 import Header from './components/Header';
 import InputCheckbox from './components/InputCheckbox';
 import InputRadio from './components/InputRadio';
@@ -13,6 +14,7 @@ import InputTextarea from './components/InputTextarea';
 // import MyComponent from './components/MyComponent';
 
 const PhilaUI = {
+  Callout,
   Header,
   InputCheckbox,
   InputRadio,
