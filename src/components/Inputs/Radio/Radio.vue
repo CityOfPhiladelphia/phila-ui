@@ -1,6 +1,6 @@
 <template>
   <div class="input-wrap input-radio">
-    <label 
+    <label
       :for="id"
       class="radio"
     >
@@ -18,7 +18,7 @@
 </template>
 <script>
 export default {
-  name: "InputRadio",
+  name: "Radio",
   model: {
     prop: "modelValue",
     event: "change",
@@ -51,5 +51,6 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import './styles.scss';
+  // @import '../base.scss';
+  @import '../../../styles/inputs.scss';
 </style>
