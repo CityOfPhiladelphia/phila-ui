@@ -21,7 +21,7 @@
 </template>
 <script>
 export default {
-  name: "InputText",
+  name: "Textbox",
   inheritAttrs: false,
   props: {
     id: {
@@ -48,5 +48,33 @@ export default {
 };
 </script>
 <style lang="scss">
-@import './styles.scss';
+  // @import '../base.scss';
+  @import '../../../styles/inputs.scss';
+
+  .input-text {
+    label {
+      position: absolute;
+      top: 0px;
+      left: 10px;
+      z-index: 5;
+      font-size: 10px;
+      color: #909090;
+      font-weight: 300;
+      opacity: 0;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tell"],
+    input[type="number"] {
+      &:focus {
+        border-width: 2px;
+        padding-bottom: 0;
+        + label {
+          opacity: 1;
+        }
+      }
+    }
+  }
 </style>

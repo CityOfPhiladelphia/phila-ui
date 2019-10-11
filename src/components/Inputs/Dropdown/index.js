@@ -1,5 +1,5 @@
 // Import vue component
-import component from './main.vue';
+import component from './Dropdown.vue';
 
 // Declare install function executed by Vue.use()
 component.install = function(Vue, settings) {

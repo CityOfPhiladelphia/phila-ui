@@ -1,5 +1,5 @@
 // Import vue component
-import component from './MyComponent.vue';
+import component from './AppHeader.vue';
 
 // Declare install function executed by Vue.use()
 component.install = function(Vue, settings) {
