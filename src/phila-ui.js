@@ -14,7 +14,7 @@ import TextArea from './components/Inputs/TextArea';
 /**
  * Function to install components globally
  */
-const install = function(Vue, settings) {
+const install = function(Vue, settings = {}) {
   if (this.installed) {
     return;
   }
