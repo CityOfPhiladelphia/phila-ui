@@ -1,6 +1,6 @@
 // Import vue component
-import prepareForExport from '../../utils/prepareForExport';
 import component from './AppHeader.vue';
+import prepareForExport from '../../utils/prepareForExport';
 
 prepareForExport(component);
 

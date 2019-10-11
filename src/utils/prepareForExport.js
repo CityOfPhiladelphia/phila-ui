@@ -1,6 +1,6 @@
 function prepareForExport (component) {
   // Declare install function executed by Vue.use()
-  component.install = function (Vue, settings) {
+  component.install = function (Vue, settings = {}) {
     if (component.installed) {
       return;
     }
