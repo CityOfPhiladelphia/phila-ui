@@ -43,6 +43,8 @@ $modal-content-width: 760px;
 $modal-card-head-padding: 15px;
 $modal-card-body-padding: 15px;
 
+@import "node_modules/bulma/bulma.sass";
+
 // GLOBAL TO LINKS
 a {
   transition: all 0.25s ease;
@@ -73,8 +75,6 @@ footer {
     }
   }
 }
-
-@import "~bulma/bulma.sass";
 
 /** Custom Styles **/
 .table-responsive {

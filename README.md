@@ -6,7 +6,7 @@ Depends on [Bulma.io](https://bulma.io/) (_bulma is already imported in the proj
 ## How to Extend
 1. Clone this repo.
 2. Copy and paste `MyComponent` (this is an example folder) into `src/components/` and create your `main.vue` component.
-3. In `wrapper.js` create a new `import` with your component (_look for the commented code example_) and add it to the `PhilaUI` object.
+3. In `src/phila-ui.js` create a new `import` with your component (_look for the commented code example_) and add it to the `export` object.
 4.  Upgrade the app version in `package.json` (using [Semantic Versioning](https://semver.org/)).
 5. Run `npm run build` to build all distributable files.
 
@@ -17,8 +17,9 @@ Run `npm install --save CityOfPhiladelphia/phila-ui#master` (_until there is a `
 In `main.js`, import phila-ui.
 
 ```
-import PhilaUI from phila-ui;
+import * from PhilaUI from phila-ui;
 Vue.use(PhilaUI, settings);
+Vue.use(PhilaUI, { Header: { altName: 'PhlHeader' }});
 ```
 
 Currently, all components only have one option. 
@@ -30,19 +31,17 @@ altName: 'AlternativeName'
 ```
 You can also import components individually: 
 
- ```
-Vue.use(PhilaUI, { Header: { altName: 'PhlHeader' }});
+```
+import { Header, InputText } from 'phila-ui';
 ```
 or
 
 ```
-Vue.use(PhilaUI.Header, { altName: 'PhlHeader' });
-```
-or
-```
-import { Header } from 'phila-ui';
+Vue.use(Header, { altName: 'PhlHeader' });
+Vue.use(InputText);
 ``` 
-(still being tested)
+
+(Still being tested)
 
 
 **Note:**
