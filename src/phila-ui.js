@@ -1,13 +1,15 @@
 // Base Styles
-import css from './styles/base.scss';
+import './styles/base.scss';
 
 // Components
-import Header from './components/Header';
-import InputCheckbox from './components/InputCheckbox';
-import InputRadio from './components/InputRadio';
-import InputSelect from './components/InputSelect';
-import InputText from './components/InputText';
-import InputTextarea from './components/InputTextarea';
+import AppHeader from './components/AppHeader';
+import AppFooter from './components/AppFooter';
+
+import Checkbox from './components/Inputs/Checkbox';
+import Radio from './components/Inputs/Radio';
+import Dropdown from './components/Inputs/Dropdown';
+import Textbox from './components/Inputs/Textbox';
+import TextArea from './components/Inputs/TextArea';
 
 /**
  * Function to install components globally
@@ -28,33 +30,15 @@ const install = function(Vue, settings) {
   }
 };
 
-/**
- * Function to inject the phila-ui styles in the header
- */
-// const Styles = function () {
-//   if (!css) {
-//     return;
-//   }
-//   if (typeof window === 'undefined') {
-//     return;
-//   }
-
-//   var style = document.createElement('style');
-
-//   style.setAttribute('type', 'text/css');
-//   style.innerHTML = css;
-//   document.head.appendChild(style);
-// };
-
 export {
-  // Styles,
+  AppHeader,
+  AppFooter,
 
-  Header,
-  InputCheckbox,
-  InputRadio,
-  InputSelect,
-  InputText,
-  InputTextarea,
+  Checkbox,
+  Radio,
+  Dropdown,
+  Textbox,
+  TextArea,
 
   // Install Helper for Vue
   install,

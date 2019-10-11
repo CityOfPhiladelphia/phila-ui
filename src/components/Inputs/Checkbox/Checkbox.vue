@@ -22,7 +22,7 @@
 </template>
 <script>
 export default {
-  name: 'InputCheckbox',
+  name: 'Checkbox',
   inheritAttrs: false,
   model: {
     prop: 'modelValue',
@@ -98,6 +98,7 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import './styles.scss';
+  // @import '../base.scss';
+  @import '../../../styles/inputs.scss';
 </style>
 

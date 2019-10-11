@@ -23,7 +23,7 @@
 </template>
 <script>
 export default {
-  name: 'InputSelect',
+  name: 'Dropdown',
   inheritAttrs: false,
   props: {
     value: {
@@ -32,10 +32,10 @@ export default {
     },
     options: {
       type: [ Object ],
-      default: () => { 
-        return { 
-          'option-1': 'Option 1', 
-          'option-2': 'Option 2', 
+      default: () => {
+        return {
+          'option-1': 'Option 1',
+          'option-2': 'Option 2',
           'option-3': 'Option 3',
         };
       },
@@ -58,5 +58,5 @@ export default {
 };
 </script>
 <style lang="scss">
-@import './styles.scss';
+
 </style>

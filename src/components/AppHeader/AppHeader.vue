@@ -56,7 +56,7 @@
 </template>
 <script>
 export default {
-  name: 'Header',
+  name: 'AppHeader',
   props: {
     appLogoLink: {
       type: Object,
