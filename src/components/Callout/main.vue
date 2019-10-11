@@ -24,6 +24,7 @@ export default {
 
 .message {
   &.is-flyers-orange {
+    background-color: $ghost-gray;
     .message-body {
       border-color: $flyers-orange;
     }

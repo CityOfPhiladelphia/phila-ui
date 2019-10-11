@@ -32,23 +32,23 @@ const install = function(Vue, settings) {
 /**
  * Function to inject the phila-ui styles in the header
  */
-// const Styles = function () {
-//   if (!css) {
-//     return;
-//   }
-//   if (typeof window === 'undefined') {
-//     return;
-//   }
+const Styles = function () {
+  if (!css) {
+    return;
+  }
+  if (typeof window === 'undefined') {
+    return;
+  }
 
-//   var style = document.createElement('style');
+  var style = document.createElement('style');
 
-//   style.setAttribute('type', 'text/css');
-//   style.innerHTML = css;
-//   document.head.appendChild(style);
-// };
+  style.setAttribute('type', 'text/css');
+  style.innerHTML = css;
+  document.head.appendChild(style);
+};
 
 export {
-  // Styles,
+  Styles,
 
   Header,
   InputCheckbox,
