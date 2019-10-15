@@ -52,6 +52,7 @@ export default {
   @import '../../../styles/inputs.scss';
 
   .input-text {
+    position: relative;
     label {
       position: absolute;
       top: 0px;
