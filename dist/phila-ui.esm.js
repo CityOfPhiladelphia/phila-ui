@@ -793,6 +793,9 @@ prepareForExport(component$3);
 //
 //
 //
+//
+//
+//
 
 var script$4 = {
   name: 'Dropdown',
@@ -859,9 +862,11 @@ var __vue_render__$4 = function() {
           false
         ),
         [
-          _c("option", { attrs: { value: "" } }, [
-            _vm._v("\n      " + _vm._s(_vm.defaultOption) + "\n    ")
-          ]),
+          _vm.defaultOption !== null
+            ? _c("option", { attrs: { value: "" } }, [
+                _vm._v("\n      " + _vm._s(_vm.defaultOption) + "\n    ")
+              ])
+            : _vm._e(),
           _vm._v(" "),
           _vm._l(_vm.options, function(option, key) {
             return _c(
@@ -894,7 +899,7 @@ __vue_render__$4._withStripped = true;
   /* style */
   var __vue_inject_styles__$4 = function (inject) {
     if (!inject) { return }
-    inject("data-v-70fae65c_0", { source: "\n\n/*# sourceMappingURL=Dropdown.vue.map */", map: {"version":3,"sources":["Dropdown.vue"],"names":[],"mappings":";;AAEA,uCAAuC","file":"Dropdown.vue"}, media: undefined });
+    inject("data-v-566d4376_0", { source: "\n\n/*# sourceMappingURL=Dropdown.vue.map */", map: {"version":3,"sources":["Dropdown.vue"],"names":[],"mappings":";;AAEA,uCAAuC","file":"Dropdown.vue"}, media: undefined });
 
   };
   /* scoped */
