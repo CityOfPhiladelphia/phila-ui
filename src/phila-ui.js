@@ -2,9 +2,9 @@
 import './styles/base.scss';
 
 // Components
+import AppButton from './components/AppButton';
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
-
 import Callout from './components/Callout';
 import Checkbox from './components/Inputs/Checkbox';
 import Radio from './components/Inputs/Radio';
@@ -32,6 +32,7 @@ const install = function(Vue, settings = {}) {
 };
 
 export {
+  AppButton,
   AppHeader,
   AppFooter,
   Callout,
