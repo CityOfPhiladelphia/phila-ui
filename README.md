@@ -14,12 +14,9 @@ Depends on [Bulma.io](https://bulma.io/) (_bulma is already imported in the proj
 Run `npm install --save CityOfPhiladelphia/phila-ui#master` (_until there is a `public distribution` in npm_)
 
 ### Importing
-In `main.js`, import phila-ui.
 
 #### Importing individually
-You can import components individually. This is the reccomended method. If you import components individually, you will also need to import the base.scss phila-ui file in your main Vue file:
-
-`import 'phila-ui/src/styles/base.scss'`
+You can import components individually. This is the reccomended method. If you import components individually, you will also need to import the base.scss phila-ui file in your `main.js` file:`import 'phila-ui/src/styles/base.scss'`
 
 ```
 import { Header, InputText } from 'phila-ui';
@@ -29,6 +26,8 @@ Vue.use(InputText);
 
 #### Importing everything
 *Note: Importing the entire library will cause a very large package size. We reccommend you only import what you need.*
+
+In `main.js`, import phila-ui.
 
 ```
 import * from PhilaUI from phila-ui;
