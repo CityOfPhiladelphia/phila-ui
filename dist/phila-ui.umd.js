@@ -43,94 +43,9 @@
   //
   //
   //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
 
   var script = {
-    name: 'AppHeader',
-    props: {
-      appLogoLink: {
-        type: Object,
-        default: function () { return ({
-          href: "https://www.phila.gov",
-          target: "_blank",
-        }); },
-      },
-      appLogoImage: {
-        type: Object,
-        default: function () { return ({
-          src: "https://standards.phila.gov/img/logo/city-of-philadelphia-yellow-white.png",
-          alt: "City of Philadelphia logo",
-          width: 190,
-        }); },
-      },
-      appTitle: {
-        type: String,
-        default: "",
-      },
-      appSubtitle: {
-        type: String,
-        default: "",
-      },
-      appLink: {
-        type: String,
-        default: "/",
-      },
-      fluid: {
-        type: Boolean,
-        default: true,
-      },
-    },
-    data: function data() {
-      return {
-        showOnBurgerClicked: true,
-      };
-    },
+    name: 'AppButton',
   };
 
   function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
@@ -281,6 +196,192 @@
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
+    return _vm._m(0)
+  };
+  var __vue_staticRenderFns__ = [
+    function() {
+      var _vm = this;
+      var _h = _vm.$createElement;
+      var _c = _vm._self._c || _h;
+      return _c("div", { staticStyle: { float: "right" } }, [
+        _c("a", { staticClass: "button", attrs: { href: "#" } }, [
+          _vm._v("\n    Search\n  ")
+        ])
+      ])
+    }
+  ];
+  __vue_render__._withStripped = true;
+
+    /* style */
+    var __vue_inject_styles__ = function (inject) {
+      if (!inject) { return }
+      inject("data-v-65f37807_0", { source: "button[data-v-65f37807],\n.button[data-v-65f37807] {\n  background-color: #26cdf7;\n  color: #454545;\n  text-transform: uppercase;\n  padding: 0.75rem 0.5rem;\n  letter-spacing: 0.03rem;\n  border: none;\n}\nbutton[data-v-65f37807]:focus,\n.button[data-v-65f37807]:focus {\n  color: white;\n  background: #454545;\n}\nbutton.icon[data-v-65f37807],\n.button.icon[data-v-65f37807] {\n  display: inline-block;\n  position: relative;\n  background: transparent;\n  min-height: 40px;\n  padding: 0;\n}\nbutton.icon .button-label[data-v-65f37807],\n.button.icon .button-label[data-v-65f37807] {\n  text-align: left;\n}\nbutton.icon .fa[data-v-65f37807],\nbutton.icon .fas[data-v-65f37807],\nbutton.icon .far[data-v-65f37807],\nbutton.icon .fab[data-v-65f37807],\nbutton.icon .fal[data-v-65f37807],\n.button.icon .fa[data-v-65f37807],\n.button.icon .fas[data-v-65f37807],\n.button.icon .far[data-v-65f37807],\n.button.icon .fab[data-v-65f37807],\n.button.icon .fal[data-v-65f37807] {\n  background: #454545;\n  color: white;\n  font-size: 1.7em;\n  border-right: 2px solid white;\n  position: static;\n  padding: 0.75rem;\n}\nbutton.icon .fa[data-v-65f37807]::before,\nbutton.icon .fas[data-v-65f37807]::before,\nbutton.icon .far[data-v-65f37807]::before,\nbutton.icon .fab[data-v-65f37807]::before,\nbutton.icon .fal[data-v-65f37807]::before,\n.button.icon .fa[data-v-65f37807]::before,\n.button.icon .fas[data-v-65f37807]::before,\n.button.icon .far[data-v-65f37807]::before,\n.button.icon .fab[data-v-65f37807]::before,\n.button.icon .fal[data-v-65f37807]::before {\n  display: block;\n  width: 2.85714rem;\n}\nbutton.icon[data-v-65f37807]:hover, button.icon[data-v-65f37807]:active, button.icon[data-v-65f37807]:focus,\n.button.icon[data-v-65f37807]:hover,\n.button.icon[data-v-65f37807]:active,\n.button.icon[data-v-65f37807]:focus {\n  background: none;\n}\nbutton.icon:hover i.fa[data-v-65f37807], button.icon:active i.fa[data-v-65f37807], button.icon:focus i.fa[data-v-65f37807],\n.button.icon:hover i.fa[data-v-65f37807],\n.button.icon:active i.fa[data-v-65f37807],\n.button.icon:focus i.fa[data-v-65f37807] {\n  color: white;\n}\nbutton .button-label[data-v-65f37807],\n.button .button-label[data-v-65f37807] {\n  background-color: #26cdf7;\n  min-height: 40px;\n  padding: 1rem;\n  text-align: center;\n  width: 100%;\n}\nbutton.outline .button-label[data-v-65f37807],\n.button.outline .button-label[data-v-65f37807] {\n  background-color: white;\n  border: 1px solid #26cdf7;\n}\nbutton[data-v-65f37807], a.button[data-v-65f37807] {\n  color: #454545;\n}\nbutton[data-v-65f37807]:link, a.button[data-v-65f37807]:link {\n  font-weight: 600;\n  font-size: 1rem;\n}\nbutton[data-v-65f37807]:hover, button[data-v-65f37807]:active, button[data-v-65f37807]:focus, a.button[data-v-65f37807]:hover, a.button[data-v-65f37807]:active, a.button[data-v-65f37807]:focus {\n  background: #454545;\n  color: white;\n}\nbutton:hover .button-label[data-v-65f37807], button:active .button-label[data-v-65f37807], button:focus .button-label[data-v-65f37807], a.button:hover .button-label[data-v-65f37807], a.button:active .button-label[data-v-65f37807], a.button:focus .button-label[data-v-65f37807] {\n  color: white;\n  background: #454545;\n  transition: background-color 300ms ease-in-out;\n}\nbutton.see-all-right[data-v-65f37807], a.button.see-all-right[data-v-65f37807] {\n  position: relative;\n  text-transform: none;\n  height: 28px;\n  border: none;\n  padding: 0;\n}\nbutton.see-all-right .button-label[data-v-65f37807], a.button.see-all-right .button-label[data-v-65f37807] {\n  padding: 0 1rem;\n}\nbutton.see-all-right[data-v-65f37807]::after, a.button.see-all-right[data-v-65f37807]::after {\n  content: \"\";\n  position: absolute;\n  right: -15px;\n  top: 0;\n  width: 0;\n  height: 0;\n  border-top: 13px solid transparent;\n  border-bottom: 15px solid transparent;\n  border-left: 15px solid #26cdf7;\n}\nbutton.see-all-right[data-v-65f37807]:hover::after, button.see-all-right[data-v-65f37807]:focus::after, a.button.see-all-right[data-v-65f37807]:hover::after, a.button.see-all-right[data-v-65f37807]:focus::after {\n  border-left: 15px solid #454545;\n  transition: border-color 300ms ease-in-out;\n}\n\n/*# sourceMappingURL=AppButton.vue.map */", map: {"version":3,"sources":["C:\\Other_Projects\\phila-ui\\src\\components\\AppButton\\AppButton.vue","AppButton.vue"],"names":[],"mappings":"AAoBA;;EAGA,yBAAA;EACA,cAwBA;EC5CE,yBAAyB;EACzB,uBAAuB;EDsBzB,uBAAA;EACA,YAAA;ACpBA;AACA;;EDuBA,YAAA;EACA,mBAeA;ACnCA;ADuBA;;EACA,qBAAA;ECpBE,kBAAkB;EAClB,uBAAuB;EDsBzB,gBAAA;EACA,UAAA;ACpBA;ADuBA;;EACA,gBAAA;ACpBA;ADuBA;;;;;;;;;;EAKA,mBALA;EAMA,YAAA;EACA,gBAAA;EACA,6BAAA;EACA,gBAAA;EACA,gBAAA;AChBA;ADiBA;;;;;;;;;;EACA,cAAA;EACA,iBAAA;ACNA;ADSA;;;;EAGA,gBAAA;ACNA;ADOA;;;;ECFE,YAAY;AACd;ADOA;;EACA,yBAAA;EACA,gBAAA;ECJE,aAAa;EDMf,kBAAA;EACA,WAAA;ACJA;ADQA;;EACA,uBAAA;ECLE,yBAAyB;AAC3B;ADUA;EACA,cA3CA;ACoCA;AACA;EDSA,gBAAA;EACA,eAAA;ACPA;ADUA;EACA,mBAnDA;EAoDA,YAAA;ACRA;ADSA;EACA,YAAA;EACA,mBAvDA;EAwDA,8CAAA;ACPA;ADUA;EACA,kBAAA;EACA,oBAAA;EACA,YAAA;EACA,YAAA;EACA,UAAA;ACRA;ADSA;EACA,eAAA;ACPA;ADSA;EACA,WAAA;EACA,kBAAA;EACA,YAAA;EACA,MAAA;ECPE,QAAQ;EDSV,SAAA;EACA,kCAAA;EACA,qCAAA;EAEA,+BAAA;ACRA;ADUA;EACA,+BAAA;EACA,0CAAA;ACRA;;AAEA,wCAAwC","file":"AppButton.vue","sourcesContent":["<template>\n  <div style=\"float: right\">\n    <a href=\"#\"\n      class=\"button\"\n    >\n      Search\n    </a>\n  </div>\n</template>\n<script>\nexport default {\n  name: 'AppButton',\n};\n</script>\n<style lang=\"scss\" scoped>\n\nbutton,\n.button {\n\n  background-color: $electric-blue;\n  color: $dark-gray;\n  text-transform: uppercase;\n  padding:.75rem .5rem;\n  letter-spacing: .03rem;\n  border: none;\n\n\n  &:focus {\n    color:white;\n    background: $dark-gray;\n  }\n\n  &.icon {\n    display: inline-block;\n    position: relative;\n    background: transparent;\n    min-height:40px;\n    padding: 0;\n\n\n    .button-label{\n      text-align: left;\n    }\n\n    .fa,\n    .fas,\n    .far,\n    .fab,\n    .fal {\n      background: $dark-gray;\n      color:white;\n      font-size: 1.7em;\n      border-right: 2px solid white;\n      position: static;\n      padding: 0.75rem;\n      &::before{\n        display: block;\n        width: 2.85714rem;\n      }\n    }\n    &:hover,\n    &:active,\n    &:focus{\n      background: none;\n      i.fa {\n        color:white;\n      }\n    }\n  }\n\n  .button-label {\n    background-color: $electric-blue;\n    min-height: 40px;\n    padding: 1rem;\n    text-align: center;\n    width:100%;\n  }\n\n  &.outline {\n    .button-label {\n      background-color: white;\n      border: 1px solid $electric-blue;\n    }\n  }\n}\n\nbutton, a.button {\n  color: $dark-gray;\n\n  &:link{\n    font-weight: 600;\n    font-size: 1rem;\n  }\n\n  &:hover, &:active, &:focus{\n    background: $dark-gray;\n    color: white;\n    .button-label {\n      color: white;\n      background: $dark-gray;\n      transition: background-color 300ms ease-in-out;\n    }\n  }\n  &.see-all-right {\n    position: relative;\n    text-transform: none;\n    height: 28px;\n    border:none;\n    padding: 0;\n    .button-label{\n      padding:0 1rem;\n    }\n    &::after{\n      content: \"\";\n      position: absolute;\n      right:-15px;\n      top:0;\n      width: 0;\n      height: 0;\n      border-top: 13px solid transparent;\n      border-bottom: 15px solid transparent;\n\n      border-left: 15px solid $electric-blue;\n    }\n    &:hover::after, &:focus::after{\n      border-left: 15px solid $dark-gray;\n      transition: border-color 300ms ease-in-out;\n\n    }\n  }\n}\n\n</style>\n","button,\n.button {\n  background-color: #26cdf7;\n  color: #454545;\n  text-transform: uppercase;\n  padding: 0.75rem 0.5rem;\n  letter-spacing: 0.03rem;\n  border: none;\n}\nbutton:focus,\n.button:focus {\n  color: white;\n  background: #454545;\n}\nbutton.icon,\n.button.icon {\n  display: inline-block;\n  position: relative;\n  background: transparent;\n  min-height: 40px;\n  padding: 0;\n}\nbutton.icon .button-label,\n.button.icon .button-label {\n  text-align: left;\n}\nbutton.icon .fa,\nbutton.icon .fas,\nbutton.icon .far,\nbutton.icon .fab,\nbutton.icon .fal,\n.button.icon .fa,\n.button.icon .fas,\n.button.icon .far,\n.button.icon .fab,\n.button.icon .fal {\n  background: #454545;\n  color: white;\n  font-size: 1.7em;\n  border-right: 2px solid white;\n  position: static;\n  padding: 0.75rem;\n}\nbutton.icon .fa::before,\nbutton.icon .fas::before,\nbutton.icon .far::before,\nbutton.icon .fab::before,\nbutton.icon .fal::before,\n.button.icon .fa::before,\n.button.icon .fas::before,\n.button.icon .far::before,\n.button.icon .fab::before,\n.button.icon .fal::before {\n  display: block;\n  width: 2.85714rem;\n}\nbutton.icon:hover, button.icon:active, button.icon:focus,\n.button.icon:hover,\n.button.icon:active,\n.button.icon:focus {\n  background: none;\n}\nbutton.icon:hover i.fa, button.icon:active i.fa, button.icon:focus i.fa,\n.button.icon:hover i.fa,\n.button.icon:active i.fa,\n.button.icon:focus i.fa {\n  color: white;\n}\nbutton .button-label,\n.button .button-label {\n  background-color: #26cdf7;\n  min-height: 40px;\n  padding: 1rem;\n  text-align: center;\n  width: 100%;\n}\nbutton.outline .button-label,\n.button.outline .button-label {\n  background-color: white;\n  border: 1px solid #26cdf7;\n}\n\nbutton, a.button {\n  color: #454545;\n}\nbutton:link, a.button:link {\n  font-weight: 600;\n  font-size: 1rem;\n}\nbutton:hover, button:active, button:focus, a.button:hover, a.button:active, a.button:focus {\n  background: #454545;\n  color: white;\n}\nbutton:hover .button-label, button:active .button-label, button:focus .button-label, a.button:hover .button-label, a.button:active .button-label, a.button:focus .button-label {\n  color: white;\n  background: #454545;\n  transition: background-color 300ms ease-in-out;\n}\nbutton.see-all-right, a.button.see-all-right {\n  position: relative;\n  text-transform: none;\n  height: 28px;\n  border: none;\n  padding: 0;\n}\nbutton.see-all-right .button-label, a.button.see-all-right .button-label {\n  padding: 0 1rem;\n}\nbutton.see-all-right::after, a.button.see-all-right::after {\n  content: \"\";\n  position: absolute;\n  right: -15px;\n  top: 0;\n  width: 0;\n  height: 0;\n  border-top: 13px solid transparent;\n  border-bottom: 15px solid transparent;\n  border-left: 15px solid #26cdf7;\n}\nbutton.see-all-right:hover::after, button.see-all-right:focus::after, a.button.see-all-right:hover::after, a.button.see-all-right:focus::after {\n  border-left: 15px solid #454545;\n  transition: border-color 300ms ease-in-out;\n}\n\n/*# sourceMappingURL=AppButton.vue.map */"]}, media: undefined });
+
+    };
+    /* scoped */
+    var __vue_scope_id__ = "data-v-65f37807";
+    /* module identifier */
+    var __vue_module_identifier__ = undefined;
+    /* functional template */
+    var __vue_is_functional_template__ = false;
+    /* style inject SSR */
+    
+
+    
+    var component = normalizeComponent_1(
+      { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+      __vue_inject_styles__,
+      __vue_script__,
+      __vue_scope_id__,
+      __vue_is_functional_template__,
+      __vue_module_identifier__,
+      browser,
+      undefined
+    );
+
+  function prepareForExport (component) {
+    // Declare install function executed by Vue.use()
+    component.install = function (Vue, settings) {
+      if ( settings === void 0 ) settings = {};
+
+      if (component.installed) {
+        return;
+      }
+      component.installed = true;
+
+      var name = settings.altName ? settings.altName : component.name;
+      Vue.component(name, component);
+    };
+
+    // Create module definition for Vue.use()
+    var plugin = {
+      install: component.install,
+    };
+
+    // Auto-install when vue is found (eg. in browser via <script> tag)
+    var GlobalVue = null;
+    if (typeof window !== 'undefined') {
+      GlobalVue = window.Vue;
+    } else if (typeof global !== 'undefined') {
+      GlobalVue = global.Vue;
+    }
+    if (GlobalVue) {
+      GlobalVue.use(plugin);
+    }
+
+  }
+
+  // Import vue component
+
+  prepareForExport(component);
+
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+
+  var script$1 = {
+    name: 'AppHeader',
+    props: {
+      appLogoLink: {
+        type: Object,
+        default: function () { return ({
+          href: "https://www.phila.gov",
+          target: "_blank",
+        }); },
+      },
+      appLogoImage: {
+        type: Object,
+        default: function () { return ({
+          src: "https://standards.phila.gov/img/logo/city-of-philadelphia-yellow-white.png",
+          alt: "City of Philadelphia logo",
+          width: 190,
+        }); },
+      },
+      appTitle: {
+        type: String,
+        default: "",
+      },
+      appSubtitle: {
+        type: String,
+        default: "",
+      },
+      appLink: {
+        type: String,
+        default: "/",
+      },
+      fluid: {
+        type: Boolean,
+        default: true,
+      },
+    },
+    data: function data() {
+      return {
+        showOnBurgerClicked: true,
+      };
+    },
+  };
+
+  /* script */
+  var __vue_script__$1 = script$1;
+
+  /* template */
+  var __vue_render__$1 = function() {
+    var _vm = this;
+    var _h = _vm.$createElement;
+    var _c = _vm._self._c || _h;
     return _c("header", { staticClass: "navbar is-primary" }, [
       _c(
         "div",
@@ -348,120 +449,17 @@
       )
     ])
   };
-  var __vue_staticRenderFns__ = [];
-  __vue_render__._withStripped = true;
-
-    /* style */
-    var __vue_inject_styles__ = function (inject) {
-      if (!inject) { return }
-      inject("data-v-6f16a307_0", { source: ".hero .navbar[data-v-6f16a307] {\n  background: #0f4d8f;\n}\n.navbar[data-v-6f16a307] {\n  border-bottom: 5px solid #26cdf7;\n}\n.navbar .navbar-burger[data-v-6f16a307] {\n  height: auto;\n}\n.navbar .navbar-burger span[data-v-6f16a307] {\n  height: 3px;\n  width: 30px;\n  left: calc(50% - 15px);\n}\n.navbar .navbar-burger span[data-v-6f16a307]:nth-child(1) {\n  top: calc(50% - 10px);\n}\n.navbar .navbar-burger span[data-v-6f16a307]:nth-child(3) {\n  top: calc(50% + 8px);\n}\n.navbar .page-title h1[data-v-6f16a307],\n.navbar .page-title h2[data-v-6f16a307] {\n  line-height: 110%;\n}\n.navbar .vertical-separator[data-v-6f16a307] {\n  width: 1px;\n  height: 45px;\n  background-color: #fff;\n  margin-left: 0.9375rem;\n}\n\n/*# sourceMappingURL=AppHeader.vue.map */", map: {"version":3,"sources":["AppHeader.vue","C:\\Other_Projects\\phila-ui\\src\\components\\AppHeader\\AppHeader.vue"],"names":[],"mappings":"AAAA;EC0GA,mBAAA;ADxGA;AC4GA;EDzGE,gCAAgC;AAClC;ACyGA;EACA,YAAA;ADvGA;AACA;ECyGA,WAAA;EACA,WAAA;EACA,sBAAA;ADvGA;ACyGA;EACA,qBAAA;ADvGA;AC0GA;EDxGE,oBAAoB;AACtB;AC8GA;;EAEA,iBAAA;AD5GA;ACgHA;EACA,UAAA;EACA,YAAA;EACA,sBAAA;ED9GE,sBAAsB;AACxB;;AAEA,wCAAwC","file":"AppHeader.vue","sourcesContent":[".hero .navbar {\n  background: #0f4d8f;\n}\n\n.navbar {\n  border-bottom: 5px solid #26cdf7;\n}\n.navbar .navbar-burger {\n  height: auto;\n}\n.navbar .navbar-burger span {\n  height: 3px;\n  width: 30px;\n  left: calc(50% - 15px);\n}\n.navbar .navbar-burger span:nth-child(1) {\n  top: calc(50% - 10px);\n}\n.navbar .navbar-burger span:nth-child(3) {\n  top: calc(50% + 8px);\n}\n.navbar .page-title h1,\n.navbar .page-title h2 {\n  line-height: 110%;\n}\n.navbar .vertical-separator {\n  width: 1px;\n  height: 45px;\n  background-color: #fff;\n  margin-left: 0.9375rem;\n}\n\n/*# sourceMappingURL=AppHeader.vue.map */","<template>\r\n  <header class=\"navbar is-primary\">\r\n    <div\r\n      class=\"level container\"\r\n      :class=\"{ 'is-fluid': fluid }\"\r\n    >\r\n      <div class=\"level-left\">\r\n        <div class=\"level-item navbar-brand is-marginless\">\r\n          <div class=\"navbar-item is-fullwidth\">\r\n            <a\r\n              v-bind=\"appLogoLink\"\r\n            >\r\n              <img\r\n                v-bind=\"appLogoImage\"\r\n              >\r\n            </a>\r\n            <span\r\n              class=\"navbar-burger burger\"\r\n              data-target=\"navMenu\"\r\n              aria-label=\"menu\"\r\n              :aria-hidden=\"!showOnBurgerClicked\"\r\n              @click=\"showOnBurgerClicked = !showOnBurgerClicked\"\r\n            >\r\n              <span />\r\n              <span />\r\n              <span />\r\n            </span>\r\n          </div>\r\n        </div>\r\n        <span class=\"level-item vertical-separator is-hidden-mobile\" />\r\n        <div class=\"level-item navbar-item\">\r\n          <div class=\"page-title\">\r\n            <a :href=\"appLink\">\r\n              <h1 class=\"is-size-4\">\r\n                {{ appTitle }}\r\n              </h1>\r\n              <h2\r\n                v-if=\"appSubtitle\"\r\n                class=\"is-size-5\"\r\n              >{{ appSubtitle }}\r\n              </h2>\r\n            </a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div\r\n        class=\"level-right\"\r\n        :class=\"{ 'is-hidden-mobile': showOnBurgerClicked }\"\r\n      >\r\n        <div class=\"level-item\">\r\n          <slot />\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </header>\r\n</template>\r\n<script>\r\nexport default {\r\n  name: 'AppHeader',\r\n  props: {\r\n    appLogoLink: {\r\n      type: Object,\r\n      default: () => ({\r\n        href: \"https://www.phila.gov\",\r\n        target: \"_blank\",\r\n      }),\r\n    },\r\n    appLogoImage: {\r\n      type: Object,\r\n      default: () => ({\r\n        src: \"https://standards.phila.gov/img/logo/city-of-philadelphia-yellow-white.png\",\r\n        alt: \"City of Philadelphia logo\",\r\n        width: 190,\r\n      }),\r\n    },\r\n    appTitle: {\r\n      type: String,\r\n      default: \"\",\r\n    },\r\n    appSubtitle: {\r\n      type: String,\r\n      default: \"\",\r\n    },\r\n    appLink: {\r\n      type: String,\r\n      default: \"/\",\r\n    },\r\n    fluid: {\r\n      type: Boolean,\r\n      default: true,\r\n    },\r\n  },\r\n  data() {\r\n    return {\r\n      showOnBurgerClicked: true,\r\n    };\r\n  },\r\n};\r\n</script>\r\n<style lang=\"scss\" scoped>\r\n  .hero {\r\n    .navbar {\r\n      background: $primary;\r\n    }\r\n  }\r\n\r\n  .navbar {\r\n    .navbar-burger {\r\n      height: auto;\r\n\r\n      span {\r\n        height: 3px;\r\n        width: 30px;\r\n        left: calc(50% - 15px);\r\n\r\n        &:nth-child(1) {\r\n          top: calc(50% - 10px);\r\n        }\r\n\r\n        &:nth-child(3) {\r\n          top: calc(50% + 8px);\r\n        }\r\n      }\r\n    }\r\n\r\n    .page-title {\r\n      h1,\r\n      h2 {\r\n        line-height: 110%;\r\n      }\r\n    }\r\n\r\n    .vertical-separator {\r\n      width: 1px;\r\n      height: 45px;\r\n      background-color: #fff;\r\n      margin-left: rem-calc(15px);\r\n    }\r\n    border-bottom: 5px solid $electric-blue;\r\n  }\r\n</style>\r\n"]}, media: undefined });
-
-    };
-    /* scoped */
-    var __vue_scope_id__ = "data-v-6f16a307";
-    /* module identifier */
-    var __vue_module_identifier__ = undefined;
-    /* functional template */
-    var __vue_is_functional_template__ = false;
-    /* style inject SSR */
-    
-
-    
-    var component = normalizeComponent_1(
-      { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
-      __vue_inject_styles__,
-      __vue_script__,
-      __vue_scope_id__,
-      __vue_is_functional_template__,
-      __vue_module_identifier__,
-      browser,
-      undefined
-    );
-
-  function prepareForExport (component) {
-    // Declare install function executed by Vue.use()
-    component.install = function (Vue, settings) {
-      if ( settings === void 0 ) settings = {};
-
-      if (component.installed) {
-        return;
-      }
-      component.installed = true;
-
-      var name = settings.altName ? settings.altName : component.name;
-      Vue.component(name, component);
-    };
-
-    // Create module definition for Vue.use()
-    var plugin = {
-      install: component.install,
-    };
-
-    // Auto-install when vue is found (eg. in browser via <script> tag)
-    var GlobalVue = null;
-    if (typeof window !== 'undefined') {
-      GlobalVue = window.Vue;
-    } else if (typeof global !== 'undefined') {
-      GlobalVue = global.Vue;
-    }
-    if (GlobalVue) {
-      GlobalVue.use(plugin);
-    }
-
-  }
-
-  // Import vue component
-
-  prepareForExport(component);
-
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-
-  var script$1 = {
-    name: 'AppFooter',
-  };
-
-  /* script */
-  var __vue_script__$1 = script$1;
-
-  /* template */
-  var __vue_render__$1 = function() {
-    var _vm = this;
-    var _h = _vm.$createElement;
-    var _c = _vm._self._c || _h;
-    return _vm._m(0)
-  };
-  var __vue_staticRenderFns__$1 = [
-    function() {
-      var _vm = this;
-      var _h = _vm.$createElement;
-      var _c = _vm._self._c || _h;
-      return _c("footer", { staticClass: "footer is-primary" }, [
-        _c("div", { staticClass: "has-text-centered" }, [
-          _c("ul", [
-            _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Feedback")])])
-          ])
-        ])
-      ])
-    }
-  ];
+  var __vue_staticRenderFns__$1 = [];
   __vue_render__$1._withStripped = true;
 
     /* style */
     var __vue_inject_styles__$1 = function (inject) {
       if (!inject) { return }
-      inject("data-v-39e693b4_0", { source: "#app[data-v-39e693b4] {\n  padding-bottom: 46px;\n}\n#app .footer[data-v-39e693b4] {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  padding: 0.625rem;\n}\n#app .footer ul[data-v-39e693b4] {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#app .footer ul li[data-v-39e693b4] {\n  display: inline-block;\n  vertical-align: middle;\n  margin: 0 1rem;\n}\n\n/*# sourceMappingURL=AppFooter.vue.map */", map: {"version":3,"sources":["C:\\Other_Projects\\phila-ui\\src\\components\\AppFooter\\AppFooter.vue","AppFooter.vue"],"names":[],"mappings":"AAmBA;EACA,oBAAA;AClBA;ADmBA;ECjBE,eAAe;EDmBjB,SAAA;EACA,WAAA;EACA,iBAAA;ACjBA;ADmBA;EACA,gBAAA;EACA,UAAA;EACA,SAAA;ACjBA;ADkBA;EACA,qBAAA;EACA,sBAAA;EACA,cAAA;AChBA;;AAEA,wCAAwC","file":"AppFooter.vue","sourcesContent":["<template>\r\n  <footer class=\"footer is-primary\">\r\n    <div class=\"has-text-centered\">\r\n      <ul>\r\n        <li><a href=\"\">Feedback</a></li>\r\n      </ul>\r\n    </div>\r\n  </footer>\r\n</template>\r\n<script>\r\nexport default {\r\n  name: 'AppFooter',\r\n}\r\n</script>\r\n<style lang=\"scss\" scoped>\r\n  #app {\r\n    padding-bottom: 46px;\r\n    .footer {\r\n      position: fixed;\r\n      bottom: 0;\r\n      width: 100%;\r\n      padding: rem-calc(10px);\r\n\r\n      ul {\r\n        list-style: none;\r\n        padding: 0;\r\n        margin: 0;\r\n        li {\r\n          display: inline-block;\r\n          vertical-align: middle;\r\n          margin: 0 1rem;\r\n        }\r\n      }\r\n    }\r\n  }\r\n</style>\r\n","#app {\n  padding-bottom: 46px;\n}\n#app .footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  padding: 0.625rem;\n}\n#app .footer ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#app .footer ul li {\n  display: inline-block;\n  vertical-align: middle;\n  margin: 0 1rem;\n}\n\n/*# sourceMappingURL=AppFooter.vue.map */"]}, media: undefined });
+      inject("data-v-5cff073a_0", { source: ".hero .navbar[data-v-5cff073a] {\n  background: #0f4d8f;\n}\n.navbar[data-v-5cff073a] {\n  border-bottom: 5px solid #26cdf7;\n}\n.navbar .navbar-burger[data-v-5cff073a] {\n  height: auto;\n}\n.navbar .navbar-burger span[data-v-5cff073a] {\n  height: 3px;\n  width: 30px;\n  left: calc(50% - 15px);\n}\n.navbar .navbar-burger span[data-v-5cff073a]:nth-child(1) {\n  top: calc(50% - 10px);\n}\n.navbar .navbar-burger span[data-v-5cff073a]:nth-child(3) {\n  top: calc(50% + 8px);\n}\n.navbar .page-title h1[data-v-5cff073a],\n.navbar .page-title h2[data-v-5cff073a] {\n  line-height: 110%;\n}\n.navbar .vertical-separator[data-v-5cff073a] {\n  width: 1px;\n  height: 45px;\n  background-color: #fff;\n  margin-left: 0.9375rem;\n}\n\n/*# sourceMappingURL=AppHeader.vue.map */", map: {"version":3,"sources":["AppHeader.vue","C:\\Other_Projects\\phila-ui\\src\\components\\AppHeader\\AppHeader.vue"],"names":[],"mappings":"AAAA;EC0GA,mBAAA;ADxGA;AC4GA;EDzGE,gCAAgC;AAClC;ACyGA;EACA,YAAA;ADvGA;AACA;ECyGA,WAAA;EACA,WAAA;EACA,sBAAA;ADvGA;ACyGA;EACA,qBAAA;ADvGA;AC0GA;EDxGE,oBAAoB;AACtB;AC8GA;;EAEA,iBAAA;AD5GA;ACgHA;EACA,UAAA;EACA,YAAA;EACA,sBAAA;ED9GE,sBAAsB;AACxB;;AAEA,wCAAwC","file":"AppHeader.vue","sourcesContent":[".hero .navbar {\n  background: #0f4d8f;\n}\n\n.navbar {\n  border-bottom: 5px solid #26cdf7;\n}\n.navbar .navbar-burger {\n  height: auto;\n}\n.navbar .navbar-burger span {\n  height: 3px;\n  width: 30px;\n  left: calc(50% - 15px);\n}\n.navbar .navbar-burger span:nth-child(1) {\n  top: calc(50% - 10px);\n}\n.navbar .navbar-burger span:nth-child(3) {\n  top: calc(50% + 8px);\n}\n.navbar .page-title h1,\n.navbar .page-title h2 {\n  line-height: 110%;\n}\n.navbar .vertical-separator {\n  width: 1px;\n  height: 45px;\n  background-color: #fff;\n  margin-left: 0.9375rem;\n}\n\n/*# sourceMappingURL=AppHeader.vue.map */","<template>\n  <header class=\"navbar is-primary\">\n    <div\n      class=\"level container\"\n      :class=\"{ 'is-fluid': fluid }\"\n    >\n      <div class=\"level-left\">\n        <div class=\"level-item navbar-brand is-marginless\">\n          <div class=\"navbar-item is-fullwidth\">\n            <a\n              v-bind=\"appLogoLink\"\n            >\n              <img\n                v-bind=\"appLogoImage\"\n              >\n            </a>\n            <span\n              class=\"navbar-burger burger\"\n              data-target=\"navMenu\"\n              aria-label=\"menu\"\n              :aria-hidden=\"!showOnBurgerClicked\"\n              @click=\"showOnBurgerClicked = !showOnBurgerClicked\"\n            >\n              <span />\n              <span />\n              <span />\n            </span>\n          </div>\n        </div>\n        <span class=\"level-item vertical-separator is-hidden-mobile\" />\n        <div class=\"level-item navbar-item\">\n          <div class=\"page-title\">\n            <a :href=\"appLink\">\n              <h1 class=\"is-size-4\">\n                {{ appTitle }}\n              </h1>\n              <h2\n                v-if=\"appSubtitle\"\n                class=\"is-size-5\"\n              >{{ appSubtitle }}\n              </h2>\n            </a>\n          </div>\n        </div>\n      </div>\n      <div\n        class=\"level-right\"\n        :class=\"{ 'is-hidden-mobile': showOnBurgerClicked }\"\n      >\n        <div class=\"level-item\">\n          <slot />\n        </div>\n      </div>\n    </div>\n  </header>\n</template>\n<script>\nexport default {\n  name: 'AppHeader',\n  props: {\n    appLogoLink: {\n      type: Object,\n      default: () => ({\n        href: \"https://www.phila.gov\",\n        target: \"_blank\",\n      }),\n    },\n    appLogoImage: {\n      type: Object,\n      default: () => ({\n        src: \"https://standards.phila.gov/img/logo/city-of-philadelphia-yellow-white.png\",\n        alt: \"City of Philadelphia logo\",\n        width: 190,\n      }),\n    },\n    appTitle: {\n      type: String,\n      default: \"\",\n    },\n    appSubtitle: {\n      type: String,\n      default: \"\",\n    },\n    appLink: {\n      type: String,\n      default: \"/\",\n    },\n    fluid: {\n      type: Boolean,\n      default: true,\n    },\n  },\n  data() {\n    return {\n      showOnBurgerClicked: true,\n    };\n  },\n};\n</script>\n<style lang=\"scss\" scoped>\n  .hero {\n    .navbar {\n      background: $primary;\n    }\n  }\n\n  .navbar {\n    .navbar-burger {\n      height: auto;\n\n      span {\n        height: 3px;\n        width: 30px;\n        left: calc(50% - 15px);\n\n        &:nth-child(1) {\n          top: calc(50% - 10px);\n        }\n\n        &:nth-child(3) {\n          top: calc(50% + 8px);\n        }\n      }\n    }\n\n    .page-title {\n      h1,\n      h2 {\n        line-height: 110%;\n      }\n    }\n\n    .vertical-separator {\n      width: 1px;\n      height: 45px;\n      background-color: #fff;\n      margin-left: rem-calc(15px);\n    }\n    border-bottom: 5px solid $electric-blue;\n  }\n</style>\n"]}, media: undefined });
 
     };
     /* scoped */
-    var __vue_scope_id__$1 = "data-v-39e693b4";
+    var __vue_scope_id__$1 = "data-v-5cff073a";
     /* module identifier */
     var __vue_module_identifier__$1 = undefined;
     /* functional template */
@@ -494,16 +492,9 @@
   //
   //
   //
-  //
-  //
 
   var script$2 = {
-    name: 'Callout',
-    computed: {
-      message: function message() {
-        return this.$attrs.message ? this.$attrs.message.text : "";
-      },
-    }
+    name: 'AppFooter',
   };
 
   /* script */
@@ -514,25 +505,32 @@
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("article", { staticClass: "message is-flyers-orange" }, [
-      _c("div", { class: "message-body" }, [
-        this.message
-          ? _c("p", { domProps: { innerHTML: _vm._s(this.message) } })
-          : _vm._e()
-      ])
-    ])
+    return _vm._m(0)
   };
-  var __vue_staticRenderFns__$2 = [];
+  var __vue_staticRenderFns__$2 = [
+    function() {
+      var _vm = this;
+      var _h = _vm.$createElement;
+      var _c = _vm._self._c || _h;
+      return _c("footer", { staticClass: "footer is-primary" }, [
+        _c("div", { staticClass: "has-text-centered" }, [
+          _c("ul", [
+            _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Feedback")])])
+          ])
+        ])
+      ])
+    }
+  ];
   __vue_render__$2._withStripped = true;
 
     /* style */
     var __vue_inject_styles__$2 = function (inject) {
       if (!inject) { return }
-      inject("data-v-278787f4_0", { source: ".message.is-flyers-orange[data-v-278787f4] {\n  background-color: #f0f0f0;\n}\n.message.is-flyers-orange .message-body[data-v-278787f4] {\n  border-color: #fa9200;\n}\n\n/*# sourceMappingURL=Callout.vue.map */", map: {"version":3,"sources":["C:\\Other_Projects\\phila-ui\\src\\components\\Callout\\Callout.vue","Callout.vue"],"names":[],"mappings":"AA6BA;EACA,yBAAA;AC5BA;AD6BA;EC3BE,qBAAqB;AACvB;;AAEA,sCAAsC","file":"Callout.vue","sourcesContent":["<template>\r\n  <article class='message is-flyers-orange'>\r\n    <!-- <div class=\"callout columns small-24\"> -->\r\n    <div :class=\"'message-body'\">\r\n      <p v-if=\"this.message\"\r\n         v-html=\"this.message\"\r\n      />\r\n    </div>\r\n  </article>\r\n</template>\r\n\r\n<script>\r\nexport default {\r\n  name: 'Callout',\r\n  computed: {\r\n    message() {\r\n      return this.$attrs.message ? this.$attrs.message.text : \"\";\r\n    },\r\n  }\r\n};\r\n</script>\r\n\r\n<style lang=\"scss\" scoped>\r\n\r\n.message {\r\n  &.is-flyers-orange {\r\n    background-color: $ghost-gray;\r\n    .message-body {\r\n      border-color: $flyers-orange;\r\n    }\r\n  }\r\n}\r\n\r\n</style>\r\n",".message.is-flyers-orange {\n  background-color: #f0f0f0;\n}\n.message.is-flyers-orange .message-body {\n  border-color: #fa9200;\n}\n\n/*# sourceMappingURL=Callout.vue.map */"]}, media: undefined });
+      inject("data-v-39e693b4_0", { source: "#app[data-v-39e693b4] {\n  padding-bottom: 46px;\n}\n#app .footer[data-v-39e693b4] {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  padding: 0.625rem;\n}\n#app .footer ul[data-v-39e693b4] {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#app .footer ul li[data-v-39e693b4] {\n  display: inline-block;\n  vertical-align: middle;\n  margin: 0 1rem;\n}\n\n/*# sourceMappingURL=AppFooter.vue.map */", map: {"version":3,"sources":["C:\\Other_Projects\\phila-ui\\src\\components\\AppFooter\\AppFooter.vue","AppFooter.vue"],"names":[],"mappings":"AAmBA;EACA,oBAAA;AClBA;ADmBA;ECjBE,eAAe;EDmBjB,SAAA;EACA,WAAA;EACA,iBAAA;ACjBA;ADmBA;EACA,gBAAA;EACA,UAAA;EACA,SAAA;ACjBA;ADkBA;EACA,qBAAA;EACA,sBAAA;EACA,cAAA;AChBA;;AAEA,wCAAwC","file":"AppFooter.vue","sourcesContent":["<template>\r\n  <footer class=\"footer is-primary\">\r\n    <div class=\"has-text-centered\">\r\n      <ul>\r\n        <li><a href=\"\">Feedback</a></li>\r\n      </ul>\r\n    </div>\r\n  </footer>\r\n</template>\r\n<script>\r\nexport default {\r\n  name: 'AppFooter',\r\n}\r\n</script>\r\n<style lang=\"scss\" scoped>\r\n  #app {\r\n    padding-bottom: 46px;\r\n    .footer {\r\n      position: fixed;\r\n      bottom: 0;\r\n      width: 100%;\r\n      padding: rem-calc(10px);\r\n\r\n      ul {\r\n        list-style: none;\r\n        padding: 0;\r\n        margin: 0;\r\n        li {\r\n          display: inline-block;\r\n          vertical-align: middle;\r\n          margin: 0 1rem;\r\n        }\r\n      }\r\n    }\r\n  }\r\n</style>\r\n","#app {\n  padding-bottom: 46px;\n}\n#app .footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  padding: 0.625rem;\n}\n#app .footer ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#app .footer ul li {\n  display: inline-block;\n  vertical-align: middle;\n  margin: 0 1rem;\n}\n\n/*# sourceMappingURL=AppFooter.vue.map */"]}, media: undefined });
 
     };
     /* scoped */
-    var __vue_scope_id__$2 = "data-v-278787f4";
+    var __vue_scope_id__$2 = "data-v-39e693b4";
     /* module identifier */
     var __vue_module_identifier__$2 = undefined;
     /* functional template */
@@ -554,20 +552,91 @@
 
   // Import vue component
 
+  prepareForExport(component$2);
+
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+
+  var script$3 = {
+    name: 'Callout',
+    computed: {
+      message: function message() {
+        return this.$attrs.message ? this.$attrs.message.text : "";
+      },
+    }
+  };
+
+  /* script */
+  var __vue_script__$3 = script$3;
+
+  /* template */
+  var __vue_render__$3 = function() {
+    var _vm = this;
+    var _h = _vm.$createElement;
+    var _c = _vm._self._c || _h;
+    return _c("article", { staticClass: "message is-flyers-orange" }, [
+      _c("div", { class: "message-body" }, [
+        this.message
+          ? _c("p", { domProps: { innerHTML: _vm._s(this.message) } })
+          : _vm._e()
+      ])
+    ])
+  };
+  var __vue_staticRenderFns__$3 = [];
+  __vue_render__$3._withStripped = true;
+
+    /* style */
+    var __vue_inject_styles__$3 = function (inject) {
+      if (!inject) { return }
+      inject("data-v-278787f4_0", { source: ".message.is-flyers-orange[data-v-278787f4] {\n  background-color: #f0f0f0;\n}\n.message.is-flyers-orange .message-body[data-v-278787f4] {\n  border-color: #fa9200;\n}\n\n/*# sourceMappingURL=Callout.vue.map */", map: {"version":3,"sources":["C:\\Other_Projects\\phila-ui\\src\\components\\Callout\\Callout.vue","Callout.vue"],"names":[],"mappings":"AA6BA;EACA,yBAAA;AC5BA;AD6BA;EC3BE,qBAAqB;AACvB;;AAEA,sCAAsC","file":"Callout.vue","sourcesContent":["<template>\r\n  <article class='message is-flyers-orange'>\r\n    <!-- <div class=\"callout columns small-24\"> -->\r\n    <div :class=\"'message-body'\">\r\n      <p v-if=\"this.message\"\r\n         v-html=\"this.message\"\r\n      />\r\n    </div>\r\n  </article>\r\n</template>\r\n\r\n<script>\r\nexport default {\r\n  name: 'Callout',\r\n  computed: {\r\n    message() {\r\n      return this.$attrs.message ? this.$attrs.message.text : \"\";\r\n    },\r\n  }\r\n};\r\n</script>\r\n\r\n<style lang=\"scss\" scoped>\r\n\r\n.message {\r\n  &.is-flyers-orange {\r\n    background-color: $ghost-gray;\r\n    .message-body {\r\n      border-color: $flyers-orange;\r\n    }\r\n  }\r\n}\r\n\r\n</style>\r\n",".message.is-flyers-orange {\n  background-color: #f0f0f0;\n}\n.message.is-flyers-orange .message-body {\n  border-color: #fa9200;\n}\n\n/*# sourceMappingURL=Callout.vue.map */"]}, media: undefined });
+
+    };
+    /* scoped */
+    var __vue_scope_id__$3 = "data-v-278787f4";
+    /* module identifier */
+    var __vue_module_identifier__$3 = undefined;
+    /* functional template */
+    var __vue_is_functional_template__$3 = false;
+    /* style inject SSR */
+    
+
+    
+    var component$3 = normalizeComponent_1(
+      { render: __vue_render__$3, staticRenderFns: __vue_staticRenderFns__$3 },
+      __vue_inject_styles__$3,
+      __vue_script__$3,
+      __vue_scope_id__$3,
+      __vue_is_functional_template__$3,
+      __vue_module_identifier__$3,
+      browser,
+      undefined
+    );
+
+  // Import vue component
+
   // Declare install function executed by Vue.use()
-  component$2.install = function(Vue, settings) {
-    if (component$2.installed) {
+  component$3.install = function(Vue, settings) {
+    if (component$3.installed) {
       return;
     }
-    component$2.installed = true;
+    component$3.installed = true;
 
-    var name = settings.altName ? settings.altName : component$2.name;
-    Vue.component(name, component$2);
+    var name = settings.altName ? settings.altName : component$3.name;
+    Vue.component(name, component$3);
   };
 
   // Create module definition for Vue.use()
   var plugin = {
-    install: component$2.install,
+    install: component$3.install,
   };
 
   // Auto-install when vue is found (eg. in browser via <script> tag)
@@ -604,7 +673,7 @@
   //
   //
 
-  var script$3 = {
+  var script$4 = {
     name: 'Checkbox',
     inheritAttrs: false,
     model: {
@@ -681,10 +750,10 @@
   };
 
   /* script */
-  var __vue_script__$3 = script$3;
+  var __vue_script__$4 = script$4;
 
   /* template */
-  var __vue_render__$3 = function() {
+  var __vue_render__$4 = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
@@ -719,132 +788,13 @@
       )
     ])
   };
-  var __vue_staticRenderFns__$3 = [];
-  __vue_render__$3._withStripped = true;
-
-    /* style */
-    var __vue_inject_styles__$3 = function (inject) {
-      if (!inject) { return }
-      inject("data-v-fc5407f8_0", { source: "input:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Checkbox.vue.map */", map: {"version":3,"sources":["Checkbox.vue"],"names":[],"mappings":"AAAA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;;AAEA,uCAAuC","file":"Checkbox.vue","sourcesContent":["input:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Checkbox.vue.map */"]}, media: undefined });
-
-    };
-    /* scoped */
-    var __vue_scope_id__$3 = undefined;
-    /* module identifier */
-    var __vue_module_identifier__$3 = undefined;
-    /* functional template */
-    var __vue_is_functional_template__$3 = false;
-    /* style inject SSR */
-    
-
-    
-    var component$3 = normalizeComponent_1(
-      { render: __vue_render__$3, staticRenderFns: __vue_staticRenderFns__$3 },
-      __vue_inject_styles__$3,
-      __vue_script__$3,
-      __vue_scope_id__$3,
-      __vue_is_functional_template__$3,
-      __vue_module_identifier__$3,
-      browser,
-      undefined
-    );
-
-  // Import vue component
-
-  prepareForExport(component$3);
-
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-
-  var script$4 = {
-    name: "Radio",
-    model: {
-      prop: "modelValue",
-      event: "change",
-    },
-    props: {
-      id: {
-        type: String,
-        default: function () { return ("rb_" + (Math.random().toString(12).substring(2, 8))); },
-      },
-      value: {
-        type: [ String, Number, Boolean ],
-        default: "",
-      },
-      modelValue: {
-        type: [ String, Number, Boolean, Array ],
-        default: "",
-      },
-    },
-    computed: {
-      shouldBeChecked: function shouldBeChecked() {
-        return this.modelValue === this.value;
-      },
-    },
-    methods: {
-      updateInput: function updateInput() {
-        this.$emit("change", this.value);
-      },
-      uniqid: function uniqid() {},
-    },
-  };
-
-  /* script */
-  var __vue_script__$4 = script$4;
-
-  /* template */
-  var __vue_render__$4 = function() {
-    var _vm = this;
-    var _h = _vm.$createElement;
-    var _c = _vm._self._c || _h;
-    return _c("div", { staticClass: "input-wrap input-radio" }, [
-      _c(
-        "label",
-        { staticClass: "radio", attrs: { for: _vm.id } },
-        [
-          _c(
-            "input",
-            _vm._b(
-              {
-                attrs: { id: _vm.id, type: "radio" },
-                domProps: { checked: _vm.shouldBeChecked, value: _vm.value },
-                on: { change: _vm.updateInput }
-              },
-              "input",
-              _vm.$attrs,
-              false
-            )
-          ),
-          _vm._v(" "),
-          _vm._t("default")
-        ],
-        2
-      )
-    ])
-  };
   var __vue_staticRenderFns__$4 = [];
   __vue_render__$4._withStripped = true;
 
     /* style */
     var __vue_inject_styles__$4 = function (inject) {
       if (!inject) { return }
-      inject("data-v-ff43d974_0", { source: "input:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Radio.vue.map */", map: {"version":3,"sources":["Radio.vue"],"names":[],"mappings":"AAAA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;;AAEA,oCAAoC","file":"Radio.vue","sourcesContent":["input:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Radio.vue.map */"]}, media: undefined });
+      inject("data-v-fc5407f8_0", { source: "input:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Checkbox.vue.map */", map: {"version":3,"sources":["Checkbox.vue"],"names":[],"mappings":"AAAA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;;AAEA,uCAAuC","file":"Checkbox.vue","sourcesContent":["input:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Checkbox.vue.map */"]}, media: undefined });
 
     };
     /* scoped */
@@ -890,13 +840,132 @@
   //
   //
   //
+
+  var script$5 = {
+    name: "Radio",
+    model: {
+      prop: "modelValue",
+      event: "change",
+    },
+    props: {
+      id: {
+        type: String,
+        default: function () { return ("rb_" + (Math.random().toString(12).substring(2, 8))); },
+      },
+      value: {
+        type: [ String, Number, Boolean ],
+        default: "",
+      },
+      modelValue: {
+        type: [ String, Number, Boolean, Array ],
+        default: "",
+      },
+    },
+    computed: {
+      shouldBeChecked: function shouldBeChecked() {
+        return this.modelValue === this.value;
+      },
+    },
+    methods: {
+      updateInput: function updateInput() {
+        this.$emit("change", this.value);
+      },
+      uniqid: function uniqid() {},
+    },
+  };
+
+  /* script */
+  var __vue_script__$5 = script$5;
+
+  /* template */
+  var __vue_render__$5 = function() {
+    var _vm = this;
+    var _h = _vm.$createElement;
+    var _c = _vm._self._c || _h;
+    return _c("div", { staticClass: "input-wrap input-radio" }, [
+      _c(
+        "label",
+        { staticClass: "radio", attrs: { for: _vm.id } },
+        [
+          _c(
+            "input",
+            _vm._b(
+              {
+                attrs: { id: _vm.id, type: "radio" },
+                domProps: { checked: _vm.shouldBeChecked, value: _vm.value },
+                on: { change: _vm.updateInput }
+              },
+              "input",
+              _vm.$attrs,
+              false
+            )
+          ),
+          _vm._v(" "),
+          _vm._t("default")
+        ],
+        2
+      )
+    ])
+  };
+  var __vue_staticRenderFns__$5 = [];
+  __vue_render__$5._withStripped = true;
+
+    /* style */
+    var __vue_inject_styles__$5 = function (inject) {
+      if (!inject) { return }
+      inject("data-v-ff43d974_0", { source: "input:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Radio.vue.map */", map: {"version":3,"sources":["Radio.vue"],"names":[],"mappings":"AAAA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;;AAEA,oCAAoC","file":"Radio.vue","sourcesContent":["input:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Radio.vue.map */"]}, media: undefined });
+
+    };
+    /* scoped */
+    var __vue_scope_id__$5 = undefined;
+    /* module identifier */
+    var __vue_module_identifier__$5 = undefined;
+    /* functional template */
+    var __vue_is_functional_template__$5 = false;
+    /* style inject SSR */
+    
+
+    
+    var component$5 = normalizeComponent_1(
+      { render: __vue_render__$5, staticRenderFns: __vue_staticRenderFns__$5 },
+      __vue_inject_styles__$5,
+      __vue_script__$5,
+      __vue_scope_id__$5,
+      __vue_is_functional_template__$5,
+      __vue_module_identifier__$5,
+      browser,
+      undefined
+    );
+
+  // Import vue component
+
+  prepareForExport(component$5);
+
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
   //
   //
   //
   //
   //
 
-  var script$5 = {
+  var script$6 = {
     name: 'Dropdown',
     inheritAttrs: false,
     props: {
@@ -932,10 +1001,10 @@
   };
 
   /* script */
-  var __vue_script__$5 = script$5;
+  var __vue_script__$6 = script$6;
 
   /* template */
-  var __vue_render__$5 = function() {
+  var __vue_render__$6 = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
@@ -990,142 +1059,13 @@
       ]
     )
   };
-  var __vue_staticRenderFns__$5 = [];
-  __vue_render__$5._withStripped = true;
-
-    /* style */
-    var __vue_inject_styles__$5 = function (inject) {
-      if (!inject) { return }
-      inject("data-v-6d767d03_0", { source: "\n\n/*# sourceMappingURL=Dropdown.vue.map */", map: {"version":3,"sources":["Dropdown.vue"],"names":[],"mappings":";;AAEA,uCAAuC","file":"Dropdown.vue"}, media: undefined });
-
-    };
-    /* scoped */
-    var __vue_scope_id__$5 = undefined;
-    /* module identifier */
-    var __vue_module_identifier__$5 = undefined;
-    /* functional template */
-    var __vue_is_functional_template__$5 = false;
-    /* style inject SSR */
-    
-
-    
-    var component$5 = normalizeComponent_1(
-      { render: __vue_render__$5, staticRenderFns: __vue_staticRenderFns__$5 },
-      __vue_inject_styles__$5,
-      __vue_script__$5,
-      __vue_scope_id__$5,
-      __vue_is_functional_template__$5,
-      __vue_module_identifier__$5,
-      browser,
-      undefined
-    );
-
-  // Import vue component
-
-  prepareForExport(component$5);
-
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-
-  var script$6 = {
-    name: "Textbox",
-    inheritAttrs: false,
-    props: {
-      id: {
-        type: String,
-        default: function () { return ("tx_" + (Math.random().toString(12).substring(2, 8))); },
-      },
-      name: {
-        type: String,
-        default: 'Field Name',
-      },
-      value: {
-        type: [ String, Number ],
-        default: "",
-      },
-      type: {
-        type: String,
-        default: 'text',
-      },
-      placeholder: {
-        type: String,
-        default: 'Insert placeholder here',
-      },
-    },
-  };
-
-  /* script */
-  var __vue_script__$6 = script$6;
-
-  /* template */
-  var __vue_render__$6 = function() {
-    var _vm = this;
-    var _h = _vm.$createElement;
-    var _c = _vm._self._c || _h;
-    return _c(
-      "div",
-      {
-        staticClass: "input-wrap input-text",
-        class: { required: _vm.$attrs.required !== undefined }
-      },
-      [
-        _c(
-          "input",
-          _vm._b(
-            {
-              staticClass: "input",
-              attrs: {
-                id: _vm.id,
-                name: _vm.name,
-                "aria-labelledby": _vm.id,
-                "aria-required": _vm.$attrs.required !== undefined,
-                type: _vm.type,
-                placeholder: _vm.placeholder
-              },
-              domProps: { value: _vm.value },
-              on: {
-                input: function($event) {
-                  return _vm.$emit("input", $event.target.value)
-                },
-                on: _vm.$listeners
-              }
-            },
-            "input",
-            _vm.$attrs,
-            false
-          )
-        ),
-        _vm._v(" "),
-        _c("label", { attrs: { for: _vm.id } }, [_vm._v(_vm._s(_vm.placeholder))])
-      ]
-    )
-  };
   var __vue_staticRenderFns__$6 = [];
   __vue_render__$6._withStripped = true;
 
     /* style */
     var __vue_inject_styles__$6 = function (inject) {
       if (!inject) { return }
-      inject("data-v-24fede6a_0", { source: "input:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n.input-text label {\n  position: absolute;\n  top: 0px;\n  left: 10px;\n  z-index: 5;\n  font-size: 10px;\n  color: #909090;\n  font-weight: 300;\n  opacity: 0;\n}\n.input-text input[type=text]:focus,\n.input-text input[type=email]:focus,\n.input-text input[type=password]:focus,\n.input-text input[type=search]:focus,\n.input-text input[type=tell]:focus,\n.input-text input[type=number]:focus {\n  border-width: 2px;\n  padding-bottom: 0;\n}\n.input-text input[type=text]:focus + label,\n.input-text input[type=email]:focus + label,\n.input-text input[type=password]:focus + label,\n.input-text input[type=search]:focus + label,\n.input-text input[type=tell]:focus + label,\n.input-text input[type=number]:focus + label {\n  opacity: 1;\n}\n\n/*# sourceMappingURL=Textbox.vue.map */", map: {"version":3,"sources":["Textbox.vue","C:\\Other_Projects\\phila-ui\\src\\components\\Inputs\\Textbox\\Textbox.vue"],"names":[],"mappings":"AAAA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;AC0CA;EACA,kBAAA;EACA,QAAA;EACA,UAAA;EACA,UAAA;EACA,eAAA;EACA,cAAA;EACA,gBAAA;EACA,UAAA;ADvCA;AC+CA;;;;;;EACA,iBAAA;EACA,iBAAA;ADxCA;ACyCA;;;;;;EACA,UAAA;ADlCA;;AAEA,sCAAsC","file":"Textbox.vue","sourcesContent":["input:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n.input-text label {\n  position: absolute;\n  top: 0px;\n  left: 10px;\n  z-index: 5;\n  font-size: 10px;\n  color: #909090;\n  font-weight: 300;\n  opacity: 0;\n}\n.input-text input[type=text]:focus,\n.input-text input[type=email]:focus,\n.input-text input[type=password]:focus,\n.input-text input[type=search]:focus,\n.input-text input[type=tell]:focus,\n.input-text input[type=number]:focus {\n  border-width: 2px;\n  padding-bottom: 0;\n}\n.input-text input[type=text]:focus + label,\n.input-text input[type=email]:focus + label,\n.input-text input[type=password]:focus + label,\n.input-text input[type=search]:focus + label,\n.input-text input[type=tell]:focus + label,\n.input-text input[type=number]:focus + label {\n  opacity: 1;\n}\n\n/*# sourceMappingURL=Textbox.vue.map */","<template>\r\n  <div\r\n    class=\"input-wrap input-text\"\r\n    :class=\"{ required: $attrs.required !== undefined }\"\r\n  >\r\n    <input\r\n      :id=\"id\"\r\n      class=\"input\"\r\n      v-bind=\"$attrs\"\r\n      :name=\"name\"\r\n      :aria-labelledby=\"id\"\r\n      :aria-required=\"$attrs.required !== undefined\"\r\n      :value=\"value\"\r\n      :type=\"type\"\r\n      :placeholder=\"placeholder\"\r\n      @input=\"$emit('input', $event.target.value)\"\r\n      @on=\"$listeners\"\r\n    >\r\n    <label :for=\"id\">{{ placeholder }}</label>\r\n  </div>\r\n</template>\r\n<script>\r\nexport default {\r\n  name: \"Textbox\",\r\n  inheritAttrs: false,\r\n  props: {\r\n    id: {\r\n      type: String,\r\n      default: () => `tx_${Math.random().toString(12).substring(2, 8)}`,\r\n    },\r\n    name: {\r\n      type: String,\r\n      default: 'Field Name',\r\n    },\r\n    value: {\r\n      type: [ String, Number ],\r\n      default: \"\",\r\n    },\r\n    type: {\r\n      type: String,\r\n      default: 'text',\r\n    },\r\n    placeholder: {\r\n      type: String,\r\n      default: 'Insert placeholder here',\r\n    },\r\n  },\r\n};\r\n</script>\r\n<style lang=\"scss\">\r\n  // @import '../base.scss';\r\n  @import '../../../styles/inputs.scss';\r\n\r\n  .input-text {\r\n    label {\r\n      position: absolute;\r\n      top: 0px;\r\n      left: 10px;\r\n      z-index: 5;\r\n      font-size: 10px;\r\n      color: #909090;\r\n      font-weight: 300;\r\n      opacity: 0;\r\n    }\r\n    input[type=\"text\"],\r\n    input[type=\"email\"],\r\n    input[type=\"password\"],\r\n    input[type=\"search\"],\r\n    input[type=\"tell\"],\r\n    input[type=\"number\"] {\r\n      &:focus {\r\n        border-width: 2px;\r\n        padding-bottom: 0;\r\n        + label {\r\n          opacity: 1;\r\n        }\r\n      }\r\n    }\r\n  }\r\n</style>\r\n"]}, media: undefined });
+      inject("data-v-6d767d03_0", { source: "\n\n/*# sourceMappingURL=Dropdown.vue.map */", map: {"version":3,"sources":["Dropdown.vue"],"names":[],"mappings":";;AAEA,uCAAuC","file":"Dropdown.vue"}, media: undefined });
 
     };
     /* scoped */
@@ -1170,8 +1110,137 @@
   //
   //
   //
+  //
+  //
+  //
+  //
 
   var script$7 = {
+    name: "Textbox",
+    inheritAttrs: false,
+    props: {
+      id: {
+        type: String,
+        default: function () { return ("tx_" + (Math.random().toString(12).substring(2, 8))); },
+      },
+      name: {
+        type: String,
+        default: 'Field Name',
+      },
+      value: {
+        type: [ String, Number ],
+        default: "",
+      },
+      type: {
+        type: String,
+        default: 'text',
+      },
+      placeholder: {
+        type: String,
+        default: 'Insert placeholder here',
+      },
+    },
+  };
+
+  /* script */
+  var __vue_script__$7 = script$7;
+
+  /* template */
+  var __vue_render__$7 = function() {
+    var _vm = this;
+    var _h = _vm.$createElement;
+    var _c = _vm._self._c || _h;
+    return _c(
+      "div",
+      {
+        staticClass: "input-wrap input-text",
+        class: { required: _vm.$attrs.required !== undefined }
+      },
+      [
+        _c(
+          "input",
+          _vm._b(
+            {
+              staticClass: "input",
+              attrs: {
+                id: _vm.id,
+                name: _vm.name,
+                "aria-labelledby": _vm.id,
+                "aria-required": _vm.$attrs.required !== undefined,
+                type: _vm.type,
+                placeholder: _vm.placeholder
+              },
+              domProps: { value: _vm.value },
+              on: {
+                input: function($event) {
+                  return _vm.$emit("input", $event.target.value)
+                },
+                on: _vm.$listeners
+              }
+            },
+            "input",
+            _vm.$attrs,
+            false
+          )
+        ),
+        _vm._v(" "),
+        _c("label", { attrs: { for: _vm.id } }, [_vm._v(_vm._s(_vm.placeholder))])
+      ]
+    )
+  };
+  var __vue_staticRenderFns__$7 = [];
+  __vue_render__$7._withStripped = true;
+
+    /* style */
+    var __vue_inject_styles__$7 = function (inject) {
+      if (!inject) { return }
+      inject("data-v-e069b8e6_0", { source: "input:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n.input-text label {\n  position: absolute;\n  top: 0px;\n  left: 10px;\n  z-index: 5;\n  font-size: 10px;\n  color: #909090;\n  font-weight: 300;\n  opacity: 0;\n}\n.input-text input[type=text]:focus,\n.input-text input[type=email]:focus,\n.input-text input[type=password]:focus,\n.input-text input[type=search]:focus,\n.input-text input[type=tell]:focus,\n.input-text input[type=number]:focus {\n  border-width: 2px;\n  padding-bottom: 0;\n}\n.input-text input[type=text]:focus + label,\n.input-text input[type=email]:focus + label,\n.input-text input[type=password]:focus + label,\n.input-text input[type=search]:focus + label,\n.input-text input[type=tell]:focus + label,\n.input-text input[type=number]:focus + label {\n  opacity: 1;\n}\n\n/*# sourceMappingURL=Textbox.vue.map */", map: {"version":3,"sources":["Textbox.vue","C:\\Other_Projects\\phila-ui\\src\\components\\Inputs\\Textbox\\Textbox.vue"],"names":[],"mappings":"AAAA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;AC0CA;EACA,kBAAA;EACA,QAAA;EACA,UAAA;EACA,UAAA;EACA,eAAA;EACA,cAAA;EACA,gBAAA;EACA,UAAA;ADvCA;AC+CA;;;;;;EACA,iBAAA;EACA,iBAAA;ADxCA;ACyCA;;;;;;EACA,UAAA;ADlCA;;AAEA,sCAAsC","file":"Textbox.vue","sourcesContent":["input:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n.input-text label {\n  position: absolute;\n  top: 0px;\n  left: 10px;\n  z-index: 5;\n  font-size: 10px;\n  color: #909090;\n  font-weight: 300;\n  opacity: 0;\n}\n.input-text input[type=text]:focus,\n.input-text input[type=email]:focus,\n.input-text input[type=password]:focus,\n.input-text input[type=search]:focus,\n.input-text input[type=tell]:focus,\n.input-text input[type=number]:focus {\n  border-width: 2px;\n  padding-bottom: 0;\n}\n.input-text input[type=text]:focus + label,\n.input-text input[type=email]:focus + label,\n.input-text input[type=password]:focus + label,\n.input-text input[type=search]:focus + label,\n.input-text input[type=tell]:focus + label,\n.input-text input[type=number]:focus + label {\n  opacity: 1;\n}\n\n/*# sourceMappingURL=Textbox.vue.map */","<template>\n  <div\n    class=\"input-wrap input-text\"\n    :class=\"{ required: $attrs.required !== undefined }\"\n  >\n    <input\n      :id=\"id\"\n      class=\"input\"\n      v-bind=\"$attrs\"\n      :name=\"name\"\n      :aria-labelledby=\"id\"\n      :aria-required=\"$attrs.required !== undefined\"\n      :value=\"value\"\n      :type=\"type\"\n      :placeholder=\"placeholder\"\n      @input=\"$emit('input', $event.target.value)\"\n      @on=\"$listeners\"\n    >\n    <label :for=\"id\">{{ placeholder }}</label>\n  </div>\n</template>\n<script>\nexport default {\n  name: \"Textbox\",\n  inheritAttrs: false,\n  props: {\n    id: {\n      type: String,\n      default: () => `tx_${Math.random().toString(12).substring(2, 8)}`,\n    },\n    name: {\n      type: String,\n      default: 'Field Name',\n    },\n    value: {\n      type: [ String, Number ],\n      default: \"\",\n    },\n    type: {\n      type: String,\n      default: 'text',\n    },\n    placeholder: {\n      type: String,\n      default: 'Insert placeholder here',\n    },\n  },\n};\n</script>\n<style lang=\"scss\">\n  // @import '../base.scss';\n  @import '../../../styles/inputs.scss';\n\n  .input-text {\n    label {\n      position: absolute;\n      top: 0px;\n      left: 10px;\n      z-index: 5;\n      font-size: 10px;\n      color: #909090;\n      font-weight: 300;\n      opacity: 0;\n    }\n    input[type=\"text\"],\n    input[type=\"email\"],\n    input[type=\"password\"],\n    input[type=\"search\"],\n    input[type=\"tell\"],\n    input[type=\"number\"] {\n      &:focus {\n        border-width: 2px;\n        padding-bottom: 0;\n        + label {\n          opacity: 1;\n        }\n      }\n    }\n  }\n</style>\n"]}, media: undefined });
+
+    };
+    /* scoped */
+    var __vue_scope_id__$7 = undefined;
+    /* module identifier */
+    var __vue_module_identifier__$7 = undefined;
+    /* functional template */
+    var __vue_is_functional_template__$7 = false;
+    /* style inject SSR */
+    
+
+    
+    var component$7 = normalizeComponent_1(
+      { render: __vue_render__$7, staticRenderFns: __vue_staticRenderFns__$7 },
+      __vue_inject_styles__$7,
+      __vue_script__$7,
+      __vue_scope_id__$7,
+      __vue_is_functional_template__$7,
+      __vue_module_identifier__$7,
+      browser,
+      undefined
+    );
+
+  // Import vue component
+
+  prepareForExport(component$7);
+
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+
+  var script$8 = {
     name: "TextArea",
     inheritAttrs: false,
     props: {
@@ -1191,10 +1260,10 @@
   };
 
   /* script */
-  var __vue_script__$7 = script$7;
+  var __vue_script__$8 = script$8;
 
   /* template */
-  var __vue_render__$7 = function() {
+  var __vue_render__$8 = function() {
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
@@ -1234,39 +1303,39 @@
       ]
     )
   };
-  var __vue_staticRenderFns__$7 = [];
-  __vue_render__$7._withStripped = true;
+  var __vue_staticRenderFns__$8 = [];
+  __vue_render__$8._withStripped = true;
 
     /* style */
-    var __vue_inject_styles__$7 = function (inject) {
+    var __vue_inject_styles__$8 = function (inject) {
       if (!inject) { return }
       inject("data-v-43f8419d_0", { source: "input:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\ntextarea:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ntextarea:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ntextarea:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ntextarea:focus:-ms-input-placeholder {\n  color: transparent;\n}\n.input-textarea label {\n  position: absolute;\n  top: 0px;\n  left: 10px;\n  z-index: 5;\n  font-size: 10px;\n  color: #909090;\n  font-weight: 300;\n}\n.input-textarea textarea:focus {\n  border-width: 2px;\n  padding-bottom: 0;\n}\n\n/*# sourceMappingURL=TextArea.vue.map */", map: {"version":3,"sources":["TextArea.vue","C:\\Other_Projects\\phila-ui\\src\\components\\Inputs\\TextArea\\TextArea.vue"],"names":[],"mappings":"AAAA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;AC6BA;EACA,kBAAA;AD1BA;AC6BA;EACA,kBAAA;AD1BA;;AC4BA,YAAA;AACA;EACA,kBAAA;ADzBA;;AAEA,WAAW;AC0BX;EACA,kBAAA;ADxBA;AC4BA;EACA,kBAAA;EACA,QAAA;EACA,UAAA;EACA,UAAA;EACA,eAAA;EACA,cAAA;EACA,gBAAA;ADzBA;AC4BA;EACA,iBAAA;ED1BE,iBAAiB;AACnB;;AAEA,uCAAuC","file":"TextArea.vue","sourcesContent":["input:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\ntextarea:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ntextarea:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ntextarea:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ntextarea:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n.input-textarea label {\n  position: absolute;\n  top: 0px;\n  left: 10px;\n  z-index: 5;\n  font-size: 10px;\n  color: #909090;\n  font-weight: 300;\n}\n.input-textarea textarea:focus {\n  border-width: 2px;\n  padding-bottom: 0;\n}\n\n/*# sourceMappingURL=TextArea.vue.map */","<template>\r\n  <div\r\n    class=\"input-wrap input-textarea\"\r\n    :class=\"{ required: $attrs.required !== undefined }\"\r\n  >\r\n    <label :for=\"id\">{{ placeholder }}</label>\r\n    <textarea\r\n      class=\"textarea\"\r\n      v-bind=\"$attrs\"\r\n      :aria-labelledby=\"id\"\r\n      :aria-required=\"$attrs.required !== undefined\"\r\n      :value=\"value\"\r\n      @input=\"$emit('input', $event.target.value)\"\r\n      @on=\"$listeners\"\r\n    />\r\n  </div>\r\n</template>\r\n<script>\r\nexport default {\r\n  name: \"TextArea\",\r\n  inheritAttrs: false,\r\n  props: {\r\n    id: {\r\n      type: String,\r\n      default: () => `ta_${Math.random().toString(12).substring(2, 8)}`,\r\n    },\r\n    value: {\r\n      type: [ String, Number ],\r\n      default: \"\",\r\n    },\r\n    placeholder: {\r\n      type: String,\r\n      default: 'Insert label placeholder here',\r\n    },\r\n  },\r\n};\r\n</script>\r\n<style lang=\"scss\">\r\n  // @import '../base.scss';\r\n  @import '../../../styles/inputs.scss';\r\n\r\n  textarea:focus::-webkit-input-placeholder {\r\n    color: transparent;\r\n  }\r\n\r\n  textarea:focus:-moz-placeholder {\r\n    color: transparent;\r\n  }\r\n  /* FF 4-18 */\r\n  textarea:focus::-moz-placeholder {\r\n    color: transparent;\r\n  }\r\n  /* FF 19+ */\r\n  textarea:focus:-ms-input-placeholder {\r\n    color: transparent;\r\n  }\r\n\r\n  .input-textarea {\r\n    label {\r\n      position: absolute;\r\n      top: 0px;\r\n      left: 10px;\r\n      z-index: 5;\r\n      font-size: 10px;\r\n      color: #909090;\r\n      font-weight: 300;\r\n    }\r\n    textarea{\r\n      &:focus {\r\n        border-width: 2px;\r\n        padding-bottom: 0;\r\n      }\r\n    }\r\n  }\r\n</style>\r\n\r\n"]}, media: undefined });
 
     };
     /* scoped */
-    var __vue_scope_id__$7 = undefined;
+    var __vue_scope_id__$8 = undefined;
     /* module identifier */
-    var __vue_module_identifier__$7 = undefined;
+    var __vue_module_identifier__$8 = undefined;
     /* functional template */
-    var __vue_is_functional_template__$7 = false;
+    var __vue_is_functional_template__$8 = false;
     /* style inject SSR */
     
 
     
-    var component$7 = normalizeComponent_1(
-      { render: __vue_render__$7, staticRenderFns: __vue_staticRenderFns__$7 },
-      __vue_inject_styles__$7,
-      __vue_script__$7,
-      __vue_scope_id__$7,
-      __vue_is_functional_template__$7,
-      __vue_module_identifier__$7,
+    var component$8 = normalizeComponent_1(
+      { render: __vue_render__$8, staticRenderFns: __vue_staticRenderFns__$8 },
+      __vue_inject_styles__$8,
+      __vue_script__$8,
+      __vue_scope_id__$8,
+      __vue_is_functional_template__$8,
+      __vue_module_identifier__$8,
       browser,
       undefined
     );
 
   // Import vue component
 
-  prepareForExport(component$7);
+  prepareForExport(component$8);
 
   // Base Styles
 
@@ -1291,14 +1360,15 @@
     }
   };
 
-  exports.AppFooter = component$1;
-  exports.AppHeader = component;
-  exports.Callout = component$2;
-  exports.Checkbox = component$3;
-  exports.Dropdown = component$5;
-  exports.Radio = component$4;
-  exports.TextArea = component$7;
-  exports.Textbox = component$6;
+  exports.AppButton = component;
+  exports.AppFooter = component$2;
+  exports.AppHeader = component$1;
+  exports.Callout = component$3;
+  exports.Checkbox = component$4;
+  exports.Dropdown = component$6;
+  exports.Radio = component$5;
+  exports.TextArea = component$8;
+  exports.Textbox = component$7;
   exports.install = install;
 
   Object.defineProperty(exports, '__esModule', { value: true });

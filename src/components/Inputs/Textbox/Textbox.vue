@@ -14,8 +14,6 @@
       :type="type"
       :placeholder="placeholder"
       @input="$emit('input', $event.target.value)"
-      @focus="$emit('focus', $event.target.value)"
-      @blur="$emit('blur', $event.target.value)"
       @on="$listeners"
     >
     <label :for="id">{{ placeholder }}</label>
