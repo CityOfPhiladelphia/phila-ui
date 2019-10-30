@@ -6,7 +6,7 @@
   "module": "dist/phila-ui.esm.js",
   "unpkg": "dist/phila-ui.min.js",
   "scripts": {
-    "build": "rollup --config build/rollup.config.js",
+    "build": "vue-cli-service lint --no-fix && rollup --config build/rollup.config.js",
     "watch": "rollup --watch --config build/rollup.config.js",
     "lint": "vue-cli-service lint"
   },

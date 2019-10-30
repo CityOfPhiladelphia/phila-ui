@@ -13,7 +13,20 @@ Depends on [Bulma.io](https://bulma.io/) (_bulma is already imported in the proj
 ## How to Use
 Run `npm install --save CityOfPhiladelphia/phila-ui#master` (_until there is a `public distribution` in npm_)
 
-### Import Everything
+### Importing
+
+#### Importing individually
+You can import components individually. This is the reccomended method. If you import components individually, you will also need to import the base.scss phila-ui file in your `main.js` file:`import 'phila-ui/src/styles/base.scss'`
+
+```
+import { Header, InputText } from 'phila-ui';
+Vue.use(Header, { altName: 'PhlHeader' });
+Vue.use(InputText);
+``` 
+
+#### Importing everything
+*Note: Importing the entire library will cause a very large package size. We reccommend you only import what you need.*
+
 In `main.js`, import phila-ui.
 
 ```
@@ -29,23 +42,10 @@ Default: Component Name.
 ```
 altName: 'AlternativeName'
 ```
-You can also import components individually: 
-
-```
-import { Header, InputText } from 'phila-ui';
-```
-or
-
-```
-Vue.use(Header, { altName: 'PhlHeader' });
-Vue.use(InputText);
-``` 
-
-(Still being tested)
 
 
 **Note:**
-To import the City's sass colors and functions to your project, add the following to `vue.config.js`:
+To if you would like to use the City's sass color helpers and functions in your project, add the following to `vue.config.js`:
 
 ```
 module.exports = {
