@@ -25,6 +25,8 @@
   "author": "City of Philadelphia",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
     "@vue/cli-plugin-eslint": "^3.11.0",
     "@vue/cli-service": "^3.11.0",
     "babel-eslint": "^10.0.3",
@@ -35,7 +37,6 @@
     "rollup": "^1.23.1",
     "rollup-plugin-alias": "^2.0.1",
     "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-buble": "^0.19.8",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-multi-entry": "^2.1.0",
     "rollup-plugin-postcss": "^2.0.3",
