@@ -1,5 +1,5 @@
 // Base Styles
-import './styles/base.scss';
+import './styles/all.scss';
 
 // Components
 import AppHeader from './components/AppHeader';
