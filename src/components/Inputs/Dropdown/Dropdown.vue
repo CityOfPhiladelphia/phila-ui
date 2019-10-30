@@ -7,7 +7,10 @@
       v-bind="$attrs"
       @input="$emit('input', $event.target.value)"
     >
-      <option value="">
+      <option
+        v-if="defaultOption !== null"
+        value=""
+      >
         {{ defaultOption }}
       </option>
       <option

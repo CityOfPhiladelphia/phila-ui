@@ -56,6 +56,7 @@ export default {
   }
 
   .input-textarea {
+    position: relative;
     label {
       position: absolute;
       top: 0px;
