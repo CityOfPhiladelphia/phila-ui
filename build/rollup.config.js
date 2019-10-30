@@ -1,6 +1,6 @@
 import commonjs from 'rollup-plugin-commonjs'; // Convert CommonJS modules to ES6
 import vue from 'rollup-plugin-vue'; // Handle .vue SFC files
-import buble from 'rollup-plugin-buble'; // Transpile/polyfill with reasonable browser support
+import babel from 'rollup-plugin-babel';
 import postcss from 'rollup-plugin-postcss';
 import cssnano from 'cssnano';
 
@@ -48,6 +48,8 @@ export default [ 'phila-ui' ].map((name) => ({
       sourceMap: true,
       extensions: [ '.scss', '.sass','.css' ],
     }),
-    buble(), // Transpile to ES5
+    babel({
+      exclude: 'node_modules/**'
+    }),
   ],
 }));
