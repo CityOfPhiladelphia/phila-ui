@@ -1136,7 +1136,7 @@ __vue_render__$6._withStripped = true;
 
 prepareForExport(component$6);
 
-// Base Styles
+// Components
 
 /**
  * Function to install components globally

@@ -1142,7 +1142,7 @@
 
   prepareForExport(component$6);
 
-  // Base Styles
+  // Components
 
   /**
    * Function to install components globally

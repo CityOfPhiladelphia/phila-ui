@@ -1,6 +1,3 @@
-// Base Styles
-import './styles/all.scss';
-
 // Components
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';

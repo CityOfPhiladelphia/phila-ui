@@ -42,8 +42,8 @@ export default [ 'phila-ui' ].map((name) => ({
       },
     }),
     postcss({
-      extract: true,
-      inject: false,
+      extract: false,
+      inject: true,
       plugins: [ cssnano() ],
       sourceMap: true,
       extensions: [ '.scss', '.sass','.css' ],
