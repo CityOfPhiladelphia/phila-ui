@@ -1,15 +1,21 @@
 <template>
-  <div style="float: right">
+  <div>
     <a href="#"
       class="button"
     >
-      Search
+      {{ search }}
     </a>
   </div>
 </template>
 <script>
 export default {
   name: 'AppButton',
+  props: {
+    search: {
+      type: String,
+      default: "Search",
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>

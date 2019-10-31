@@ -5,7 +5,6 @@ import './styles/base.scss';
 import AppButton from './components/AppButton';
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
-import Callout from './components/Callout';
 import Checkbox from './components/Inputs/Checkbox';
 import Radio from './components/Inputs/Radio';
 import Dropdown from './components/Inputs/Dropdown';
@@ -35,13 +34,11 @@ export {
   AppButton,
   AppHeader,
   AppFooter,
-  Callout,
   Checkbox,
   Radio,
   Dropdown,
   Textbox,
   TextArea,
-
   // Install Helper for Vue
   install,
 };
