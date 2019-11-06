@@ -2,7 +2,9 @@
   <footer class="footer is-primary">
     <div class="has-text-centered">
       <ul>
-        <li><a href="">Feedback</a></li>
+        <li v-for="item in footerList">
+          <a :href=item.href :target=item.target> {{ item.message }} </a>
+        </li>
       </ul>
     </div>
   </footer>
@@ -10,6 +12,20 @@
 <script>
 export default {
   name: 'AppFooter',
+  props: {
+    footerList: {
+      type: Array,
+      default : function() {
+        return [
+          {
+            message: "Feedback",
+            href: "https://www.phila.gov",
+            target: "_blank",
+          },
+        ]
+      },
+    },
+  },
 }
 </script>
 <style lang="scss" scoped>
