@@ -43,94 +43,15 @@
   //
   //
   //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
 
   var script = {
-    name: 'AppHeader',
+    name: 'AppButton',
     props: {
-      appLogoLink: {
-        type: Object,
-        default: function () { return ({
-          href: "https://www.phila.gov",
-          target: "_blank",
-        }); },
-      },
-      appLogoImage: {
-        type: Object,
-        default: function () { return ({
-          src: "https://standards.phila.gov/img/logo/city-of-philadelphia-yellow-white.png",
-          alt: "City of Philadelphia logo",
-          width: 190,
-        }); },
-      },
-      appTitle: {
+      search: {
         type: String,
-        default: "",
-      },
-      appSubtitle: {
-        type: String,
-        default: "",
-      },
-      appLink: {
-        type: String,
-        default: "/",
-      },
-      fluid: {
-        type: Boolean,
-        default: true,
-      },
-    },
-    data: function data() {
-      return {
-        showOnBurgerClicked: true,
-      };
-    },
+        default: "Search",
+      }
+    }
   };
 
   function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
@@ -281,6 +202,185 @@
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
+    return _c("div", [
+      _c("a", { staticClass: "button", attrs: { href: "#" } }, [
+        _vm._v("\n    " + _vm._s(_vm.search) + "\n  ")
+      ])
+    ])
+  };
+  var __vue_staticRenderFns__ = [];
+  __vue_render__._withStripped = true;
+
+    /* style */
+    var __vue_inject_styles__ = function (inject) {
+      if (!inject) { return }
+      inject("data-v-6d13258b_0", { source: "button[data-v-6d13258b],\n.button[data-v-6d13258b] {\n  background-color: #26cdf7;\n  color: #454545;\n  text-transform: uppercase;\n  padding: 0.75rem 0.5rem;\n  letter-spacing: 0.03rem;\n  border: none;\n}\nbutton[data-v-6d13258b]:focus,\n.button[data-v-6d13258b]:focus {\n  color: white;\n  background: #454545;\n}\nbutton.icon[data-v-6d13258b],\n.button.icon[data-v-6d13258b] {\n  display: inline-block;\n  position: relative;\n  background: transparent;\n  min-height: 40px;\n  padding: 0;\n}\nbutton.icon .button-label[data-v-6d13258b],\n.button.icon .button-label[data-v-6d13258b] {\n  text-align: left;\n}\nbutton.icon .fa[data-v-6d13258b],\nbutton.icon .fas[data-v-6d13258b],\nbutton.icon .far[data-v-6d13258b],\nbutton.icon .fab[data-v-6d13258b],\nbutton.icon .fal[data-v-6d13258b],\n.button.icon .fa[data-v-6d13258b],\n.button.icon .fas[data-v-6d13258b],\n.button.icon .far[data-v-6d13258b],\n.button.icon .fab[data-v-6d13258b],\n.button.icon .fal[data-v-6d13258b] {\n  background: #454545;\n  color: white;\n  font-size: 1.7em;\n  border-right: 2px solid white;\n  position: static;\n  padding: 0.75rem;\n}\nbutton.icon .fa[data-v-6d13258b]::before,\nbutton.icon .fas[data-v-6d13258b]::before,\nbutton.icon .far[data-v-6d13258b]::before,\nbutton.icon .fab[data-v-6d13258b]::before,\nbutton.icon .fal[data-v-6d13258b]::before,\n.button.icon .fa[data-v-6d13258b]::before,\n.button.icon .fas[data-v-6d13258b]::before,\n.button.icon .far[data-v-6d13258b]::before,\n.button.icon .fab[data-v-6d13258b]::before,\n.button.icon .fal[data-v-6d13258b]::before {\n  display: block;\n  width: 2.85714rem;\n}\nbutton.icon[data-v-6d13258b]:hover, button.icon[data-v-6d13258b]:active, button.icon[data-v-6d13258b]:focus,\n.button.icon[data-v-6d13258b]:hover,\n.button.icon[data-v-6d13258b]:active,\n.button.icon[data-v-6d13258b]:focus {\n  background: none;\n}\nbutton.icon:hover i.fa[data-v-6d13258b], button.icon:active i.fa[data-v-6d13258b], button.icon:focus i.fa[data-v-6d13258b],\n.button.icon:hover i.fa[data-v-6d13258b],\n.button.icon:active i.fa[data-v-6d13258b],\n.button.icon:focus i.fa[data-v-6d13258b] {\n  color: white;\n}\nbutton .button-label[data-v-6d13258b],\n.button .button-label[data-v-6d13258b] {\n  background-color: #26cdf7;\n  min-height: 40px;\n  padding: 1rem;\n  text-align: center;\n  width: 100%;\n}\nbutton.outline .button-label[data-v-6d13258b],\n.button.outline .button-label[data-v-6d13258b] {\n  background-color: white;\n  border: 1px solid #26cdf7;\n}\nbutton[data-v-6d13258b], a.button[data-v-6d13258b] {\n  color: #454545;\n}\nbutton[data-v-6d13258b]:link, a.button[data-v-6d13258b]:link {\n  font-weight: 600;\n  font-size: 1rem;\n}\nbutton[data-v-6d13258b]:hover, button[data-v-6d13258b]:active, button[data-v-6d13258b]:focus, a.button[data-v-6d13258b]:hover, a.button[data-v-6d13258b]:active, a.button[data-v-6d13258b]:focus {\n  background: #454545;\n  color: white;\n}\nbutton:hover .button-label[data-v-6d13258b], button:active .button-label[data-v-6d13258b], button:focus .button-label[data-v-6d13258b], a.button:hover .button-label[data-v-6d13258b], a.button:active .button-label[data-v-6d13258b], a.button:focus .button-label[data-v-6d13258b] {\n  color: white;\n  background: #454545;\n  transition: background-color 300ms ease-in-out;\n}\nbutton.see-all-right[data-v-6d13258b], a.button.see-all-right[data-v-6d13258b] {\n  position: relative;\n  text-transform: none;\n  height: 28px;\n  border: none;\n  padding: 0;\n}\nbutton.see-all-right .button-label[data-v-6d13258b], a.button.see-all-right .button-label[data-v-6d13258b] {\n  padding: 0 1rem;\n}\nbutton.see-all-right[data-v-6d13258b]::after, a.button.see-all-right[data-v-6d13258b]::after {\n  content: \"\";\n  position: absolute;\n  right: -15px;\n  top: 0;\n  width: 0;\n  height: 0;\n  border-top: 13px solid transparent;\n  border-bottom: 15px solid transparent;\n  border-left: 15px solid #26cdf7;\n}\nbutton.see-all-right[data-v-6d13258b]:hover::after, button.see-all-right[data-v-6d13258b]:focus::after, a.button.see-all-right[data-v-6d13258b]:hover::after, a.button.see-all-right[data-v-6d13258b]:focus::after {\n  border-left: 15px solid #454545;\n  transition: border-color 300ms ease-in-out;\n}\n\n/*# sourceMappingURL=AppButton.vue.map */", map: {"version":3,"sources":["C:\\Other_Projects\\phila-ui\\src\\components\\AppButton\\AppButton.vue","AppButton.vue"],"names":[],"mappings":"AA0BA;;EAGA,yBAAA;EACA,cAkBA;EC5CE,yBAAyB;EACzB,uBAAuB;ED4BzB,uBAAA;EACA,YAAA;AC1BA;AACA;;ED6BA,YAAA;EACA,mBASA;ACnCA;AD6BA;;EACA,qBAAA;EC1BE,kBAAkB;EAClB,uBAAuB;ED4BzB,gBAAA;EACA,UAAA;AC1BA;AD6BA;;EACA,gBAAA;AC1BA;AD6BA;;;;;;;;;;EAKA,mBAXA;EAYA,YAAA;EACA,gBAAA;EACA,6BAAA;EACA,gBAAA;EACA,gBAAA;ACtBA;ADuBA;;;;;;;;;;EACA,cAAA;EACA,iBAAA;ACZA;ADeA;;;;EAGA,gBAAA;ACZA;ADaA;;;;ECRE,YAAY;AACd;ADaA;;EACA,yBAAA;EACA,gBAAA;ECVE,aAAa;EDYf,kBAAA;EACA,WAAA;ACVA;ADcA;;EACA,uBAAA;ECXE,yBAAyB;AAC3B;ADgBA;EACA,cAjDA;ACoCA;AACA;EDeA,gBAAA;EACA,eAAA;ACbA;ADgBA;EACA,mBAzDA;EA0DA,YAAA;ACdA;ADeA;EACA,YAAA;EACA,mBA7DA;EA8DA,8CAAA;ACbA;ADgBA;EACA,kBAAA;EACA,oBAAA;EACA,YAAA;EACA,YAAA;EACA,UAAA;ACdA;ADeA;EACA,eAAA;ACbA;ADeA;EACA,WAAA;EACA,kBAAA;EACA,YAAA;EACA,MAAA;ECbE,QAAQ;EDeV,SAAA;EACA,kCAAA;EACA,qCAAA;EAEA,+BAAA;ACdA;ADgBA;EACA,+BAAA;EACA,0CAAA;ACdA;;AAEA,wCAAwC","file":"AppButton.vue","sourcesContent":["<template>\n  <div>\n    <a href=\"#\"\n      class=\"button\"\n    >\n      {{ search }}\n    </a>\n  </div>\n</template>\n<script>\nexport default {\n  name: 'AppButton',\n  props: {\n    search: {\n      type: String,\n      default: \"Search\",\n    }\n  }\n};\n</script>\n<style lang=\"scss\" scoped>\n\nbutton,\n.button {\n\n  background-color: $electric-blue;\n  color: $dark-gray;\n  text-transform: uppercase;\n  padding:.75rem .5rem;\n  letter-spacing: .03rem;\n  border: none;\n\n\n  &:focus {\n    color:white;\n    background: $dark-gray;\n  }\n\n  &.icon {\n    display: inline-block;\n    position: relative;\n    background: transparent;\n    min-height:40px;\n    padding: 0;\n\n\n    .button-label{\n      text-align: left;\n    }\n\n    .fa,\n    .fas,\n    .far,\n    .fab,\n    .fal {\n      background: $dark-gray;\n      color:white;\n      font-size: 1.7em;\n      border-right: 2px solid white;\n      position: static;\n      padding: 0.75rem;\n      &::before{\n        display: block;\n        width: 2.85714rem;\n      }\n    }\n    &:hover,\n    &:active,\n    &:focus{\n      background: none;\n      i.fa {\n        color:white;\n      }\n    }\n  }\n\n  .button-label {\n    background-color: $electric-blue;\n    min-height: 40px;\n    padding: 1rem;\n    text-align: center;\n    width:100%;\n  }\n\n  &.outline {\n    .button-label {\n      background-color: white;\n      border: 1px solid $electric-blue;\n    }\n  }\n}\n\nbutton, a.button {\n  color: $dark-gray;\n\n  &:link{\n    font-weight: 600;\n    font-size: 1rem;\n  }\n\n  &:hover, &:active, &:focus{\n    background: $dark-gray;\n    color: white;\n    .button-label {\n      color: white;\n      background: $dark-gray;\n      transition: background-color 300ms ease-in-out;\n    }\n  }\n  &.see-all-right {\n    position: relative;\n    text-transform: none;\n    height: 28px;\n    border:none;\n    padding: 0;\n    .button-label{\n      padding:0 1rem;\n    }\n    &::after{\n      content: \"\";\n      position: absolute;\n      right:-15px;\n      top:0;\n      width: 0;\n      height: 0;\n      border-top: 13px solid transparent;\n      border-bottom: 15px solid transparent;\n\n      border-left: 15px solid $electric-blue;\n    }\n    &:hover::after, &:focus::after{\n      border-left: 15px solid $dark-gray;\n      transition: border-color 300ms ease-in-out;\n\n    }\n  }\n}\n\n</style>\n","button,\n.button {\n  background-color: #26cdf7;\n  color: #454545;\n  text-transform: uppercase;\n  padding: 0.75rem 0.5rem;\n  letter-spacing: 0.03rem;\n  border: none;\n}\nbutton:focus,\n.button:focus {\n  color: white;\n  background: #454545;\n}\nbutton.icon,\n.button.icon {\n  display: inline-block;\n  position: relative;\n  background: transparent;\n  min-height: 40px;\n  padding: 0;\n}\nbutton.icon .button-label,\n.button.icon .button-label {\n  text-align: left;\n}\nbutton.icon .fa,\nbutton.icon .fas,\nbutton.icon .far,\nbutton.icon .fab,\nbutton.icon .fal,\n.button.icon .fa,\n.button.icon .fas,\n.button.icon .far,\n.button.icon .fab,\n.button.icon .fal {\n  background: #454545;\n  color: white;\n  font-size: 1.7em;\n  border-right: 2px solid white;\n  position: static;\n  padding: 0.75rem;\n}\nbutton.icon .fa::before,\nbutton.icon .fas::before,\nbutton.icon .far::before,\nbutton.icon .fab::before,\nbutton.icon .fal::before,\n.button.icon .fa::before,\n.button.icon .fas::before,\n.button.icon .far::before,\n.button.icon .fab::before,\n.button.icon .fal::before {\n  display: block;\n  width: 2.85714rem;\n}\nbutton.icon:hover, button.icon:active, button.icon:focus,\n.button.icon:hover,\n.button.icon:active,\n.button.icon:focus {\n  background: none;\n}\nbutton.icon:hover i.fa, button.icon:active i.fa, button.icon:focus i.fa,\n.button.icon:hover i.fa,\n.button.icon:active i.fa,\n.button.icon:focus i.fa {\n  color: white;\n}\nbutton .button-label,\n.button .button-label {\n  background-color: #26cdf7;\n  min-height: 40px;\n  padding: 1rem;\n  text-align: center;\n  width: 100%;\n}\nbutton.outline .button-label,\n.button.outline .button-label {\n  background-color: white;\n  border: 1px solid #26cdf7;\n}\n\nbutton, a.button {\n  color: #454545;\n}\nbutton:link, a.button:link {\n  font-weight: 600;\n  font-size: 1rem;\n}\nbutton:hover, button:active, button:focus, a.button:hover, a.button:active, a.button:focus {\n  background: #454545;\n  color: white;\n}\nbutton:hover .button-label, button:active .button-label, button:focus .button-label, a.button:hover .button-label, a.button:active .button-label, a.button:focus .button-label {\n  color: white;\n  background: #454545;\n  transition: background-color 300ms ease-in-out;\n}\nbutton.see-all-right, a.button.see-all-right {\n  position: relative;\n  text-transform: none;\n  height: 28px;\n  border: none;\n  padding: 0;\n}\nbutton.see-all-right .button-label, a.button.see-all-right .button-label {\n  padding: 0 1rem;\n}\nbutton.see-all-right::after, a.button.see-all-right::after {\n  content: \"\";\n  position: absolute;\n  right: -15px;\n  top: 0;\n  width: 0;\n  height: 0;\n  border-top: 13px solid transparent;\n  border-bottom: 15px solid transparent;\n  border-left: 15px solid #26cdf7;\n}\nbutton.see-all-right:hover::after, button.see-all-right:focus::after, a.button.see-all-right:hover::after, a.button.see-all-right:focus::after {\n  border-left: 15px solid #454545;\n  transition: border-color 300ms ease-in-out;\n}\n\n/*# sourceMappingURL=AppButton.vue.map */"]}, media: undefined });
+
+    };
+    /* scoped */
+    var __vue_scope_id__ = "data-v-6d13258b";
+    /* module identifier */
+    var __vue_module_identifier__ = undefined;
+    /* functional template */
+    var __vue_is_functional_template__ = false;
+    /* style inject SSR */
+    
+
+    
+    var component = normalizeComponent_1(
+      { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
+      __vue_inject_styles__,
+      __vue_script__,
+      __vue_scope_id__,
+      __vue_is_functional_template__,
+      __vue_module_identifier__,
+      browser,
+      undefined
+    );
+
+  function prepareForExport (component) {
+    // Declare install function executed by Vue.use()
+    component.install = function (Vue, settings) {
+      if ( settings === void 0 ) settings = {};
+
+      if (component.installed) {
+        return;
+      }
+      component.installed = true;
+
+      var name = settings.altName ? settings.altName : component.name;
+      Vue.component(name, component);
+    };
+
+    // Create module definition for Vue.use()
+    var plugin = {
+      install: component.install,
+    };
+
+    // Auto-install when vue is found (eg. in browser via <script> tag)
+    var GlobalVue = null;
+    if (typeof window !== 'undefined') {
+      GlobalVue = window.Vue;
+    } else if (typeof global !== 'undefined') {
+      GlobalVue = global.Vue;
+    }
+    if (GlobalVue) {
+      GlobalVue.use(plugin);
+    }
+
+  }
+
+  // Import vue component
+
+  prepareForExport(component);
+
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+  //
+
+  var script$1 = {
+    name: 'AppHeader',
+    props: {
+      appLogoLink: {
+        type: Object,
+        default: function () { return ({
+          href: "https://www.phila.gov",
+          target: "_blank",
+        }); },
+      },
+      appLogoImage: {
+        type: Object,
+        default: function () { return ({
+          src: "https://standards.phila.gov/img/logo/city-of-philadelphia-yellow-white.png",
+          alt: "City of Philadelphia logo",
+          width: 190,
+        }); },
+      },
+      appTitle: {
+        type: String,
+        default: "",
+      },
+      appSubtitle: {
+        type: String,
+        default: "",
+      },
+      appLink: {
+        type: String,
+        default: "/",
+      },
+      fluid: {
+        type: Boolean,
+        default: true,
+      },
+    },
+    data: function data() {
+      return {
+        showOnBurgerClicked: true,
+      };
+    },
+  };
+
+  /* script */
+  var __vue_script__$1 = script$1;
+
+  /* template */
+  var __vue_render__$1 = function() {
+    var _vm = this;
+    var _h = _vm.$createElement;
+    var _c = _vm._self._c || _h;
     return _c("header", { staticClass: "navbar is-primary" }, [
       _c(
         "div",
@@ -348,120 +448,17 @@
       )
     ])
   };
-  var __vue_staticRenderFns__ = [];
-  __vue_render__._withStripped = true;
-
-    /* style */
-    var __vue_inject_styles__ = function (inject) {
-      if (!inject) { return }
-      inject("data-v-6f16a307_0", { source: ".hero .navbar[data-v-6f16a307] {\n  background: #0f4d8f;\n}\n.navbar[data-v-6f16a307] {\n  border-bottom: 5px solid #26cdf7;\n}\n.navbar .navbar-burger[data-v-6f16a307] {\n  height: auto;\n}\n.navbar .navbar-burger span[data-v-6f16a307] {\n  height: 3px;\n  width: 30px;\n  left: calc(50% - 15px);\n}\n.navbar .navbar-burger span[data-v-6f16a307]:nth-child(1) {\n  top: calc(50% - 10px);\n}\n.navbar .navbar-burger span[data-v-6f16a307]:nth-child(3) {\n  top: calc(50% + 8px);\n}\n.navbar .page-title h1[data-v-6f16a307],\n.navbar .page-title h2[data-v-6f16a307] {\n  line-height: 110%;\n}\n.navbar .vertical-separator[data-v-6f16a307] {\n  width: 1px;\n  height: 45px;\n  background-color: #fff;\n  margin-left: 0.9375rem;\n}\n\n/*# sourceMappingURL=AppHeader.vue.map */", map: {"version":3,"sources":["AppHeader.vue","C:\\Other_Projects\\phila-ui\\src\\components\\AppHeader\\AppHeader.vue"],"names":[],"mappings":"AAAA;EC0GA,mBAAA;ADxGA;AC4GA;EDzGE,gCAAgC;AAClC;ACyGA;EACA,YAAA;ADvGA;AACA;ECyGA,WAAA;EACA,WAAA;EACA,sBAAA;ADvGA;ACyGA;EACA,qBAAA;ADvGA;AC0GA;EDxGE,oBAAoB;AACtB;AC8GA;;EAEA,iBAAA;AD5GA;ACgHA;EACA,UAAA;EACA,YAAA;EACA,sBAAA;ED9GE,sBAAsB;AACxB;;AAEA,wCAAwC","file":"AppHeader.vue","sourcesContent":[".hero .navbar {\n  background: #0f4d8f;\n}\n\n.navbar {\n  border-bottom: 5px solid #26cdf7;\n}\n.navbar .navbar-burger {\n  height: auto;\n}\n.navbar .navbar-burger span {\n  height: 3px;\n  width: 30px;\n  left: calc(50% - 15px);\n}\n.navbar .navbar-burger span:nth-child(1) {\n  top: calc(50% - 10px);\n}\n.navbar .navbar-burger span:nth-child(3) {\n  top: calc(50% + 8px);\n}\n.navbar .page-title h1,\n.navbar .page-title h2 {\n  line-height: 110%;\n}\n.navbar .vertical-separator {\n  width: 1px;\n  height: 45px;\n  background-color: #fff;\n  margin-left: 0.9375rem;\n}\n\n/*# sourceMappingURL=AppHeader.vue.map */","<template>\r\n  <header class=\"navbar is-primary\">\r\n    <div\r\n      class=\"level container\"\r\n      :class=\"{ 'is-fluid': fluid }\"\r\n    >\r\n      <div class=\"level-left\">\r\n        <div class=\"level-item navbar-brand is-marginless\">\r\n          <div class=\"navbar-item is-fullwidth\">\r\n            <a\r\n              v-bind=\"appLogoLink\"\r\n            >\r\n              <img\r\n                v-bind=\"appLogoImage\"\r\n              >\r\n            </a>\r\n            <span\r\n              class=\"navbar-burger burger\"\r\n              data-target=\"navMenu\"\r\n              aria-label=\"menu\"\r\n              :aria-hidden=\"!showOnBurgerClicked\"\r\n              @click=\"showOnBurgerClicked = !showOnBurgerClicked\"\r\n            >\r\n              <span />\r\n              <span />\r\n              <span />\r\n            </span>\r\n          </div>\r\n        </div>\r\n        <span class=\"level-item vertical-separator is-hidden-mobile\" />\r\n        <div class=\"level-item navbar-item\">\r\n          <div class=\"page-title\">\r\n            <a :href=\"appLink\">\r\n              <h1 class=\"is-size-4\">\r\n                {{ appTitle }}\r\n              </h1>\r\n              <h2\r\n                v-if=\"appSubtitle\"\r\n                class=\"is-size-5\"\r\n              >{{ appSubtitle }}\r\n              </h2>\r\n            </a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div\r\n        class=\"level-right\"\r\n        :class=\"{ 'is-hidden-mobile': showOnBurgerClicked }\"\r\n      >\r\n        <div class=\"level-item\">\r\n          <slot />\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </header>\r\n</template>\r\n<script>\r\nexport default {\r\n  name: 'AppHeader',\r\n  props: {\r\n    appLogoLink: {\r\n      type: Object,\r\n      default: () => ({\r\n        href: \"https://www.phila.gov\",\r\n        target: \"_blank\",\r\n      }),\r\n    },\r\n    appLogoImage: {\r\n      type: Object,\r\n      default: () => ({\r\n        src: \"https://standards.phila.gov/img/logo/city-of-philadelphia-yellow-white.png\",\r\n        alt: \"City of Philadelphia logo\",\r\n        width: 190,\r\n      }),\r\n    },\r\n    appTitle: {\r\n      type: String,\r\n      default: \"\",\r\n    },\r\n    appSubtitle: {\r\n      type: String,\r\n      default: \"\",\r\n    },\r\n    appLink: {\r\n      type: String,\r\n      default: \"/\",\r\n    },\r\n    fluid: {\r\n      type: Boolean,\r\n      default: true,\r\n    },\r\n  },\r\n  data() {\r\n    return {\r\n      showOnBurgerClicked: true,\r\n    };\r\n  },\r\n};\r\n</script>\r\n<style lang=\"scss\" scoped>\r\n  .hero {\r\n    .navbar {\r\n      background: $primary;\r\n    }\r\n  }\r\n\r\n  .navbar {\r\n    .navbar-burger {\r\n      height: auto;\r\n\r\n      span {\r\n        height: 3px;\r\n        width: 30px;\r\n        left: calc(50% - 15px);\r\n\r\n        &:nth-child(1) {\r\n          top: calc(50% - 10px);\r\n        }\r\n\r\n        &:nth-child(3) {\r\n          top: calc(50% + 8px);\r\n        }\r\n      }\r\n    }\r\n\r\n    .page-title {\r\n      h1,\r\n      h2 {\r\n        line-height: 110%;\r\n      }\r\n    }\r\n\r\n    .vertical-separator {\r\n      width: 1px;\r\n      height: 45px;\r\n      background-color: #fff;\r\n      margin-left: rem-calc(15px);\r\n    }\r\n    border-bottom: 5px solid $electric-blue;\r\n  }\r\n</style>\r\n"]}, media: undefined });
-
-    };
-    /* scoped */
-    var __vue_scope_id__ = "data-v-6f16a307";
-    /* module identifier */
-    var __vue_module_identifier__ = undefined;
-    /* functional template */
-    var __vue_is_functional_template__ = false;
-    /* style inject SSR */
-    
-
-    
-    var component = normalizeComponent_1(
-      { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
-      __vue_inject_styles__,
-      __vue_script__,
-      __vue_scope_id__,
-      __vue_is_functional_template__,
-      __vue_module_identifier__,
-      browser,
-      undefined
-    );
-
-  function prepareForExport (component) {
-    // Declare install function executed by Vue.use()
-    component.install = function (Vue, settings) {
-      if ( settings === void 0 ) settings = {};
-
-      if (component.installed) {
-        return;
-      }
-      component.installed = true;
-
-      var name = settings.altName ? settings.altName : component.name;
-      Vue.component(name, component);
-    };
-
-    // Create module definition for Vue.use()
-    var plugin = {
-      install: component.install,
-    };
-
-    // Auto-install when vue is found (eg. in browser via <script> tag)
-    var GlobalVue = null;
-    if (typeof window !== 'undefined') {
-      GlobalVue = window.Vue;
-    } else if (typeof global !== 'undefined') {
-      GlobalVue = global.Vue;
-    }
-    if (GlobalVue) {
-      GlobalVue.use(plugin);
-    }
-
-  }
-
-  // Import vue component
-
-  prepareForExport(component);
-
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-  //
-
-  var script$1 = {
-    name: 'AppFooter',
-  };
-
-  /* script */
-  var __vue_script__$1 = script$1;
-
-  /* template */
-  var __vue_render__$1 = function() {
-    var _vm = this;
-    var _h = _vm.$createElement;
-    var _c = _vm._self._c || _h;
-    return _vm._m(0)
-  };
-  var __vue_staticRenderFns__$1 = [
-    function() {
-      var _vm = this;
-      var _h = _vm.$createElement;
-      var _c = _vm._self._c || _h;
-      return _c("footer", { staticClass: "footer is-primary" }, [
-        _c("div", { staticClass: "has-text-centered" }, [
-          _c("ul", [
-            _c("li", [_c("a", { attrs: { href: "" } }, [_vm._v("Feedback")])])
-          ])
-        ])
-      ])
-    }
-  ];
+  var __vue_staticRenderFns__$1 = [];
   __vue_render__$1._withStripped = true;
 
     /* style */
     var __vue_inject_styles__$1 = function (inject) {
       if (!inject) { return }
-      inject("data-v-39e693b4_0", { source: "#app[data-v-39e693b4] {\n  padding-bottom: 46px;\n}\n#app .footer[data-v-39e693b4] {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  padding: 0.625rem;\n}\n#app .footer ul[data-v-39e693b4] {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#app .footer ul li[data-v-39e693b4] {\n  display: inline-block;\n  vertical-align: middle;\n  margin: 0 1rem;\n}\n\n/*# sourceMappingURL=AppFooter.vue.map */", map: {"version":3,"sources":["C:\\Other_Projects\\phila-ui\\src\\components\\AppFooter\\AppFooter.vue","AppFooter.vue"],"names":[],"mappings":"AAmBA;EACA,oBAAA;AClBA;ADmBA;ECjBE,eAAe;EDmBjB,SAAA;EACA,WAAA;EACA,iBAAA;ACjBA;ADmBA;EACA,gBAAA;EACA,UAAA;EACA,SAAA;ACjBA;ADkBA;EACA,qBAAA;EACA,sBAAA;EACA,cAAA;AChBA;;AAEA,wCAAwC","file":"AppFooter.vue","sourcesContent":["<template>\r\n  <footer class=\"footer is-primary\">\r\n    <div class=\"has-text-centered\">\r\n      <ul>\r\n        <li><a href=\"\">Feedback</a></li>\r\n      </ul>\r\n    </div>\r\n  </footer>\r\n</template>\r\n<script>\r\nexport default {\r\n  name: 'AppFooter',\r\n}\r\n</script>\r\n<style lang=\"scss\" scoped>\r\n  #app {\r\n    padding-bottom: 46px;\r\n    .footer {\r\n      position: fixed;\r\n      bottom: 0;\r\n      width: 100%;\r\n      padding: rem-calc(10px);\r\n\r\n      ul {\r\n        list-style: none;\r\n        padding: 0;\r\n        margin: 0;\r\n        li {\r\n          display: inline-block;\r\n          vertical-align: middle;\r\n          margin: 0 1rem;\r\n        }\r\n      }\r\n    }\r\n  }\r\n</style>\r\n","#app {\n  padding-bottom: 46px;\n}\n#app .footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  padding: 0.625rem;\n}\n#app .footer ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#app .footer ul li {\n  display: inline-block;\n  vertical-align: middle;\n  margin: 0 1rem;\n}\n\n/*# sourceMappingURL=AppFooter.vue.map */"]}, media: undefined });
+      inject("data-v-4152e244_0", { source: ".hero .navbar[data-v-4152e244] {\n  background: #0f4d8f;\n}\n.is-hidden-mobile[data-v-4152e244] {\n  display: none;\n}\n.navbar[data-v-4152e244] {\n  border-bottom: 5px solid #26cdf7;\n}\n.navbar .navbar-burger[data-v-4152e244] {\n  height: auto;\n}\n.navbar .navbar-burger span[data-v-4152e244] {\n  height: 3px;\n  width: 30px;\n  left: calc(50% - 15px);\n}\n.navbar .navbar-burger span[data-v-4152e244]:nth-child(1) {\n  top: calc(50% - 10px);\n}\n.navbar .navbar-burger span[data-v-4152e244]:nth-child(3) {\n  top: calc(50% + 8px);\n}\n.navbar .page-title h1[data-v-4152e244],\n.navbar .page-title h2[data-v-4152e244] {\n  line-height: 110%;\n}\n.navbar .vertical-separator[data-v-4152e244] {\n  width: 1px;\n  height: 45px;\n  background-color: #fff;\n  margin-left: 0.9375rem;\n}\n\n/*# sourceMappingURL=AppHeader.vue.map */", map: {"version":3,"sources":["AppHeader.vue","C:\\Other_Projects\\phila-ui\\src\\components\\AppHeader\\AppHeader.vue"],"names":[],"mappings":"AAAA;EC0GA,mBAAA;ADxGA;AC4GA;EACA,aAAA;ADzGA;AC4GA;EDzGE,gCAAgC;AAClC;ACyGA;EACA,YAAA;ADvGA;AACA;ECyGA,WAAA;EACA,WAAA;EACA,sBAAA;ADvGA;ACyGA;EACA,qBAAA;ADvGA;AC0GA;EDxGE,oBAAoB;AACtB;AC8GA;;EAEA,iBAAA;AD5GA;ACgHA;EACA,UAAA;EACA,YAAA;EACA,sBAAA;ED9GE,sBAAsB;AACxB;;AAEA,wCAAwC","file":"AppHeader.vue","sourcesContent":[".hero .navbar {\n  background: #0f4d8f;\n}\n\n.is-hidden-mobile {\n  display: none;\n}\n\n.navbar {\n  border-bottom: 5px solid #26cdf7;\n}\n.navbar .navbar-burger {\n  height: auto;\n}\n.navbar .navbar-burger span {\n  height: 3px;\n  width: 30px;\n  left: calc(50% - 15px);\n}\n.navbar .navbar-burger span:nth-child(1) {\n  top: calc(50% - 10px);\n}\n.navbar .navbar-burger span:nth-child(3) {\n  top: calc(50% + 8px);\n}\n.navbar .page-title h1,\n.navbar .page-title h2 {\n  line-height: 110%;\n}\n.navbar .vertical-separator {\n  width: 1px;\n  height: 45px;\n  background-color: #fff;\n  margin-left: 0.9375rem;\n}\n\n/*# sourceMappingURL=AppHeader.vue.map */","<template>\r\n  <header class=\"navbar is-primary\">\r\n    <div\r\n      class=\"level container\"\r\n      :class=\"{ 'is-fluid': fluid }\"\r\n    >\r\n      <div class=\"level-left\">\r\n        <div class=\"level-item navbar-brand is-marginless\">\r\n          <div class=\"navbar-item is-fullwidth\">\r\n            <a\r\n              v-bind=\"appLogoLink\"\r\n            >\r\n              <img\r\n                v-bind=\"appLogoImage\"\r\n              >\r\n            </a>\r\n            <span\r\n              class=\"navbar-burger burger\"\r\n              data-target=\"navMenu\"\r\n              aria-label=\"menu\"\r\n              :aria-hidden=\"!showOnBurgerClicked\"\r\n              @click=\"showOnBurgerClicked = !showOnBurgerClicked\"\r\n            >\r\n              <span />\r\n              <span />\r\n              <span />\r\n            </span>\r\n          </div>\r\n        </div>\r\n        <span class=\"level-item vertical-separator is-hidden-mobile\" />\r\n        <div class=\"level-item navbar-item\">\r\n          <div class=\"page-title\">\r\n            <a :href=\"appLink\">\r\n              <h1 class=\"is-size-4\">\r\n                {{ appTitle }}\r\n              </h1>\r\n              <h2\r\n                v-if=\"appSubtitle\"\r\n                class=\"is-size-5\"\r\n              >{{ appSubtitle }}\r\n              </h2>\r\n            </a>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div\r\n        class=\"level-right\"\r\n        :class=\"{ 'is-hidden-mobile': showOnBurgerClicked }\"\r\n      >\r\n        <div class=\"level-item\">\r\n          <slot />\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </header>\r\n</template>\r\n<script>\r\nexport default {\r\n  name: 'AppHeader',\r\n  props: {\r\n    appLogoLink: {\r\n      type: Object,\r\n      default: () => ({\r\n        href: \"https://www.phila.gov\",\r\n        target: \"_blank\",\r\n      }),\r\n    },\r\n    appLogoImage: {\r\n      type: Object,\r\n      default: () => ({\r\n        src: \"https://standards.phila.gov/img/logo/city-of-philadelphia-yellow-white.png\",\r\n        alt: \"City of Philadelphia logo\",\r\n        width: 190,\r\n      }),\r\n    },\r\n    appTitle: {\r\n      type: String,\r\n      default: \"\",\r\n    },\r\n    appSubtitle: {\r\n      type: String,\r\n      default: \"\",\r\n    },\r\n    appLink: {\r\n      type: String,\r\n      default: \"/\",\r\n    },\r\n    fluid: {\r\n      type: Boolean,\r\n      default: true,\r\n    },\r\n  },\r\n  data() {\r\n    return {\r\n      showOnBurgerClicked: true,\r\n    };\r\n  },\r\n};\r\n</script>\r\n<style lang=\"scss\" scoped>\r\n  .hero {\r\n    .navbar {\r\n      background: $primary;\r\n    }\r\n  }\r\n\r\n  .is-hidden-mobile {\r\n    display: none;\r\n  }\r\n\r\n  .navbar {\r\n    .navbar-burger {\r\n      height: auto;\r\n\r\n      span {\r\n        height: 3px;\r\n        width: 30px;\r\n        left: calc(50% - 15px);\r\n\r\n        &:nth-child(1) {\r\n          top: calc(50% - 10px);\r\n        }\r\n\r\n        &:nth-child(3) {\r\n          top: calc(50% + 8px);\r\n        }\r\n      }\r\n    }\r\n\r\n    .page-title {\r\n      h1,\r\n      h2 {\r\n        line-height: 110%;\r\n      }\r\n    }\r\n\r\n    .vertical-separator {\r\n      width: 1px;\r\n      height: 45px;\r\n      background-color: #fff;\r\n      margin-left: rem-calc(15px);\r\n    }\r\n    border-bottom: 5px solid $electric-blue;\r\n  }\r\n</style>\r\n"]}, media: undefined });
 
     };
     /* scoped */
-    var __vue_scope_id__$1 = "data-v-39e693b4";
+    var __vue_scope_id__$1 = "data-v-4152e244";
     /* module identifier */
     var __vue_module_identifier__$1 = undefined;
     /* functional template */
@@ -498,12 +495,20 @@
   //
 
   var script$2 = {
-    name: 'Callout',
-    computed: {
-      message: function message() {
-        return this.$attrs.message ? this.$attrs.message.text : "";
+    name: 'AppFooter',
+    props: {
+      footerList: {
+        type: Array,
+        default : function() {
+          return [
+            {
+              message: "Feedback",
+              href: "https://www.phila.gov",
+              target: "_blank",
+            } ]
+        },
       },
-    }
+    },
   };
 
   /* script */
@@ -514,11 +519,19 @@
     var _vm = this;
     var _h = _vm.$createElement;
     var _c = _vm._self._c || _h;
-    return _c("article", { staticClass: "message is-flyers-orange" }, [
-      _c("div", { class: "message-body" }, [
-        this.message
-          ? _c("p", { domProps: { innerHTML: _vm._s(this.message) } })
-          : _vm._e()
+    return _c("footer", { staticClass: "footer is-primary" }, [
+      _c("div", { staticClass: "has-text-centered" }, [
+        _c(
+          "ul",
+          _vm._l(_vm.footerList, function(item) {
+            return _c("li", [
+              _c("a", { attrs: { href: item.href, target: item.target } }, [
+                _vm._v(" " + _vm._s(item.message) + " ")
+              ])
+            ])
+          }),
+          0
+        )
       ])
     ])
   };
@@ -528,11 +541,11 @@
     /* style */
     var __vue_inject_styles__$2 = function (inject) {
       if (!inject) { return }
-      inject("data-v-278787f4_0", { source: ".message.is-flyers-orange[data-v-278787f4] {\n  background-color: #f0f0f0;\n}\n.message.is-flyers-orange .message-body[data-v-278787f4] {\n  border-color: #fa9200;\n}\n\n/*# sourceMappingURL=Callout.vue.map */", map: {"version":3,"sources":["C:\\Other_Projects\\phila-ui\\src\\components\\Callout\\Callout.vue","Callout.vue"],"names":[],"mappings":"AA6BA;EACA,yBAAA;AC5BA;AD6BA;EC3BE,qBAAqB;AACvB;;AAEA,sCAAsC","file":"Callout.vue","sourcesContent":["<template>\r\n  <article class='message is-flyers-orange'>\r\n    <!-- <div class=\"callout columns small-24\"> -->\r\n    <div :class=\"'message-body'\">\r\n      <p v-if=\"this.message\"\r\n         v-html=\"this.message\"\r\n      />\r\n    </div>\r\n  </article>\r\n</template>\r\n\r\n<script>\r\nexport default {\r\n  name: 'Callout',\r\n  computed: {\r\n    message() {\r\n      return this.$attrs.message ? this.$attrs.message.text : \"\";\r\n    },\r\n  }\r\n};\r\n</script>\r\n\r\n<style lang=\"scss\" scoped>\r\n\r\n.message {\r\n  &.is-flyers-orange {\r\n    background-color: $ghost-gray;\r\n    .message-body {\r\n      border-color: $flyers-orange;\r\n    }\r\n  }\r\n}\r\n\r\n</style>\r\n",".message.is-flyers-orange {\n  background-color: #f0f0f0;\n}\n.message.is-flyers-orange .message-body {\n  border-color: #fa9200;\n}\n\n/*# sourceMappingURL=Callout.vue.map */"]}, media: undefined });
+      inject("data-v-2ccc35ec_0", { source: "#app[data-v-2ccc35ec] {\n  padding-bottom: 46px;\n}\n#app .footer[data-v-2ccc35ec] {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  padding: 0.625rem;\n}\n#app .footer ul[data-v-2ccc35ec] {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#app .footer ul li[data-v-2ccc35ec] {\n  display: inline-block;\n  vertical-align: middle;\n  margin: 0 1rem;\n}\n\n/*# sourceMappingURL=AppFooter.vue.map */", map: {"version":3,"sources":["C:\\Other_Projects\\phila-ui\\src\\components\\AppFooter\\AppFooter.vue","AppFooter.vue"],"names":[],"mappings":"AAmCA;EACA,oBAAA;AClCA;ADmCA;ECjCE,eAAe;EDmCjB,SAAA;EACA,WAAA;EACA,iBAAA;ACjCA;ADmCA;EACA,gBAAA;EACA,UAAA;EACA,SAAA;ACjCA;ADkCA;EACA,qBAAA;EACA,sBAAA;EACA,cAAA;AChCA;;AAEA,wCAAwC","file":"AppFooter.vue","sourcesContent":["<template>\r\n  <footer class=\"footer is-primary\">\r\n    <div class=\"has-text-centered\">\r\n      <ul>\r\n        <li v-for=\"item in footerList\">\r\n          <a :href=item.href :target=item.target> {{ item.message }} </a>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </footer>\r\n</template>\r\n<script>\r\nexport default {\r\n  name: 'AppFooter',\r\n  props: {\r\n    footerList: {\r\n      type: Array,\r\n      default : function() {\r\n        return [\r\n          {\r\n            message: \"Feedback\",\r\n            href: \"https://www.phila.gov\",\r\n            target: \"_blank\",\r\n          },\r\n        ]\r\n      },\r\n    },\r\n  },\r\n}\r\n</script>\r\n<style lang=\"scss\" scoped>\r\n  #app {\r\n    padding-bottom: 46px;\r\n    .footer {\r\n      position: fixed;\r\n      bottom: 0;\r\n      width: 100%;\r\n      padding: rem-calc(10px);\r\n\r\n      ul {\r\n        list-style: none;\r\n        padding: 0;\r\n        margin: 0;\r\n        li {\r\n          display: inline-block;\r\n          vertical-align: middle;\r\n          margin: 0 1rem;\r\n        }\r\n      }\r\n    }\r\n  }\r\n</style>\r\n","#app {\n  padding-bottom: 46px;\n}\n#app .footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  padding: 0.625rem;\n}\n#app .footer ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#app .footer ul li {\n  display: inline-block;\n  vertical-align: middle;\n  margin: 0 1rem;\n}\n\n/*# sourceMappingURL=AppFooter.vue.map */"]}, media: undefined });
 
     };
     /* scoped */
-    var __vue_scope_id__$2 = "data-v-278787f4";
+    var __vue_scope_id__$2 = "data-v-2ccc35ec";
     /* module identifier */
     var __vue_module_identifier__$2 = undefined;
     /* functional template */
@@ -554,32 +567,7 @@
 
   // Import vue component
 
-  // Declare install function executed by Vue.use()
-  component$2.install = function(Vue, settings) {
-    if (component$2.installed) {
-      return;
-    }
-    component$2.installed = true;
-
-    var name = settings.altName ? settings.altName : component$2.name;
-    Vue.component(name, component$2);
-  };
-
-  // Create module definition for Vue.use()
-  var plugin = {
-    install: component$2.install,
-  };
-
-  // Auto-install when vue is found (eg. in browser via <script> tag)
-  var GlobalVue = null;
-  if (typeof window !== 'undefined') {
-    GlobalVue = window.Vue;
-  } else if (typeof global !== 'undefined') {
-    GlobalVue = global.Vue;
-  }
-  if (GlobalVue) {
-    GlobalVue.use(plugin);
-  }
+  prepareForExport(component$2);
 
   //
   //
@@ -1291,9 +1279,9 @@
     }
   };
 
-  exports.AppFooter = component$1;
-  exports.AppHeader = component;
-  exports.Callout = component$2;
+  exports.AppButton = component;
+  exports.AppFooter = component$2;
+  exports.AppHeader = component$1;
   exports.Checkbox = component$3;
   exports.Dropdown = component$5;
   exports.Radio = component$4;
