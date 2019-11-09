@@ -25,5 +25,5 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # NPM_TOKEN: ${{ secrets.NPM_TOKEN }} // We won't release to npm for now.
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
