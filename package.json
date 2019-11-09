@@ -10,6 +10,9 @@
     "watch": "rollup --watch --config build/rollup.config.js",
     "lint": "vue-cli-service lint"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "keywords": [
     "Vue",
     "Vuejs",
