@@ -1,6 +1,6 @@
 {
   "name": "@CityOfPhiladelphia/phila-ui",
-  "version": "0.0.1",
+  "version": "1.1.1",
   "description": "City of Philadelphia Vue App Components and Standards",
   "main": "dist/phila-ui.umd.js",
   "module": "dist/phila-ui.esm.js",
@@ -12,7 +12,7 @@
   },
   "repository": "git@github.com:CityOfPhiladelphia/phila-ui.git",
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/"
   },
   "keywords": [
     "Vue",
