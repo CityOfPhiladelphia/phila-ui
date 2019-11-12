@@ -19,7 +19,7 @@ export default {
         return [
           {
             message: "Feedback",
-            href: "https://www.phila.gov",
+            href: "https://www.phila.gov/feedback",
             target: "_blank",
           },
         ]
