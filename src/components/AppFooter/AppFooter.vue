@@ -2,7 +2,7 @@
   <footer class="footer is-primary">
     <div class="has-text-centered">
       <ul>
-        <li v-for="item in footerList">
+        <li v-for="item in footerLinks">
           <a :href=item.href :target=item.target> {{ item.message }} </a>
         </li>
       </ul>
@@ -13,7 +13,7 @@
 export default {
   name: 'AppFooter',
   props: {
-    footerList: {
+    footerLinks: {
       type: Array,
       default : function() {
         return [
