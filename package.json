@@ -1,5 +1,5 @@
 {
-  "name": "@CityOfPhiladelphia/phila-ui",
+  "name": "@philly/phila-ui",
   "version": "1.2.0",
   "description": "City of Philadelphia Vue App Components and Standards",
   "main": "dist/phila-ui.umd.js",
