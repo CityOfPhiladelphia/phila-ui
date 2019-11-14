@@ -491,7 +491,7 @@ prepareForExport(component$1);
 var script$2 = {
   name: 'AppFooter',
   props: {
-    footerList: {
+    footerLinks: {
       type: Array,
       default : function() {
         return [
@@ -517,7 +517,7 @@ var __vue_render__$2 = function() {
     _c("div", { staticClass: "has-text-centered" }, [
       _c(
         "ul",
-        _vm._l(_vm.footerList, function(item) {
+        _vm._l(_vm.footerLinks, function(item) {
           return _c("li", [
             _c("a", { attrs: { href: item.href, target: item.target } }, [
               _vm._v(" " + _vm._s(item.message) + " ")
@@ -535,11 +535,11 @@ __vue_render__$2._withStripped = true;
   /* style */
   var __vue_inject_styles__$2 = function (inject) {
     if (!inject) { return }
-    inject("data-v-2ccc35ec_0", { source: "#app[data-v-2ccc35ec] {\n  padding-bottom: 46px;\n}\n#app .footer[data-v-2ccc35ec] {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  padding: 0.625rem;\n}\n#app .footer ul[data-v-2ccc35ec] {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#app .footer ul li[data-v-2ccc35ec] {\n  display: inline-block;\n  vertical-align: middle;\n  margin: 0 1rem;\n}\n\n/*# sourceMappingURL=AppFooter.vue.map */", map: {"version":3,"sources":["C:\\Other_Projects\\phila-ui\\src\\components\\AppFooter\\AppFooter.vue","AppFooter.vue"],"names":[],"mappings":"AAmCA;EACA,oBAAA;AClCA;ADmCA;ECjCE,eAAe;EDmCjB,SAAA;EACA,WAAA;EACA,iBAAA;ACjCA;ADmCA;EACA,gBAAA;EACA,UAAA;EACA,SAAA;ACjCA;ADkCA;EACA,qBAAA;EACA,sBAAA;EACA,cAAA;AChCA;;AAEA,wCAAwC","file":"AppFooter.vue","sourcesContent":["<template>\r\n  <footer class=\"footer is-primary\">\r\n    <div class=\"has-text-centered\">\r\n      <ul>\r\n        <li v-for=\"item in footerList\">\r\n          <a :href=item.href :target=item.target> {{ item.message }} </a>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </footer>\r\n</template>\r\n<script>\r\nexport default {\r\n  name: 'AppFooter',\r\n  props: {\r\n    footerList: {\r\n      type: Array,\r\n      default : function() {\r\n        return [\r\n          {\r\n            message: \"Feedback\",\r\n            href: \"https://www.phila.gov\",\r\n            target: \"_blank\",\r\n          },\r\n        ]\r\n      },\r\n    },\r\n  },\r\n}\r\n</script>\r\n<style lang=\"scss\" scoped>\r\n  #app {\r\n    padding-bottom: 46px;\r\n    .footer {\r\n      position: fixed;\r\n      bottom: 0;\r\n      width: 100%;\r\n      padding: rem-calc(10px);\r\n\r\n      ul {\r\n        list-style: none;\r\n        padding: 0;\r\n        margin: 0;\r\n        li {\r\n          display: inline-block;\r\n          vertical-align: middle;\r\n          margin: 0 1rem;\r\n        }\r\n      }\r\n    }\r\n  }\r\n</style>\r\n","#app {\n  padding-bottom: 46px;\n}\n#app .footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  padding: 0.625rem;\n}\n#app .footer ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#app .footer ul li {\n  display: inline-block;\n  vertical-align: middle;\n  margin: 0 1rem;\n}\n\n/*# sourceMappingURL=AppFooter.vue.map */"]}, media: undefined });
+    inject("data-v-33cf85a6_0", { source: "#app[data-v-33cf85a6] {\n  padding-bottom: 46px;\n}\n#app .footer[data-v-33cf85a6] {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  padding: 0.625rem;\n}\n#app .footer ul[data-v-33cf85a6] {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#app .footer ul li[data-v-33cf85a6] {\n  display: inline-block;\n  vertical-align: middle;\n  margin: 0 1rem;\n}\n\n/*# sourceMappingURL=AppFooter.vue.map */", map: {"version":3,"sources":["C:\\Other_Projects\\phila-ui\\src\\components\\AppFooter\\AppFooter.vue","AppFooter.vue"],"names":[],"mappings":"AAmCA;EACA,oBAAA;AClCA;ADmCA;ECjCE,eAAe;EDmCjB,SAAA;EACA,WAAA;EACA,iBAAA;ACjCA;ADmCA;EACA,gBAAA;EACA,UAAA;EACA,SAAA;ACjCA;ADkCA;EACA,qBAAA;EACA,sBAAA;EACA,cAAA;AChCA;;AAEA,wCAAwC","file":"AppFooter.vue","sourcesContent":["<template>\r\n  <footer class=\"footer is-primary\">\r\n    <div class=\"has-text-centered\">\r\n      <ul>\r\n        <li v-for=\"item in footerLinks\">\r\n          <a :href=item.href :target=item.target> {{ item.message }} </a>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </footer>\r\n</template>\r\n<script>\r\nexport default {\r\n  name: 'AppFooter',\r\n  props: {\r\n    footerLinks: {\r\n      type: Array,\r\n      default : function() {\r\n        return [\r\n          {\r\n            message: \"Feedback\",\r\n            href: \"https://www.phila.gov\",\r\n            target: \"_blank\",\r\n          },\r\n        ]\r\n      },\r\n    },\r\n  },\r\n}\r\n</script>\r\n<style lang=\"scss\" scoped>\r\n  #app {\r\n    padding-bottom: 46px;\r\n    .footer {\r\n      position: fixed;\r\n      bottom: 0;\r\n      width: 100%;\r\n      padding: rem-calc(10px);\r\n\r\n      ul {\r\n        list-style: none;\r\n        padding: 0;\r\n        margin: 0;\r\n        li {\r\n          display: inline-block;\r\n          vertical-align: middle;\r\n          margin: 0 1rem;\r\n        }\r\n      }\r\n    }\r\n  }\r\n</style>\r\n","#app {\n  padding-bottom: 46px;\n}\n#app .footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  padding: 0.625rem;\n}\n#app .footer ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#app .footer ul li {\n  display: inline-block;\n  vertical-align: middle;\n  margin: 0 1rem;\n}\n\n/*# sourceMappingURL=AppFooter.vue.map */"]}, media: undefined });
 
   };
   /* scoped */
-  var __vue_scope_id__$2 = "data-v-2ccc35ec";
+  var __vue_scope_id__$2 = "data-v-33cf85a6";
   /* module identifier */
   var __vue_module_identifier__$2 = undefined;
   /* functional template */
