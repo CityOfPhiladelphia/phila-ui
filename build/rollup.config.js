@@ -36,6 +36,7 @@ export default [ 'phila-ui' ].map((name) => ({
             data: `
                 @import "./src/styles/functions.scss";
                 @import "./src/styles/colors.scss";
+                @import "node_modules/bulma/sass/utilities/_all.sass";
             `,
           },
         },
@@ -49,7 +50,7 @@ export default [ 'phila-ui' ].map((name) => ({
       extensions: [ '.scss', '.sass','.css' ],
     }),
     babel({
-      exclude: 'node_modules/**'
+      exclude: 'node_modules/**',
     }),
   ],
 }));
