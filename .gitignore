@@ -64,3 +64,6 @@ typings/
 .DS_Store
 .ssh
 .ssh/*
+
+# Ignore dist folder this is created by the ci process
+dist
