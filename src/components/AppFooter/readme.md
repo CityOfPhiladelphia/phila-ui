@@ -10,4 +10,4 @@ This property accepts:
 
 * A *function*. (e.g `() => { console.log('clicked'); }`)
 * URL String (e.g. `http://phila.gov`)
-* Or a value for _<router-link>_ _:to_ prop, (e.g: `{ name: 'login' }`, `/login`).
+* Or a value for the *:to* prop of *<router-link>* component, (e.g: `{ name: 'login' }`, `/login`).
