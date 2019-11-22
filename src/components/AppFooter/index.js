@@ -7,3 +7,4 @@ prepareForExport(component);
 // To allow use as module (npm/webpack/etc.) export component
 export default component;
 
+// Add a comment
