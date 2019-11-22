@@ -59,7 +59,7 @@ export default {
       left: 10px;
       z-index: 5;
       font-size: 10px;
-      color: #909090;
+      color: $dark-gray;
       font-weight: 300;
       opacity: 0;
     }
