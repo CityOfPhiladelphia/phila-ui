@@ -24,6 +24,6 @@ jobs:
           npm run build
       - name: Test Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN_PHL }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN_PHL }}
         run: npx semantic-release --dry-run
