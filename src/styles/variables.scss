@@ -1,0 +1,44 @@
+@import './colors.scss';
+
+$radius: 0;
+
+$radius-large: 0;
+$notification-padding: 1rem 2.5rem 1rem 1rem;
+$link: $dark-ben-franklin;
+$link-hover: $electric-blue;
+
+// NAVBAR OVERRIDES
+$navbar-item-img-max-height: 75px;
+$navbar-padding-vertical: 0.5rem;
+$navbar-padding-horizontal: 1rem;
+$navbar-background-color: $primary;
+$navbar-item-color: $white;
+$navbar-item-hover-background-color: transparent;
+$navbar-item-hover-color: $electric-blue;
+
+$navbar-dropdown-radius: 0;
+$navbar-dropdown-boxed-radius: 0;
+$navbar-dropdown-boxed-shadow: none;
+
+// FOOTER OVERRIDES
+$footer-background-color: $dark-ben-franklin;
+
+// INPUT OVERRIDES
+$input-background-color: $ghost-gray;
+$input-focus-box-shadow-size: none;
+$input-border-color: transparent;
+$input-hover-border-color: transparent;
+$input-focus-border-color: $electric-blue;
+$input-shadow: none;
+
+// TABS
+$tabs-boxed-link-hover-background-color: none;
+$tabs-link-hover-color: $dark-ben-franklin;
+
+// TABLES
+$table-striped-row-even-background-color: $ghost-gray;
+
+// MODALS
+$modal-content-width: 760px;
+$modal-card-head-padding: 15px;
+$modal-card-body-padding: 15px;
