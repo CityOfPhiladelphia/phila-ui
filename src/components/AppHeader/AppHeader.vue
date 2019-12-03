@@ -104,10 +104,6 @@ export default {
     }
   }
 
-  .is-hidden-mobile {
-    display: none;
-  }
-
   .navbar {
     .navbar-burger {
       height: auto;
