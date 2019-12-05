@@ -19,16 +19,6 @@ a {
   justify-content: space-between !important;
 }
 
-header,
-footer {
-  a {
-    color: #fff;
-    &:hover {
-      color: $electric-blue !important;
-    }
-  }
-}
-
 /** Custom Styles **/
 .table-responsive {
   width: 100%;
