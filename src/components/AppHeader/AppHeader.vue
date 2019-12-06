@@ -10,7 +10,7 @@
         class="container"
       >
         <div class="navbar-brand is-block-mobile">
-          <div class="navbar-item is-block-mobile has-text-centered-mobile">
+          <div class="navbar-item is-block-mobile phl-logo">
             <a
               v-bind="appLogoLink"
               class="is-inline-block"
@@ -26,7 +26,10 @@
           <div
             class="navbar-item is-block-mobile has-text-centered-mobile"
           >
-            <a :href="appLink">
+            <a
+              class="phl-app-title"
+              :href="appLink"
+            >
               <h1 class="is-size-5">
                 {{ appTitle }}
               </h1>
@@ -96,7 +99,6 @@ export default {
     // IE vertical align hack
     // height: 73px;
     min-height: 73px;
-
     .navbar-burger {
       span {
         height: 2px;
@@ -115,9 +117,23 @@ export default {
         background: $white;
       }
     }
-
-    a {
+    a.phl-app-title {
       color: inherit;
+      &:hover {
+        color: $electric-blue;
+      }
+    }
+  }
+  @include until($tablet) {
+    .navbar-item {
+      &.phl-logo {
+        margin: 8.5px 13.5px;
+      }
+      img {
+        max-height: 40px !important;
+        width: auto;
+      }
+      margin: 5px 0;
     }
   }
 </style>
