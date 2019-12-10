@@ -1,6 +1,6 @@
 {
   "name": "@CityOfPhiladelphia/phila-ui",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "City of Philadelphia Vue App Components and Standards",
   "main": "dist/phila-ui.umd.js",
   "module": "dist/phila-ui.esm.js",
