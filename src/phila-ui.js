@@ -2,6 +2,7 @@
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 
+import Callout from './components/Callout';
 import Checkbox from './components/Inputs/Checkbox';
 import Radio from './components/Inputs/Radio';
 import Dropdown from './components/Inputs/Dropdown';
@@ -30,7 +31,7 @@ const install = function(Vue, settings = {}) {
 export {
   AppHeader,
   AppFooter,
-
+  Callout,
   Checkbox,
   Radio,
   Dropdown,
