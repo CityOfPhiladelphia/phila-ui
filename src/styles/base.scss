@@ -48,6 +48,34 @@ a {
   }
 }
 
+button.button {
+  justify-content: center;
+  padding: 0px 1rem;
+  height: 42px;
+  font-weight: $weight-semibold;
+  background-color: $electric-blue;
+  border-color: $electric-blue;
+  color: $dark-gray;
+  text-transform: uppercase;
+
+  &:hover {
+    background-color: $dark-gray;
+    border-color: $dark-gray;
+    color: #fff;
+  }
+
+  &:disabled {
+    background-color: $sidewalk;
+    border-color: $sidewalk;
+    color: $dark-gray;
+    opacity: 0.8;
+  }
+
+  @include until($tablet) {
+    width: 100%;
+  }
+}
+
 table {
   &.is-align-middle {
     td,
