@@ -24,13 +24,6 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import i18n from './i18n';
-Vue.use(i18n);
-// Set Language
-if (localStorage.getItem('lang')) {
-  i18n.locale = localStorage.getItem('lang');
-}
 
 export default {
   name: 'LangSelector',
