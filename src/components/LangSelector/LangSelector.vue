@@ -85,6 +85,13 @@ export default {
   padding-right: 5px;
 }
 
+.control-container {
+    display: inline-flex;
+    position: absolute;
+    right: 0;
+    top: 12px;
+}
+
 .select select, .fa-globe {
   background-color: transparent;
   opacity: 1.0;
