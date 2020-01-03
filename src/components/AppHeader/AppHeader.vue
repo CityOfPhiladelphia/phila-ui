@@ -10,7 +10,7 @@
         class="container"
       >
         <div class="navbar-brand is-block-mobile">
-          <div class="navbar-item is-block-mobile has-text-centered-mobile">
+          <div class="navbar-item is-block-mobile phl-logo">
             <a
               v-bind="appLogoLink"
               class="is-inline-block"
@@ -121,6 +121,9 @@ export default {
   }
   @include until($tablet) {
     .navbar-item {
+      &.phl-logo {
+        margin: 8.5px 13.5px;
+      }
       img {
         max-height: 40px !important;
         width: auto;
