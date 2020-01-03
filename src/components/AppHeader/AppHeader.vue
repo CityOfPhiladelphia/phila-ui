@@ -115,7 +115,6 @@ export default {
         background: $white;
       }
     }
-
     a {
       color: inherit;
     }
