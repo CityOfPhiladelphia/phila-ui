@@ -65,18 +65,6 @@ table {
     position: fixed;
     width: 100%;
     left: 0;
-
-    a {
-      color: #fff;
-    }
-  
-    .button {
-      &.router-link-active,
-      &.is-active {
-        background: $bell-yellow;
-        border-color: $bell-yellow;
-      }
-    }
   }
 
   header {

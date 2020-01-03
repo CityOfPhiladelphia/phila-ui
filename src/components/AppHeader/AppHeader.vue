@@ -26,7 +26,10 @@
           <div
             class="navbar-item is-block-mobile has-text-centered-mobile"
           >
-            <a :href="appLink">
+            <a
+              class="phl-app-title"
+              :href="appLink"
+            >
               <h1 class="is-size-5">
                 {{ appTitle }}
               </h1>
@@ -115,8 +118,11 @@ export default {
         background: $white;
       }
     }
-    a {
+    a.phl-app-title {
       color: inherit;
+      &:hover {
+        color: $electric-blue;
+      }
     }
   }
   @include until($tablet) {

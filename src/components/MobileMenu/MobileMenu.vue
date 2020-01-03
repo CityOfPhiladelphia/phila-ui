@@ -79,7 +79,6 @@ export default {
       }
     }
     .mobile-menu {
-      display: block;
       background: none;
       position: fixed;
       z-index: 11;
@@ -89,28 +88,19 @@ export default {
       height: 100vh;
       width: 100vw;
       padding: 0;
+
+      // Centering the mobile menu buttons (links)
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
     }
   }
   @include until($tablet) {
     .navbar-brand {
       .is-block-mobile {
         padding: 0;
-      }
-    }
-    .mobile-menu {
-      .navbar-item {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        text-align: center;
-
-        padding: 0;
-        height: 100%;
-
-        .button {
-          align-self: center;
-          margin: 10px 0;
-        }
       }
     }
   }
