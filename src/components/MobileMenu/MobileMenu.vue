@@ -50,11 +50,9 @@ export default {
     }
     .navbar-burger {
       z-index: 12;
-      width: 50px;
-      height: 50px;
       position: absolute;
-      right: 0.5rem;
-      top: 0.5rem;
+      top: 0;
+      right: 0;
       span {
         height: 3px;
         width: 24px;
@@ -79,15 +77,6 @@ export default {
           }
         }
       }
-    }
-    .navbar-item {
-      img {
-        max-height: 40px !important;
-        width: auto;
-      }
-      background-color: $primary;
-      text-align: center;
-      min-width: 150px;
     }
     .mobile-menu {
       display: block;

@@ -119,4 +119,13 @@ export default {
       color: inherit;
     }
   }
+  @include until($tablet) {
+    .navbar-item {
+      img {
+        max-height: 40px !important;
+        width: auto;
+      }
+      margin: 5px 0;
+    }
+  }
 </style>
