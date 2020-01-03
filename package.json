@@ -11,6 +11,9 @@
     "lint": "vue-cli-service lint"
   },
   "repository": "git@github.com:CityOfPhiladelphia/phila-ui.git",
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "Vue",
     "Vuejs",
