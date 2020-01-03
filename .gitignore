@@ -68,3 +68,4 @@ typings/
 # Ignore dist folder this is created by the ci process
 dist
 dist/
+dist/*
