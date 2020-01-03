@@ -136,16 +136,4 @@ export default {
       margin: 5px 0;
     }
   }
-  @include until($tablet) {
-    .navbar-item {
-      &.phl-logo {
-        margin: 8.5px 13.5px;
-      }
-      img {
-        max-height: 40px !important;
-        width: auto;
-      }
-      margin: 5px 0;
-    }
-  }
 </style>
