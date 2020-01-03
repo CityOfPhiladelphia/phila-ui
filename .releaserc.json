@@ -8,7 +8,8 @@
       "preset": "conventionalcommits"
     }],
     ["@semantic-release/npm", {
-      "tarballDir": "dist"
+      "tarballDir": "dist",
+      "allowSameVersion": true
     }],
     ["@semantic-release/git", {
       "assets": ["dist/**/*.{js,css}", "docs", "package.json"],
