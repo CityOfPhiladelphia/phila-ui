@@ -37,45 +37,16 @@
               </h2>
             </a>
           </div>
-          <a
-            :aria-expanded="!showOnBurgerClicked"
-            :aria-hidden="showOnBurgerClicked"
-            :class="{ 'is-active': !showOnBurgerClicked }"
-            role="button"
-            class="navbar-burger burger"
-            aria-label="menu"
-            data-target="navbarBasicExample"
-            @click="showOnBurgerClicked = !showOnBurgerClicked"
-          >
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-          </a>
+
+          <slot name="mobile-menu"></slot>
         </div>
-        <!-- Menu Desktop -->
-        <!-- <div
-          class="navbar-menu is-hidden-mobile"
-        >
-          <slot />
-        </div> -->
+
         <div class="navbar-menu is-hidden-mobile">
           <div class="navbar-end">
             <slot />
           </div>
         </div>
       </div>
-
-      <!-- Menu Mobile -->
-      <transition name="slide-in-out">
-        <div
-          v-show="!showOnBurgerClicked"
-          :aria-expanded="!showOnBurgerClicked"
-          :aria-hidden="showOnBurgerClicked"
-          class="navbar-menu mobile-menu is-hidden-desktop"
-        >
-          <slot />
-        </div>
-      </transition>
     </nav>
   </header>
 </template>
@@ -115,26 +86,15 @@ export default {
       default: true,
     },
   },
-  data() {
-    return {
-      showOnBurgerClicked: true,
-    };
-  },
-  watch: {
-    '$route' () {
-      this.showOnBurgerClicked = true;
-    },
-  },
 };
 </script>
 <style lang="scss" scoped>
   .header {
-    background: $primary;
     border-bottom: 5px solid $electric-blue;
   }
   .navbar {
     // IE vertical align hack
-    height: 73px;
+    // height: 73px;
     min-height: 73px;
 
     .navbar-burger {
@@ -143,8 +103,8 @@ export default {
       }
     }
     h1, h2 {
-      font-family: 'Montserrat', 'Tahoma', sans-serif;
-      font-weight: 400;
+      font-family: $family-secondary;
+      font-weight: $weight-normal;
     }
     .navbar-separator {
       padding-left: 0;
@@ -152,96 +112,12 @@ export default {
       span {
         width: 1px;
         height: 45px;
-        background: #fff;
+        background: $white;
       }
     }
 
-    @include until($tablet) {
-      // Fix Margin
-      .navbar-brand {
-        padding: 1px 0;
-      }
-      .navbar-burger {
-        z-index: 12;
-        position: fixed !important;
-        bottom: 20px;
-        right: 10px;
-        top: auto;
-        background-color: $electric-blue;
-        box-shadow: 0px 0px 2px $dark-gray;
-        border-radius: 100%;
-        width: 50px;
-        // border: 1px solid $dark-gray;
-        height: 50px;
-        span {
-          color: $dark-gray;
-        }
-      }
-      .navbar-item {
-        img {
-          max-height: 40px !important;
-          width: auto;
-        }
-        background-color: #0F4D89 !important;
-        text-align: center;
-        margin: 5px 0;
-        min-width: 150px;
-      }
-      .mobile-menu {
-        display: block;
-        background: none;
-        position: fixed;
-        z-index: 11;
-        top: 0;
-        left: 0;
-        background-color: $primary;
-        height: 100vh;
-        width: 100vw;
-        padding: 0;
-      }
+    a {
+      color: inherit;
     }
-  }
-</style>
-
-<style lang="scss">
-  @include until($tablet) {
-    .navbar-brand {
-      .is-block-mobile {
-        padding: 0;
-      }
-    }
-    .mobile-menu {
-      .navbar-item {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        text-align: center;
-
-        padding: 0;
-        height: 100%;
-
-        .button {
-          align-self: center;
-          margin: 10px 0;
-        }
-      }
-    }
-  }
-
-  .slide-in-out-leave-active,
-  .slide-in-out-enter-active {
-    transition: all 0.25s; // trick
-  }
-
-  .slide-in-out-leave,
-  .slide-in-out-enter-to {
-    opacity: 1; // trick
-    transform: translate(0%);
-  }
-
-  .slide-in-out-leave-to,
-  .slide-in-out-enter {
-    opacity: 0; // trick
-    transform: translate(calc(100% + 10px));
   }
 </style>

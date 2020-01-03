@@ -1,6 +1,7 @@
 // Components
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
+import MobileMenu from './components/MobileMenu';
 
 import Callout from './components/Callout';
 import Checkbox from './components/Inputs/Checkbox';
@@ -31,6 +32,7 @@ const install = function(Vue, settings = {}) {
 export {
   AppHeader,
   AppFooter,
+  MobileMenu,
   Callout,
   Checkbox,
   Radio,
