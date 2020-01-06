@@ -56,3 +56,38 @@ table {
     }
   }
 }
+
+/** LAYOUT SETTINGS **/
+#app {
+  padding: 78px 0 46px 0;
+
+  > header, > footer {
+    position: fixed;
+    width: 100%;
+    left: 0;
+  }
+
+  header {
+    z-index: 10;
+    top: 0;
+  }
+
+  footer {
+    z-index: 9;
+    bottom: 0;
+  }
+
+  > main {
+    width: 100%;
+    display: block;
+  }
+
+  @include until($tablet) {
+    padding-top: 135px;
+    > main {
+      display: block;
+      padding: 0 1rem 0;
+    }
+  }
+}
+/**********************/

@@ -1,57 +1,56 @@
 <template>
-  <header class="navbar is-primary">
-    <div
-      class="level container"
-      :class="{ 'is-fluid': fluid }"
+  <header class="header">
+    <nav
+      class="navbar is-dark-ben-franklin"
+      role="navigation"
+      aria-label="main navigation"
     >
-      <div class="level-left">
-        <div class="level-item navbar-brand is-marginless">
-          <div class="navbar-item is-fullwidth">
+      <div
+        :class="{ 'is-fluid': fluid }"
+        class="container"
+      >
+        <div class="navbar-brand is-block-mobile">
+          <div class="navbar-item is-block-mobile phl-logo">
             <a
               v-bind="appLogoLink"
+              class="is-inline-block"
             >
               <img
                 v-bind="appLogoImage"
               >
             </a>
-            <span
-              class="navbar-burger burger"
-              data-target="navMenu"
-              aria-label="menu"
-              :aria-hidden="!showOnBurgerClicked"
-              @click="showOnBurgerClicked = !showOnBurgerClicked"
-            >
-              <span />
-              <span />
-              <span />
-            </span>
           </div>
-        </div>
-        <span class="level-item vertical-separator is-hidden-mobile" />
-        <div class="level-item navbar-item">
-          <div class="page-title">
-            <a :href="appLink">
-              <h1 class="is-size-4">
+          <div class="navbar-item navbar-separator is-hidden-mobile">
+            <span />
+          </div>
+          <div
+            class="navbar-item is-block-mobile has-text-centered-mobile"
+          >
+            <a
+              class="phl-app-title"
+              :href="appLink"
+            >
+              <h1 class="is-size-5">
                 {{ appTitle }}
               </h1>
               <h2
                 v-if="appSubtitle"
-                class="is-size-5"
+                class="is-size-6"
               >{{ appSubtitle }}
               </h2>
             </a>
           </div>
+
+          <slot name="mobile-menu"></slot>
+        </div>
+
+        <div class="navbar-menu is-hidden-mobile">
+          <div class="navbar-end">
+            <slot />
+          </div>
         </div>
       </div>
-      <div
-        class="level-right"
-        :class="{ 'is-hidden-mobile': showOnBurgerClicked }"
-      >
-        <div class="level-item">
-          <slot />
-        </div>
-      </div>
-    </div>
+    </nav>
   </header>
 </template>
 <script>
@@ -70,7 +69,7 @@ export default {
       default: () => ({
         src: "https://standards.phila.gov/img/logo/city-of-philadelphia-yellow-white.png",
         alt: "City of Philadelphia logo",
-        width: 190,
+        width: 170,
       }),
     },
     appTitle: {
@@ -90,52 +89,51 @@ export default {
       default: true,
     },
   },
-  data() {
-    return {
-      showOnBurgerClicked: true,
-    };
-  },
 };
 </script>
 <style lang="scss" scoped>
-  .hero {
-    .navbar {
-      background: $primary;
+  .header {
+    border-bottom: 5px solid $electric-blue;
+  }
+  .navbar {
+    // IE vertical align hack
+    // height: 73px;
+    min-height: 73px;
+    .navbar-burger {
+      span {
+        height: 2px;
+      }
+    }
+    h1, h2 {
+      font-family: $family-secondary;
+      font-weight: $weight-normal;
+    }
+    .navbar-separator {
+      padding-left: 0;
+      padding-right: 0;
+      span {
+        width: 1px;
+        height: 45px;
+        background: $white;
+      }
+    }
+    a.phl-app-title {
+      color: inherit;
+      &:hover {
+        color: $electric-blue;
+      }
     }
   }
-
-  .navbar {
-    .navbar-burger {
-      height: auto;
-
-      span {
-        height: 3px;
-        width: 30px;
-        left: calc(50% - 15px);
-
-        &:nth-child(1) {
-          top: calc(50% - 10px);
-        }
-
-        &:nth-child(3) {
-          top: calc(50% + 8px);
-        }
+  @include until($tablet) {
+    .navbar-item {
+      &.phl-logo {
+        margin: 8.5px 13.5px;
       }
-    }
-
-    .page-title {
-      h1,
-      h2 {
-        line-height: 110%;
+      img {
+        max-height: 40px !important;
+        width: auto;
       }
+      margin: 5px 0;
     }
-
-    .vertical-separator {
-      width: 1px;
-      height: 45px;
-      background-color: #fff;
-      margin-left: rem-calc(15px);
-    }
-    border-bottom: 5px solid $electric-blue;
   }
 </style>
