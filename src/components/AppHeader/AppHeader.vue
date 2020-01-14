@@ -1,7 +1,8 @@
 <template>
   <header class="header">
     <nav
-      class="navbar is-dark-ben-franklin"
+      :class="isSticky ? 'is-fixed-top' : ''"
+      class="navbar main-nav is-dark-ben-franklin"
       role="navigation"
       aria-label="main navigation"
     >
@@ -41,7 +42,7 @@
             </a>
           </div>
 
-          <slot name="mobile-menu"></slot>
+          <slot name="mobile-menu" />
         </div>
 
         <div class="navbar-menu is-hidden-mobile">
@@ -88,11 +89,15 @@ export default {
       type: Boolean,
       default: true,
     },
+    isSticky: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>
 <style lang="scss" scoped>
-  .header {
+  .header .main-nav {
     border-bottom: 5px solid $electric-blue;
   }
   .navbar {
