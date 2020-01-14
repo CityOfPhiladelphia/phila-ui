@@ -2,7 +2,7 @@
   <header class="header">
     <nav
       :class="isSticky ? 'is-fixed-top' : ''"
-      class="navbar is-dark-ben-franklin"
+      class="navbar main-nav is-dark-ben-franklin"
       role="navigation"
       aria-label="main navigation"
     >
@@ -97,7 +97,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-  .header > nav {
+  .header .main-nav {
     border-bottom: 5px solid $electric-blue;
   }
   .navbar {
