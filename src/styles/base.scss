@@ -20,17 +20,19 @@ a {
 }
 
 /** Header Styles **/
-
 h1, h2, h3, h4, h5, h6 {
-  &.heading-with-background {
-    margin-bottom: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    color: $black;
-    background-color: $ghost-gray;
-  }
-  &.heading-with-contrast{
-    border-bottom: 10px solid $ben-franklin-blue;
+  &.title {
+    line-height: 1.4;
+    &.heading-with-background {
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      background-color: $ghost-gray;
+    }
+    &.heading-with-contrast {
+      margin-bottom: .5rem;
+      border-bottom: 10px solid $ben-franklin-blue;
+    }
   }
 }
 
