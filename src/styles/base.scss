@@ -64,6 +64,32 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.button {
+  padding: 0px 1rem;
+  font-weight: $weight-semibold;
+  background-color: $electric-blue;
+  border-color: $electric-blue;
+  text-transform: uppercase;
+  &:hover {
+    background-color: $dark-gray;
+    border-color: $dark-gray;
+    color: $white;
+  }
+
+  &:disabled {
+    background-color: $sidewalk;
+    border-color: $sidewalk;
+    opacity: 0.8;
+    &:hover {
+      color: $dark-gray;
+    }
+  }
+
+  @include until($tablet) {
+    width: 100%;
+  }
+}
+
 table {
   &.is-align-middle {
     td,
