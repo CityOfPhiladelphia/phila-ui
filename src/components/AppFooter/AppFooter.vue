@@ -76,7 +76,6 @@ export default {
       position: fixed;
       bottom: 0;
       width: 100%;
-      padding: rem-calc(10px);
       ul {
         list-style: none;
         padding: 0;
@@ -85,6 +84,12 @@ export default {
           display: inline-block;
           vertical-align: middle;
           margin: 0 1rem;
+          a {
+            color: inherit;
+            &:hover {
+              color: $electric-blue;
+            }
+          }
         }
       }
     }

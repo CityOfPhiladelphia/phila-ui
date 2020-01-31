@@ -1,4 +1,4 @@
-// GLOBAL TO LINKS
+/** GLOBAL TO LINKS **/
 a {
   transition: all 0.25s ease;
 }
@@ -17,6 +17,22 @@ a {
 }
 .is-justified-space-between {
   justify-content: space-between !important;
+}
+
+/** Header Styles **/
+h1, h2, h3, h4, h5, h6 {
+  &.title {
+    &.heading-with-background {
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      background-color: $ghost-gray;
+    }
+    &.heading-with-contrast {
+      margin-bottom: .5rem;
+      border-bottom: 10px solid $ben-franklin-blue;
+    }
+  }
 }
 
 /** Custom Styles **/
@@ -84,3 +100,38 @@ table {
     }
   }
 }
+
+/** LAYOUT SETTINGS **/
+#app {
+  padding: 78px 0 46px 0;
+
+  > header, > footer {
+    position: fixed;
+    width: 100%;
+    left: 0;
+  }
+
+  header {
+    z-index: 10;
+    top: 0;
+  }
+
+  footer {
+    z-index: 9;
+    bottom: 0;
+  }
+
+  > main {
+    width: 100%;
+    display: block;
+  }
+
+  @include until($tablet) {
+    padding-top: 135px;
+    > main {
+      display: block;
+      padding: 0 1rem 0;
+    }
+  }
+}
+/**********************/
