@@ -64,27 +64,25 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-button.button {
-  justify-content: center;
+.button {
   padding: 0px 1rem;
-  height: 42px;
   font-weight: $weight-semibold;
   background-color: $electric-blue;
   border-color: $electric-blue;
-  color: $dark-gray;
   text-transform: uppercase;
-
   &:hover {
     background-color: $dark-gray;
     border-color: $dark-gray;
-    color: #fff;
+    color: $white;
   }
 
   &:disabled {
     background-color: $sidewalk;
     border-color: $sidewalk;
-    color: $dark-gray;
     opacity: 0.8;
+    &:hover {
+      color: $dark-gray;
+    }
   }
 
   @include until($tablet) {
