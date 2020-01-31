@@ -5,7 +5,8 @@
   >
     <select
       v-bind="$attrs"
-      @input="$emit('input', $event.target.value)"
+      @on="$listeners"
+      @change="$emit('input', $event.target.value)"
     >
       <option
         v-if="defaultOption !== null"
