@@ -30,7 +30,7 @@ Vue.use(InputText);
 - ```npm install```
 - ```npm watch```
 - Open another command line instance and run ```npm link```
-- Clone [https://github.com/CityOfPhiladelphia/phila-vue-boilerplate](phila-vue-boilerplate)
+- Clone [phila-vue-boilerplate](https://github.com/CityOfPhiladelphia/phila-vue-boilerplate)
 - Go into repo's folder
 - ```npm uninstall @phila/phila-ui``` to remove the default package
 - ```npm install```
