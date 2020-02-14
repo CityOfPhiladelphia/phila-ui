@@ -28,7 +28,7 @@ Vue.use(InputText);
 - Clone repo
 - Go into repo's directory
 - ```npm install```
-- ```npm watch```
+- ```npm run watch```
 - Open another command line instance and run ```npm link```
 - Clone [phila-vue-boilerplate](https://github.com/CityOfPhiladelphia/phila-vue-boilerplate)
 - Go into repo's folder
