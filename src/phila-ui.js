@@ -3,6 +3,7 @@ import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 import MobileMenu from './components/MobileMenu';
 
+import ButtonLight from './components/Buttons';
 import Callout from './components/Callout';
 import Checkbox from './components/Inputs/Checkbox';
 import Radio from './components/Inputs/Radio';
@@ -32,6 +33,7 @@ const install = function(Vue, settings = {}) {
 export {
   AppHeader,
   AppFooter,
+  ButtonLight,
   MobileMenu,
   Callout,
   Checkbox,
