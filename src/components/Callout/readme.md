@@ -1,21 +1,20 @@
-# Callout
+### Examples
+Use color classes from phila-ui or bulma.
 
-Use this component for messages and warnings. 
-
-## Options
-
-Use color classes from Phila-ui and Bulma to change the border and background. 
-
+**Example of a success message using a phila-ui class:**
+```jsx
+  <callout message="A success message" class="is-kelly-drive-green" />
 ```
-  <article class="message is-flyers-orange">
-    <div :class="'message-body'">
-      <div>
-        Sample Message
-      </div>
-    </div>
-  </article>
-  ```
 
-### Disclaimer: 
+**Example of an error message using a bulma class:**
+```jsx
+  <callout message="An error message" class="is-danger" />
+```
 
+**Example of an info message using a bulma class:**
+```jsx
+  <callout message="An info message" class="is-info" />
+```
+
+### Disclaimer:
 Uses v-html. Be careful with what content that you pass to the component. Do not use for rendering content to the url.

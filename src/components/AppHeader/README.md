@@ -1,11 +1,8 @@
-# AppHeader Component
-
-## Props
-_Some documentation here_
-
-## Slots
-### Default
-Default Slot for `Desktop` menu.
-
-### mobile-menu
-Mobile menu slot, you can use [MobileMenu](../MobileMenu/)
+### Examples
+**A simple header with application title and subtitle**
+```vue
+<app-header
+  appTitle="My Application"
+  appSubtitle="something about my app"
+/>
+```
