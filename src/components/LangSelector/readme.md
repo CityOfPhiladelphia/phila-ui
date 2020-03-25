@@ -5,7 +5,7 @@ Use this component for projects that need have i18n internationalization and nee
 ## Dependencies
 
 i18n needs to be installed within your project with locales for this component to function. 
-(See vue-i18n documentation for more info)
+See vue-i18n documentation for more info at http://kazupon.github.io/vue-i18n/
 
 ## Languages
 
