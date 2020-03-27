@@ -1,4 +1,5 @@
 @import './colors.scss';
+@import './derived-colors.scss';
 @import './fonts.scss';
 
 $family-sans-serif: 'Open Sans', BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -9,14 +10,12 @@ $radius: 0;
 
 $radius-large: 0;
 $notification-padding: 1rem 2.5rem 1rem 1rem;
-$link: $dark-ben-franklin;
-$link-hover: $electric-blue;
 
 // NAVBAR OVERRIDES
 $navbar-item-img-max-height: 75px;
 $navbar-padding-vertical: 0.5rem;
 $navbar-padding-horizontal: 1rem;
-$navbar-background-color: $primary;
+$navbar-background-color: $dark-ben-franklin;
 $navbar-item-color: $white;
 $navbar-item-hover-background-color: transparent;
 $navbar-item-hover-color: $electric-blue;

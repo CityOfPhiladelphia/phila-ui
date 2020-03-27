@@ -1,103 +1,35 @@
 // City of Philadelphia Colors
-@import "node_modules/bulma/sass/utilities/functions.sass";
-
 $ben-franklin-blue: hsl(211, 73%, 48%);
-$ben-franklin-blue-invert: findColorInvert($ben-franklin-blue);
-
 $dark-ben-franklin: hsl(211, 81%, 31%);
-$dark-ben-franklin-invert: findColorInvert($dark-ben-franklin);
-
 $light-ben-franklin: hsl(211, 100%, 79%);
-$light-ben-franklin-invert: findColorInvert($light-ben-franklin);
-
 $electric-blue: hsl(192, 93%, 56%);
-$electric-blue-invert: findColorInvert($electric-blue);
-
 $bell-yellow: hsl(48, 90%, 51%);
-$bell-yellow-invert: findColorInvert($bell-yellow);
-
 $light-bell: hsl(50, 100%, 82%);
-$light-bell-invert: findColorInvert($light-bell);
-
 $pride-purple: hsl(285, 100%, 39%);
-$pride-purple-invert: findColorInvert($pride-purple);
-
 $punk-pink: hsl(340, 73%, 51%);
-$punk-pink-invert: findColorInvert($punk-pink);
-
 $phanatic-green: hsl(122, 39%, 37%);
-$phanatic-green-invert: findColorInvert($phanatic-green);
-
 $kelly-drive-green: hsl(114, 48%, 53%);
-$kelly-drive-green-invert: findColorInvert($kelly-drive-green);
-
 $light-kelly-drive: hsl(113, 71%, 82%);
-$light-kelly-drive-invert: findColorInvert($light-kelly-drive);
-
 $flyers-orange: hsl(35, 100%, 49%);
-$flyers-orange-invert: findColorInvert($flyers-orange);
-
 $love-park-red: hsl(14, 100%, 40%);
-$love-park-red-invert: findColorInvert($love-park-red);
-
 $light-red: hsl(0, 96%, 91%);
-$light-red-invert: findColorInvert($light-red);
-
 $light-blue: hsl(208, 95%, 93%);
-$light-blue-invert: findColorInvert($light-blue);
-
 $dark-gray: hsl(0, 0%, 27%);
-$dark-gray-invert: findColorInvert($dark-gray);
-
 $medium-gray: hsl(0, 0%, 63%);
-$medium-gray-invert: findColorInvert($medium-gray);
-
 $sidewalk: hsl(0, 0%, 81%);
-$sidewalk-invert: findColorInvert($sidewalk);
-
 $ghost-gray: hsl(0, 0%, 94%);
-$ghost-gray-invert: findColorInvert($ghost-gray);
-
-$custom-colors: (
-  "ben-franklin-blue": ($ben-franklin-blue, $ben-franklin-blue-invert),
-  "dark-ben-franklin": ($dark-ben-franklin, $dark-ben-franklin-invert),
-  "light-ben-franklin": ($light-ben-franklin, $light-ben-franklin-invert),
-  "electric-blue": ($electric-blue, $electric-blue-invert),
-  "bell-yellow": ($bell-yellow, $bell-yellow-invert),
-  "light-bell": ($light-bell, $light-bell-invert),
-  "pride-purple": ($pride-purple, $pride-purple-invert),
-  "punk-pink": ($punk-pink, $punk-pink-invert),
-  "phanatic-green": ($phanatic-green, $phanatic-green-invert),
-  "kelly-drive-green": ($kelly-drive-green, $kelly-drive-green-invert),
-  "light-kelly-drive": ($light-kelly-drive, $light-kelly-drive-invert),
-  "flyers-orange": ($flyers-orange, $flyers-orange-invert),
-  "love-park-red": ($love-park-red, $love-park-red-invert),
-  "light-red": ($light-red, $light-red-invert),
-  "light-blue": ($light-blue, $light-blue-invert),
-  "dark-gray": ($dark-gray, $dark-gray-invert),
-  "medium-gray": ($medium-gray, $medium-gray-invert),
-  "sidewalk": ($sidewalk, $sidewalk-invert),
-  "ghost-gray": ($ghost-gray, $ghost-gray-invert)
-);
 
 $white: hsl(0, 0%, 100%);
 $black: hsl(0, 0%, 0%);
 
-$orange:       $flyers-orange !default;
-$yellow:       $bell-yellow !default;
-$green:        $kelly-drive-green !default;
-$turquoise:    $dark-ben-franklin !default;
-$cyan:         $ben-franklin-blue !default;
-$blue:         $light-ben-franklin !default;
-$purple:       $pride-purple !default;
-$red:          $love-park-red !default;
-
-// Derived Colors
-$primary: $dark-ben-franklin !default;
-$info: $light-ben-franklin !default;
-$success: $green !default;
-$warning: $bell-yellow !default;
-$danger: $love-park-red !default;
+$orange: $flyers-orange !default;
+$yellow: $light-bell !default;
+$green: $light-kelly-drive !default;
+$turquoise: $dark-ben-franklin !default;
+$cyan: $light-ben-franklin !default;
+$blue: $ben-franklin-blue !default;
+$purple: $pride-purple !default;
+$red: $love-park-red !default;
 
 $dark: $dark-gray !default;
 $title-color: $dark;
