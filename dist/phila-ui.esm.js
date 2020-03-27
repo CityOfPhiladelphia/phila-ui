@@ -54,18 +54,17 @@
 //
 //
 //
+//
+
+/**
+ * This is the main application header.
+ */
 var script = {
   name: 'AppHeader',
   props: {
-    appLogoLink: {
-      type: Object,
-      "default": function _default() {
-        return {
-          href: "https://www.phila.gov",
-          target: "_blank"
-        };
-      }
-    },
+    /**
+     * The application logo. By default the City logo is used, however this could be used to display a department's logo.
+    */
     appLogoImage: {
       type: Object,
       "default": function _default() {
@@ -76,22 +75,55 @@ var script = {
         };
       }
     },
+
+    /**
+     * The logo link
+    */
+    appLogoLink: {
+      type: Object,
+      "default": function _default() {
+        return {
+          href: "https://www.phila.gov",
+          target: "_blank"
+        };
+      }
+    },
+
+    /**
+     * The application's title/name
+    */
     appTitle: {
       type: String,
       "default": ""
     },
+
+    /**
+     * The application's subtitle
+    */
     appSubtitle: {
       type: String,
       "default": ""
     },
+
+    /**
+     * The application's link. By default it links to the root.
+    */
     appLink: {
       type: String,
       "default": "/"
     },
+
+    /**
+     * Allows the header elements (logo, title, navigation...) to expand with the window width, or stay in the center
+    */
     fluid: {
       type: Boolean,
       "default": true
     },
+
+    /**
+     * Sticks the header to the top of the page
+    */
     isSticky: {
       type: Boolean,
       "default": false
@@ -346,11 +378,11 @@ __vue_render__._withStripped = true;
   /* style */
   const __vue_inject_styles__ = function (inject) {
     if (!inject) return
-    inject("data-v-4b5b5dbc_0", { source: "@keyframes spinAround-data-v-4b5b5dbc {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\n.header .main-nav[data-v-4b5b5dbc] {\n  border-bottom: 5px solid #26cdf7;\n}\n.navbar[data-v-4b5b5dbc] {\n  min-height: 73px;\n}\n.navbar .navbar-burger span[data-v-4b5b5dbc] {\n  height: 2px;\n}\n.navbar h1[data-v-4b5b5dbc], .navbar h2[data-v-4b5b5dbc] {\n  font-family: BlinkMacSystemFont, -apple-system, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n  font-weight: 400;\n}\n.navbar .navbar-separator[data-v-4b5b5dbc] {\n  padding-left: 0;\n  padding-right: 0;\n}\n.navbar .navbar-separator span[data-v-4b5b5dbc] {\n  width: 1px;\n  height: 45px;\n  background: white;\n}\n.navbar a.phl-app-title[data-v-4b5b5dbc] {\n  color: inherit;\n}\n.navbar a.phl-app-title[data-v-4b5b5dbc]:hover {\n  color: #26cdf7;\n}\n@media screen and (max-width: 768px) {\n.navbar-item[data-v-4b5b5dbc] {\n    margin: 5px 0;\n}\n.navbar-item.phl-logo[data-v-4b5b5dbc] {\n    margin: 8.5px 13.5px;\n}\n.navbar-item img[data-v-4b5b5dbc] {\n    max-height: 40px !important;\n    width: auto;\n}\n}\n\n/*# sourceMappingURL=AppHeader.vue.map */", map: {"version":3,"sources":["AppHeader.vue","/home/runner/work/phila-ui/phila-ui/src/components/AppHeader/AppHeader.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;ACiGA;EACA,gCAAA;AD/FA;ACiGA;EAGA,gBAAA;ADhGA;ACkGA;EACA,WAAA;ADhGA;ACmGA;EACA,oLAAA;EACA,gBAAA;ADjGA;ACmGA;EACA,eAAA;EACA,gBAAA;ADjGA;ACkGA;EACA,UAAA;EACA,YAAA;EACA,iBAAA;ADhGA;ACmGA;EACA,cAAA;ADjGA;ACkGA;EACA,cAAA;ADhGA;AAEA;ACmGA;IDjGI,aAAa;AACf;ACiGF;IACA,oBAAA;AD/FE;ACiGF;IACA,2BAAA;ID/FI,WAAW;AACb;AACF;;AAEA,wCAAwC","file":"AppHeader.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n.header .main-nav {\n  border-bottom: 5px solid #26cdf7;\n}\n\n.navbar {\n  min-height: 73px;\n}\n.navbar .navbar-burger span {\n  height: 2px;\n}\n.navbar h1, .navbar h2 {\n  font-family: BlinkMacSystemFont, -apple-system, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n  font-weight: 400;\n}\n.navbar .navbar-separator {\n  padding-left: 0;\n  padding-right: 0;\n}\n.navbar .navbar-separator span {\n  width: 1px;\n  height: 45px;\n  background: white;\n}\n.navbar a.phl-app-title {\n  color: inherit;\n}\n.navbar a.phl-app-title:hover {\n  color: #26cdf7;\n}\n\n@media screen and (max-width: 768px) {\n  .navbar-item {\n    margin: 5px 0;\n  }\n  .navbar-item.phl-logo {\n    margin: 8.5px 13.5px;\n  }\n  .navbar-item img {\n    max-height: 40px !important;\n    width: auto;\n  }\n}\n\n/*# sourceMappingURL=AppHeader.vue.map */","<template>\n  <header class=\"header\">\n    <nav\n      :class=\"isSticky ? 'is-fixed-top' : ''\"\n      class=\"navbar main-nav is-dark-ben-franklin\"\n      role=\"navigation\"\n      aria-label=\"main navigation\"\n    >\n      <div\n        :class=\"{ 'is-fluid': fluid }\"\n        class=\"container\"\n      >\n        <div class=\"navbar-brand is-block-mobile\">\n          <div class=\"navbar-item is-block-mobile phl-logo\">\n            <a\n              v-bind=\"appLogoLink\"\n              class=\"is-inline-block\"\n            >\n              <img\n                v-bind=\"appLogoImage\"\n              >\n            </a>\n          </div>\n          <div class=\"navbar-item navbar-separator is-hidden-mobile\">\n            <span />\n          </div>\n          <div\n            class=\"navbar-item is-block-mobile has-text-centered-mobile\"\n          >\n            <a\n              class=\"phl-app-title\"\n              :href=\"appLink\"\n            >\n              <h1 class=\"is-size-5\">\n                {{ appTitle }}\n              </h1>\n              <h2\n                v-if=\"appSubtitle\"\n                class=\"is-size-6\"\n              >{{ appSubtitle }}\n              </h2>\n            </a>\n          </div>\n\n          <slot name=\"mobile-menu\" />\n        </div>\n\n        <div class=\"navbar-menu is-hidden-mobile\">\n          <div class=\"navbar-end\">\n            <slot />\n          </div>\n        </div>\n      </div>\n    </nav>\n  </header>\n</template>\n<script>\nexport default {\n  name: 'AppHeader',\n  props: {\n    appLogoLink: {\n      type: Object,\n      default: () => ({\n        href: \"https://www.phila.gov\",\n        target: \"_blank\",\n      }),\n    },\n    appLogoImage: {\n      type: Object,\n      default: () => ({\n        src: \"https://standards.phila.gov/img/logo/city-of-philadelphia-yellow-white.png\",\n        alt: \"City of Philadelphia logo\",\n        width: 170,\n      }),\n    },\n    appTitle: {\n      type: String,\n      default: \"\",\n    },\n    appSubtitle: {\n      type: String,\n      default: \"\",\n    },\n    appLink: {\n      type: String,\n      default: \"/\",\n    },\n    fluid: {\n      type: Boolean,\n      default: true,\n    },\n    isSticky: {\n      type: Boolean,\n      default: false,\n    },\n  },\n};\n</script>\n<style lang=\"scss\" scoped>\n  .header .main-nav {\n    border-bottom: 5px solid $electric-blue;\n  }\n  .navbar {\n    // IE vertical align hack\n    // height: 73px;\n    min-height: 73px;\n    .navbar-burger {\n      span {\n        height: 2px;\n      }\n    }\n    h1, h2 {\n      font-family: $family-secondary;\n      font-weight: $weight-normal;\n    }\n    .navbar-separator {\n      padding-left: 0;\n      padding-right: 0;\n      span {\n        width: 1px;\n        height: 45px;\n        background: $white;\n      }\n    }\n    a.phl-app-title {\n      color: inherit;\n      &:hover {\n        color: $electric-blue;\n      }\n    }\n  }\n  @include until($tablet) {\n    .navbar-item {\n      &.phl-logo {\n        margin: 8.5px 13.5px;\n      }\n      img {\n        max-height: 40px !important;\n        width: auto;\n      }\n      margin: 5px 0;\n    }\n  }\n</style>\n"]}, media: undefined });
+    inject("data-v-9bd3813e_0", { source: "@keyframes spinAround-data-v-9bd3813e {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\n.header .main-nav[data-v-9bd3813e] {\n  border-bottom: 5px solid #26cdf7;\n}\n.navbar[data-v-9bd3813e] {\n  min-height: 73px;\n}\n.navbar .navbar-burger span[data-v-9bd3813e] {\n  height: 2px;\n}\n.navbar h1[data-v-9bd3813e], .navbar h2[data-v-9bd3813e] {\n  font-family: BlinkMacSystemFont, -apple-system, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n  font-weight: 400;\n}\n.navbar .navbar-separator[data-v-9bd3813e] {\n  padding-left: 0;\n  padding-right: 0;\n}\n.navbar .navbar-separator span[data-v-9bd3813e] {\n  width: 1px;\n  height: 45px;\n  background: white;\n}\n.navbar a.phl-app-title[data-v-9bd3813e] {\n  color: inherit;\n}\n.navbar a.phl-app-title[data-v-9bd3813e]:hover {\n  color: #26cdf7;\n}\n@media screen and (max-width: 768px) {\n.navbar-item[data-v-9bd3813e] {\n    margin: 5px 0;\n}\n.navbar-item.phl-logo[data-v-9bd3813e] {\n    margin: 8.5px 13.5px;\n}\n.navbar-item img[data-v-9bd3813e] {\n    max-height: 40px !important;\n    width: auto;\n}\n}\n\n/*# sourceMappingURL=AppHeader.vue.map */", map: {"version":3,"sources":["AppHeader.vue","/Users/ibdf/Documents/dev/phila-ui/src/components/AppHeader/AppHeader.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;AC0HA;EACA,gCAAA;ADxHA;AC0HA;EAGA,gBAAA;ADzHA;AC2HA;EACA,WAAA;ADzHA;AC4HA;EACA,oLAAA;EACA,gBAAA;AD1HA;AC4HA;EACA,eAAA;EACA,gBAAA;AD1HA;AC2HA;EACA,UAAA;EACA,YAAA;EACA,iBAAA;ADzHA;AC4HA;EACA,cAAA;AD1HA;AC2HA;EACA,cAAA;ADzHA;AAEA;AC4HA;ID1HI,aAAa;AACf;AC0HF;IACA,oBAAA;ADxHE;AC0HF;IACA,2BAAA;IDxHI,WAAW;AACb;AACF;;AAEA,wCAAwC","file":"AppHeader.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n.header .main-nav {\n  border-bottom: 5px solid #26cdf7;\n}\n\n.navbar {\n  min-height: 73px;\n}\n.navbar .navbar-burger span {\n  height: 2px;\n}\n.navbar h1, .navbar h2 {\n  font-family: BlinkMacSystemFont, -apple-system, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n  font-weight: 400;\n}\n.navbar .navbar-separator {\n  padding-left: 0;\n  padding-right: 0;\n}\n.navbar .navbar-separator span {\n  width: 1px;\n  height: 45px;\n  background: white;\n}\n.navbar a.phl-app-title {\n  color: inherit;\n}\n.navbar a.phl-app-title:hover {\n  color: #26cdf7;\n}\n\n@media screen and (max-width: 768px) {\n  .navbar-item {\n    margin: 5px 0;\n  }\n  .navbar-item.phl-logo {\n    margin: 8.5px 13.5px;\n  }\n  .navbar-item img {\n    max-height: 40px !important;\n    width: auto;\n  }\n}\n\n/*# sourceMappingURL=AppHeader.vue.map */","<template>\n  <header class=\"header\">\n    <nav\n      :class=\"isSticky ? 'is-fixed-top' : ''\"\n      class=\"navbar main-nav is-dark-ben-franklin\"\n      role=\"navigation\"\n      aria-label=\"main navigation\"\n    >\n      <div\n        :class=\"{ 'is-fluid': fluid }\"\n        class=\"container\"\n      >\n        <div class=\"navbar-brand is-block-mobile\">\n          <div class=\"navbar-item is-block-mobile phl-logo\">\n            <a\n              v-bind=\"appLogoLink\"\n              class=\"is-inline-block\"\n            >\n              <img\n                v-bind=\"appLogoImage\"\n              >\n            </a>\n          </div>\n          <div class=\"navbar-item navbar-separator is-hidden-mobile\">\n            <span />\n          </div>\n          <div\n            class=\"navbar-item is-block-mobile has-text-centered-mobile\"\n          >\n            <a\n              class=\"phl-app-title\"\n              :href=\"appLink\"\n            >\n              <h1 class=\"is-size-5\">\n                {{ appTitle }}\n              </h1>\n              <h2\n                v-if=\"appSubtitle\"\n                class=\"is-size-6\"\n              >{{ appSubtitle }}\n              </h2>\n            </a>\n          </div>\n          <!-- @slot The mobile-menu slot allows you to pass extra navigation for mobile usage -->\n          <slot name=\"mobile-menu\" />\n        </div>\n\n        <div class=\"navbar-menu is-hidden-mobile\">\n          <div class=\"navbar-end\">\n            <!-- @slot The default slot is used to add navigation items -->\n            <slot />\n          </div>\n        </div>\n      </div>\n    </nav>\n  </header>\n</template>\n<script>\n/**\n * This is the main application header.\n */\nexport default {\n  name: 'AppHeader',\n  props: {\n    /**\n     * The application logo. By default the City logo is used, however this could be used to display a department's logo.\n    */\n    appLogoImage: {\n      type: Object,\n      default: () => ({\n        src: \"https://standards.phila.gov/img/logo/city-of-philadelphia-yellow-white.png\",\n        alt: \"City of Philadelphia logo\",\n        width: 170,\n      }),\n    },\n    /**\n     * The logo link\n    */\n    appLogoLink: {\n      type: Object,\n      default: () => ({\n        href: \"https://www.phila.gov\",\n        target: \"_blank\",\n      }),\n    },\n    /**\n     * The application's title/name\n    */\n    appTitle: {\n      type: String,\n      default: \"\",\n    },\n    /**\n     * The application's subtitle\n    */\n    appSubtitle: {\n      type: String,\n      default: \"\",\n    },\n    /**\n     * The application's link. By default it links to the root.\n    */\n    appLink: {\n      type: String,\n      default: \"/\",\n    },\n    /**\n     * Allows the header elements (logo, title, navigation...) to expand with the window width, or stay in the center\n    */\n    fluid: {\n      type: Boolean,\n      default: true,\n    },\n    /**\n     * Sticks the header to the top of the page\n    */\n    isSticky: {\n      type: Boolean,\n      default: false,\n    },\n  },\n};\n</script>\n<style lang=\"scss\" scoped>\n  .header .main-nav {\n    border-bottom: 5px solid $electric-blue;\n  }\n  .navbar {\n    // IE vertical align hack\n    // height: 73px;\n    min-height: 73px;\n    .navbar-burger {\n      span {\n        height: 2px;\n      }\n    }\n    h1, h2 {\n      font-family: $family-secondary;\n      font-weight: $weight-normal;\n    }\n    .navbar-separator {\n      padding-left: 0;\n      padding-right: 0;\n      span {\n        width: 1px;\n        height: 45px;\n        background: $white;\n      }\n    }\n    a.phl-app-title {\n      color: inherit;\n      &:hover {\n        color: $electric-blue;\n      }\n    }\n  }\n  @include until($tablet) {\n    .navbar-item {\n      &.phl-logo {\n        margin: 8.5px 13.5px;\n      }\n      img {\n        max-height: 40px !important;\n        width: auto;\n      }\n      margin: 5px 0;\n    }\n  }\n</style>\n"]}, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__ = "data-v-4b5b5dbc";
+  const __vue_scope_id__ = "data-v-9bd3813e";
   /* module identifier */
   const __vue_module_identifier__ = undefined;
   /* functional template */
@@ -444,9 +476,16 @@ prepareForExport(__vue_component__); // To allow use as module (npm/webpack/etc.
 //
 //
 //
+
+/**
+ * This is the main application footer.
+*/
 var script$1 = {
   name: 'AppFooter',
   props: {
+    /**
+     * An array of links to be displayed. Each link should have at least a `href` and a `text` property. The href property of the link may contain a function, a string, or a router-link object.
+    */
     links: {
       type: Array,
       "default": function _default() {
@@ -571,11 +610,11 @@ __vue_render__$1._withStripped = true;
   /* style */
   const __vue_inject_styles__$1 = function (inject) {
     if (!inject) return
-    inject("data-v-7b54a979_0", { source: "@keyframes spinAround-data-v-7b54a979 {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\n#app[data-v-7b54a979] {\n  padding-bottom: 46px;\n}\n#app .footer[data-v-7b54a979] {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n}\n#app .footer ul[data-v-7b54a979] {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#app .footer ul li[data-v-7b54a979] {\n  display: inline-block;\n  vertical-align: middle;\n  margin: 0 1rem;\n}\n#app .footer ul li a[data-v-7b54a979] {\n  color: inherit;\n}\n#app .footer ul li a[data-v-7b54a979]:hover {\n  color: #26cdf7;\n}\n\n/*# sourceMappingURL=AppFooter.vue.map */", map: {"version":3,"sources":["AppFooter.vue","/home/runner/work/phila-ui/phila-ui/src/components/AppFooter/AppFooter.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;ACsEA;EACA,oBAAA;ADpEA;ACqEA;EACA,eAAA;EACA,SAAA;EACA,WAAA;ADnEA;ACoEA;EACA,gBAAA;EACA,UAAA;EACA,SAAA;ADlEA;ACmEA;EACA,qBAAA;EACA,sBAAA;EACA,cAAA;ADjEA;ACkEA;EACA,cAAA;ADhEA;ACiEA;EACA,cAAA;AD/DA;;AAEA,wCAAwC","file":"AppFooter.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n#app {\n  padding-bottom: 46px;\n}\n#app .footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n}\n#app .footer ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#app .footer ul li {\n  display: inline-block;\n  vertical-align: middle;\n  margin: 0 1rem;\n}\n#app .footer ul li a {\n  color: inherit;\n}\n#app .footer ul li a:hover {\n  color: #26cdf7;\n}\n\n/*# sourceMappingURL=AppFooter.vue.map */","<template>\n  <footer class=\"footer\">\n    <div class=\"has-text-centered\">\n      <ul class=\"inline-list\">\n        <li\n          v-for=\"(link, index) in localLinks\"\n          :key=\"index\"\n        >\n          <template v-if=\"typeof link.href === 'function'\">\n            <a\n              v-bind=\"link.attrs || {}\"\n              @click.prevent=\"link.href\"\n            >\n              {{ link.text }}\n            </a>\n          </template>\n          <template v-else-if=\"!isURL(link.href)\">\n            <router-link\n              :to=\"link.href\"\n              v-bind=\"link.attrs || {}\"\n            >\n              {{ link.text }}\n            </router-link>\n          </template>\n          <template v-else-if=\"isURL(link.href)\">\n            <a\n              :href=\"link.href\"\n              v-bind=\"link.attrs || {}\"\n            >{{ link.text }}</a>\n          </template>\n        </li>\n      </ul>\n    </div>\n  </footer>\n</template>\n<script>\nexport default {\n  name: 'AppFooter',\n  props: {\n    links: {\n      type: Array,\n      default: () => {\n        return []; // Each link requires at least a href and text properties.\n      },\n    },\n  },\n  computed: {\n    localLinks() {\n      // Prepare links\n      let localLinks = [];\n      this.links.forEach(link => {\n        let defaults =  { href: \"#\", text: \"link here\", \"attrs\": {}};\n        Object.keys(link).forEach(key =>  {\n          if (defaults[key]) {\n            defaults[key] = link[key];\n          } else {\n            defaults.attrs[key] = link[key];\n          }\n        });\n        localLinks.push(Object.assign({}, defaults));\n      });\n      return localLinks;\n    },\n  },\n  methods: {\n    isURL(link) {\n      return (/https?:\\/\\//.test(link));\n    },\n  },\n};\n</script>\n<style lang=\"scss\" scoped>\n  #app {\n    padding-bottom: 46px;\n    .footer {\n      position: fixed;\n      bottom: 0;\n      width: 100%;\n      ul {\n        list-style: none;\n        padding: 0;\n        margin: 0;\n        li {\n          display: inline-block;\n          vertical-align: middle;\n          margin: 0 1rem;\n          a {\n            color: inherit;\n            &:hover {\n              color: $electric-blue;\n            }\n          }\n        }\n      }\n    }\n  }\n</style>\n"]}, media: undefined });
+    inject("data-v-18761c64_0", { source: "@keyframes spinAround-data-v-18761c64 {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\n#app[data-v-18761c64] {\n  padding-bottom: 46px;\n}\n#app .footer[data-v-18761c64] {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n}\n#app .footer ul[data-v-18761c64] {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#app .footer ul li[data-v-18761c64] {\n  display: inline-block;\n  vertical-align: middle;\n  margin: 0 1rem;\n}\n#app .footer ul li a[data-v-18761c64] {\n  color: inherit;\n}\n#app .footer ul li a[data-v-18761c64]:hover {\n  color: #26cdf7;\n}\n\n/*# sourceMappingURL=AppFooter.vue.map */", map: {"version":3,"sources":["AppFooter.vue","/Users/ibdf/Documents/dev/phila-ui/src/components/AppFooter/AppFooter.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;AC4EA;EACA,oBAAA;AD1EA;AC2EA;EACA,eAAA;EACA,SAAA;EACA,WAAA;ADzEA;AC0EA;EACA,gBAAA;EACA,UAAA;EACA,SAAA;ADxEA;ACyEA;EACA,qBAAA;EACA,sBAAA;EACA,cAAA;ADvEA;ACwEA;EACA,cAAA;ADtEA;ACuEA;EACA,cAAA;ADrEA;;AAEA,wCAAwC","file":"AppFooter.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n#app {\n  padding-bottom: 46px;\n}\n#app .footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n}\n#app .footer ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n}\n#app .footer ul li {\n  display: inline-block;\n  vertical-align: middle;\n  margin: 0 1rem;\n}\n#app .footer ul li a {\n  color: inherit;\n}\n#app .footer ul li a:hover {\n  color: #26cdf7;\n}\n\n/*# sourceMappingURL=AppFooter.vue.map */","<template>\n  <footer class=\"footer\">\n    <div class=\"has-text-centered\">\n      <ul class=\"inline-list\">\n        <li\n          v-for=\"(link, index) in localLinks\"\n          :key=\"index\"\n        >\n          <template v-if=\"typeof link.href === 'function'\">\n            <a\n              v-bind=\"link.attrs || {}\"\n              @click.prevent=\"link.href\"\n            >\n              {{ link.text }}\n            </a>\n          </template>\n          <template v-else-if=\"!isURL(link.href)\">\n            <router-link\n              :to=\"link.href\"\n              v-bind=\"link.attrs || {}\"\n            >\n              {{ link.text }}\n            </router-link>\n          </template>\n          <template v-else-if=\"isURL(link.href)\">\n            <a\n              :href=\"link.href\"\n              v-bind=\"link.attrs || {}\"\n            >{{ link.text }}</a>\n          </template>\n        </li>\n      </ul>\n    </div>\n  </footer>\n</template>\n<script>\n/**\n * This is the main application footer.\n*/\nexport default {\n  name: 'AppFooter',\n  props: {\n    /**\n     * An array of links to be displayed. Each link should have at least a `href` and a `text` property. The href property of the link may contain a function, a string, or a router-link object.\n    */\n    links: {\n      type: Array,\n      default: () => {\n        return []; // Each link requires at least a href and text properties.\n      },\n    },\n  },\n  computed: {\n    localLinks() {\n      // Prepare links\n      let localLinks = [];\n      this.links.forEach(link => {\n        let defaults =  { href: \"#\", text: \"link here\", \"attrs\": {}};\n        Object.keys(link).forEach(key =>  {\n          if (defaults[key]) {\n            defaults[key] = link[key];\n          } else {\n            defaults.attrs[key] = link[key];\n          }\n        });\n        localLinks.push(Object.assign({}, defaults));\n      });\n      return localLinks;\n    },\n  },\n  methods: {\n    isURL(link) {\n      return (/https?:\\/\\//.test(link));\n    },\n  },\n};\n</script>\n<style lang=\"scss\" scoped>\n  #app {\n    padding-bottom: 46px;\n    .footer {\n      position: fixed;\n      bottom: 0;\n      width: 100%;\n      ul {\n        list-style: none;\n        padding: 0;\n        margin: 0;\n        li {\n          display: inline-block;\n          vertical-align: middle;\n          margin: 0 1rem;\n          a {\n            color: inherit;\n            &:hover {\n              color: $electric-blue;\n            }\n          }\n        }\n      }\n    }\n  }\n</style>\n"]}, media: undefined });
 
   };
   /* scoped */
-  const __vue_scope_id__$1 = "data-v-7b54a979";
+  const __vue_scope_id__$1 = "data-v-18761c64";
   /* module identifier */
   const __vue_module_identifier__$1 = undefined;
   /* functional template */
@@ -715,7 +754,7 @@ __vue_render__$2._withStripped = true;
   /* style */
   const __vue_inject_styles__$2 = function (inject) {
     if (!inject) return
-    inject("data-v-5633fa5a_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\n@media screen and (max-width: 768px) {\n.navbar-brand {\n    padding: 1px 0;\n}\n.navbar-burger {\n    z-index: 12;\n    position: absolute;\n    top: 0;\n    right: 0;\n}\n.navbar-burger span {\n    height: 3px;\n    width: 24px;\n    left: calc(50% - 12px);\n}\n.navbar-burger span:nth-child(1) {\n    top: calc(50% - 9px);\n}\n.navbar-burger span:nth-child(2) {\n    top: calc(50% - 1px);\n}\n.navbar-burger span:nth-child(3) {\n    top: calc(50% + 7px);\n}\n.navbar-burger.is-active span:nth-child(1) {\n    top: calc(50% - 7px);\n}\n.navbar-burger.is-active span:nth-child(3) {\n    top: calc(50% + 3px);\n}\n.mobile-menu {\n    background: none;\n    position: fixed;\n    z-index: 11;\n    top: 0;\n    left: 0;\n    background-color: #0f4d8f;\n    height: 100vh;\n    width: 100vw;\n    padding: 0;\n    display: flex;\n    justify-content: center;\n    flex-direction: column;\n    text-align: center;\n    align-items: center;\n}\n}\n@media screen and (max-width: 768px) {\n.navbar-brand .is-block-mobile {\n    padding: 0;\n}\n}\n.slide-in-out-leave-active,\n.slide-in-out-enter-active {\n  transition: all 0.25s;\n}\n.slide-in-out-leave,\n.slide-in-out-enter-to {\n  opacity: 1;\n  transform: translate(0%);\n}\n.slide-in-out-leave-to,\n.slide-in-out-enter {\n  opacity: 0;\n  transform: translate(calc(100% + 10px));\n}\n\n/*# sourceMappingURL=MobileMenu.vue.map */", map: {"version":3,"sources":["MobileMenu.vue","/home/runner/work/phila-ui/phila-ui/src/components/MobileMenu/MobileMenu.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;ACsEA;AAzBA;IACA,cAAA;AD1CE;AC4CF;IACA,WAAA;IACA,kBAAA;IACA,MAAA;IACA,QAAA;ADzCE;AC0CF;IACA,WAAA;IACA,WAAA;IACA,sBAAA;ADxCE;ACyCF;IACA,oBAAA;ADvCE;ACyCF;IACA,oBAAA;ADvCE;ACyCF;IACA,oBAAA;ADvCE;AC4CF;IACA,oBAAA;AD1CE;AC4CF;IACA,oBAAA;AD1CE;AC+CF;IACA,gBAAA;IACA,eAAA;IACA,WAAA;IACA,MAAA;ID5CI,OAAO;IC8CX,yBAAA;IACA,aAAA;IACA,YAAA;IACA,UAAA;IAGA,aAAA;IACA,uBAAA;IACA,sBAAA;IACA,kBAAA;IACA,mBAAA;AD9CE;AACF;ACqBA;ADnBE;ICiDF,UAAA;AD/CE;AACF;ACmDA;;EAEA,qBAAA;ADjDA;AAEA;;ECoDA,UAAA;EACA,wBAAA;ADjDA;AAEA;;EAEE,UAAU;EACV,uCAAuC;AACzC;;AAEA,yCAAyC","file":"MobileMenu.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n@media screen and (max-width: 768px) {\n  .navbar-brand {\n    padding: 1px 0;\n  }\n\n  .navbar-burger {\n    z-index: 12;\n    position: absolute;\n    top: 0;\n    right: 0;\n  }\n  .navbar-burger span {\n    height: 3px;\n    width: 24px;\n    left: calc(50% - 12px);\n  }\n  .navbar-burger span:nth-child(1) {\n    top: calc(50% - 9px);\n  }\n  .navbar-burger span:nth-child(2) {\n    top: calc(50% - 1px);\n  }\n  .navbar-burger span:nth-child(3) {\n    top: calc(50% + 7px);\n  }\n  .navbar-burger.is-active span:nth-child(1) {\n    top: calc(50% - 7px);\n  }\n  .navbar-burger.is-active span:nth-child(3) {\n    top: calc(50% + 3px);\n  }\n\n  .mobile-menu {\n    background: none;\n    position: fixed;\n    z-index: 11;\n    top: 0;\n    left: 0;\n    background-color: #0f4d8f;\n    height: 100vh;\n    width: 100vw;\n    padding: 0;\n    display: flex;\n    justify-content: center;\n    flex-direction: column;\n    text-align: center;\n    align-items: center;\n  }\n}\n@media screen and (max-width: 768px) {\n  .navbar-brand .is-block-mobile {\n    padding: 0;\n  }\n}\n.slide-in-out-leave-active,\n.slide-in-out-enter-active {\n  transition: all 0.25s;\n}\n\n.slide-in-out-leave,\n.slide-in-out-enter-to {\n  opacity: 1;\n  transform: translate(0%);\n}\n\n.slide-in-out-leave-to,\n.slide-in-out-enter {\n  opacity: 0;\n  transform: translate(calc(100% + 10px));\n}\n\n/*# sourceMappingURL=MobileMenu.vue.map */","<template>\n  <div>\n    <!-- Mobile Menu Slot -->\n    <a\n      :aria-expanded=\"!showOnBurgerClicked\"\n      :aria-hidden=\"showOnBurgerClicked\"\n      :class=\"{ 'is-active': !showOnBurgerClicked }\"\n      role=\"button\"\n      class=\"navbar-burger burger\"\n      aria-label=\"menu\"\n      data-target=\"navbarBasicExample\"\n      @click=\"showOnBurgerClicked = !showOnBurgerClicked\"\n    >\n      <span aria-hidden=\"true\" />\n      <span aria-hidden=\"true\" />\n      <span aria-hidden=\"true\" />\n    </a>\n    <transition name=\"slide-in-out\">\n      <div\n        v-show=\"!showOnBurgerClicked\"\n        :aria-expanded=\"!showOnBurgerClicked\"\n        :aria-hidden=\"showOnBurgerClicked\"\n        class=\"navbar-menu mobile-menu is-hidden-desktop\"\n      >\n        <slot />\n      </div>\n    </transition>\n  </div>\n</template>\n<script>\nexport default {\n  name: 'MobileMenu',\n  data() {\n    return {\n      showOnBurgerClicked: true,\n    };\n  },\n  watch: {\n    '$route' () {\n      this.showOnBurgerClicked = true;\n    },\n  },\n};\n</script>\n<style lang=\"scss\">\n  @include until($tablet) {\n    // Fix Margin\n    .navbar-brand {\n      padding: 1px 0;\n    }\n    .navbar-burger {\n      z-index: 12;\n      position: absolute;\n      top: 0;\n      right: 0;\n      span {\n        height: 3px;\n        width: 24px;\n        left: calc(50% - 12px);\n        &:nth-child(1) {\n          top: calc(50% - 9px);\n        }\n        &:nth-child(2) {\n          top: calc(50% - 1px);\n        }\n        &:nth-child(3) {\n          top: calc(50% + 7px);\n        }\n      }\n      &.is-active {\n        span {\n          &:nth-child(1) {\n            top: calc(50% - 7px);\n          }\n          &:nth-child(3) {\n            top: calc(50% + 3px);\n          }\n        }\n      }\n    }\n    .mobile-menu {\n      background: none;\n      position: fixed;\n      z-index: 11;\n      top: 0;\n      left: 0;\n      background-color: $primary;\n      height: 100vh;\n      width: 100vw;\n      padding: 0;\n\n      // Centering the mobile menu buttons (links)\n      display: flex;\n      justify-content: center;\n      flex-direction: column;\n      text-align: center;\n      align-items: center;\n    }\n  }\n  @include until($tablet) {\n    .navbar-brand {\n      .is-block-mobile {\n        padding: 0;\n      }\n    }\n  }\n\n  .slide-in-out-leave-active,\n  .slide-in-out-enter-active {\n    transition: all 0.25s; // trick\n  }\n\n  .slide-in-out-leave,\n  .slide-in-out-enter-to {\n    opacity: 1; // trick\n    transform: translate(0%);\n  }\n\n  .slide-in-out-leave-to,\n  .slide-in-out-enter {\n    opacity: 0; // trick\n    transform: translate(calc(100% + 10px));\n  }\n</style>\n"]}, media: undefined });
+    inject("data-v-a2b0cecc_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\n@media screen and (max-width: 768px) {\n.navbar-brand {\n    padding: 1px 0;\n}\n.navbar-burger {\n    z-index: 12;\n    position: absolute;\n    top: 0;\n    right: 0;\n}\n.navbar-burger span {\n    height: 3px;\n    width: 24px;\n    left: calc(50% - 12px);\n}\n.navbar-burger span:nth-child(1) {\n    top: calc(50% - 9px);\n}\n.navbar-burger span:nth-child(2) {\n    top: calc(50% - 1px);\n}\n.navbar-burger span:nth-child(3) {\n    top: calc(50% + 7px);\n}\n.navbar-burger.is-active span:nth-child(1) {\n    top: calc(50% - 7px);\n}\n.navbar-burger.is-active span:nth-child(3) {\n    top: calc(50% + 3px);\n}\n.mobile-menu {\n    background: none;\n    position: fixed;\n    z-index: 11;\n    top: 0;\n    left: 0;\n    background-color: #0f4d8f;\n    height: 100vh;\n    width: 100vw;\n    padding: 0;\n    display: flex;\n    justify-content: center;\n    flex-direction: column;\n    text-align: center;\n    align-items: center;\n}\n}\n@media screen and (max-width: 768px) {\n.navbar-brand .is-block-mobile {\n    padding: 0;\n}\n}\n.slide-in-out-leave-active,\n.slide-in-out-enter-active {\n  transition: all 0.25s;\n}\n.slide-in-out-leave,\n.slide-in-out-enter-to {\n  opacity: 1;\n  transform: translate(0%);\n}\n.slide-in-out-leave-to,\n.slide-in-out-enter {\n  opacity: 0;\n  transform: translate(calc(100% + 10px));\n}\n\n/*# sourceMappingURL=MobileMenu.vue.map */", map: {"version":3,"sources":["MobileMenu.vue","/Users/ibdf/Documents/dev/phila-ui/src/components/MobileMenu/MobileMenu.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;ACsEA;AAzBA;IACA,cAAA;AD1CE;AC4CF;IACA,WAAA;IACA,kBAAA;IACA,MAAA;IACA,QAAA;ADzCE;AC0CF;IACA,WAAA;IACA,WAAA;IACA,sBAAA;ADxCE;ACyCF;IACA,oBAAA;ADvCE;ACyCF;IACA,oBAAA;ADvCE;ACyCF;IACA,oBAAA;ADvCE;AC4CF;IACA,oBAAA;AD1CE;AC4CF;IACA,oBAAA;AD1CE;AC+CF;IACA,gBAAA;IACA,eAAA;IACA,WAAA;IACA,MAAA;ID5CI,OAAO;IC8CX,yBAAA;IACA,aAAA;IACA,YAAA;IACA,UAAA;IAGA,aAAA;IACA,uBAAA;IACA,sBAAA;IACA,kBAAA;IACA,mBAAA;AD9CE;AACF;ACqBA;ADnBE;ICiDF,UAAA;AD/CE;AACF;ACmDA;;EAEA,qBAAA;ADjDA;AAEA;;ECoDA,UAAA;EACA,wBAAA;ADjDA;AAEA;;EAEE,UAAU;EACV,uCAAuC;AACzC;;AAEA,yCAAyC","file":"MobileMenu.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n@media screen and (max-width: 768px) {\n  .navbar-brand {\n    padding: 1px 0;\n  }\n\n  .navbar-burger {\n    z-index: 12;\n    position: absolute;\n    top: 0;\n    right: 0;\n  }\n  .navbar-burger span {\n    height: 3px;\n    width: 24px;\n    left: calc(50% - 12px);\n  }\n  .navbar-burger span:nth-child(1) {\n    top: calc(50% - 9px);\n  }\n  .navbar-burger span:nth-child(2) {\n    top: calc(50% - 1px);\n  }\n  .navbar-burger span:nth-child(3) {\n    top: calc(50% + 7px);\n  }\n  .navbar-burger.is-active span:nth-child(1) {\n    top: calc(50% - 7px);\n  }\n  .navbar-burger.is-active span:nth-child(3) {\n    top: calc(50% + 3px);\n  }\n\n  .mobile-menu {\n    background: none;\n    position: fixed;\n    z-index: 11;\n    top: 0;\n    left: 0;\n    background-color: #0f4d8f;\n    height: 100vh;\n    width: 100vw;\n    padding: 0;\n    display: flex;\n    justify-content: center;\n    flex-direction: column;\n    text-align: center;\n    align-items: center;\n  }\n}\n@media screen and (max-width: 768px) {\n  .navbar-brand .is-block-mobile {\n    padding: 0;\n  }\n}\n.slide-in-out-leave-active,\n.slide-in-out-enter-active {\n  transition: all 0.25s;\n}\n\n.slide-in-out-leave,\n.slide-in-out-enter-to {\n  opacity: 1;\n  transform: translate(0%);\n}\n\n.slide-in-out-leave-to,\n.slide-in-out-enter {\n  opacity: 0;\n  transform: translate(calc(100% + 10px));\n}\n\n/*# sourceMappingURL=MobileMenu.vue.map */","<template>\n  <div>\n    <!-- Mobile Menu Slot -->\n    <a\n      :aria-expanded=\"!showOnBurgerClicked\"\n      :aria-hidden=\"showOnBurgerClicked\"\n      :class=\"{ 'is-active': !showOnBurgerClicked }\"\n      role=\"button\"\n      class=\"navbar-burger burger\"\n      aria-label=\"menu\"\n      data-target=\"navbarBasicExample\"\n      @click=\"showOnBurgerClicked = !showOnBurgerClicked\"\n    >\n      <span aria-hidden=\"true\" />\n      <span aria-hidden=\"true\" />\n      <span aria-hidden=\"true\" />\n    </a>\n    <transition name=\"slide-in-out\">\n      <div\n        v-show=\"!showOnBurgerClicked\"\n        :aria-expanded=\"!showOnBurgerClicked\"\n        :aria-hidden=\"showOnBurgerClicked\"\n        class=\"navbar-menu mobile-menu is-hidden-desktop\"\n      >\n        <slot />\n      </div>\n    </transition>\n  </div>\n</template>\n<script>\nexport default {\n  name: 'MobileMenu',\n  data() {\n    return {\n      showOnBurgerClicked: true,\n    };\n  },\n  watch: {\n    '$route' () {\n      this.showOnBurgerClicked = true;\n    },\n  },\n};\n</script>\n<style lang=\"scss\">\n  @include until($tablet) {\n    // Fix Margin\n    .navbar-brand {\n      padding: 1px 0;\n    }\n    .navbar-burger {\n      z-index: 12;\n      position: absolute;\n      top: 0;\n      right: 0;\n      span {\n        height: 3px;\n        width: 24px;\n        left: calc(50% - 12px);\n        &:nth-child(1) {\n          top: calc(50% - 9px);\n        }\n        &:nth-child(2) {\n          top: calc(50% - 1px);\n        }\n        &:nth-child(3) {\n          top: calc(50% + 7px);\n        }\n      }\n      &.is-active {\n        span {\n          &:nth-child(1) {\n            top: calc(50% - 7px);\n          }\n          &:nth-child(3) {\n            top: calc(50% + 3px);\n          }\n        }\n      }\n    }\n    .mobile-menu {\n      background: none;\n      position: fixed;\n      z-index: 11;\n      top: 0;\n      left: 0;\n      background-color: $primary;\n      height: 100vh;\n      width: 100vw;\n      padding: 0;\n\n      // Centering the mobile menu buttons (links)\n      display: flex;\n      justify-content: center;\n      flex-direction: column;\n      text-align: center;\n      align-items: center;\n    }\n  }\n  @include until($tablet) {\n    .navbar-brand {\n      .is-block-mobile {\n        padding: 0;\n      }\n    }\n  }\n\n  .slide-in-out-leave-active,\n  .slide-in-out-enter-active {\n    transition: all 0.25s; // trick\n  }\n\n  .slide-in-out-leave,\n  .slide-in-out-enter-to {\n    opacity: 1; // trick\n    transform: translate(0%);\n  }\n\n  .slide-in-out-leave-to,\n  .slide-in-out-enter {\n    opacity: 0; // trick\n    transform: translate(calc(100% + 10px));\n  }\n</style>\n"]}, media: undefined });
 
   };
   /* scoped */
@@ -755,13 +794,19 @@ prepareForExport(__vue_component__$2); // To allow use as module (npm/webpack/et
 //
 //
 //
-//
+
+/**
+ * Use this component for messages and warnings. 
+ */
 var script$3 = {
   name: 'Callout',
   props: {
+    /**
+     * The message to be displayed
+    */
     message: {
       type: String,
-      "default": 'Your message here.',
+      "default": '',
       required: true
     }
   }
@@ -981,7 +1026,11 @@ __vue_render__$4._withStripped = true;
   /* style */
   const __vue_inject_styles__$4 = function (inject) {
     if (!inject) return
+<<<<<<< HEAD
     inject("data-v-028d77dc_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Checkbox.vue.map */", map: {"version":3,"sources":["Checkbox.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;AACA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;;AAEA,uCAAuC","file":"Checkbox.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Checkbox.vue.map */"]}, media: undefined });
+=======
+    inject("data-v-63d6d4a0_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Checkbox.vue.map */", map: {"version":3,"sources":["Checkbox.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;AACA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;;AAEA,uCAAuC","file":"Checkbox.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Checkbox.vue.map */"]}, media: undefined });
+>>>>>>> logo fix
 
   };
   /* scoped */
@@ -1104,7 +1153,11 @@ __vue_render__$5._withStripped = true;
   /* style */
   const __vue_inject_styles__$5 = function (inject) {
     if (!inject) return
+<<<<<<< HEAD
     inject("data-v-4b91aa2b_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Radio.vue.map */", map: {"version":3,"sources":["Radio.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;AACA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;;AAEA,oCAAoC","file":"Radio.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Radio.vue.map */"]}, media: undefined });
+=======
+    inject("data-v-2834a6da_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Radio.vue.map */", map: {"version":3,"sources":["Radio.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;AACA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;;AAEA,oCAAoC","file":"Radio.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Radio.vue.map */"]}, media: undefined });
+>>>>>>> logo fix
 
   };
   /* scoped */
@@ -1162,8 +1215,11 @@ prepareForExport(__vue_component__$5); // To allow use as module (npm/webpack/et
 //
 //
 //
+<<<<<<< HEAD
 //
 //
+=======
+>>>>>>> logo fix
 var script$6 = {
   name: 'Dropdown',
   inheritAttrs: false,
@@ -1226,8 +1282,22 @@ var __vue_render__$6 = function() {
       class: { required: _vm.$attrs.required !== undefined }
     },
     [
+<<<<<<< HEAD
       _c("label", [
         _c(
+=======
+      _c(
+        "select",
+        _vm._b(
+          {
+            on: {
+              on: _vm.$listeners,
+              change: function($event) {
+                return _vm.$emit("input", $event.target.value)
+              }
+            }
+          },
+>>>>>>> logo fix
           "select",
           _vm._b(
             {
@@ -1283,7 +1353,11 @@ __vue_render__$6._withStripped = true;
   /* style */
   const __vue_inject_styles__$6 = function (inject) {
     if (!inject) return
+<<<<<<< HEAD
     inject("data-v-1e11db2a_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\n.select select:active, .select select:focus {\n  border-width: 2px;\n}\n\n/*# sourceMappingURL=Dropdown.vue.map */", map: {"version":3,"sources":["Dropdown.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;AACA;EACE,iBAAiB;AACnB;;AAEA,uCAAuC","file":"Dropdown.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n.select select:active, .select select:focus {\n  border-width: 2px;\n}\n\n/*# sourceMappingURL=Dropdown.vue.map */"]}, media: undefined });
+=======
+    inject("data-v-334c51f7_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\n\n/*# sourceMappingURL=Dropdown.vue.map */", map: {"version":3,"sources":["Dropdown.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;;AAEA,uCAAuC","file":"Dropdown.vue"}, media: undefined });
+>>>>>>> logo fix
 
   };
   /* scoped */
@@ -1335,6 +1409,7 @@ prepareForExport(__vue_component__$6); // To allow use as module (npm/webpack/et
 //
 //
 //
+<<<<<<< HEAD
 //
 //
 //
@@ -1342,6 +1417,12 @@ prepareForExport(__vue_component__$6); // To allow use as module (npm/webpack/et
 //
 //
 //
+=======
+
+/**
+ * Equivalent to the html ```<input type="text">``` tag
+ */
+>>>>>>> logo fix
 var script$7 = {
   name: 'LangSelector',
   props: {
@@ -1583,7 +1664,7 @@ __vue_render__$8._withStripped = true;
   /* style */
   const __vue_inject_styles__$8 = function (inject) {
     if (!inject) return
-    inject("data-v-10a7c8c2_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n.input-text {\n  position: relative;\n}\n.input-text label {\n  position: absolute;\n  top: 0px;\n  left: 10px;\n  z-index: 5;\n  font-size: 10px;\n  color: #454545;\n  font-weight: 300;\n  opacity: 0;\n}\n.input-text input[type=text]:focus,\n.input-text input[type=email]:focus,\n.input-text input[type=password]:focus,\n.input-text input[type=search]:focus,\n.input-text input[type=tell]:focus,\n.input-text input[type=number]:focus {\n  border-width: 2px;\n  padding-bottom: 0;\n}\n.input-text input[type=text]:focus + label,\n.input-text input[type=email]:focus + label,\n.input-text input[type=password]:focus + label,\n.input-text input[type=search]:focus + label,\n.input-text input[type=tell]:focus + label,\n.input-text input[type=number]:focus + label {\n  opacity: 1;\n}\n\n/*# sourceMappingURL=Textbox.vue.map */", map: {"version":3,"sources":["Textbox.vue","/home/runner/work/phila-ui/phila-ui/src/components/Inputs/Textbox/Textbox.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;AACA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;ACkCA;EACA,kBAAA;AD/BA;ACgCA;EACA,kBAAA;EACA,QAAA;EACA,UAAA;EACA,UAAA;EACA,eAAA;EACA,cAAA;EACA,gBAAA;EACA,UAAA;AD9BA;ACsCA;;;;;;EACA,iBAAA;EACA,iBAAA;AD/BA;ACgCA;;;;;;EDzBE,UAAU;AACZ;;AAEA,sCAAsC","file":"Textbox.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n.input-text {\n  position: relative;\n}\n.input-text label {\n  position: absolute;\n  top: 0px;\n  left: 10px;\n  z-index: 5;\n  font-size: 10px;\n  color: #454545;\n  font-weight: 300;\n  opacity: 0;\n}\n.input-text input[type=text]:focus,\n.input-text input[type=email]:focus,\n.input-text input[type=password]:focus,\n.input-text input[type=search]:focus,\n.input-text input[type=tell]:focus,\n.input-text input[type=number]:focus {\n  border-width: 2px;\n  padding-bottom: 0;\n}\n.input-text input[type=text]:focus + label,\n.input-text input[type=email]:focus + label,\n.input-text input[type=password]:focus + label,\n.input-text input[type=search]:focus + label,\n.input-text input[type=tell]:focus + label,\n.input-text input[type=number]:focus + label {\n  opacity: 1;\n}\n\n/*# sourceMappingURL=Textbox.vue.map */","<template>\n  <div\n    class=\"input-wrap input-text\"\n    :class=\"{ required: $attrs.required !== undefined }\"\n  >\n    <input\n      :id=\"id\"\n      class=\"input\"\n      v-bind=\"$attrs\"\n      :name=\"name\"\n      :aria-labelledby=\"id\"\n      :aria-required=\"$attrs.required !== undefined\"\n      :value=\"value\"\n      :type=\"type\"\n      :placeholder=\"placeholder\"\n      @input=\"$emit('input', $event.target.value)\"\n      @on=\"$listeners\"\n    >\n    <label :for=\"id\">{{ placeholder }}</label>\n  </div>\n</template>\n<script>\nexport default {\n  name: \"Textbox\",\n  inheritAttrs: false,\n  props: {\n    id: {\n      type: String,\n      default: () => `tx_${Math.random().toString(12).substring(2, 8)}`,\n    },\n    name: {\n      type: String,\n      default: 'Field Name',\n    },\n    value: {\n      type: [ String, Number ],\n      default: \"\",\n    },\n    type: {\n      type: String,\n      default: 'text',\n    },\n    placeholder: {\n      type: String,\n      default: 'Insert placeholder here',\n    },\n  },\n};\n</script>\n<style lang=\"scss\">\n  // @import '../base.scss';\n  @import '../../../styles/inputs.scss';\n\n  .input-text {\n    position: relative;\n    label {\n      position: absolute;\n      top: 0px;\n      left: 10px;\n      z-index: 5;\n      font-size: 10px;\n      color: $dark-gray;\n      font-weight: 300;\n      opacity: 0;\n    }\n    input[type=\"text\"],\n    input[type=\"email\"],\n    input[type=\"password\"],\n    input[type=\"search\"],\n    input[type=\"tell\"],\n    input[type=\"number\"] {\n      &:focus {\n        border-width: 2px;\n        padding-bottom: 0;\n        + label {\n          opacity: 1;\n        }\n      }\n    }\n  }\n</style>\n"]}, media: undefined });
+    inject("data-v-82021e98_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n.input-text {\n  position: relative;\n}\n.input-text label {\n  position: absolute;\n  top: 0px;\n  left: 10px;\n  z-index: 5;\n  font-size: 10px;\n  color: #454545;\n  font-weight: 300;\n  opacity: 0;\n}\n.input-text input[type=text]:focus,\n.input-text input[type=email]:focus,\n.input-text input[type=password]:focus,\n.input-text input[type=search]:focus,\n.input-text input[type=tell]:focus,\n.input-text input[type=number]:focus {\n  border-width: 2px;\n  padding-bottom: 0;\n}\n.input-text input[type=text]:focus + label,\n.input-text input[type=email]:focus + label,\n.input-text input[type=password]:focus + label,\n.input-text input[type=search]:focus + label,\n.input-text input[type=tell]:focus + label,\n.input-text input[type=number]:focus + label {\n  opacity: 1;\n}\n\n/*# sourceMappingURL=Textbox.vue.map */", map: {"version":3,"sources":["Textbox.vue","/Users/ibdf/Documents/dev/phila-ui/src/components/Inputs/Textbox/Textbox.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;AACA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;ACoCA;EACA,kBAAA;ADjCA;ACkCA;EACA,kBAAA;EACA,QAAA;EACA,UAAA;EACA,UAAA;EACA,eAAA;EACA,cAAA;EACA,gBAAA;EACA,UAAA;ADhCA;ACwCA;;;;;;EACA,iBAAA;EACA,iBAAA;ADjCA;ACkCA;;;;;;ED3BE,UAAU;AACZ;;AAEA,sCAAsC","file":"Textbox.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n.input-text {\n  position: relative;\n}\n.input-text label {\n  position: absolute;\n  top: 0px;\n  left: 10px;\n  z-index: 5;\n  font-size: 10px;\n  color: #454545;\n  font-weight: 300;\n  opacity: 0;\n}\n.input-text input[type=text]:focus,\n.input-text input[type=email]:focus,\n.input-text input[type=password]:focus,\n.input-text input[type=search]:focus,\n.input-text input[type=tell]:focus,\n.input-text input[type=number]:focus {\n  border-width: 2px;\n  padding-bottom: 0;\n}\n.input-text input[type=text]:focus + label,\n.input-text input[type=email]:focus + label,\n.input-text input[type=password]:focus + label,\n.input-text input[type=search]:focus + label,\n.input-text input[type=tell]:focus + label,\n.input-text input[type=number]:focus + label {\n  opacity: 1;\n}\n\n/*# sourceMappingURL=Textbox.vue.map */","<template>\n  <div\n    class=\"input-wrap input-text\"\n    :class=\"{ required: $attrs.required !== undefined }\"\n  >\n    <input\n      :id=\"id\"\n      class=\"input\"\n      v-bind=\"$attrs\"\n      :name=\"name\"\n      :aria-labelledby=\"id\"\n      :aria-required=\"$attrs.required !== undefined\"\n      :value=\"value\"\n      :type=\"type\"\n      :placeholder=\"placeholder\"\n      @input=\"$emit('input', $event.target.value)\"\n      @on=\"$listeners\"\n    >\n    <label :for=\"id\">{{ placeholder }}</label>\n  </div>\n</template>\n<script>\n/**\n * Equivalent to the html ```<input type=\"text\">``` tag\n */\nexport default {\n  name: \"Textbox\",\n  inheritAttrs: false,\n  props: {\n    id: {\n      type: String,\n      default: () => `tx_${Math.random().toString(12).substring(2, 8)}`,\n    },\n    name: {\n      type: String,\n      default: 'Field Name',\n    },\n    value: {\n      type: [ String, Number ],\n      default: \"\",\n    },\n    type: {\n      type: String,\n      default: 'text',\n    },\n    placeholder: {\n      type: String,\n      default: 'Insert placeholder here',\n    },\n  },\n};\n</script>\n<style lang=\"scss\">\n  @import '../../../styles/inputs.scss';\n\n  .input-text {\n    position: relative;\n    label {\n      position: absolute;\n      top: 0px;\n      left: 10px;\n      z-index: 5;\n      font-size: 10px;\n      color: $dark-gray;\n      font-weight: 300;\n      opacity: 0;\n    }\n    input[type=\"text\"],\n    input[type=\"email\"],\n    input[type=\"password\"],\n    input[type=\"search\"],\n    input[type=\"tell\"],\n    input[type=\"number\"] {\n      &:focus {\n        border-width: 2px;\n        padding-bottom: 0;\n        + label {\n          opacity: 1;\n        }\n      }\n    }\n  }\n</style>\n"]}, media: undefined });
 
   };
   /* scoped */
@@ -1598,6 +1679,7 @@ __vue_render__$8._withStripped = true;
   
 
   
+<<<<<<< HEAD
   const __vue_component__$8 = normalizeComponent_1(
     { render: __vue_render__$8, staticRenderFns: __vue_staticRenderFns__$8 },
     __vue_inject_styles__$8,
@@ -1605,6 +1687,15 @@ __vue_render__$8._withStripped = true;
     __vue_scope_id__$8,
     __vue_is_functional_template__$8,
     __vue_module_identifier__$8,
+=======
+  const __vue_component__$7 = normalizeComponent_1(
+    { render: __vue_render__$7, staticRenderFns: __vue_staticRenderFns__$7 },
+    __vue_inject_styles__$7,
+    __vue_script__$7,
+    __vue_scope_id__$7,
+    __vue_is_functional_template__$7,
+    __vue_module_identifier__$7,
+>>>>>>> logo fix
     false,
     browser,
     undefined,
@@ -1612,7 +1703,11 @@ __vue_render__$8._withStripped = true;
   );
 
 // Import vue component
+<<<<<<< HEAD
 prepareForExport(__vue_component__$8); // To allow use as module (npm/webpack/etc.) export component
+=======
+prepareForExport(__vue_component__$7); // To allow use as module (npm/webpack/etc.) export component
+>>>>>>> logo fix
 
 //
 //
@@ -1631,10 +1726,25 @@ prepareForExport(__vue_component__$8); // To allow use as module (npm/webpack/et
 //
 //
 //
+<<<<<<< HEAD
 var script$9 = {
+=======
+//
+//
+//
+//
+
+/**
+ * Equivalent to the html ```<textarea>``` tag
+ */
+var script$8 = {
+>>>>>>> logo fix
   name: "TextArea",
   inheritAttrs: false,
   props: {
+    /**
+     * Random id is generated if none provided
+     */
     id: {
       type: String,
       "default": function _default() {
@@ -1702,7 +1812,7 @@ __vue_render__$9._withStripped = true;
   /* style */
   const __vue_inject_styles__$9 = function (inject) {
     if (!inject) return
-    inject("data-v-33eaba56_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\ntextarea:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ntextarea:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ntextarea:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ntextarea:focus:-ms-input-placeholder {\n  color: transparent;\n}\n.input-textarea {\n  position: relative;\n}\n.input-textarea label {\n  position: absolute;\n  top: 0px;\n  left: 10px;\n  z-index: 5;\n  font-size: 10px;\n  color: #909090;\n  font-weight: 300;\n}\n.input-textarea textarea:focus {\n  border-width: 2px;\n  padding-bottom: 0;\n}\n\n/*# sourceMappingURL=TextArea.vue.map */", map: {"version":3,"sources":["TextArea.vue","/home/runner/work/phila-ui/phila-ui/src/components/Inputs/TextArea/TextArea.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;AACA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;ACsBA;EACA,kBAAA;ADnBA;ACsBA;EACA,kBAAA;ADnBA;;ACqBA,YAAA;AACA;EACA,kBAAA;ADlBA;;ACoBA,WAAA;AACA;EACA,kBAAA;ADjBA;ACoBA;EACA,kBAAA;ADjBA;ACkBA;EACA,kBAAA;EACA,QAAA;EACA,UAAA;EACA,UAAA;EACA,eAAA;EACA,cAAA;EACA,gBAAA;ADhBA;ACmBA;EDjBE,iBAAiB;EACjB,iBAAiB;AACnB;;AAEA,uCAAuC","file":"TextArea.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\ntextarea:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ntextarea:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ntextarea:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ntextarea:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n.input-textarea {\n  position: relative;\n}\n.input-textarea label {\n  position: absolute;\n  top: 0px;\n  left: 10px;\n  z-index: 5;\n  font-size: 10px;\n  color: #909090;\n  font-weight: 300;\n}\n.input-textarea textarea:focus {\n  border-width: 2px;\n  padding-bottom: 0;\n}\n\n/*# sourceMappingURL=TextArea.vue.map */","<template>\n  <div\n    class=\"input-wrap input-textarea\"\n    :class=\"{ required: $attrs.required !== undefined }\"\n  >\n    <label :for=\"id\">{{ placeholder }}</label>\n    <textarea\n      class=\"textarea\"\n      v-bind=\"$attrs\"\n      :aria-labelledby=\"id\"\n      :aria-required=\"$attrs.required !== undefined\"\n      :value=\"value\"\n      @input=\"$emit('input', $event.target.value)\"\n      @on=\"$listeners\"\n    />\n  </div>\n</template>\n<script>\nexport default {\n  name: \"TextArea\",\n  inheritAttrs: false,\n  props: {\n    id: {\n      type: String,\n      default: () => `ta_${Math.random().toString(12).substring(2, 8)}`,\n    },\n    value: {\n      type: [ String, Number ],\n      default: \"\",\n    },\n    placeholder: {\n      type: String,\n      default: 'Insert label placeholder here',\n    },\n  },\n};\n</script>\n<style lang=\"scss\">\n  // @import '../base.scss';\n  @import '../../../styles/inputs.scss';\n\n  textarea:focus::-webkit-input-placeholder {\n    color: transparent;\n  }\n\n  textarea:focus:-moz-placeholder {\n    color: transparent;\n  }\n  /* FF 4-18 */\n  textarea:focus::-moz-placeholder {\n    color: transparent;\n  }\n  /* FF 19+ */\n  textarea:focus:-ms-input-placeholder {\n    color: transparent;\n  }\n\n  .input-textarea {\n    position: relative;\n    label {\n      position: absolute;\n      top: 0px;\n      left: 10px;\n      z-index: 5;\n      font-size: 10px;\n      color: #909090;\n      font-weight: 300;\n    }\n    textarea{\n      &:focus {\n        border-width: 2px;\n        padding-bottom: 0;\n      }\n    }\n  }\n</style>\n\n"]}, media: undefined });
+    inject("data-v-624eadfd_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\ntextarea:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ntextarea:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ntextarea:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ntextarea:focus:-ms-input-placeholder {\n  color: transparent;\n}\n.input-textarea {\n  position: relative;\n}\n.input-textarea label {\n  position: absolute;\n  top: 0px;\n  left: 10px;\n  z-index: 5;\n  font-size: 10px;\n  color: #909090;\n  font-weight: 300;\n}\n.input-textarea textarea:focus {\n  border-width: 2px;\n  padding-bottom: 0;\n}\n\n/*# sourceMappingURL=TextArea.vue.map */", map: {"version":3,"sources":["TextArea.vue","/Users/ibdf/Documents/dev/phila-ui/src/components/Inputs/TextArea/TextArea.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;AACA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;AC+BA;EACA,kBAAA;AD5BA;AC+BA;EACA,kBAAA;AD5BA;;AC8BA,YAAA;AACA;EACA,kBAAA;AD3BA;;AC6BA,WAAA;AACA;EACA,kBAAA;AD1BA;AC6BA;EACA,kBAAA;AD1BA;AC2BA;EACA,kBAAA;EACA,QAAA;EACA,UAAA;EACA,UAAA;EACA,eAAA;EACA,cAAA;EACA,gBAAA;ADzBA;AC4BA;ED1BE,iBAAiB;EACjB,iBAAiB;AACnB;;AAEA,uCAAuC","file":"TextArea.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\ntextarea:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ntextarea:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ntextarea:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ntextarea:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n.input-textarea {\n  position: relative;\n}\n.input-textarea label {\n  position: absolute;\n  top: 0px;\n  left: 10px;\n  z-index: 5;\n  font-size: 10px;\n  color: #909090;\n  font-weight: 300;\n}\n.input-textarea textarea:focus {\n  border-width: 2px;\n  padding-bottom: 0;\n}\n\n/*# sourceMappingURL=TextArea.vue.map */","<template>\n  <div\n    class=\"input-wrap input-textarea\"\n    :class=\"{ required: $attrs.required !== undefined }\"\n  >\n    <label :for=\"id\">{{ placeholder }}</label>\n    <!--\n      trigered on input change\n      @event input      \n    -->\n    <textarea\n      class=\"textarea\"\n      v-bind=\"$attrs\"\n      :aria-labelledby=\"id\"\n      :aria-required=\"$attrs.required !== undefined\"\n      :value=\"value\"\n      @input=\"$emit('input', $event.target.value)\"\n      @on=\"$listeners\"\n    />\n  </div>\n</template>\n<script>\n/**\n * Equivalent to the html ```<textarea>``` tag\n */\nexport default {\n  name: \"TextArea\",\n  inheritAttrs: false,\n  props: {\n    /**\n     * Random id is generated if none provided\n     */\n    id: {\n      type: String,\n      default: () => `ta_${Math.random().toString(12).substring(2, 8)}`,\n    },\n    value: {\n      type: [ String, Number ],\n      default: \"\",\n    },\n    placeholder: {\n      type: String,\n      default: 'Insert label placeholder here',\n    },\n  },\n};\n</script>\n<style lang=\"scss\">\n  @import '../../../styles/inputs.scss';\n\n  textarea:focus::-webkit-input-placeholder {\n    color: transparent;\n  }\n\n  textarea:focus:-moz-placeholder {\n    color: transparent;\n  }\n  /* FF 4-18 */\n  textarea:focus::-moz-placeholder {\n    color: transparent;\n  }\n  /* FF 19+ */\n  textarea:focus:-ms-input-placeholder {\n    color: transparent;\n  }\n\n  .input-textarea {\n    position: relative;\n    label {\n      position: absolute;\n      top: 0px;\n      left: 10px;\n      z-index: 5;\n      font-size: 10px;\n      color: #909090;\n      font-weight: 300;\n    }\n    textarea{\n      &:focus {\n        border-width: 2px;\n        padding-bottom: 0;\n      }\n    }\n  }\n</style>\n\n"]}, media: undefined });
 
   };
   /* scoped */
@@ -1717,6 +1827,7 @@ __vue_render__$9._withStripped = true;
   
 
   
+<<<<<<< HEAD
   const __vue_component__$9 = normalizeComponent_1(
     { render: __vue_render__$9, staticRenderFns: __vue_staticRenderFns__$9 },
     __vue_inject_styles__$9,
@@ -1724,6 +1835,15 @@ __vue_render__$9._withStripped = true;
     __vue_scope_id__$9,
     __vue_is_functional_template__$9,
     __vue_module_identifier__$9,
+=======
+  const __vue_component__$8 = normalizeComponent_1(
+    { render: __vue_render__$8, staticRenderFns: __vue_staticRenderFns__$8 },
+    __vue_inject_styles__$8,
+    __vue_script__$8,
+    __vue_scope_id__$8,
+    __vue_is_functional_template__$8,
+    __vue_module_identifier__$8,
+>>>>>>> logo fix
     false,
     browser,
     undefined,
@@ -1731,7 +1851,11 @@ __vue_render__$9._withStripped = true;
   );
 
 // Import vue component
+<<<<<<< HEAD
 prepareForExport(__vue_component__$9); // To allow use as module (npm/webpack/etc.) export component
+=======
+prepareForExport(__vue_component__$8); // To allow use as module (npm/webpack/etc.) export component
+>>>>>>> logo fix
 
 // Components
 /**
@@ -1756,4 +1880,8 @@ var install = function install(Vue) {
   }
 };
 
+<<<<<<< HEAD
 export { __vue_component__$1 as AppFooter, __vue_component__ as AppHeader, __vue_component__$3 as Callout, __vue_component__$4 as Checkbox, __vue_component__$6 as Dropdown, __vue_component__$7 as LangSelector, __vue_component__$2 as MobileMenu, __vue_component__$5 as Radio, __vue_component__$9 as TextArea, __vue_component__$8 as Textbox, install };
+=======
+export { __vue_component__$1 as AppFooter, __vue_component__ as AppHeader, __vue_component__$3 as Callout, __vue_component__$4 as Checkbox, __vue_component__$6 as Dropdown, __vue_component__$2 as MobileMenu, __vue_component__$5 as Radio, __vue_component__$8 as TextArea, __vue_component__$7 as Textbox, install };
+>>>>>>> logo fix
