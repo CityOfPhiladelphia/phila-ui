@@ -4,7 +4,7 @@ module.exports = {
   title: 'phila-ui',
   jssThemedEditor: false,
   require: [    
-    path.join(__dirname, './styleguide/theme.css'),
+    path.join(__dirname, './docs/assets/theme.css'),
   ],
   theme: {
     color: {
@@ -48,7 +48,7 @@ module.exports = {
       },
       Logo: {
         logo: {          
-          backgroundImage: 'url(./styleguide/phila-ui.png)',
+          backgroundImage: 'url(./docs/assets/phila-ui.png)',
           backgroundSize: "95px 27px",
           backgroundRepeat: 'no-repeat',
           fontSize: 0,
