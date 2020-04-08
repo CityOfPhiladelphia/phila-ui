@@ -1,5 +1,8 @@
 <template>
-  <div class="control-container">
+  <div
+    v-if="ready"
+    class="control-container"
+  >
     <div class="control has-icons-left">
       <div class="select">
         <select
@@ -30,13 +33,26 @@ export default {
   props: {
     languages: {
       type: [ Array ],
+      validator: function (languages) {
+        const isValid = languages.every(language => language.language && language.title);
+        if (!isValid) {
+          console.error(`The languages array must contain one or more objects with with
+          "language" and "title" keys`);
+        }
+        return isValid;
+      },
       default() {
-        return [{ language: "En", title: "English" }];
+        return [
+          {
+            language: "en-US",
+            title: "English",
+          },
+        ];
       },
     },
   },
   data() {
-    return {ready: false};
+    return { ready: false };
   },
   computed : {
     selectedLang() {
@@ -47,7 +63,7 @@ export default {
     if(this.$i18n) {
       this.ready = true;
     } else {
-      console.log("You must import i18n globally for LangSelector");
+      console.error("You must import i18n globally for LangSelector");
     }
   },
   methods: {
@@ -59,7 +75,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "node_modules/bulma/bulma.sass";
 @media screen and (max-width: $tablet) {
  .control div.select {
     select {
