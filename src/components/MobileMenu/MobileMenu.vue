@@ -40,7 +40,7 @@ export default {
       this.showOnBurgerClicked = true;
     },
   },
-}
+};
 </script>
 <style lang="scss">
   @include until($tablet) {

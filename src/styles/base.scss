@@ -21,7 +21,7 @@ a {
 }
 
 /** Header Styles **/
-h1, h2, h3, h4, h5, h6 {
+.headers {
   font-family: $family-secondary;
   font-weight: $weight-normal;
   &.heading-with-background {
@@ -35,6 +35,16 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: .5rem;
     border-bottom: 10px solid $ben-franklin-blue;
     font-size: $size-2;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @extend .headers;
+}
+
+.content {
+  h1, h2, h3, h4, h5, h6 {
+    @extend .headers;
   }
 }
 
