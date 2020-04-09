@@ -19,6 +19,7 @@
           :key="key"
           :value="!valueKey ? key : option[valueKey]"
           :selected="isSelected(key, option)"
+          :disabled="option['disabled'] ? option['disabled'] : false"
         >
           {{ !textKey ? option : option[textKey] }}
         </option>
@@ -64,8 +65,8 @@ export default {
       return key === this.value;
     },
     onChange($event) {
-      this.$nextTick(() => {
-        this.$emit('input', $event.target.value)
+      t;his.$nextTick(() => {
+        this.$emit('input', $event.target.value);
       });
     },
   },
