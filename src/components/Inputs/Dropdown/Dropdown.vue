@@ -65,7 +65,7 @@ export default {
       return key === this.value;
     },
     onChange($event) {
-      t;his.$nextTick(() => {
+      this.$nextTick(() => {
         this.$emit('input', $event.target.value);
       });
     },
