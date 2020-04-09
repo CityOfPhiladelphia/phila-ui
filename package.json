@@ -52,7 +52,5 @@
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
   },
-  "dependencies": {
-    "vue-i18n": "^8.15.3"
-  }
+  "dependencies": {}
 }
