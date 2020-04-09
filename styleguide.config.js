@@ -1,19 +1,20 @@
 var path = require('path');
 
 module.exports = {
-  title: 'phila-ui',
+  title: '@phila/phila-ui',
   jssThemedEditor: false,
-  require: [    
+  require: [
+    //Code Theme
     path.join(__dirname, './docs/assets/theme.css'),
   ],
   theme: {
-    color: {
-      base: '#444444',
-      link: '#25cef7',
-      linkHover: '#f3c613',
-      sidebarBackground: '#0f4d90',
-      baseBackground: '#fff',
-    },
+    // color: {
+    //   base: '#444444',
+    //   link: '#25cef7',
+    //   linkHover: '#f3c613',
+    //   sidebarBackground: '#0f4d90',
+    //   baseBackground: '#fff',
+    // },
     fontFamily: {
       base: [
         'Montserrat',
@@ -47,19 +48,20 @@ module.exports = {
         },
       },
       Logo: {
-        logo: {          
-          backgroundImage: 'url(./docs/assets/phila-ui.png)',
-          backgroundSize: "95px 27px",
-          backgroundRepeat: 'no-repeat',
-          fontSize: 0,
-          width: '95px',
-          height: '27px',
+        logo: {    
+          color: '#2176d2',
+          // backgroundImage: 'url(./docs/assets/phila-ui.png)',
+          // backgroundSize: "95px 27px",
+          // backgroundRepeat: 'no-repeat',
+          // fontSize: 0,
+          // width: '95px',
+          // height: '27px',
         },
-      },
+      },      
     };
   },
   template: {
-    title: 'phila-ui',
+    title: '@phila/phila-ui',
     favicon: 'https://standards.phila.gov/img/favicon.png',
   },
   sections: [
