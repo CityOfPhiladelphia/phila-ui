@@ -4,25 +4,25 @@ import babel from 'rollup-plugin-babel';
 import postcss from 'rollup-plugin-postcss';
 import cssnano from 'cssnano';
 
-export default ['phila-ui'].map((name) => ({
+export default [ 'phila-ui' ].map((name) => ({
   input: `src/${name}.js`,
   output: [{
-      format: 'umd',
-      name,
-      file: `dist/${name}.umd.js`,
-    },
-    {
-      format: 'es',
-      name,
-      exports: 'named',
-      file: `dist/${name}.esm.js`,
-    }, {
-      format: 'iife',
-      name,
-      extend: true,
-      exports: 'named',
-      file: `dist/${name}.min.js`,
-    },
+    format: 'umd',
+    name,
+    file: `dist/${name}.umd.js`,
+  },
+  {
+    format: 'es',
+    name,
+    exports: 'named',
+    file: `dist/${name}.esm.js`,
+  }, {
+    format: 'iife',
+    name,
+    extend: true,
+    exports: 'named',
+    file: `dist/${name}.min.js`,
+  },
   ],
   plugins: [
     commonjs(),
@@ -44,12 +44,12 @@ export default ['phila-ui'].map((name) => ({
     postcss({
       extract: false,
       inject: true,
-      plugins: [cssnano()],
+      plugins: [ cssnano() ],
       sourceMap: true,
-      extensions: ['.scss', '.sass', '.css'],
+      extensions: [ '.scss', '.sass', '.css' ],
     }),
     babel({
-      exclude: 'node_modules/**'
+      exclude: 'node_modules/**',
     }),
   ],
 }));
