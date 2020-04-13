@@ -2,11 +2,11 @@
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 import MobileMenu from './components/MobileMenu';
-
 import Callout from './components/Callout';
 import Checkbox from './components/Inputs/Checkbox';
 import Radio from './components/Inputs/Radio';
 import Dropdown from './components/Inputs/Dropdown';
+import LangSelector from './components/LangSelector';
 import Textbox from './components/Inputs/Textbox';
 import TextArea from './components/Inputs/TextArea';
 
@@ -35,6 +35,7 @@ export {
   MobileMenu,
   Callout,
   Checkbox,
+  LangSelector,
   Radio,
   Dropdown,
   Textbox,
