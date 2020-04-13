@@ -1160,6 +1160,8 @@ prepareForExport(__vue_component__$5); // To allow use as module (npm/webpack/et
 //
 //
 //
+//
+//
 var script$6 = {
   name: 'Dropdown',
   inheritAttrs: false,
@@ -1169,12 +1171,10 @@ var script$6 = {
       "default": ''
     },
     options: {
-      type: [Object],
+      type: [Object, Array],
       "default": function _default() {
         return {
-          'option-1': 'Option 1',
-          'option-2': 'Option 2',
-          'option-3': 'Option 3'
+          'option-1': 'Option 1'
         };
       }
     },
@@ -1191,7 +1191,22 @@ var script$6 = {
       "default": ""
     }
   },
-  mounted: function mounted() {}
+  methods: {
+    isSelected: function isSelected(key, option) {
+      if (this.valueKey) {
+        return option[this.valueKey] === this.value;
+      }
+
+      return key === this.value;
+    },
+    onChange: function onChange($event) {
+      var _this = this;
+
+      this.$nextTick(function () {
+        _this.$emit('input', $event.target.value);
+      });
+    }
+  }
 };
 
 /* script */
@@ -1203,56 +1218,60 @@ var __vue_render__$6 = function() {
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
   return _c(
-    "div",
+    "span",
     {
-      staticClass: "input-wrap input-select select",
+      staticClass: "select is-fullwidth",
       class: { required: _vm.$attrs.required !== undefined }
     },
     [
-      _c(
-        "select",
-        _vm._b(
-          {
-            on: {
-              on: _vm.$listeners,
-              change: function($event) {
-                return _vm.$emit("input", $event.target.value)
-              }
-            }
-          },
+      _c("label", [
+        _c(
           "select",
-          _vm.$attrs,
-          false
-        ),
-        [
-          _vm.defaultOption !== null
-            ? _c("option", { attrs: { value: "" } }, [
-                _vm._v("\n      " + _vm._s(_vm.defaultOption) + "\n    ")
-              ])
-            : _vm._e(),
-          _vm._v(" "),
-          _vm._l(_vm.options, function(option, key) {
-            return _c(
-              "option",
-              {
-                key: key,
-                domProps: {
-                  value: !_vm.valueKey ? key : option[_vm.valueKey],
-                  selected: _vm.value === key
+          _vm._b(
+            {
+              on: {
+                change: function($event) {
+                  return _vm.onChange($event)
                 }
-              },
-              [
-                _vm._v(
-                  "\n      " +
-                    _vm._s(!_vm.textKey ? option : option[_vm.textKey]) +
-                    "\n    "
-                )
-              ]
-            )
-          })
-        ],
-        2
-      )
+              }
+            },
+            "select",
+            _vm.$attrs,
+            false
+          ),
+          [
+            _vm.defaultOption !== null
+              ? _c("option", { attrs: { value: "" } }, [
+                  _vm._v("\n        " + _vm._s(_vm.defaultOption) + "\n      ")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._l(_vm.options, function(option, key) {
+              return _c(
+                "option",
+                {
+                  key: key,
+                  attrs: {
+                    disabled: option["disabled"] ? option["disabled"] : false
+                  },
+                  domProps: {
+                    value: !_vm.valueKey ? key : option[_vm.valueKey],
+                    selected: _vm.isSelected(key, option)
+                  }
+                },
+                [
+                  _vm._v(
+                    "\n        " +
+                      _vm._s(!_vm.textKey ? option : option[_vm.textKey]) +
+                      "\n      "
+                  )
+                ]
+              )
+            })
+          ],
+          2
+        )
+      ])
     ]
   )
 };
@@ -1262,7 +1281,7 @@ __vue_render__$6._withStripped = true;
   /* style */
   const __vue_inject_styles__$6 = function (inject) {
     if (!inject) return
-    inject("data-v-334c51f7_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\n\n/*# sourceMappingURL=Dropdown.vue.map */", map: {"version":3,"sources":["Dropdown.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;;AAEA,uCAAuC","file":"Dropdown.vue"}, media: undefined });
+    inject("data-v-1e11db2a_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\n.select select:active, .select select:focus {\n  border-width: 2px;\n}\n\n/*# sourceMappingURL=Dropdown.vue.map */", map: {"version":3,"sources":["Dropdown.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;AACA;EACE,iBAAiB;AACnB;;AAEA,uCAAuC","file":"Dropdown.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\n.select select:active, .select select:focus {\n  border-width: 2px;\n}\n\n/*# sourceMappingURL=Dropdown.vue.map */"]}, media: undefined });
 
   };
   /* scoped */
