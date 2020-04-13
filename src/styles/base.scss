@@ -1,4 +1,4 @@
-// GLOBAL TO LINKS
+/** GLOBAL TO LINKS **/
 a {
   transition: all 0.25s ease;
 }
@@ -17,6 +17,22 @@ a {
 }
 .is-justified-space-between {
   justify-content: space-between !important;
+}
+
+/** Header Styles **/
+h1, h2, h3, h4, h5, h6 {
+  &.title {
+    &.heading-with-background {
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      background-color: $ghost-gray;
+    }
+    &.heading-with-contrast {
+      margin-bottom: .5rem;
+      border-bottom: 10px solid $ben-franklin-blue;
+    }
+  }
 }
 
 /** Custom Styles **/
@@ -48,6 +64,32 @@ a {
   }
 }
 
+.button {
+  padding: 0px 1rem;
+  font-weight: $weight-semibold;
+  background-color: $electric-blue;
+  border-color: $electric-blue;
+  text-transform: uppercase;
+  &:hover {
+    background-color: $dark-gray;
+    border-color: $dark-gray;
+    color: $white;
+  }
+
+  &:disabled {
+    background-color: $sidewalk;
+    border-color: $sidewalk;
+    opacity: 0.8;
+    &:hover {
+      color: $dark-gray;
+    }
+  }
+
+  @include until($tablet) {
+    width: 100%;
+  }
+}
+
 table {
   &.is-align-middle {
     td,
@@ -56,3 +98,38 @@ table {
     }
   }
 }
+
+/** LAYOUT SETTINGS **/
+#app {
+  padding: 78px 0 46px 0;
+
+  > header, > footer {
+    position: fixed;
+    width: 100%;
+    left: 0;
+  }
+
+  header {
+    z-index: 10;
+    top: 0;
+  }
+
+  footer {
+    z-index: 9;
+    bottom: 0;
+  }
+
+  > main {
+    width: 100%;
+    display: block;
+  }
+
+  @include until($tablet) {
+    padding-top: 135px;
+    > main {
+      display: block;
+      padding: 0 1rem 0;
+    }
+  }
+}
+/**********************/

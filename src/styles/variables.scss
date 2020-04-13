@@ -22,6 +22,8 @@ $navbar-dropdown-boxed-shadow: none;
 
 // FOOTER OVERRIDES
 $footer-background-color: $dark-ben-franklin;
+$footer-padding: rem-calc(10px);
+$footer-color: $white;
 
 // INPUT OVERRIDES
 $input-background-color: $ghost-gray;
@@ -42,3 +44,6 @@ $table-striped-row-even-background-color: $ghost-gray;
 $modal-content-width: 760px;
 $modal-card-head-padding: 15px;
 $modal-card-body-padding: 15px;
+
+//TITLE OVERRIDE
+$title-line-height: 1.4;

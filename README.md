@@ -24,6 +24,20 @@ Vue.use(Header, { altName: 'PhlHeader' });
 Vue.use(InputText);
 ``` 
 
+#### How to test it
+- Clone repo
+- Go into repo's directory
+- ```npm install```
+- ```npm run watch```
+- Open another command line instance and run ```npm link```
+- Clone [phila-vue-boilerplate](https://github.com/CityOfPhiladelphia/phila-vue-boilerplate)
+- Go into repo's folder
+- ```npm uninstall @phila/phila-ui``` to remove the default package
+- ```npm install```
+- ```npm link @phila/phila-ui```
+
+
+
 #### Importing everything
 *Note: Importing the entire library will cause a very large package size. We reccommend you only import what you need.*
 

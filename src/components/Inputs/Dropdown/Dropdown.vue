@@ -1,28 +1,31 @@
 <template>
-  <div
-    class="input-wrap input-select select"
+  <span
+    class="select is-fullwidth"
     :class="{ required: $attrs.required !== undefined }"
   >
-    <select
-      v-bind="$attrs"
-      @input="$emit('input', $event.target.value)"
-    >
-      <option
-        v-if="defaultOption !== null"
-        value=""
+    <label>
+      <select
+        v-bind="$attrs"
+        @change="onChange($event)"
       >
-        {{ defaultOption }}
-      </option>
-      <option
-        v-for="(option, key) in options"
-        :key="key"
-        :value="!valueKey ? key : option[valueKey]"
-        :selected="(value === key)"
-      >
-        {{ !textKey ? option : option[textKey] }}
-      </option>
-    </select>
-  </div>
+        <option
+          v-if="defaultOption !== null"
+          value=""
+        >
+          {{ defaultOption }}
+        </option>
+        <option
+          v-for="(option, key) in options"
+          :key="key"
+          :value="!valueKey ? key : option[valueKey]"
+          :selected="isSelected(key, option)"
+          :disabled="option['disabled'] ? option['disabled'] : false"
+        >
+          {{ !textKey ? option : option[textKey] }}
+        </option>
+      </select>
+    </label>
+  </span>
 </template>
 <script>
 export default {
@@ -34,12 +37,10 @@ export default {
       default: '',
     },
     options: {
-      type: [ Object ],
+      type: [ Object, Array ],
       default: () => {
         return {
           'option-1': 'Option 1',
-          'option-2': 'Option 2',
-          'option-3': 'Option 3',
         };
       },
     },
@@ -56,10 +57,27 @@ export default {
       default: "",
     },
   },
-  mounted() {
+  methods: {
+    isSelected(key, option) {
+      if (this.valueKey) {
+        return option[this.valueKey] === this.value;
+      }
+      return key === this.value;
+    },
+    onChange($event) {
+      this.$nextTick(() => {
+        this.$emit('input', $event.target.value);
+      });
+    },
   },
 };
 </script>
 <style lang="scss">
-
+  .select {
+    select {
+      &:active, &:focus {
+        border-width: 2px;
+      }
+    }
+  }
 </style>

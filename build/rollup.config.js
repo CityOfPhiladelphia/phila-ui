@@ -36,6 +36,7 @@ export default [ 'phila-ui' ].map((name) => ({
             data: `
                 @import "./src/styles/functions.scss";
                 @import "./src/styles/colors.scss";
+                @import "node_modules/bulma/sass/utilities/_all.sass";
             `,
           },
         },
