@@ -1,3 +1,4 @@
+
 /** GLOBAL TO LINKS **/
 a {
   transition: all 0.25s ease;
@@ -20,18 +21,30 @@ a {
 }
 
 /** Header Styles **/
+.headers {
+  font-family: $family-secondary;
+  font-weight: $weight-normal;
+  &.heading-with-background {
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: $ghost-gray;
+    font-size: $size-3;
+  }
+  &.heading-with-contrast {
+    margin-bottom: .5rem;
+    border-bottom: 10px solid $ben-franklin-blue;
+    font-size: $size-2;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
-  &.title {
-    &.heading-with-background {
-      margin-bottom: 1rem;
-      padding-left: 1rem;
-      padding-right: 1rem;
-      background-color: $ghost-gray;
-    }
-    &.heading-with-contrast {
-      margin-bottom: .5rem;
-      border-bottom: 10px solid $ben-franklin-blue;
-    }
+  @extend .headers;
+}
+
+.content {
+  h1, h2, h3, h4, h5, h6 {
+    @extend .headers;
   }
 }
 

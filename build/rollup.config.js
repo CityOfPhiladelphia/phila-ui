@@ -6,24 +6,23 @@ import cssnano from 'cssnano';
 
 export default [ 'phila-ui' ].map((name) => ({
   input: `src/${name}.js`,
-  output: [
-    {
-      format: 'umd',
-      name,
-      file: `dist/${name}.umd.js`,
-    },
-    {
-      format: 'es',
-      name,
-      exports: 'named',
-      file: `dist/${name}.esm.js`,
-    },{
-      format: 'iife',
-      name,
-      extend: true,
-      exports: 'named',
-      file: `dist/${name}.min.js`,
-    },
+  output: [{
+    format: 'umd',
+    name,
+    file: `dist/${name}.umd.js`,
+  },
+  {
+    format: 'es',
+    name,
+    exports: 'named',
+    file: `dist/${name}.esm.js`,
+  }, {
+    format: 'iife',
+    name,
+    extend: true,
+    exports: 'named',
+    file: `dist/${name}.min.js`,
+  },
   ],
   plugins: [
     commonjs(),
@@ -34,9 +33,9 @@ export default [ 'phila-ui' ].map((name) => ({
         preprocessOptions: {
           scss: {
             data: `
-                @import "./src/styles/functions.scss";
-                @import "./src/styles/colors.scss";
-                @import "node_modules/bulma/sass/utilities/_all.sass";
+              @import "./src/styles/functions.scss";
+              @import "./src/styles/colors.scss";
+              @import "node_modules/bulma/sass/utilities/_all.sass";
             `,
           },
         },
@@ -47,10 +46,10 @@ export default [ 'phila-ui' ].map((name) => ({
       inject: true,
       plugins: [ cssnano() ],
       sourceMap: true,
-      extensions: [ '.scss', '.sass','.css' ],
+      extensions: [ '.scss', '.sass', '.css' ],
     }),
     babel({
-      exclude: 'node_modules/**'
+      exclude: 'node_modules/**',
     }),
   ],
 }));
