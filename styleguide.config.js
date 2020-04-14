@@ -30,7 +30,7 @@ module.exports = {
         '"Helvetica Neue"',
         'sans-serif',
       ],
-      monospace: [ 'Consolas', '"Liberation Mono"', 'Menlo', 'monospace' ],
+      monospace: [ 'Monaco', 'monospace' ],
     },
   },
   styles: function(theme) {
