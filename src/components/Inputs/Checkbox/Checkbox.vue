@@ -1,21 +1,23 @@
 <template>
   <div class="input-wrap input-checkbox">
+    <input
+      :id="id"
+      class="is-checkradio is-info"
+      :class="shouldBeChecked ? 'has-background-color' : ''"
+      v-bind="$attrs"
+      :value="value"
+      :checked="shouldBeChecked"
+      :aria-checked="shouldBeChecked"
+      :aria-labelledby="id"
+      :aria-required="$attrs.required"
+      type="checkbox"
+      @change="updateInput"
+      @on="$listeners"
+    >
     <label
       :for="id"
       class="checkbox"
     >
-      <input
-        :id="id"
-        v-bind="$attrs"
-        :value="value"
-        :checked="shouldBeChecked"
-        :aria-checked="shouldBeChecked"
-        :aria-labelledby="id"
-        :aria-required="$attrs.required"
-        type="checkbox"
-        @change="updateInput"
-        @on="$listeners"
-      >
       <slot />
     </label>
   </div>
@@ -34,8 +36,8 @@ export default {
       default: () => `cb_${Math.random().toString(12).substring(2, 8)}`,
     },
     value: {
-      type: [ String, Number, Boolean ],
-      default: '',
+      type: [ String, Number, Boolean, Array ],
+      required: true,
     },
 
     // This prop represents the v-model value
@@ -69,7 +71,7 @@ export default {
           || this.modelValue === this.value;
       }
 
-      return this.$attrs.checked;
+      return !!this.$attrs.checked;
     },
   },
   methods: {
@@ -100,5 +102,4 @@ export default {
 <style lang="scss">
   // @import '../base.scss';
   @import '../../../styles/inputs.scss';
-</style>
-
+</style> 

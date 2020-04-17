@@ -1,17 +1,18 @@
 <template>
   <div class="input-wrap input-radio">
+    <input
+      :id="id"
+      class="is-checkradio is-info"
+      v-bind="$attrs"
+      :checked="shouldBeChecked"
+      :value="value"
+      type="radio"
+      @change="updateInput"
+    >
     <label
       :for="id"
       class="radio"
     >
-      <input
-        :id="id"
-        v-bind="$attrs"
-        :checked="shouldBeChecked"
-        :value="value"
-        type="radio"
-        @change="updateInput"
-      >
       <slot />
     </label>
   </div>
@@ -30,7 +31,7 @@ export default {
     },
     value: {
       type: [ String, Number, Boolean ],
-      default: "",
+      required: true,
     },
     modelValue: {
       type: [ String, Number, Boolean, Array ],

@@ -52,6 +52,7 @@
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
-    "bulma": "^0.8.1"
+    "bulma": "^0.8.1",
+    "bulma-checkradio": "^1.1.1"
   }
 }
