@@ -89,4 +89,13 @@ module.exports = {
   ],
   exampleMode: 'expand',
   usageMode: 'expand',
+
+  // Webpack config
+  webpackConfig: {
+    resolve: {
+      alias: {
+        '~': path.resolve(__dirname, 'node_modules'),
+      },
+    },
+  },
 };
