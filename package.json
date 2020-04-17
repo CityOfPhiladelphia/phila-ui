@@ -33,7 +33,7 @@
     "@babel/preset-env": "^7.6.3",
     "@semantic-release/git": "^7.0.18",
     "@vue/cli-plugin-eslint": "^3.11.0",
-    "@vue/cli-service": "^3.11.0",
+    "@vue/cli-service": "^4.0.5",
     "babel-eslint": "^10.0.3",
     "conventional-changelog-conventionalcommits": "^4.2.1",
     "cssnano": "^4.1.10",
