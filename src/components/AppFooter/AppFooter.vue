@@ -34,9 +34,15 @@
   </footer>
 </template>
 <script>
+/**
+ * This is the main application footer.
+*/
 export default {
   name: 'AppFooter',
   props: {
+    /**
+     * An array of links to be displayed. Each link should have at least a `href` and a `text` property. The href property of the link may contain a function, a string, or a router-link object.
+    */
     links: {
       type: Array,
       default: () => {

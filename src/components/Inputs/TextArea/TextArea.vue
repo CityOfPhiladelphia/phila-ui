@@ -4,6 +4,10 @@
     :class="{ required: $attrs.required !== undefined }"
   >
     <label :for="id">{{ placeholder }}</label>
+    <!--
+      trigered on input change
+      @event input      
+    -->
     <textarea
       class="textarea"
       v-bind="$attrs"
@@ -16,10 +20,16 @@
   </div>
 </template>
 <script>
+/**
+ * Equivalent to the html ```<textarea>``` tag
+ */
 export default {
   name: "TextArea",
   inheritAttrs: false,
   props: {
+    /**
+     * Random id is generated if none provided
+     */
     id: {
       type: String,
       default: () => `ta_${Math.random().toString(12).substring(2, 8)}`,
@@ -36,7 +46,6 @@ export default {
 };
 </script>
 <style lang="scss">
-  // @import '../base.scss';
   @import '../../../styles/inputs.scss';
 
   textarea:focus::-webkit-input-placeholder {

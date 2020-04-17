@@ -41,12 +41,13 @@
               </h2>
             </a>
           </div>
-
+          <!-- @slot The mobile-menu slot allows you to pass extra navigation for mobile usage -->
           <slot name="mobile-menu" />
         </div>
 
         <div class="navbar-menu is-hidden-mobile">
           <div class="navbar-end">
+            <!-- @slot The default slot is used to add navigation items -->
             <slot />
           </div>
         </div>
@@ -55,16 +56,15 @@
   </header>
 </template>
 <script>
+/**
+ * This is the main application header.
+ */
 export default {
   name: 'AppHeader',
   props: {
-    appLogoLink: {
-      type: Object,
-      default: () => ({
-        href: "https://www.phila.gov",
-        target: "_blank",
-      }),
-    },
+    /**
+     * The application logo. By default the City logo is used, however this could be used to display a department's logo.
+    */
     appLogoImage: {
       type: Object,
       default: () => ({
@@ -73,22 +73,47 @@ export default {
         width: 170,
       }),
     },
+    /**
+     * The logo link
+    */
+    appLogoLink: {
+      type: Object,
+      default: () => ({
+        href: "https://www.phila.gov",
+        target: "_blank",
+      }),
+    },
+    /**
+     * The application's title/name
+    */
     appTitle: {
       type: String,
       default: "",
     },
+    /**
+     * The application's subtitle
+    */
     appSubtitle: {
       type: String,
       default: "",
     },
+    /**
+     * The application's link. By default it links to the root.
+    */
     appLink: {
       type: String,
       default: "/",
     },
+    /**
+     * Allows the header elements (logo, title, navigation...) to expand with the window width, or stay in the center
+    */
     fluid: {
       type: Boolean,
       default: true,
     },
+    /**
+     * Sticks the header to the top of the page
+    */
     isSticky: {
       type: Boolean,
       default: false,

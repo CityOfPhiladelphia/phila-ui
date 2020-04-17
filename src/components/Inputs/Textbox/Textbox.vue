@@ -20,6 +20,9 @@
   </div>
 </template>
 <script>
+/**
+ * Equivalent to the html ```<input type="text">``` tag
+ */
 export default {
   name: "Textbox",
   inheritAttrs: false,
@@ -48,7 +51,6 @@ export default {
 };
 </script>
 <style lang="scss">
-  // @import '../base.scss';
   @import '../../../styles/inputs.scss';
 
   .input-text {
