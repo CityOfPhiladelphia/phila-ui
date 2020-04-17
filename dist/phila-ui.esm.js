@@ -858,6 +858,8 @@ function _nonIterableSpread() {
 //
 //
 //
+//
+//
 var script$4 = {
   name: 'Checkbox',
   inheritAttrs: false,
@@ -873,8 +875,8 @@ var script$4 = {
       }
     },
     value: {
-      type: [String, Number, Boolean],
-      "default": ''
+      type: [String, Number, Boolean, Array],
+      required: true
     },
     // This prop represents the v-model value
     modelValue: {
@@ -906,7 +908,7 @@ var script$4 = {
         return this.modelValue === this.trueValue || this.modelValue === this.value;
       }
 
-      return this.$attrs.checked;
+      return !!this.$attrs.checked;
     }
   },
   methods: {
@@ -944,31 +946,31 @@ var __vue_render__$4 = function() {
   var _c = _vm._self._c || _h;
   return _c("div", { staticClass: "input-wrap input-checkbox" }, [
     _c(
+      "input",
+      _vm._b(
+        {
+          staticClass: "is-checkradio is-info",
+          class: _vm.shouldBeChecked ? "has-background-color" : "",
+          attrs: {
+            id: _vm.id,
+            "aria-checked": _vm.shouldBeChecked,
+            "aria-labelledby": _vm.id,
+            "aria-required": _vm.$attrs.required,
+            type: "checkbox"
+          },
+          domProps: { value: _vm.value, checked: _vm.shouldBeChecked },
+          on: { change: _vm.updateInput, on: _vm.$listeners }
+        },
+        "input",
+        _vm.$attrs,
+        false
+      )
+    ),
+    _vm._v(" "),
+    _c(
       "label",
       { staticClass: "checkbox", attrs: { for: _vm.id } },
-      [
-        _c(
-          "input",
-          _vm._b(
-            {
-              attrs: {
-                id: _vm.id,
-                "aria-checked": _vm.shouldBeChecked,
-                "aria-labelledby": _vm.id,
-                "aria-required": _vm.$attrs.required,
-                type: "checkbox"
-              },
-              domProps: { value: _vm.value, checked: _vm.shouldBeChecked },
-              on: { change: _vm.updateInput, on: _vm.$listeners }
-            },
-            "input",
-            _vm.$attrs,
-            false
-          )
-        ),
-        _vm._v(" "),
-        _vm._t("default")
-      ],
+      [_vm._t("default")],
       2
     )
   ])
@@ -979,7 +981,7 @@ __vue_render__$4._withStripped = true;
   /* style */
   const __vue_inject_styles__$4 = function (inject) {
     if (!inject) return
-    inject("data-v-83c5b7ae_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Checkbox.vue.map */", map: {"version":3,"sources":["Checkbox.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;AACA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;;AAEA,uCAAuC","file":"Checkbox.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Checkbox.vue.map */"]}, media: undefined });
+    inject("data-v-028d77dc_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Checkbox.vue.map */", map: {"version":3,"sources":["Checkbox.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;AACA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;;AAEA,uCAAuC","file":"Checkbox.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Checkbox.vue.map */"]}, media: undefined });
 
   };
   /* scoped */
@@ -1028,6 +1030,7 @@ prepareForExport(__vue_component__$4); // To allow use as module (npm/webpack/et
 //
 //
 //
+//
 var script$5 = {
   name: "Radio",
   model: {
@@ -1043,7 +1046,7 @@ var script$5 = {
     },
     value: {
       type: [String, Number, Boolean],
-      "default": ""
+      required: true
     },
     modelValue: {
       type: [String, Number, Boolean, Array],
@@ -1073,25 +1076,24 @@ var __vue_render__$5 = function() {
   var _c = _vm._self._c || _h;
   return _c("div", { staticClass: "input-wrap input-radio" }, [
     _c(
+      "input",
+      _vm._b(
+        {
+          staticClass: "is-checkradio is-info",
+          attrs: { id: _vm.id, type: "radio" },
+          domProps: { checked: _vm.shouldBeChecked, value: _vm.value },
+          on: { change: _vm.updateInput }
+        },
+        "input",
+        _vm.$attrs,
+        false
+      )
+    ),
+    _vm._v(" "),
+    _c(
       "label",
       { staticClass: "radio", attrs: { for: _vm.id } },
-      [
-        _c(
-          "input",
-          _vm._b(
-            {
-              attrs: { id: _vm.id, type: "radio" },
-              domProps: { checked: _vm.shouldBeChecked, value: _vm.value },
-              on: { change: _vm.updateInput }
-            },
-            "input",
-            _vm.$attrs,
-            false
-          )
-        ),
-        _vm._v(" "),
-        _vm._t("default")
-      ],
+      [_vm._t("default")],
       2
     )
   ])
@@ -1102,7 +1104,7 @@ __vue_render__$5._withStripped = true;
   /* style */
   const __vue_inject_styles__$5 = function (inject) {
     if (!inject) return
-    inject("data-v-20549e93_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Radio.vue.map */", map: {"version":3,"sources":["Radio.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;AACA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;;AAEA,oCAAoC","file":"Radio.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Radio.vue.map */"]}, media: undefined });
+    inject("data-v-4b91aa2b_0", { source: "@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Radio.vue.map */", map: {"version":3,"sources":["Radio.vue"],"names":[],"mappings":"AAAA;AACE;IACE,uBAAuB;AACzB;AACA;IACE,yBAAyB;AAC3B;AACF;AACA;EACE,kBAAkB;AACpB;AAEA;EACE,kBAAkB;AACpB;;AAEA,YAAY;AACZ;EACE,kBAAkB;AACpB;;AAEA,WAAW;AACX;EACE,kBAAkB;AACpB;;AAEA,oCAAoC","file":"Radio.vue","sourcesContent":["@keyframes spinAround {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(359deg);\n  }\n}\ninput:focus::-webkit-input-placeholder {\n  color: transparent;\n}\n\ninput:focus:-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 4-18 */\ninput:focus::-moz-placeholder {\n  color: transparent;\n}\n\n/* FF 19+ */\ninput:focus:-ms-input-placeholder {\n  color: transparent;\n}\n\n/*# sourceMappingURL=Radio.vue.map */"]}, media: undefined });
 
   };
   /* scoped */
