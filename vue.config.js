@@ -1,10 +1,12 @@
+const path = require('path');
+
 module.exports = {
   lintOnSave: true,
   css: {
     loaderOptions: {
       sass: {
         data: `
-          @import "@/styles/all.scss";
+          @import "@/styles/styleguide-all.scss";
         `,
       },
     },
