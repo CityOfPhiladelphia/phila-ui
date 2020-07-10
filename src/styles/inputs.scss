@@ -13,3 +13,124 @@ input:focus::-moz-placeholder {
 input:focus:-ms-input-placeholder {
   color: transparent;
 }
+
+.is-field-info {
+  margin: 0 .5rem;
+  font-size: 0.875rem;
+  padding: 0 0 .5rem 0;
+  + .has-error {
+    margin-top: .15rem;
+  }
+}
+.is-field-info-important {
+  @extend .is-field-info;
+  background-color: #daedfe;
+  padding: 1rem;
+}
+
+form {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  fieldset {
+    legend {
+      font-size: 0.875rem;
+      padding: 0 0.5rem;
+      font-weight: bold;
+    }
+  }
+  .field {
+    margin-bottom: 0 !important;
+  }
+
+}
+
+.input-wrap {
+  padding: 0.5rem 0.5rem 0.5rem;
+  position: relative;
+  label {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 5;
+    font-size: 0.813rem;
+    color: #666666;
+    font-weight: 400;
+    line-height: 1.5rem;
+    padding: 0 0 0 0.90rem;
+  }
+  .is-field-info {
+    margin: 0;
+  }
+  &.required {
+    &.input-textbox, &.input-textarea, &.input-dropdown {
+      label {
+        &:after {
+          content: "*";
+          font-size: 0.813rem;
+        }
+      }
+    }
+  }
+  &.has-error {
+    background-color: $error-light;
+    margin-bottom: 2px;
+    .select select, .input, .textarea {
+      border: 2px solid $love-park-red !important;
+    }
+    .input-error-msg {
+      font-size: 0.9rem;
+      color: $love-park-red;
+      .icon {
+        font-size: 1rem;
+      }
+    }
+  }
+  .input, .textarea, .select select {
+    border-bottom: 1px solid #979797;
+    &:focus {
+      background-color: $white;
+      border: 2px solid $electric-blue !important;
+    }
+  }
+  &.input-checkbox, &.input-radio {
+    .control {
+      margin-bottom: 0.5rem;
+    }
+    label {
+      top: 0;
+      left: 0;
+      page-break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+      break-inside: avoid;
+    }
+    fieldset {
+      legend {
+        padding: 0 0 .5rem 0;
+      }
+    }
+
+    &.required {
+      fieldset legend {
+        &:after {
+          content: "*";
+          font-size: 0.813rem;
+        }
+      }
+    }
+    .is-checkradio + label:before {
+      border: .09rem solid #a1a1a1 !important;
+      left: -2rem !important;
+    }
+    .is-checkradio[type=checkbox] + label:after {
+      left: -1.4rem !important;
+    }
+    .is-checkradio[type=radio] + label:after {
+      left: -2rem !important;
+    }
+    .is-checkradio + label {
+      display: inline-block;
+      font-size: 1.063rem;
+      margin: 0 0 0 2rem;
+      padding: 0
+    }
+  }
+}

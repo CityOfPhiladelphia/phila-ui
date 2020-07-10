@@ -1,22 +1,22 @@
 <template>
   <div
-    class="input-wrap input-text"
-    :class="{ required: $attrs.required !== undefined, 'has-error': error }"
+    class="input-wrap input-textbox"
+    :class="classes"
   >
     <input
-      :id="id"
+      :id="`tb-${id}`"
       class="input"
       v-bind="$attrs"
-      :name="name"
-      :aria-labelledby="id"
-      :aria-required="$attrs.required !== undefined"
-      :value="value"
+      :placeholder="$attrs.required !== undefined ? `${placeholder}*` : placeholder"
       :type="type"
-      :placeholder="$attrs.required !== undefined ? placeholder + '*' : placeholder"
+      :value="value"
+      :v-on="inputListeners"
       @input="$emit('input', $event.target.value)"
-      @on="$listeners"
+      @change="$emit('change', $event.target.value)"
     >
-    <label :for="id">{{ placeholder }}</label>
+    <label :for="`tb-${id}`">
+      {{ label ? label : placeholder }}
+    </label>
     <template v-if="error">
       <div class="input-error-msg">
         <span class="icon"><i class="fas fa-exclamation-circle" /></span>
@@ -29,60 +29,53 @@
 /**
  * Equivalent to the html ```<input type="text">``` tag
  */
+
+import { inputMixins } from '../../../utils/inputMixins';
+
 export default {
   name: "Textbox",
+  mixins: [
+    inputMixins,
+  ],
   inheritAttrs: false,
   props: {
-    id: {
+    label: {
       type: String,
-      default: () => `tx_${Math.random().toString(12).substring(2, 8)}`,
-    },
-    name: {
-      type: String,
-      default: 'Field Name',
-    },
-    value: {
-      type: [ String, Number ],
-      default: "",
-    },
-    type: {
-      type: String,
-      default: 'text',
+      default: '',
     },
     placeholder: {
       type: String,
       default: 'Insert placeholder here',
     },
-    error: {
+    type: {
       type: String,
-      default: null,
+      default: 'text',
+    },
+    value: {
+      type: [ String, Number ],
+      default: "",
     },
   },
 };
 </script>
+
 <style lang="scss">
   @import '../../../styles/inputs.scss';
+</style>
 
+<style lang="scss" scoped>
+.input-textbox {
   .input {
-    font-size: 1.063rem;
-    line-height: 1.5rem;
     height: 3.5rem;
-    color: $dark-gray;
-    padding: 1.1rem 1rem 1rem 1rem;
-    border-bottom: 1px solid #979797;
+    + label {
+      opacity: 0;
+    }
     &:not(:placeholder-shown),
     &:focus {
       padding: 1rem 1rem 0 1rem;
       + label {
         opacity: 1;
       }
-    }
-    &:focus {
-      background-color: $white;
-      border: 2px solid $electric-blue !important;
-    }
-    &:hover {
-      border-bottom: 1px solid #979797;
     }
   }
 
@@ -92,41 +85,5 @@ export default {
       opacity: 1;
     }
   }
-
-  .input-text {
-    position: relative;
-    padding: 0.5rem 0.5rem 0.25rem;
-    &.has-error {
-      background-color: $error-light;
-      .input {
-        border: 2px solid $love-park-red;
-      }
-      .input-error-msg {
-        font-size: 0.813rem;
-        color: $love-park-red;
-      }
-    }
-    &.required {
-      label {
-        &:after {
-          content: "*";
-          font-size: 0.813rem;
-        }
-      }
-    }
-  }
-
-  label {
-    position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
-    z-index: 5;
-    font-size: 0.813rem;
-    color: #666666;
-    font-weight: 400;
-    line-height: 1.5rem;
-    padding: 0 0 0 0.90rem;
-    opacity: 0;
-  }
-
+}
 </style>

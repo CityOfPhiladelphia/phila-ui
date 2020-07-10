@@ -77,11 +77,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .button {
+  color: $white;
   padding: 0px 1rem;
   font-weight: $weight-semibold;
-  background-color: $electric-blue;
-  border-color: $electric-blue;
-  text-transform: uppercase;
+  background-color: $dark-ben-franklin;
+  border-color: $dark-ben-franklin;
   &:hover {
     background-color: $dark-gray;
     border-color: $dark-gray;
@@ -96,10 +96,20 @@ h1, h2, h3, h4, h5, h6 {
       color: $dark-gray;
     }
   }
+  &.is-secondary {
+    @extend .is-primary.is-outlined;
+    &.is-simple {
+      border-color: transparent;
+    }
+  }
 
   @include until($tablet) {
     width: 100%;
   }
+}
+
+button {
+  @extend .button;
 }
 
 table {

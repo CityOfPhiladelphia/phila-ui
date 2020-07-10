@@ -1,53 +1,68 @@
 <template>
   <div
     class="input-wrap input-textarea"
-    :class="{ required: $attrs.required !== undefined }"
+    :class="classes"
   >
-    <label :for="id">{{ placeholder }}</label>
     <!--
       trigered on input change
-      @event input      
+      @event input
     -->
     <textarea
+      :id="`ta-${id}`"
       class="textarea"
       v-bind="$attrs"
-      :aria-labelledby="id"
-      :aria-required="$attrs.required !== undefined"
       :value="value"
+      :placeholder="$attrs.required !== undefined ? placeholder + '*' : placeholder"
       @input="$emit('input', $event.target.value)"
-      @on="$listeners"
+      v-on="inputListeners"
     />
+    <label :for="`ta-${id}`">
+      {{ label ? label : placeholder }}
+    </label>
+    <template v-if="error">
+      <div class="input-error-msg">
+        <span class="icon"><i class="fas fa-exclamation-circle" /></span>
+        <span>{{ error }}</span>
+      </div>
+    </template>
   </div>
 </template>
 <script>
 /**
  * Equivalent to the html ```<textarea>``` tag
  */
+import { inputMixins } from '../../../utils/inputMixins';
 export default {
   name: "TextArea",
+  mixins: [
+    inputMixins,
+  ],
   inheritAttrs: false,
   props: {
-    /**
-     * Random id is generated if none provided
-     */
-    id: {
-      type: String,
-      default: () => `ta_${Math.random().toString(12).substring(2, 8)}`,
-    },
     value: {
       type: [ String, Number ],
       default: "",
+    },
+    label: {
+      type: String,
+      default: '',
     },
     placeholder: {
       type: String,
       default: 'Insert label placeholder here',
     },
   },
+  data () {
+    return {
+      localValue: '',
+    };
+  },
 };
 </script>
 <style lang="scss">
   @import '../../../styles/inputs.scss';
-
+</style>
+<style lang="scss" scoped>
   textarea:focus::-webkit-input-placeholder {
     color: transparent;
   }
@@ -65,22 +80,28 @@ export default {
   }
 
   .input-textarea {
-    position: relative;
-    label {
-      position: absolute;
-      top: 0px;
-      left: 10px;
-      z-index: 5;
-      font-size: 10px;
-      color: #909090;
-      font-weight: 300;
-    }
-    textarea{
+    .textarea {
+      + label {
+        opacity: 0;
+        z-index: -1;
+      }
+      &:not(:placeholder-shown),
       &:focus {
-        border-width: 2px;
-        padding-bottom: 0;
+        padding: 1.5rem 1rem 0 1rem;
+        + label {
+          opacity: 1;
+          z-index: 1;
+        }
+      }
+      &:not(:-ms-input-placeholder) {
+        padding: 1.5rem 1rem 0 1rem;
+        + label {
+          opacity: 1;
+          z-index: 1;
+        }
       }
     }
   }
+
 </style>
 
