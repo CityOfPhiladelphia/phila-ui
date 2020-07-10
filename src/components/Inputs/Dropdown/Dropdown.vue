@@ -17,7 +17,6 @@
         v-model="localSelected"
         v-bind="$attrs"
         @change="onChange($event)"
-        @blur="$emit('blur', localSelected)"
         v-on="inputListeners"
       >
         <option value="">
@@ -107,7 +106,7 @@ export default {
     },
     onChange ($event) {
       this.$nextTick(() => {
-        this.$emit('input', $event.target.value);
+        this.$emit('change', $event.target.value);
       });
     },
   },
