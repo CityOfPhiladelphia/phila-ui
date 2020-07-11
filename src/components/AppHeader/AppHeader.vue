@@ -57,7 +57,7 @@
 </template>
 <script>
 /**
- * This is the main application header.
+ * This is the application's main header
  */
 export default {
   name: 'AppHeader',

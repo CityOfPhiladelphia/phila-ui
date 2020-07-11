@@ -2,6 +2,7 @@
 Use color classes from phila-ui or bulma.
 
 **Example of a success message using a phila-ui class:**
+<Callout message="A success message" class="is-danger"/>
 ```jsx
   <callout message="A success message" class="is-kelly-drive-green" />
 ```

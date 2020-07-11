@@ -6,8 +6,6 @@
   "scripts": {
     "build": "vue-cli-service lint --no-fix && rollup --config build/rollup.config.js",
     "lint": "vue-cli-service lint",
-    "styleguide": "vue-cli-service styleguidist",
-    "styleguide:build": "vue-cli-service styleguidist:build",
     "watch": "rollup --watch --config build/rollup.config.js"
   },
   "main": "dist/phila-ui.umd.js",
@@ -35,7 +33,6 @@
     "sass-loader": "^7.1.0",
     "semantic-release": "^15.13.30",
     "vue": "^2.6.10",
-    "vue-cli-plugin-styleguidist": "^4.13.1",
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {

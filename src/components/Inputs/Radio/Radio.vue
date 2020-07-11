@@ -112,5 +112,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../../../styles/inputs.scss';
+  @import "../../../styles/inputs.scss";
 </style>

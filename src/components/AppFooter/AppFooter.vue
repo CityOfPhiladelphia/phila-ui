@@ -35,8 +35,8 @@
 </template>
 <script>
 /**
- * This is the main application footer.
-*/
+ * This is the application's main footer.
+ */
 export default {
   name: 'AppFooter',
   props: {
