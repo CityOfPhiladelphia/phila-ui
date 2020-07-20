@@ -44,7 +44,10 @@ module.exports = async () => {
 			]
 		],
 		scss: {
-			data: `@import "~@styles/all.scss";`
+			data: `
+				@import "~@styles/all.scss";
+				@import "~@styles/functions.scss";
+				`
 		},
 		configureWebpack: {
 			resolve: {

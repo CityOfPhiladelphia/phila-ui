@@ -9,9 +9,9 @@
   >
     <textbox
       v-model="localValue"
-      v-bind="{ ...$props, ...$attrs }"
+      v-bind="{ ...$attrs }"
       :error="errors[0]"
-      :v-on="inputListeners"
+      v-on="$listeners"
     />
   </validation-provider>
 </template>
@@ -30,7 +30,7 @@ export default {
   ],
   props: {
     value: {
-      type: [ String, Number, Object, Array ],
+      type: [ String, Number ],
       default: '',
     },
     rules: {
@@ -41,7 +41,7 @@ export default {
     },
     mode: {
       type: String,
-      default: 'passive',
+      default: 'eager',
     },
   },
   computed: {

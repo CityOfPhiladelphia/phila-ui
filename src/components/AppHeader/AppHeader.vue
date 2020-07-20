@@ -126,6 +126,11 @@ export default {
     border-bottom: 5px solid $electric-blue;
   }
   .navbar {
+    .navbar-item {
+      a {
+        color: $white;
+      }
+    }
     // IE vertical align hack
     // height: 73px;
     min-height: 73px;
@@ -154,6 +159,7 @@ export default {
       }
     }
   }
+
   @include until($tablet) {
     .navbar-item {
       &.phl-logo {

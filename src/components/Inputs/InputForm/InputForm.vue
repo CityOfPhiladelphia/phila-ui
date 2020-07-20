@@ -3,7 +3,6 @@
     :id="`form-${id}`"
     novalidate
     v-bind="$attrs"
-    v-on="$listeners"
   >
     <slot />
     <div
@@ -44,6 +43,20 @@ export default {
     errorsCount: {
       type: [ String, Number ],
       default: 0,
+    },
+  },
+  computed: {
+    inputListeners: function () {
+      var vm = this;
+      return Object.assign({},
+        this.$listeners,
+        {
+          input: function (event) {
+            console.log(event, 'input-form event');
+            vm.$emit('input', event.target.value);
+          },
+        }
+      );
     },
   },
 };

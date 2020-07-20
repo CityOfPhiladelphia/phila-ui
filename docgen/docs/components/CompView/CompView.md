@@ -1,4 +1,4 @@
-# MyComponent
+# CompView
 
 ## Slots
 
@@ -7,3 +7,7 @@
 | default |             |          |
 
 ---
+
+```vue live
+<CompView>Default Example Usage</CompView>
+```

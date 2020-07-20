@@ -23,7 +23,3 @@
 | desc  |             |          |
 
 ---
-
-```vue live
-<Checkbox>Default Example Usage</Checkbox>
-```

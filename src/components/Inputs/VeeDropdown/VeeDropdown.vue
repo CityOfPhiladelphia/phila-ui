@@ -11,7 +11,7 @@
       v-model="localValue"
       v-bind="{ ...$props, ...$attrs }"
       :error="errors[0]"
-      v-on="inputListeners"
+      v-on="$listeners"
     />
   </validation-provider>
 </template>
@@ -62,7 +62,6 @@ export default {
       },
       set(localValue) {
         this.$emit('input', localValue);
-        this.$emit('change', localValue);
       },
     },
   },

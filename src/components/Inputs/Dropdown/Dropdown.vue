@@ -16,7 +16,6 @@
         :id="`dd-${id}`"
         v-model="localSelected"
         v-bind="$attrs"
-        @change="onChange($event)"
         v-on="inputListeners"
       >
         <option value="">
@@ -92,7 +91,12 @@ export default {
         {},
         this.$listeners,
         {
-          change: vm.onChange,
+          change: function (event) {
+            //Input event is necessary for v-model
+            vm.$emit('input', event.target.value);
+            //Change event is necessary for everything else
+            vm.$emit('change', event.target.value);
+          },
         }
       );
     },
@@ -103,11 +107,6 @@ export default {
         return option[this.valueKey] === this.value;
       }
       return key === this.value;
-    },
-    onChange ($event) {
-      this.$nextTick(() => {
-        this.$emit('change', $event.target.value);
-      });
     },
   },
 };

@@ -9,7 +9,7 @@
 </template>
 <script>
 /**
- * Use this component for messages and warnings. 
+ * Use this component for messages and warnings.
  */
 export default {
   name: 'Callout',
@@ -25,3 +25,4 @@ export default {
   },
 };
 </script>
+

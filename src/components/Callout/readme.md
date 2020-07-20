@@ -1,8 +1,13 @@
 ### Examples
 Use color classes from phila-ui or bulma.
 
+<MyComponent>
+  <Callout message="My super message" class="is-info"/>
+</MyComponent>
+
 **Example of a success message using a phila-ui class:**
 <Callout message="A success message" class="is-danger"/>
+
 ```jsx
   <callout message="A success message" class="is-kelly-drive-green" />
 ```

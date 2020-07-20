@@ -4,12 +4,13 @@
     :ref="`form-val-${id}`"
     v-slot="validation"
     tag="div"
+    name="hello"
+    v-on="inputListeners"
   >
     <input-form
       :id="`form-${id}`"
       :is-valid="!validation.failed"
       :errors-count="getErrorsCount(validation.errors)"
-      v-on="inputListeners"
     >
       <template
         v-for="(index, name) in $slots"
@@ -34,9 +35,23 @@ export default {
       default: () => `ta_${Math.random().toString(12).substring(2, 8)}`,
     },
   },
+  computed: {
+    inputListeners: function () {
+      var vm = this;
+      return Object.assign({},
+        this.$listeners,
+        {
+          input: function (event) {
+            console.log('vee-input-form', event.target.value);
+            vm.$emit('input', event.target.value);
+          },
+        }
+      );
+    },
+  },
   methods: {
     validate () {
-      return this.$refs[`form-${this.id}`].validate();
+      return this.$refs[`form-val-${this.id}`].validate();
     },
     getErrorsCount (errors) {
       return Object.values(errors).reduce((total, error) => error.length > 0 ? total + 1 : total, 0);

@@ -10,9 +10,7 @@
       :placeholder="$attrs.required !== undefined ? `${placeholder}*` : placeholder"
       :type="type"
       :value="value"
-      :v-on="inputListeners"
-      @input="$emit('input', $event.target.value)"
-      @change="$emit('change', $event.target.value)"
+      v-on="inputListeners"
     >
     <label :for="`tb-${id}`">
       {{ label ? label : placeholder }}
@@ -54,6 +52,19 @@ export default {
     value: {
       type: [ String, Number ],
       default: "",
+    },
+  },
+  computed: {
+    inputListeners: function () {
+      var vm = this;
+      return Object.assign({},
+        this.$listeners,
+        {
+          input: function (event) {
+            vm.$emit('input', event.target.value);
+          },
+        }
+      );
     },
   },
 };

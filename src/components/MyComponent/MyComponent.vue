@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>My Component</h1>
+  <div class="render-components">
+    <slot />
   </div>
 </template>
 <script>
@@ -9,7 +9,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-  // h1 {
-  //   color: $primary;
-  // }
+  .render-components {
+    @import '../../styles/all.scss';
+  }
 </style>

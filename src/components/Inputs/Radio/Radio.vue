@@ -51,7 +51,6 @@
             :true-value="optionValue(option, key)"
             :checked="value == optionValue(option, key)"
             v-bind="option.attrs || {}"
-            @change="$emit('input', $event.target.value)"
             v-on="inputListeners"
           >
           <label
@@ -106,6 +105,19 @@ export default {
     numOfColumns: {
       type: [ String, Number ],
       default: 1,
+    },
+  },
+  computed: {
+    inputListeners: function () {
+      var vm = this;
+      return Object.assign({},
+        this.$listeners,
+        {
+          input: function (event) {
+            vm.$emit('input', event.target.value);
+          },
+        }
+      );
     },
   },
 };

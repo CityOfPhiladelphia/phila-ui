@@ -38,7 +38,7 @@
       >
         <div
           v-for="(option, key) in options"
-          :key="key"
+          :key="`k-${key}`"
           class="control"
         >
           <input
@@ -50,7 +50,7 @@
             :class="localValue.includes(optionValue(option, key)) ? 'has-background-color' : ''"
             :value="optionValue(option, key)"
             :true-value="optionValue(option, key)"
-            :checked="localValue.includes(key)"
+            :checked="localValue.includes(optionValue(option, key))"
             v-bind="option.attrs || {}"
             v-on="inputListeners"
           >
@@ -111,13 +111,24 @@ export default {
     },
   },
   computed: {
+    inputListeners: function () {
+      var vm = this;
+      return Object.assign({},
+        this.$listeners,
+        {
+          input: function (event) {
+            vm.$emit('input', vm.localValue);
+          },
+        }
+      );
+    },
     localValue: {
       get() {
         return this.value;
       },
       set(localValue) {
+        console.log('checkbox value', localValue);
         this.$emit('input', localValue);
-        this.$emit('change', localValue);
       },
     },
   },

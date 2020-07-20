@@ -6,7 +6,8 @@
   "scripts": {
     "build": "vue-cli-service lint --no-fix && rollup --config build/rollup.config.js",
     "lint": "vue-cli-service lint",
-    "watch": "rollup --watch --config build/rollup.config.js"
+    "watch": "rollup --watch --config build/rollup.config.js",
+    "scss": "node-sass --watch src/styles/compile_all.scss -o src/css"
   },
   "main": "dist/phila-ui.umd.js",
   "module": "dist/phila-ui.esm.js",

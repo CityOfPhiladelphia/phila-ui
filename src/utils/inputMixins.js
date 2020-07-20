@@ -40,17 +40,6 @@ export const inputMixins = {
       }
       return classes.join(" ");
     },
-    inputListeners: function () {
-      var vm = this;
-      return Object.assign({},
-        this.$listeners,
-        {
-          input: function (event) {
-            vm.$emit('input', event.target.value);
-          },
-        }
-      );
-    },
   },
   mounted () {
     this.hasError();
