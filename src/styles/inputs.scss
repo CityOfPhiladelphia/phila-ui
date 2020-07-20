@@ -29,7 +29,9 @@ input:focus:-ms-input-placeholder {
 }
 
 form {
-  // padding: 0 1.5rem 1.5rem 1.5rem;
+  .form-padding {
+    padding: 0 0.5rem;
+  }
   fieldset {
     legend {
       font-size: 0.875rem;
@@ -39,6 +41,13 @@ form {
   }
   .field {
     margin-bottom: 0 !important;
+  }
+  .form-submit {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    button {
+      width: 100%;
+    }
   }
 
 }
@@ -75,6 +84,9 @@ form {
     margin-bottom: 2px;
     .select select, .input, .textarea {
       border: 2px solid $love-park-red !important;
+      &:focus {
+        border: 2px solid $love-park-red !important;
+      }
     }
     .input-error-msg {
       font-size: 0.9rem;

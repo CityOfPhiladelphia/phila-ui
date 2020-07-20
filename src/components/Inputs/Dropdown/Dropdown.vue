@@ -70,7 +70,7 @@ export default {
       default: "",
     },
     value: {
-      type: [ Object, String, Boolean, Number ],
+      type: String,
       default: '',
     },
     valueKey: {
@@ -93,9 +93,9 @@ export default {
         {
           change: function (event) {
             //Input event is necessary for v-model
-            vm.$emit('input', event.target.value);
+            vm.$emit('input', vm.localSelected);
             //Change event is necessary for everything else
-            vm.$emit('change', event.target.value);
+            vm.$emit('change', vm.localSelected);
           },
         }
       );
@@ -103,10 +103,11 @@ export default {
   },
   methods: {
     isSelected (key, option) {
-      if (this.valueKey) {
-        return option[this.valueKey] === this.value;
+      let dropdownOptionValue = this.optionValue(option, key);
+
+      if (dropdownOptionValue === this.value) {
+        this.localSelected = this.value;
       }
-      return key === this.value;
     },
   },
 };

@@ -11,6 +11,7 @@
       :id="`form-${id}`"
       :is-valid="!validation.failed"
       :errors-count="getErrorsCount(validation.errors)"
+      v-bind="{ ...$attrs, ...$props }"
     >
       <template
         v-for="(index, name) in $slots"

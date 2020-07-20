@@ -4,6 +4,18 @@
     novalidate
     v-bind="$attrs"
   >
+    <h3
+      v-if="title"
+      class="title is-4 form-padding"
+    >
+      {{ title }}
+    </h3>
+    <div
+      v-if="desc"
+      class="subtitle is-5 form-padding"
+    >
+      {{ desc }}
+    </div>
     <slot />
     <div
       v-if="!isValid && errorsCount > 0"
@@ -17,7 +29,7 @@
       </span>
     </div>
     <template v-if="$slots['submit']">
-      <div class="form-submit">
+      <div class="form-submit form-padding">
         <slot
           name="submit"
         />
@@ -44,6 +56,14 @@ export default {
       type: [ String, Number ],
       default: 0,
     },
+    title: {
+      type: String,
+      default: '',
+    },
+    desc: {
+      type: String,
+      default: '',
+    },
   },
   computed: {
     inputListeners: function () {
@@ -52,7 +72,6 @@ export default {
         this.$listeners,
         {
           input: function (event) {
-            console.log(event, 'input-form event');
             vm.$emit('input', event.target.value);
           },
         }
@@ -69,12 +88,6 @@ export default {
     margin: 1rem 0;
     span.icon {
       font-size: 1rem;
-    }
-  }
-  .form-submit {
-    padding: 1.5rem 0;
-    button {
-      width: 100%;
     }
   }
 </style>

@@ -11,7 +11,6 @@
       v-model="localValue"
       v-bind="{ ...$props, ...$attrs }"
       :error="errors[0]"
-      v-on="inputListeners"
     />
   </validation-provider>
 </template>

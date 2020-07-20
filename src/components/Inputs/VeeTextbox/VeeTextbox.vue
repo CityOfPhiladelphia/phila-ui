@@ -9,7 +9,7 @@
   >
     <textbox
       v-model="localValue"
-      v-bind="{ ...$attrs }"
+      v-bind="{ ...$attrs, ...$props }"
       :error="errors[0]"
       v-on="$listeners"
     />

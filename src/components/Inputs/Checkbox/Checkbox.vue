@@ -127,7 +127,6 @@ export default {
         return this.value;
       },
       set(localValue) {
-        console.log('checkbox value', localValue);
         this.$emit('input', localValue);
       },
     },
