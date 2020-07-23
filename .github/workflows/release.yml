@@ -2,8 +2,8 @@ name: Release
 on:
   push:
     branches:
-    - master
-    - beta
+      - master
+      - beta
 
 jobs:
   release:
