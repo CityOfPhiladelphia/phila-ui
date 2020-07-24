@@ -6,9 +6,6 @@
     },
     {
       "name": "beta"
-    },
-    {
-      "name": "alpha"
     }
   ],
   "dryRun": true,
