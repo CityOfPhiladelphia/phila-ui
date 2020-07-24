@@ -1,6 +1,16 @@
 {
   "repository": "git@github.com:CityOfPhiladelphia/phila-ui.git",
-  "branches": ["master", "beta", "alpha"],
+  "branches": [
+    {
+      "name": "master"
+    },
+    {
+      "name": "beta"
+    },
+    {
+      "name": "alpha"
+    }
+  ],
   "plugins": [
     ["@semantic-release/commit-analyzer", {
       "preset": "conventionalcommits"
