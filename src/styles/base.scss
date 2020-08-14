@@ -23,6 +23,10 @@ a {
 .headers {
   font-family: $family-secondary;
   font-weight: $weight-normal;
+  margin-bottom: 1rem;
+  &:not(:first-child) {
+    margin-top: 0 !important;
+  }
   &.heading-with-background {
     margin-bottom: 1rem;
     padding-left: 1rem;
@@ -35,21 +39,118 @@ a {
     border-bottom: 10px solid $ben-franklin-blue;
     font-size: $size-2;
   }
-}
+  &.is-size-1, &.is-1 {
+    line-height: 2.5rem;
+  }
+  &.is-size-2, &.is-2 {
+    line-height: 2rem;
+  }
+  &.is-size-3, &.is-3 {
+    line-height: 1.5rem;
+  }
+  &.is-size-4, &.is-size-5, &.is-size-6, &.is-size-7, &.is-4, &.is-5, &.is-6, &.is-7{
+    line-height: 1.5rem;
+  }
+  &.title {
+    font-weight: $weight-normal;
+    &.is-1 {
+      line-height: 2.5rem;
+    }
+    &.is-2 {
+      line-height: 2rem;
+    }
+    &.is-3 {
+      line-height: 1.5rem;
+    }
+    &.is-4, &.is-5, &.is-6, &.is-7 {
+      line-height: 1.5rem;
+    }
+  }
+  &.subtitle {
+    font-family: $family-sans-serif;
+    font-weight: $weight-normal;
+    &.is-1 {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+    &.is-2 {
+      font-size: $size-3;
+      line-height: 1.5rem;
+    }
+    &.is-3 {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+    &.is-4, &.is-5, &.is-6, &.is-7 {
+      font-size: 0.875rem;
+      line-height: 1.125rem;
+    }
+  }
 
-.title {
-  font-weight: $weight-normal;
-}
+  &.subtitle, &.title {
+    margin-bottom: 0;
+  }
 
-h1, h2, h3, h4, h5, h6 {
-  @extend .headers;
+  &.title + .subtitle {
+    margin-bottom: 1rem !important;
+  }
+
+  &.subtitle + .title {
+    margin-bottom: 1rem !important;
+  }
+
+  &.subtitle:not(.is-spaced) + .title {
+    margin-top: 0;
+  }
+
+  &.title:not(.is-spaced) + .subtitle {
+    margin-top: 0;
+  }
+
+  &.title:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  &.subtitle:not(:last-child) {
+    margin-bottom: 0 !important;
+  }
 }
 
 .content {
-  h1, h2, h3, h4, h5, h6 {
+
+  padding: 1.5rem;
+  h1, h2, h3, h4, h5, h6, div {
     @extend .headers;
   }
+  p {
+    font-family: $family-sans-serif;
+    font-size: $size-medium;
+    line-height: $line-height-medium;
+
+    &.is-large {
+      font-size: $size-large;
+      line-height: $line-height-large;
+    }
+
+    &.is-small {
+      font-size: $size-small;
+    }
+  }
 }
+
+
+// h1 {
+//   line-height: 2.5rem;
+// }
+
+// h2 {
+//   line-height: 2rem;
+// }
+
+// h3, h4 {
+//   line-height: 1.5rem;
+// }
+
 
 /** Custom Styles **/
 .table-responsive {
@@ -81,39 +182,116 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .button {
-  color: $white;
-  padding: 0px 1rem;
+
+  border-width: 0.25rem;
   font-weight: $weight-semibold;
-  background-color: $dark-ben-franklin;
-  border-color: $dark-ben-franklin;
-  &:hover {
-    background-color: $dark-gray;
-    border-color: $dark-gray;
-    color: $white;
+  border-color: transparent;
+
+  &:focus {
+    &:not(:active) {
+      box-shadow: 0 0 0 0.25em $electric-blue !important;
+    }
   }
 
-  &:disabled {
-    background-color: $sidewalk;
-    border-color: $sidewalk;
-    opacity: 0.8;
+  &.is-primary, &.is-secondary, &.is-danger, &.is-cta {
     &:hover {
-      color: $dark-gray;
+      background-color: $dark-gray;
+      border-color: $dark-gray;
+      color: $white;
+    }
+    &:active {
+      background-color: $black;
+      border-color: $black;
+      color: $white;
+    }
+    &:disabled {
+      background-color: $sidewalk;
+      border-color: $sidewalk;
+      color: $white;
     }
   }
+
   &.is-secondary {
     @extend .is-primary, .is-outlined;
-    &.is-simple {
-      border-color: transparent;
+    border-width: 0.125rem;
+    color: $dark-ben-franklin;
+    border-color: $dark-ben-franklin;
+    &:focus:not(:active) {
+      background-color: $white;
+      color: $dark-ben-franklin;
+      border-color: $dark-ben-franklin;
     }
+    &:disabled {
+      background-color: $white !important;
+      border-color: $sidewalk !important;
+      color: $sidewalk !important;
+      border-width: 0.125rem !important;
+    }
+  }
+
+  &.is-link {
+    background-color: $white;
+    border-color: transparent;
+    color: $primary;
+    &:focus:not(:active) {
+      color: $ben-franklin-blue;
+    }
+    &:hover {
+      background-color: $ben-franklin-blue;
+      border-color: $ben-franklin-blue;
+      color: $white !important;
+    }
+    &:active {
+      background-color: $dark-gray;
+      border-color: $dark-gray;
+      color: $white;
+    }
+    &:disabled {
+      background-color: $white !important;
+      border-color: transparent !important;
+      color: $sidewalk !important;
+    }
+  }
+
+  &.is-cta, input[type='submit'] {
+    font-weight: $weight-semibold;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    color: $dark-ben-franklin;
+    &:not(.is-link):not(.is-secondary) {
+      background-color: $dark-ben-franklin;
+      border-color: transparent;
+      color: $white;
+      &:disabled {
+        background-color: $sidewalk;
+      }
+    }
+    &.is-link {
+      &:active, &:focus {
+        color: $dark-ben-franklin;
+      }
+    }
+  }
+
+  &.is-small {
+    font-size: $size-small;
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+  }
+
+  &.is-medium, &.is-normal {
+    font-size: $size-medium;
+    padding: 0.75rem 1.5em;
+  }
+
+  &.is-large {
+    font-size: $size-large;
+    padding: 1rem 2rem;
   }
 
   @include until($tablet) {
     width: 100%;
   }
-}
-
-button {
-  @extend .button;
 }
 
 table {

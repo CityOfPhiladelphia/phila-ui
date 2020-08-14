@@ -50,3 +50,36 @@ $modal-card-body-padding: 15px;
 
 //TITLE OVERRIDE
 $title-line-height: 1.4;
+
+
+//Bulma unchanged defaults
+$body-background-color: $white;
+$body-size: 16px;
+$body-min-width: 300px;
+$body-rendering: optimizeLegibility;
+$body-weight: 400;
+
+
+//Bulma Existing and overwritten
+$button-padding-vertical: 0.75rem;
+$button-padding-horizontal: 1.5rem;
+
+$size-small: 0.875rem;
+$size-medium: 1rem;
+$size-normal: 1rem;
+$size-large: 1.125rem;
+
+$line-height-medium: 1.5rem;
+$line-height-large: 2rem;
+
+$body-line-height: 1.5rem;
+
+$size-1: 2rem;
+$size-2: 1.75rem;
+$size-3: 1.25rem;
+$size-4: 1.125rem;
+$size-5: 1.125rem;
+$size-6: 1.125rem;
+$size-7: 1.125rem;
+
+$link-hover: $dark-ben-franklin;

@@ -24,13 +24,13 @@ $light-bell-invert: findColorInvert($light-bell);
 $light-bell-light: findLightColor($light-bell);
 $light-bell-dark: findDarkColor($light-bell);
 
-$pride-purple-invert: findColorInvert($pride-purple);
-$pride-purple-light: findLightColor($pride-purple);
-$pride-purple-dark: findDarkColor($pride-purple);
+// $pride-purple-invert: findColorInvert($pride-purple);
+// $pride-purple-light: findLightColor($pride-purple);
+// $pride-purple-dark: findDarkColor($pride-purple);
 
-$punk-pink-invert: findColorInvert($punk-pink);
-$punk-pink-light: findLightColor($punk-pink);
-$punk-pink-dark: findDarkColor($punk-pink);
+// $punk-pink-invert: findColorInvert($punk-pink);
+// $punk-pink-light: findLightColor($punk-pink);
+// $punk-pink-dark: findDarkColor($punk-pink);
 
 $phanatic-green-invert: findColorInvert($phanatic-green);
 $phanatic-green-light: findLightColor($phanatic-green);
@@ -40,25 +40,25 @@ $kelly-drive-green-invert: findColorInvert($kelly-drive-green);
 $kelly-drive-green-light: findLightColor($kelly-drive-green);
 $kelly-drive-green-dark: findDarkColor($kelly-drive-green);
 
-$light-kelly-drive-invert: findColorInvert($light-kelly-drive);
-$light-kelly-drive-light: findLightColor($light-kelly-drive);
-$light-kelly-drive-dark: findDarkColor($light-kelly-drive);
+// $light-kelly-drive-invert: findColorInvert($light-kelly-drive);
+// $light-kelly-drive-light: findLightColor($light-kelly-drive);
+// $light-kelly-drive-dark: findDarkColor($light-kelly-drive);
 
-$flyers-orange-invert: findColorInvert($flyers-orange);
-$flyers-orange-light: findLightColor($flyers-orange);
-$flyers-orange-dark: findDarkColor($flyers-orange);
+// $flyers-orange-invert: findColorInvert($flyers-orange);
+// $flyers-orange-light: findLightColor($flyers-orange);
+// $flyers-orange-dark: findDarkColor($flyers-orange);
 
 $love-park-red-invert: findColorInvert($love-park-red);
 $love-park-red-light: findLightColor($love-park-red);
 $love-park-red-dark: findDarkColor($love-park-red);
 
-$light-red-invert: findColorInvert($light-red);
-$light-red-light: findLightColor($light-red);
-$light-red-dark: findDarkColor($light-red);
+// $light-red-invert: findColorInvert($light-red);
+// $light-red-light: findLightColor($light-red);
+// $light-red-dark: findDarkColor($light-red);
 
-$light-blue-invert: findColorInvert($light-blue);
-$light-blue-light: findLightColor($light-blue);
-$light-blue-dark: findDarkColor($light-blue);
+// $light-blue-invert: findColorInvert($light-blue);
+// $light-blue-light: findLightColor($light-blue);
+// $light-blue-dark: findDarkColor($light-blue);
 
 $dark-gray-invert: findColorInvert($dark-gray);
 $dark-gray-light: findLightColor($dark-gray);
@@ -86,15 +86,15 @@ $custom-colors: (
   "electric-blue": ($electric-blue, $electric-blue-invert $electric-blue-light, $electric-blue-dark),
   "bell-yellow": ($bell-yellow, $bell-yellow-invert $bell-yellow-light, $bell-yellow-dark),
   "light-bell": ($light-bell, $light-bell-invert $light-bell-light, $light-bell-dark),
-  "pride-purple": ($pride-purple, $pride-purple-invert $pride-purple-light, $pride-purple-dark),
-  "punk-pink": ($punk-pink, $punk-pink-invert $punk-pink-light, $punk-pink-dark),
+  // "pride-purple": ($pride-purple, $pride-purple-invert $pride-purple-light, $pride-purple-dark),
+  // "punk-pink": ($punk-pink, $punk-pink-invert $punk-pink-light, $punk-pink-dark),
   "phanatic-green": ($phanatic-green, $phanatic-green-invert $phanatic-green-light, $phanatic-green-dark),
   "kelly-drive-green": ($kelly-drive-green, $kelly-drive-green-invert $kelly-drive-green-light, $kelly-drive-green-dark),
-  "light-kelly-drive": ($light-kelly-drive, $light-kelly-drive-invert $light-kelly-drive-light, $light-kelly-drive-dark),
-  "flyers-orange": ($flyers-orange, $flyers-orange-invert $flyers-orange-light, $flyers-orange-dark),
+  // "light-kelly-drive": ($light-kelly-drive, $light-kelly-drive-invert $light-kelly-drive-light, $light-kelly-drive-dark),
+  // "flyers-orange": ($flyers-orange, $flyers-orange-invert $flyers-orange-light, $flyers-orange-dark),
   "love-park-red": ($love-park-red, $love-park-red-invert $love-park-red-light, $love-park-red-dark),
-  "light-red": ($light-red, $light-red-invert $light-red-light, $light-red-dark),
-  "light-blue": ($light-blue, $light-blue-invert $light-blue-light, $light-blue-dark),
+  // "light-red": ($light-red, $light-red-invert $light-red-light, $light-red-dark),
+  // "light-blue": ($light-blue, $light-blue-invert $light-blue-light, $light-blue-dark),
   "dark-gray": ($dark-gray, $dark-gray-invert $dark-gray-light, $dark-gray-dark),
   "medium-gray": ($medium-gray, $medium-gray-invert $medium-gray-light, $medium-gray-dark),
   "sidewalk": ($sidewalk, $sidewalk-invert $sidewalk-light, $sidewalk-dark),
