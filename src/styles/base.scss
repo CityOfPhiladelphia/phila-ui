@@ -181,8 +181,21 @@ a {
   }
 }
 
-.button {
+.font-sizes {
+  &.is-small {
+    font-size: $size-small;
+  }
 
+  &.is-medium, &.is-normal {
+    font-size: $size-medium;
+  }
+
+  &.is-large {
+    font-size: $size-large;
+  }
+}
+
+.button {
   border-width: 0.25rem;
   font-weight: $weight-semibold;
   border-color: transparent;
@@ -214,12 +227,12 @@ a {
   &.is-secondary {
     @extend .is-primary, .is-outlined;
     border-width: 0.125rem;
-    color: $dark-ben-franklin;
-    border-color: $dark-ben-franklin;
+    color: $ben-franklin-blue;
+    border-color: $ben-franklin-blue;
     &:focus:not(:active) {
       background-color: $white;
-      color: $dark-ben-franklin;
-      border-color: $dark-ben-franklin;
+      color: $ben-franklin-blue;
+      border-color: $ben-franklin-blue;
     }
     &:disabled {
       background-color: $white !important;
@@ -229,12 +242,15 @@ a {
     }
   }
 
-  &.is-link {
-    background-color: $white;
-    border-color: transparent;
+  &.is-tertiary {
+    border: 0 !important;
     color: $primary;
-    &:focus:not(:active) {
-      color: $ben-franklin-blue;
+    &:focus {
+      &:not(:active) {
+        border-color: transparent !important;
+        border-width: 0;
+        box-shadow: 0 0 0 0.25em $electric-blue !important;
+      }
     }
     &:hover {
       background-color: $ben-franklin-blue;
@@ -247,18 +263,23 @@ a {
       color: $white;
     }
     &:disabled {
-      background-color: $white !important;
-      border-color: transparent !important;
-      color: $sidewalk !important;
+      color: $sidewalk;
+      &:hover {
+        background-color: $white;
+        color: $sidewalk !important;
+      }
     }
   }
 
   &.is-cta, input[type='submit'] {
-    font-weight: $weight-semibold;
+    font-family: $family-secondary;
+    font-weight: $weight-bold;
     text-transform: uppercase;
     padding: 1rem 2.5rem;
     color: $dark-ben-franklin;
-    &:not(.is-link):not(.is-secondary) {
+    border-color: $dark-ben-franklin;
+    background-color: transparent;
+    &:not(.is-tertiary):not(.is-secondary) {
       background-color: $dark-ben-franklin;
       border-color: transparent;
       color: $white;
@@ -266,31 +287,59 @@ a {
         background-color: $sidewalk;
       }
     }
-    &.is-link {
-      &:active, &:focus {
-        color: $dark-ben-franklin;
-      }
+    &:disabled {
+      background-color: transparent;
+      color: $sidewalk;
     }
   }
 
+  @extend .font-sizes;
   &.is-small {
-    font-size: $size-small;
     padding: 0.5rem 1rem;
     border-radius: 0;
   }
 
   &.is-medium, &.is-normal {
-    font-size: $size-medium;
     padding: 0.75rem 1.5em;
   }
 
   &.is-large {
-    font-size: $size-large;
     padding: 1rem 2rem;
   }
 
   @include until($tablet) {
     width: 100%;
+  }
+}
+
+.is-link {
+  @extend .font-sizes;
+  font-weight: $weight-semibold;
+  border: 0;
+  color: $primary;
+  &:focus {
+    border-color: transparent;
+    outline-width: 0;
+    &:not(:active) {
+      border-color: transparent !important;
+      border-width: 0;
+      border-radius: 0;
+      box-shadow: 0 0 0 0.25em $electric-blue !important;
+    }
+  }
+  &:hover {
+    background-color: $ben-franklin-blue;
+    border-color: $ben-franklin-blue;
+    color: $white !important;
+  }
+  &:active {
+    background-color: $dark-gray;
+    border-color: $dark-gray;
+    color: $white;
+  }
+  .icon {
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
   }
 }
 
