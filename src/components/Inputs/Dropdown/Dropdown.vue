@@ -7,7 +7,6 @@
       class="select is-fullwidth"
     >
       <label
-        v-if="localSelected !== ''"
         :for="`dd-${id}`"
       >
         {{ label ? label : placeholder }}

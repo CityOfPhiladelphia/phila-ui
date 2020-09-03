@@ -24,7 +24,7 @@ input:focus:-ms-input-placeholder {
 }
 .is-field-info-important {
   @extend .is-field-info;
-  background-color: #daedfe;
+  background-color: $ben-franklin-blue-light;
   padding: 1rem;
 }
 

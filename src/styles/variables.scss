@@ -14,7 +14,7 @@ $notification-padding: 1rem 2.5rem 1rem 1rem;
 $navbar-item-img-max-height: 75px;
 $navbar-padding-vertical: 0.5rem;
 $navbar-padding-horizontal: 1rem;
-$navbar-background-color: $dark-ben-franklin;
+$navbar-background-color: $ben-franklin-blue-dark;
 $navbar-item-color: $white;
 $navbar-item-hover-background-color: transparent;
 $navbar-item-hover-color: $electric-blue;
@@ -24,12 +24,12 @@ $navbar-dropdown-boxed-radius: 0;
 $navbar-dropdown-boxed-shadow: none;
 
 // FOOTER OVERRIDES
-$footer-background-color: $dark-ben-franklin;
+$footer-background-color: $ben-franklin-blue-dark;
 $footer-padding: rem-calc(10px);
 $footer-color: $white;
 
 // INPUT OVERRIDES
-$input-background-color: $ghost-gray;
+$input-background-color: $ghost-grey;
 $input-focus-box-shadow-size: none;
 $input-border-color: transparent;
 $input-hover-border-color: transparent;
@@ -38,10 +38,10 @@ $input-shadow: none;
 
 // TABS
 $tabs-boxed-link-hover-background-color: none;
-$tabs-link-hover-color: $dark-ben-franklin;
+$tabs-link-hover-color: $ben-franklin-blue-dark;
 
 // TABLES
-$table-striped-row-even-background-color: $ghost-gray;
+$table-striped-row-even-background-color: $ghost-grey;
 
 // MODALS
 $modal-content-width: 760px;
@@ -81,4 +81,4 @@ $size-4: 1.125rem;
 $size-5: 1.125rem;
 $size-6: 1.125rem;
 $size-7: 1.125rem;
-$link-hover: $dark-ben-franklin;
+$link-hover: $ben-franklin-blue-dark;

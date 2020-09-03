@@ -1,9 +1,18 @@
 <template>
   <article class="message">
     <div :class="'message-body'">
-      <div
-        v-html="message"
-      />
+      <template
+        v-if="message"
+      >
+        {{ message }}
+      </template>
+      <template v-else>
+        <template
+          v-if="$slots['default']"
+        >
+          <slot name="default" />
+        </template>
+      </template>
     </div>
   </article>
 </template>
