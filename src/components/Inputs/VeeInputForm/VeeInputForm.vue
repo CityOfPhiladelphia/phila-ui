@@ -2,7 +2,7 @@
   <ValidationObserver
     :id="`form-val-${id}`"
     :ref="`form-val-${id}`"
-    v-slot="validation"
+    v-slot="{ failed }"
     tag="div"
     name="hello"
     v-on="inputListeners"
@@ -10,7 +10,7 @@
     <input-form
       :id="`form-${id}`"
       :is-valid="!validation.failed"
-      :errors-count="getErrorsCount(validation.errors)"
+      :errors-count="getErrorsCount(failed)"
       v-bind="{ ...$attrs, ...$props }"
     >
       <template

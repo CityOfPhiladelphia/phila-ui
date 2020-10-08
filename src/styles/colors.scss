@@ -2,6 +2,7 @@
 $ben-franklin-blue-light: hsl(208.3,94.7%,92.5%); //#daedfe
 $ben-franklin-blue: hsl(211.2,72.8%,47.6%); //#2176d2
 $ben-franklin-blue-dark: hsl(211.2,81.1%,31.2%); //#0f4d90
+$ben-franklin-blue-invert: hsl(0,0%,94.1%); //#f0f0f0
 
 $electric-blue: hsl(191.7,92.9%,55.7%); //#25CEF7
 
@@ -26,7 +27,9 @@ $grey-dark: hsl(0,0%,26.7%); //#444444
 $white: hsl(255, 100%, 100%); //#ffffff
 $black: hsl(0, 0%, 0%); //#000000
 $dark: $grey-dark;
+$dark-invert: $white;
 $light: $ghost-grey;
+$light-invert: $black;
 
 $success: $phanatic-green;
 $success-invert: $white;

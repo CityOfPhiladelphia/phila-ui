@@ -1,8 +1,8 @@
 <template>
   <form
     :id="`form-${id}`"
-    novalidate
     v-bind="$attrs"
+    novalidate
   >
     <h3
       v-if="title"

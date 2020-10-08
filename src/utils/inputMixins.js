@@ -38,6 +38,9 @@ export const inputMixins = {
       if (this.error) {
         classes.push('has-error');
       }
+      if (this.innerLabel) {
+        classes.push('inner-label');
+      }
       return classes.join(" ");
     },
   },

@@ -3,34 +3,69 @@
     class="input-wrap input-dropdown"
     :class="classes"
   >
-    <div
-      class="select is-fullwidth"
-    >
+    <div class="field">
       <label
+        v-if="!innerLabel"
+        class="label"
         :for="`dd-${id}`"
       >
-        {{ label ? label : placeholder }}
+        {{ label }}
       </label>
-      <select
-        :id="`dd-${id}`"
-        v-model="localSelected"
-        v-bind="$attrs"
-        v-on="inputListeners"
+      <div
+        class="control is-large"
+        :class="inputModifierClasses"
       >
-        <option value="">
-          {{ this.$attrs.required !== undefined ? `${placeholder}*` : placeholder }}
-        </option>
-        <option
-          v-for="(option, key) in options"
-          :key="key"
-          :value="optionValue(option, key)"
-          :selected="isSelected(key, option)"
-          :disabled="option['disabled'] ? option['disabled'] : false"
+        <div
+          class="select is-fullwidth"
         >
-          {{ !textKey ? option : option[textKey] }}
-        </option>
-      </select>
+          <label
+            v-if="localSelected !== '' && innerLabel"
+            :for="`dd-${id}`"
+          >
+            {{ label ? label : placeholder }}
+          </label>
+          <select
+            :id="`dd-${id}`"
+            v-model="localSelected"
+            v-bind="$attrs"
+            v-on="inputListeners"
+          >
+            <option value="">
+              {{ this.$attrs.required !== undefined ? `${placeholder}*` : placeholder }}
+            </option>
+            <option
+              v-for="(option, key) in options"
+              :key="key"
+              :value="optionValue(option, key)"
+              :selected="isSelected(key, option)"
+              :disabled="option['disabled'] ? option['disabled'] : false"
+            >
+              {{ !textKey ? option : option[textKey] }}
+            </option>
+          </select>
+          <span
+            v-if="icon"
+            class="icon is-large is-left input-icon"
+          >
+            <i :class="icon" />
+          </span>
+        </div>
+      </div>
     </div>
+    <div
+      v-if="desc"
+      class="supplemental-text"
+    >
+      {{ desc }}
+    </div>
+    <template v-else>
+      <div
+        v-if="$slots['desc']"
+        class="supplemental-text"
+      >
+        <slot name="desc" />
+      </div>
+    </template>
     <template v-if="error">
       <div class="input-error-msg">
         <span class="icon"><i class="fas fa-exclamation-circle" /></span>
@@ -76,6 +111,18 @@ export default {
       type: String,
       default: "",
     },
+    desc: {
+      type: String,
+      default: '',
+    },
+    icon: {
+      type: String,
+      default: '',
+    },
+    innerLabel: {
+      type: Boolean,
+      default: true,
+    },
   },
   data () {
     return {
@@ -98,6 +145,13 @@ export default {
           },
         }
       );
+    },
+    inputModifierClasses () {
+      let classes = [];
+      if (this.icon !== '') {
+        classes.push('has-icons-left');
+      }
+      return classes.join(' ');
     },
   },
   methods: {
@@ -131,7 +185,7 @@ export default {
       width: 100%;
     }
     label + select {
-      padding: 1rem 1rem 0 1rem;
+      padding: 1rem 1rem 0 0.5rem;
     }
   }
 }

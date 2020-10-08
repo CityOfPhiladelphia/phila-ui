@@ -1,3 +1,29 @@
+input::-webkit-input-placeholder {
+  color: $grey-dark !important;
+  opacity: 1 !important;
+}
+
+input::-moz-placeholder {
+  color: $grey-dark !important;
+  opacity: 1 !important;
+}
+/* FF 4-18 */
+input:-moz-placeholder {
+  color: $grey-dark !important;
+  opacity: 1 !important;
+}
+/* FF 19+ */
+input:-ms-input-placeholder {
+  color: $grey-dark !important;
+  opacity: 1 !important;
+}
+
+input::placeholder {
+  color: $grey-dark !important;
+  opacity: 1 !important;
+}
+
+
 input:focus::-webkit-input-placeholder {
   color: transparent;
 }
@@ -56,15 +82,10 @@ form {
   padding: 0.5rem 0.5rem 0.5rem;
   position: relative;
   label {
-    position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
-    z-index: 5;
     font-size: 0.813rem;
-    color: #666666;
-    font-weight: 400;
+    color: $grey-dark;
+    font-weight: $weight-bold;
     line-height: 1.5rem;
-    padding: 0 0 0 0.90rem;
   }
   .is-field-info {
     margin: 0;
@@ -83,21 +104,39 @@ form {
     background-color: $error-light;
     margin-bottom: 2px;
     .select select, .input, .textarea {
-      border: 2px solid $love-park-red !important;
+      border: 2px solid $love-park-red-dark !important;
       &:focus {
-        border: 2px solid $love-park-red !important;
+        border: 2px solid $love-park-red-dark !important;
       }
     }
     .input-error-msg {
       font-size: 0.9rem;
-      color: $love-park-red;
+      color: $love-park-red-dark;
+      font-weight: $weight-semibold;
       .icon {
         font-size: 1rem;
+      }
+    }
+    &.input-textbox, &.input-textarea, &.input-dropdown {
+      label {
+        color: $love-park-red-dark;
+      }
+    }
+  }
+  &.inner-label {
+    &.input-textbox, &.input-dropdown, &.input-textarea {
+      label {
+        position: absolute;
+        top: 1px;
+        left: 0;
+        z-index: 5;
+        padding: 0 0 0 0.90rem;
       }
     }
   }
   .input, .textarea, .select select {
     border-bottom: 1px solid #979797;
+    font-size: 1.063rem;
     &:focus {
       background-color: $white;
       border: 2px solid $electric-blue !important;
@@ -113,6 +152,7 @@ form {
       page-break-inside: avoid;
       -webkit-column-break-inside: avoid;
       break-inside: avoid;
+      font-weight: $weight-normal;
     }
     fieldset {
       legend {
@@ -128,6 +168,31 @@ form {
         }
       }
     }
+    .is-checkradio[type=checkbox]:checked {
+      + label {
+        &:before {
+          border-color: transparent !important;
+          background-color: $ben-franklin-blue;
+        }
+        &:after {
+          font-weight: $weight-semibold;
+          border-color: $white !important;
+        }
+      }
+    }
+
+    .is-checkradio[type=radio]:checked {
+      + label {
+        &:before {
+          border-color: transparent !important;
+          background-color: $ben-franklin-blue;
+        }
+        &:after {
+          background-color: $white;
+        }
+      }
+    }
+
     .is-checkradio + label:before {
       border: .09rem solid #a1a1a1 !important;
       left: -2rem !important;
@@ -142,7 +207,45 @@ form {
       display: inline-block;
       font-size: 1.063rem;
       margin: 0 0 0 2rem;
-      padding: 0
+      padding: 0;
+      &:hover {
+        &:before {
+          border-color: $ben-franklin-blue !important;
+        }
+      }
+    }
+  }
+  .supplemental-text {
+    font-size: $size-small;
+    padding: 0.2rem 0.75rem 0 0.75rem;
+    line-height: 1rem;
+  }
+}
+
+.field {
+  .control {
+    &.is-loading {
+      &:after {
+        top: calc(50% - 1.75rem);
+      }
+      span.icon {
+        opacity: 0 !important;
+      }
+    }
+    &.has-icons-right, &.has-icons-left {
+      span.input-icon.is-right, span.input-icon.is-left {
+        height: 3.5rem;
+        font-size: 1.2rem;
+        color: $grey-medium;
+      }
+      .select {
+        label {
+          padding-left: 2.85rem;
+        }
+        select {
+          padding-left: 2.5rem;
+        }
+      }
     }
   }
 }

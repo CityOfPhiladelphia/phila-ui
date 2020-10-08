@@ -249,16 +249,16 @@ a {
       &:not(:active) {
         border-color: transparent !important;
         border-width: 0;
-        box-shadow: 0 0 0 0.25em $electric-blue !important;
+        box-shadow: 0 0 0 0.25em $grey-dark !important;
       }
     }
     &:hover {
-      background-color: $ben-franklin-blue;
+      background-color: $grey-dark;
       border-color: $ben-franklin-blue;
       color: $white !important;
     }
     &:active {
-      background-color: $grey-dark;
+      background-color: $black;
       border-color: $grey-dark;
       color: $white;
     }
@@ -280,6 +280,12 @@ a {
     border-color: $ben-franklin-blue-dark;
     background-color: transparent;
     &:not(.is-tertiary):not(.is-secondary) {
+      &:hover {
+        background-color: $grey-dark;
+      }
+      &:active {
+        background-color: $black;
+      }
       background-color: $ben-franklin-blue-dark;
       border-color: transparent;
       color: $white;
@@ -355,13 +361,13 @@ table {
 
 /** LAYOUT SETTINGS **/
 #app {
-  padding: 78px 0 46px 0;
+  // padding: 78px 0 46px 0;
 
-  > header, > footer {
-    position: fixed;
-    width: 100%;
-    left: 0;
-  }
+  // > header, > footer {
+    // position: fixed;
+    // width: 100%;
+    // left: 0;
+  // }
 
   header {
     z-index: 10;
