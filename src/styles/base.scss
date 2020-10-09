@@ -369,27 +369,27 @@ table {
     // left: 0;
   // }
 
-  header {
-    z-index: 10;
-    top: 0;
-  }
+//   header {
+//     z-index: 10;
+//     top: 0;
+//   }
 
-  footer {
-    z-index: 9;
-    bottom: 0;
-  }
+//   footer {
+//     z-index: 9;
+//     bottom: 0;
+//   }
 
-  > main {
-    width: 100%;
-    display: block;
-  }
+//   > main {
+//     width: 100%;
+//     display: block;
+//   }
 
-  @include until($tablet) {
-    padding-top: 135px;
-    > main {
-      display: block;
-      padding: 0 1rem 0;
-    }
-  }
+//   @include until($tablet) {
+//     padding-top: 135px;
+//     > main {
+//       display: block;
+//       padding: 0 1rem 0;
+//     }
+//   }
 }
 /**********************/

@@ -3,6 +3,18 @@
     id="app-header"
     class="header"
   >
+    <div
+      id="phila-site"
+      class="level is-marginless"
+      :class="{ 'is-fluid': fluid }"
+    >
+      <div class="level-left logo">
+        <img src="assets/images/phila-bell.svg">City of Philadelphia
+      </div>
+      <div class="level-right logo-right">
+        An official website of the City of Philadelphia government
+      </div>
+    </div>
     <nav
       :class="isSticky ? 'is-fixed-top' : ''"
       class="navbar main-nav is-ben-franklin-blue-dark"
@@ -331,6 +343,23 @@ export default {
           padding-right: initial !important;
         }
       }
+    }
+  }
+
+  #phila-site {
+    color: $white;
+    background-color: $ben-franklin-blue;
+    .logo {
+      font-size: 0.688rem;
+      font-weight: $weight-semibold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.45;
+      letter-spacing: 4.4px;
+      text-transform: uppercase;
+    }
+    .logo-right {
+      font-size: 0.75rem;
     }
   }
 
