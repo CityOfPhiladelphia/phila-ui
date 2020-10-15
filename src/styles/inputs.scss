@@ -71,9 +71,6 @@ form {
   .form-submit {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    button {
-      width: 100%;
-    }
   }
 
 }
@@ -125,12 +122,16 @@ form {
   }
   &.inner-label {
     &.input-textbox, &.input-dropdown, &.input-textarea {
+      .control {
+        overflow: hidden;
+      }
       label {
         position: absolute;
         top: 1px;
         left: 0;
         z-index: 5;
         padding: 0 0 0 0.90rem;
+        white-space: nowrap;
       }
     }
   }
