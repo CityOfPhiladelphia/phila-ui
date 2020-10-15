@@ -314,9 +314,6 @@ a {
     padding: 1rem 2rem;
   }
 
-  @include until($tablet) {
-    width: 100%;
-  }
 }
 
 .is-link {
