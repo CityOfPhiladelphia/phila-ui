@@ -19,7 +19,7 @@
     <slot />
     <div
       v-if="!isValid && errorsCount > 0"
-      class="form-errors has-text-centered has-text-weight-bold has-text-danger"
+      class="form-errors has-text-centered has-text-weight-bold has-text-love-park-red-dark"
     >
       <span class="icon">
         <i class="fa fa-exclamation-triangle" />
@@ -29,7 +29,7 @@
       </span>
     </div>
     <template v-if="$slots['submit']">
-      <div class="form-submit form-padding">
+      <div class="form-submit form-padding has-text-centered">
         <slot
           name="submit"
         />

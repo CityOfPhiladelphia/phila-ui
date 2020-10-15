@@ -14,7 +14,6 @@ module.exports = async () => {
 		})
 	)
 
-	console.log(components)
 
 	return {
 		base: "/docgen/",

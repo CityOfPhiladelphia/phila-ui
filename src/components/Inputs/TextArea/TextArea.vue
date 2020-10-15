@@ -21,7 +21,6 @@
           v-bind="$attrs"
           :value="value"
           :placeholder="$attrs.required !== undefined ? placeholder + '*' : placeholder"
-          @input="$emit('input', $event.target.value)"
           v-on="inputListeners"
         />
         <label

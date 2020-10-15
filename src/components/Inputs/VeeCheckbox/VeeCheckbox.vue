@@ -4,7 +4,7 @@
     :rules="rules !== 'none' ? rules : ''"
     :mode="mode"
     :custom-messages="errorMessages"
-    :name="$attrs['name'] || $attrs['placeholder']"
+    :name="$attrs['name'] || `vp-${id}`"
     tag="div"
   >
     <checkbox
@@ -58,7 +58,7 @@ export default {
     },
     mode: {
       type: String,
-      default: 'passive',
+      default: 'eager',
     },
   },
   computed: {

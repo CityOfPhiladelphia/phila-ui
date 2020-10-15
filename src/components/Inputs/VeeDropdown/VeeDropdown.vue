@@ -3,7 +3,7 @@
     v-slot="{ errors }"
     :rules="rules !== 'none' ? rules : ''"
     :mode="mode"
-    :name="$attrs['name'] || $attrs['placeholder']"
+    :name="$attrs['name'] || `vp-${id}`"
     :custom-messages="errorMessages"
     tag="div"
   >
@@ -52,7 +52,7 @@ export default {
     },
     mode: {
       type: String,
-      default: 'passive',
+      default: 'eager',
     },
   },
   computed: {

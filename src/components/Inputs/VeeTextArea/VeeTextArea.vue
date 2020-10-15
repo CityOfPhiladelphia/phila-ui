@@ -3,7 +3,7 @@
     v-slot="{ errors }"
     :rules="rules !== 'none' ? rules : ''"
     :mode="mode"
-    :name="$attrs['name'] || $attrs['placeholder']"
+    :name="$attrs['name'] || `vp-${id}`"
     :custom-messages="errorMessages"
     tag="div"
   >
@@ -11,6 +11,7 @@
       v-model="localValue"
       v-bind="{ ...$props, ...$attrs }"
       :error="errors[0]"
+      v-on="$listeners"
     />
   </validation-provider>
 </template>
@@ -40,7 +41,7 @@ export default {
     },
     mode: {
       type: String,
-      default: 'passive',
+      default: 'eager',
     },
   },
   computed: {

@@ -2,7 +2,7 @@
   <ValidationObserver
     :id="`form-val-${id}`"
     :ref="`form-val-${id}`"
-    v-slot="{ failed }"
+    v-slot="validation"
     tag="div"
     name="hello"
     v-on="inputListeners"
@@ -10,7 +10,7 @@
     <input-form
       :id="`form-${id}`"
       :is-valid="!validation.failed"
-      :errors-count="getErrorsCount(failed)"
+      :errors-count="getErrorsCount(validation.errors)"
       v-bind="{ ...$attrs, ...$props }"
     >
       <template
@@ -43,7 +43,6 @@ export default {
         this.$listeners,
         {
           input: function (event) {
-            console.log('vee-input-form', event.target.value);
             vm.$emit('input', event.target.value);
           },
         }
