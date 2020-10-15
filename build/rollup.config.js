@@ -3,6 +3,7 @@ import vue from 'rollup-plugin-vue'; // Handle .vue SFC files
 import babel from 'rollup-plugin-babel';
 import postcss from 'rollup-plugin-postcss';
 import cssnano from 'cssnano';
+import image from '@rollup/plugin-image';
 
 export default [ 'phila-ui' ].map((name) => ({
   input: `src/${name}.js`,
@@ -25,6 +26,7 @@ export default [ 'phila-ui' ].map((name) => ({
   },
   ],
   plugins: [
+    image(),
     commonjs(),
     vue({
       css: true, // Dynamically inject css as a <style> tag
@@ -41,6 +43,7 @@ export default [ 'phila-ui' ].map((name) => ({
           },
         },
       },
+      transformAssetUrls: true,
     }),
     postcss({
       extract: false,

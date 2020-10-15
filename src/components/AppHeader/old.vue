@@ -20,9 +20,67 @@
       </div>
     </div>
     <nav
+      :class="isSticky ? 'is-fixed-top' : ''"
+      class="navbar main-nav is-ben-franklin-blue-dark"
       role="navigation"
       aria-label="main navigation"
-    />
+    >
+      <div
+        :class="{ 'is-fluid': fluid }"
+        class="container"
+      >
+        <!-- Desktop header -->
+        <div class="navbar-brand">
+          <div
+            class="navbar-item"
+          >
+            <a
+              class="app-title"
+              :href="appLink"
+            >
+              <h1 class="is-size-5">
+                {{ appTitle }}
+              </h1>
+              <h2
+                v-if="appSubtitle"
+                class="is-size-6"
+              >{{ appSubtitle }}
+              </h2>
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-menu is-hidden-mobile">
+          <div class="navbar-end">
+            <slot />
+          </div>
+
+          <!-- Navbar mobile -->
+          <div class="navbar-mobile is-hidden-desktop">
+            <div class="navbar-item mobile-logo">
+              <a href="#">
+                <img v-bind="appMobileLogoImage">
+              </a>
+            </div>
+            <div class="navbar-item mobile-title">
+              <a
+                :href="appLink"
+              >
+                <h1>
+                  {{ appTitle }}
+                </h1>
+                <h2
+                  v-if="appSubtitle"
+                >{{ appSubtitle }}
+                </h2>
+              </a>
+            </div>
+            <!-- @slot The mobile-menu slot allows you to pass extra navigation for mobile usage -->
+            <slot name="mobile-menu" />
+          </div>
+        </div>
+      </div>
+    </nav>
   </header>
 </template>
 <script>
