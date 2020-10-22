@@ -43,14 +43,12 @@
         >
           <input
             :id="`cb-${key}-${id}`"
-            v-model="localValue"
             :name="`cb-${key}-${id}`"
             type="checkbox"
             class="is-checkradio"
-            :value="optionValue(option, key)"
-            :true-value="optionValue(option, key)"
-            :checked="localValue.includes(optionValue(option, key))"
             v-bind="option.attrs || {}"
+            :value="optionValue(option, value)"
+            @change="updateModelValue($event, optionValue(option, value))"
             v-on="inputListeners"
           >
           <label
@@ -71,6 +69,10 @@ export default {
     inputMixins,
   ],
   inheritAttrs: false,
+  model: {
+    prop: 'modelValue',
+    event: 'change',
+  },
   props: {
     options: {
       type: [ Object, Array ],
@@ -108,6 +110,12 @@ export default {
       type: [ String, Number ],
       default: 1,
     },
+    modelValue: {
+      type: Array,
+      default () {
+        return [];
+      },
+    },
   },
   computed: {
     inputListeners: function () {
@@ -115,19 +123,21 @@ export default {
       return Object.assign({},
         this.$listeners,
         {
-          input: function (event) {
-            vm.$emit('input', vm.localValue);
+          change: function (event) {
+            vm.$emit('change', vm.modelValue);
           },
         }
       );
     },
-    localValue: {
-      get() {
-        return this.value;
-      },
-      set(localValue) {
-        this.$emit('input', localValue);
-      },
+  },
+  methods: {
+    updateModelValue (event, value) {
+      if (event.target.checked) {
+        this.modelValue.push(value);
+      } else {
+        this.modelValue.splice(this.modelValue.indexOf(value), 1);
+      }
+      this.$emit('change', this.modelValue);
     },
   },
 };
