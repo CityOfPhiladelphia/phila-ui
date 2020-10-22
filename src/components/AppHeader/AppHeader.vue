@@ -1,48 +1,155 @@
 <template>
-  <header
-    id="app-header"
-    class="header"
-  >
-    <div
-      id="trusted-site"
-      class="level is-marginless"
-      :class="{ 'is-fluid': fluid }"
-    >
-      <div class="level-left logo">
-        <img
-          src="../../assets/images/phila-bell.svg"
-          width="13px"
-          height="auto"
-        >City of Philadelphia
-      </div>
-      <div class="level-right logo-right">
-        An official website of the City of Philadelphia government
-      </div>
-    </div>
+  <header id="app-header">
+    <trusted-site />
     <nav
+      class="navbar main-nav is-dark-ben-franklin"
       role="navigation"
       aria-label="main navigation"
-    />
+    >
+      <div class="navbar-brand">
+        <div
+          v-if="appLogoImage && appLogoLink"
+          class="navbar-item phl-logo"
+        >
+          <a
+            v-bind="appLogoLink"
+            class="is-inline-block"
+          >
+            <img
+              v-bind="appLogoImage"
+            >
+          </a>
+        </div>
+        <div
+          v-if="appLogoImage && appLogoLink"
+          class="navbar-item navbar-separator"
+        >
+          <span />
+        </div>
+        <div
+          class="navbar-item is-block-mobile has-text-centered-mobile"
+        >
+          <a
+            class="app-title"
+            :href="appLink"
+          >
+            <h1 class="is-size-5">
+              {{ appTitle }}
+            </h1>
+            <h2
+              v-if="appSubtitle"
+              class="is-size-6"
+            >{{ appSubtitle }}
+            </h2>
+          </a>
+        </div>
+      </div>
+      <div class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <div id="app-menu">
+              <div id="app-menu-links">
+                <template v-if="appTabs.length > 0">
+                  <template v-for="(link, index) in appTabs">
+                    <template v-if="link.type === 'link'">
+                      <a
+                        :key="`menu-link-${index}`"
+                        :href="link.href"
+                        :class="{ 'is-active': link.active }"
+                        @click.prevent="link.click"
+                      >
+                        {{ link.label }}
+                      </a>
+                    </template>
+                    <template v-else>
+                      <router-link
+                        :key="`menu-link-${index}`"
+                        :to="{ name: link.href }"
+                      >
+                        {{ link.label }}
+                      </router-link>
+                    </template>
+                  </template>
+                </template>
+                <template v-else>
+                  <slot name="app-tabs" />
+                </template>
+              </div>
+            </div>
+          </div>
+        </div>
+        <template v-if="appDropdown.length > 0 || $slots['app-dropdown']">
+          <div class="level-right">
+            <div class="level-item">
+              <div
+                id="app-dropdown-links"
+                ref="app-dropdown"
+                @click.prevent="dropdownIsActive = !dropdownIsActive"
+              >
+                <div id="app-dropdown-wrap">
+                  <ul>
+                    <template v-if="appDropdown.length > 0">
+                      <template v-for="(link, index) in appDropdown">
+                        <template v-if="link.type === 'link'">
+                          <li :key="link">
+                            <a
+                              :key="`dd-menu-link-${index}`"
+                              :href="link.href"
+                              :class="{ 'is-active': link.active }"
+                              @click.prevent="link.click"
+                            >
+                              {{ link.label }}
+                            </a>
+                          </li>
+                        </template>
+                        <template v-else>
+                          <li :key="`dd-menu-link-${index}`">
+                            <router-link
+                              :to="{ name: link.href }"
+                            >
+                              {{ link.label }}
+                            </router-link>
+                          </li>
+                        </template>
+                      </template>
+                    </template>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </nav>
   </header>
 </template>
 <script>
+
+import TrustedSite from '../TrustedSite/TrustedSite.vue';
+
 /**
  * This is the main application header.
  */
 export default {
   name: 'AppHeader',
+  components: {
+    TrustedSite,
+  },
   props: {
     /**
      * The application logo. By default the City logo is used, however this could be used to display a department's logo.
     */
-    // appLogoImage: {
-    //   type: Object,
-    //   default: () => ({
-    //     src: "https://standards.phila.gov/img/logo/city-of-philadelphia-yellow-white.png",
-    //     alt: "City of Philadelphia logo",
-    //     width: 170,
-    //   }),
-    // },
+    appLogoImage: {
+      type: Object,
+      default () {
+        return null;
+      },
+      // default: () => ({
+      //   src: "https://standards.phila.gov/img/logo/city-of-philadelphia-yellow-white.png",
+      //   alt: "City of Philadelphia logo",
+      //   width: 170,
+      // }),
+    },
 
     // appMobileLogoImage: {
     //   type: Object,
@@ -56,10 +163,13 @@ export default {
     */
     appLogoLink: {
       type: Object,
-      default: () => ({
-        href: "https://www.phila.gov",
-        target: "_blank",
-      }),
+      default () {
+        return null;
+      },
+      // default: () => ({
+      //   href: "https://www.phila.gov",
+      //   target: "_blank",
+      // }),
     },
     /**
      * The application's title/name
@@ -82,6 +192,22 @@ export default {
       type: String,
       default: "/",
     },
+
+    appTabs: {
+      type: Array,
+      default () {
+        return [];
+      },
+    },
+
+
+    appDropdown: {
+      type: Array,
+      default () {
+        return [];
+      },
+    },
+
     /**
      * Allows the header elements (logo, title, navigation...) to expand with the window width, or stay in the center
     */
@@ -96,22 +222,37 @@ export default {
       type: Boolean,
       default: false,
     },
-
+  },
+  data () {
+    return {
+      dropdownIsActive: false,
+    };
+  },
+  watch: {
+    dropdownIsActive (newe, old) {
+      let list = this.$refs['app-dropdown'].querySelectorAll('ul li:not(:first-child)');
+      list.forEach(item => {
+        item.classList.toggle("active");
+      });
+    },
   },
 };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
+
   #app-header {
     .navbar {
-      .navbar-burger {
-        span {
-          height: 2px;
-        }
-      }
-      h1, h2 {
-        font-family: $family-secondary;
-        font-weight: 500;
-      }
+      display: block;
+      padding: 0 2rem 0 1.25rem;
+      // .navbar-burger {
+      //   span {
+      //     height: 2px;
+      //   }
+      // }
+      // h1, h2 {
+      //   font-family: $family-secondary;
+      //   font-weight: 500;
+      // }
       .navbar-separator {
         padding-left: 0;
         padding-right: 0;
@@ -126,176 +267,201 @@ export default {
         height: 45px;
       }
       a.app-title {
-        color: inherit;
-        &:hover {
-          color: $electric-blue;
-        }
-        h1, h2 {
-          font-weight: normal;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: normal;
-        }
+        color: $white;
         h1 {
-          line-height: 1.5rem;
-          font-size: 1.25rem;
+          font-family: $family-secondary;
+          font-size: 1.375rem;
+          font-weight: $weight-bold;
+          line-height: 1.09;
         }
         h2 {
-          line-height: 1.125rem;
-          font-size: 0.875rem;
+          font-family: $family-secondary;
+          font-size: $size-small;
+          font-weight: $weight-normal;
+          line-height: 1.14;
         }
       }
     }
-    @include until(1023px) {
-      // padding-top: 61px;
-      .navbar {
-        .navbar-end {
-          width: 70%;
+    #app-menu {
+      padding: 0 0.75rem;
+    }
+    #app-menu-links {
+      a {
+        display: inline-block;
+        background-color: $electric-blue;
+        color: $grey-dark;
+        font-size: $size-small;
+        padding: 0.5rem 1.125rem;
+        margin-right: 0.5rem;
+        &.is-active, &.router-link-exact-active.router-link-active {
+          background-color: $white;
         }
-        .navbar-item {
-          text-align: left;
-          padding: 0;
-          .button {
-            background-color: $electric-blue;
-            border: none;
-            color: #fff;
-            text-align: left;
-            line-height: 1;
+      }
+    }
+
+    #app-dropdown-links {
+      position: relative;
+      display: flow-root;
+      #app-dropdown-wrap {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        right: 0;
+        display: block;
+      }
+      ul {
+        top: 0;
+        right: 0;
+        li {
+          z-index: 10;
+          &:first-child {
+            background-color: $ben-franklin-blue-dark;
             display: block;
-            margin: 8px 0;
-            .icon:first-child:not(:last-child) {
-              margin-left: 0;
-            }
-            .icon:last-child:not(:first-child) {
-              margin-right: 0;
-            }
-
-            &.router-link-exact-active,
-            &.active,
-            &.is-active {
-              background: #e0efff;
+            a {
+              color: $white;
             }
           }
-
-          .dropdown {
+          display: none;
+          &.active {
+            background-color: $white;
             display: block;
-            .dropdown-content {
-              background: none;
-              box-shadow: none;
-              margin-left: 2rem;
-              border-left: 1px solid #e0efff;
-              a, .button {
-                color: #fff
-              }
+            a {
+              color: $grey-dark;
             }
           }
         }
       }
     }
-    @include desktop {
-      // padding: 69px 0 46px 0;
+    // @include until(1023px) {
+    //   // padding-top: 61px;
+    //   .navbar {
+    //     .navbar-end {
+    //       width: 70%;
+    //     }
+    //     .navbar-item {
+    //       text-align: left;
+    //       padding: 0;
+    //       .button {
+    //         background-color: $electric-blue;
+    //         border: none;
+    //         color: #fff;
+    //         text-align: left;
+    //         line-height: 1;
+    //         display: block;
+    //         margin: 8px 0;
+    //         .icon:first-child:not(:last-child) {
+    //           margin-left: 0;
+    //         }
+    //         .icon:last-child:not(:first-child) {
+    //           margin-right: 0;
+    //         }
 
-      .navbar {
-        .container.is-fluid {
-          flex-wrap: wrap !important;
-        }
-        .navbar-brand {
-          height: 64px;
-        }
-        .navbar-end {
-          margin-top: 8px;
-          // justify-content: flex-start;
-          width: 100%;
+    //         &.router-link-exact-active,
+    //         &.active,
+    //         &.is-active {
+    //           background: #e0efff;
+    //         }
+    //       }
 
-          .navbar-item {
-            padding: 0;
-            align-items: flex-end;
-            margin-right: 8px;
-            .button {
-              background-color: $electric-blue;
-              span:not(.icon) {
-                line-height: 1;
-                font-size: 1rem;
-                vertical-align: middle;
-              }
-              border: 0;
-              padding: 0 16px;
-              height: 2.5rem;
-              border-radius: 0;
-              font-size: 1rem;
-              font-weight: normal;
-              &.router-link-exact-active,
-              &.active,
-              &.is-active {
-                background-color: $white;
-                color: $grey-dark;
-              }
-              &:focus {
-                box-shadow: none;
-              }
-            }
-            .dropdown-trigger {
-              .button {
-                span.icon {
-                  font-size: 1.438rem;
-                  line-height: 1;
-                }
-              }
-            }
-          }
-        }
-      }
+    //       .dropdown {
+    //         display: block;
+    //         .dropdown-content {
+    //           background: none;
+    //           box-shadow: none;
+    //           margin-left: 2rem;
+    //           border-left: 1px solid #e0efff;
+    //           a, .button {
+    //             color: #fff
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    // @include desktop {
+    //   // padding: 69px 0 46px 0;
 
-      .navbar {
-        .navbar-end {
-          .navbar-item {
-            .button {
-              text-transform: none;
-            }
-          }
-        }
-      }
-    }
-    @include desktop-only {
-      &.is-admin {
-        padding: 112px 0 46px 0;
-      }
-    }
+    //   .navbar {
+    //     .container.is-fluid {
+    //       flex-wrap: wrap !important;
+    //     }
+    //     .navbar-brand {
+    //       height: 64px;
+    //     }
+    //     .navbar-end {
+    //       margin-top: 8px;
+    //       // justify-content: flex-start;
+    //       width: 100%;
 
-    @include mobile {
-      .navbar-burger:hover {
-        color: $electric-blue;
-      }
-      .main {
-        padding: 0;
-      }
-      .navbar {
-        .container.is-fluid {
-          padding-left: initial !important;
-          padding-right: initial !important;
-        }
-      }
-    }
-  }
+    //       .navbar-item {
+    //         padding: 0;
+    //         align-items: flex-end;
+    //         margin-right: 8px;
+    //         .button {
+    //           background-color: $electric-blue;
+    //           span:not(.icon) {
+    //             line-height: 1;
+    //             font-size: 1rem;
+    //             vertical-align: middle;
+    //           }
+    //           border: 0;
+    //           padding: 0 16px;
+    //           height: 2.5rem;
+    //           border-radius: 0;
+    //           font-size: 1rem;
+    //           font-weight: normal;
+    //           &.router-link-exact-active,
+    //           &.active,
+    //           &.is-active {
+    //             background-color: $white;
+    //             color: $grey-dark;
+    //           }
+    //           &:focus {
+    //             box-shadow: none;
+    //           }
+    //         }
+    //         .dropdown-trigger {
+    //           .button {
+    //             span.icon {
+    //               font-size: 1.438rem;
+    //               line-height: 1;
+    //             }
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
 
-  #trusted-site {
-    color: $white;
-    background-color: $ben-franklin-blue;
-    .logo {
-      img {
-        margin-right: 0.188rem;
-      }
-      font-size: $size-small;
-      font-weight: $weight-semibold;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.45;
-      letter-spacing: 1px
-    }
-    .logo-right {
-      font-size: 0.75rem;
-    }
+    //   .navbar {
+    //     .navbar-end {
+    //       .navbar-item {
+    //         .button {
+    //           text-transform: none;
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    // @include desktop-only {
+    //   &.is-admin {
+    //     padding: 112px 0 46px 0;
+    //   }
+    // }
+
+    // @include mobile {
+    //   .navbar-burger:hover {
+    //     color: $electric-blue;
+    //   }
+    //   .main {
+    //     padding: 0;
+    //   }
+    //   .navbar {
+    //     .container.is-fluid {
+    //       padding-left: initial !important;
+    //       padding-right: initial !important;
+    //     }
+    //   }
+    // }
   }
 
   // .navbar {
