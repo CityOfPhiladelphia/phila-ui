@@ -110,12 +110,11 @@ export default {
       type: [ String, Number ],
       default: 1,
     },
-    modelValue: {
-      type: Array,
-      default () {
-        return [];
-      },
-    },
+  },
+  data () {
+    return {
+      modelValue: [],
+    };
   },
   computed: {
     inputListeners: function () {
@@ -133,11 +132,22 @@ export default {
   methods: {
     updateModelValue (event, value) {
       if (event.target.checked) {
-        this.modelValue.push(value);
+        if (this.options.length === 1) {
+          this.modelValue = [ this.$attrs['true-value'] || value ];
+        } else {
+          this.modelValue.push(value);
+        }
       } else {
-        this.modelValue.splice(this.modelValue.indexOf(value), 1);
+        if (this.options.length === 1) {
+          if (this.$attrs['false-value']) {
+            this.modelValue.push(this.$attrs['false-value']);
+          } else {
+            this.modelValue = [];
+          }
+        } else {
+          this.modelValue.splice(this.modelValue.indexOf(value), 1);
+        }
       }
-      this.$emit('change', this.modelValue);
     },
   },
 };

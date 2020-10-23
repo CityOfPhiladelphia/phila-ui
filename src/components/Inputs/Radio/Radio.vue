@@ -47,8 +47,7 @@
             :name="`rd-${key}-${id}`"
             class="is-checkradio"
             :value="optionValue(option, key)"
-            :true-value="optionValue(option, key)"
-            :checked="value == optionValue(option, key)"
+            :checked="modelValue === optionValue(option, key)"
             v-bind="option.attrs || {}"
             v-on="inputListeners"
           >
@@ -70,6 +69,10 @@ export default {
     inputMixins,
   ],
   inheritAttrs: false,
+  model: {
+    prop: "modelValue",
+    event: "change",
+  },
   props: {
     options: {
       type: [ Object, Array ],
@@ -86,6 +89,10 @@ export default {
       default: "",
     },
     value: {
+      type: String,
+      default: '',
+    },
+    modelValue: {
       type: String,
       default: '',
     },
@@ -114,6 +121,9 @@ export default {
         {
           input: function (event) {
             vm.$emit('input', event.target.value);
+          },
+          change: function (event) {
+            vm.$emit('change', event.target.value);
           },
         }
       );
