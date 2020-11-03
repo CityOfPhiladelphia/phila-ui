@@ -268,17 +268,21 @@ export default {
       }
       a.app-title {
         color: $white;
+        padding: 0.5rem 0 1rem 0;
+        max-width: 75%;
         h1 {
           font-family: $family-secondary;
           font-size: 1.375rem;
           font-weight: $weight-bold;
           line-height: 1.09;
+          padding: 0;
         }
         h2 {
           font-family: $family-secondary;
-          font-size: $size-small;
+          font-size: $size-large;
           font-weight: $weight-normal;
-          line-height: 1.14;
+          line-height: 1.33;
+          padding: 0;
         }
       }
     }
