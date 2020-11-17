@@ -17,7 +17,7 @@
 <script>
 import Vue from 'vue';
 import TextArea from '../TextArea/TextArea.vue';
-import { inputMixins } from '../../../utils/inputMixins';
+import { inputMixins } from '@/utils/inputMixins';
 
 export default {
   name: 'VeeTextArea',

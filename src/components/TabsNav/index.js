@@ -1,5 +1,5 @@
 // Import vue component
-import component from './LangSelector.vue';
+import component from './TabsNav.vue';
 import prepareForExport from '@/utils/prepareForExport';
 
 prepareForExport(component);

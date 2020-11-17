@@ -1,52 +1,9 @@
-/** GLOBAL TO LINKS **/
-
-.column {
-  &.pl-0 {
-    padding-left: 0;
-  }
-  &.pl-1 {
-    padding-left: 0.25rem;
-  }
-  &.pl-2 {
-    padding-left: 0.5rem ;
-  }
-  &.pl-3 {
-    padding-left: 0.75rem;
-  }
-  &.pl-4 {
-    padding-left: 1rem;
-  }
-  &.pl-5 {
-    padding-left: 1.5rem;
-  }
-  &.pl-6 {
-    padding-left: 3rem;
-  }
-  &.pr-0 {
-    padding-right: 0;
-  }
-  &.pr-1 {
-    padding-right: 0.25rem;
-  }
-  &.pr-2 {
-    padding-right: 0.5rem ;
-  }
-  &.pr-3 {
-    padding-right: 0.75rem;
-  }
-  &.pr-4 {
-    padding-right: 1rem;
-  }
-  &.pr-5 {
-    padding-right: 1.5rem;
-  }
-  &.pr-6 {
-    padding-right: 3rem;
-  }
-}
-
 a {
   transition: all 0.25s ease;
+}
+
+main {
+  padding: 1rem;
 }
 
 .is-fullwidth {
@@ -165,9 +122,11 @@ a {
 .content {
 
   padding: 1.5rem;
+
   h1, h2, h3, h4, h5, h6, div {
     @extend .headers;
   }
+
   p {
     font-family: $family-sans-serif;
     font-size: $size-medium;
@@ -183,20 +142,6 @@ a {
     }
   }
 }
-
-
-// h1 {
-//   line-height: 2.5rem;
-// }
-
-// h2 {
-//   line-height: 2rem;
-// }
-
-// h3, h4 {
-//   line-height: 1.5rem;
-// }
-
 
 /** Custom Styles **/
 .table-responsive {
@@ -220,12 +165,12 @@ a {
   padding: $tabs-link-padding;
 }
 
-.container {
-  &.main {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-}
+// .container {
+//   &.main {
+//     margin-top: 2rem;
+//     margin-bottom: 2rem;
+//   }
+// }
 
 .font-sizes {
   &.is-small {
@@ -405,37 +350,18 @@ table {
   }
 }
 
-/** LAYOUT SETTINGS **/
 #app {
-  // padding: 78px 0 46px 0;
-
-  // > header, > footer {
-    // position: fixed;
-    // width: 100%;
-    // left: 0;
-  // }
-
-//   header {
-//     z-index: 10;
-//     top: 0;
-//   }
-
-//   footer {
-//     z-index: 9;
-//     bottom: 0;
-//   }
-
-//   > main {
-//     width: 100%;
-//     display: block;
-//   }
-
-//   @include until($tablet) {
-//     padding-top: 135px;
-//     > main {
-//       display: block;
-//       padding: 0 1rem 0;
-//     }
-//   }
+  @include until($desktop) {
+    #app-header {
+      .container {
+        padding: 0 1rem;
+      }
+    }
+  }
 }
-/**********************/
+
+@include until($tablet) {
+  html {
+    font-size: 16px;
+  }
+}

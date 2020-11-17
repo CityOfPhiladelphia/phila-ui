@@ -24,7 +24,7 @@
 <script>
 import Vue from 'vue';
 import Checkbox from '../Checkbox/Checkbox.vue';
-import { inputMixins } from '../../../utils/inputMixins';
+import { inputMixins } from '@/utils/inputMixins';
 
 export default {
   name: 'VeeCheckbox',

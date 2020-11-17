@@ -65,7 +65,7 @@
  * Equivalent to the html ```<input type="text">``` tag
  */
 
-import { inputMixins } from '../../../utils/inputMixins';
+import { inputMixins } from '@/utils/inputMixins';
 
 export default {
   name: "Textbox",
@@ -134,7 +134,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../../../styles/inputs.scss';
+  @import '../../../assets/styles/scss/inputs.scss';
 </style>
 
 <style lang="scss" scoped>

@@ -7,9 +7,9 @@
     :custom-messages="errorMessages"
     tag="div"
   >
-    <dropdown
+    <textbox
       v-model="localValue"
-      v-bind="{ ...$props, ...$attrs }"
+      v-bind="{ ...$attrs, ...$props }"
       :error="errors[0]"
       v-on="$listeners"
     />
@@ -17,32 +17,21 @@
 </template>
 <script>
 import Vue from 'vue';
-import Dropdown from '../Dropdown/Dropdown.vue';
+import Textbox from '../Textbox/Textbox.vue';
 import { inputMixins } from '@/utils/inputMixins';
 
 export default {
-  name: 'VeeDropdown',
+  name: 'VeeTextbox',
   components: {
-    Dropdown,
+    Textbox,
   },
   mixins: [
     inputMixins,
   ],
-  inheritAttrs: false,
   props: {
     value: {
-      type: String,
-      default: '',
-    },
-    options: {
-      type: [ Object, Array ],
-      default: () => {
-        return {};
-      },
-    },
-    numOfColumns: {
       type: [ String, Number ],
-      default: 1,
+      default: '',
     },
     rules: {
       type: [ String, Object ],
@@ -52,7 +41,7 @@ export default {
     },
     mode: {
       type: String,
-      default: 'passive',
+      default: 'eager',
     },
   },
   computed: {

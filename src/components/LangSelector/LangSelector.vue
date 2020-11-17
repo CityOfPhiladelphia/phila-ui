@@ -1,38 +1,36 @@
 <template>
-  <div
-    v-if="ready"
-    class="control-container"
-  >
-    <div class="control has-icons-left">
-      <div class="select">
-        <select
-          aria-label="language"
-          @change="onChange($event)"
+  <div v-if="ready">
+    <dropdown-nav>
+      <button>
+        <span class="icon"><i class="fa fa-globe" /></span>
+        <span>{{ selectedLang }}</span>
+      </button>
+      <ul>
+        <li
+          v-for="(lang, i) in languages"
+          :key="`languages${i}`"
         >
-          <option
-            v-for="(lang, i) in languages"
-            :key="`languages${i}`"
-            :value="lang.language"
-            :selected="lang.language === selectedLang"
-          >
-            {{ lang.title }}
-          </option>
-        </select>
-      </div>
-      <span class="icon is-left">
-        <i class="fas fa-globe fa-lg" />
-      </span>
-    </div>
+          <a
+            href="#"
+            @click.prevent="changeLang(lang.language)"
+          >{{ lang.title }}</a>
+        </li>
+      </ul>
+    </dropdown-nav>
   </div>
 </template>
 
 <script>
+import DropdownNav from 'components/DropdownNav/DropdownNav.vue';
 
 export default {
   name: 'LangSelector',
+  components: {
+    DropdownNav,
+  },
   props: {
     languages: {
-      type: [ Array ],
+      type: Array,
       validator: function (languages) {
         const isValid = languages.every(language => language.language && language.title);
         if (!isValid) {
@@ -47,6 +45,10 @@ export default {
             language: "en-US",
             title: "English",
           },
+          {
+            language: "es",
+            title: "Español",
+          },
         ];
       },
     },
@@ -56,7 +58,7 @@ export default {
   },
   computed : {
     selectedLang() {
-      return this.$i18n.locale;
+      return this.languages.find(lang => lang.language === this.$i18n.locale).title;
     },
   },
   created() {
@@ -67,59 +69,10 @@ export default {
     }
   },
   methods: {
-    onChange(event) {
-      this.$i18n.locale = event.target.value;
-      localStorage.setItem('lang', event.target.value);
+    changeLang(lang) {
+      this.$i18n.locale = lang;
+      localStorage.setItem('lang', lang);
     },
   },
 };
 </script>
-<style lang="scss" scoped>
-@media screen and (max-width: $tablet) {
- .control div.select {
-    select {
-      color: transparent;
-      padding: 0;
-      // display: none !important;
-      border-color: transparent;
-    }
-  }
-
-  .control-container .control .icon {
-    margin-right: 0 !important;
-    left: unset !important;
-    right: 10px;
-  }
-
-  .control .select:not(.is-multiple):not(.is-loading)::after  {
-    border-color: transparent !important;
-  }
-
-}
-.select {
-  padding-right: 5px;
-}
-
-.control-container {
-    display: inline-flex;
-    position: absolute;
-    right: 0;
-    top: 12px;
-}
-
-.select select, .fa-globe {
-  background-color: transparent;
-  opacity: 1.0;
-  border-color:#fff;
-  color: #fff;
-  option {
-    color: #363636;
-    width: 10px;
-  }
-}
-
-.select:not(.is-multiple):not(.is-loading)::after  {
-  border-color: #fff !important;
-}
-
-</style>

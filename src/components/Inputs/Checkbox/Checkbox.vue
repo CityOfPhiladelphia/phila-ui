@@ -64,7 +64,7 @@
   </div>
 </template>
 <script>
-import { inputMixins } from '../../../utils/inputMixins';
+import { inputMixins } from '@/utils/inputMixins';
 export default {
   name: 'Checkbox',
   mixins: [
@@ -134,5 +134,5 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../../../styles/inputs.scss';
+  @import '../../../assets/styles/scss/inputs.scss';
 </style>

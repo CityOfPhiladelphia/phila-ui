@@ -1,6 +1,6 @@
 // Import vue component
-import component from './MobileMenu.vue';
-import prepareForExport from '../../utils/prepareForExport';
+import component from './DropdownNav.vue';
+import prepareForExport from '@/utils/prepareForExport';
 
 prepareForExport(component);
 

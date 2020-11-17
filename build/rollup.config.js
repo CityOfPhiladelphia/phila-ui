@@ -4,6 +4,11 @@ import babel from 'rollup-plugin-babel';
 import postcss from 'rollup-plugin-postcss';
 import cssnano from 'cssnano';
 import image from '@rollup/plugin-image';
+import alias from '@rollup/plugin-alias';
+import path from 'path';
+
+const projectRootDir = path.join(__dirname, '..');
+console.log('ok', projectRootDir);
 
 export default [ 'phila-ui' ].map((name) => ({
   input: `src/${name}.js`,
@@ -35,9 +40,9 @@ export default [ 'phila-ui' ].map((name) => ({
         preprocessOptions: {
           scss: {
             data: `
-              @import "./src/styles/variables.scss";
-              @import "./src/styles/functions.scss";
-              @import "./src/styles/colors.scss";
+              @import "./src/assets/styles/scss/variables.scss";
+              @import "./src/assets/styles/scss/functions.scss";
+              @import "./src/assets/styles/scss/colors.scss";
               @import "node_modules/bulma/sass/utilities/_all.sass";
             `,
           },
@@ -54,6 +59,26 @@ export default [ 'phila-ui' ].map((name) => ({
     }),
     babel({
       exclude: 'node_modules/**',
+    }),
+    alias({
+      entries: [
+        {
+          find: '@',
+          replacement: path.resolve(projectRootDir, 'src'),
+        },
+        {
+          find: 'components',
+          replacement: path.resolve(projectRootDir, 'src/components'),
+        },
+        {
+          find: 'assets',
+          replacement: path.resolve(projectRootDir, 'src/assets'),
+        },
+        {
+          find: 'styles',
+          replacement: path.resolve(projectRootDir, 'src/assets/styles/scss'),
+        },
+      ],
     }),
   ],
 }));

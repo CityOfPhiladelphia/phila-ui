@@ -2,15 +2,14 @@
   <ValidationObserver
     :id="`form-val-${id}`"
     :ref="`form-val-${id}`"
-    v-slot="{ failed }"
+    v-slot="validation"
     tag="div"
-    name="hello"
     v-on="inputListeners"
   >
     <input-form
       :id="`form-${id}`"
       :is-valid="!validation.failed"
-      :errors-count="getErrorsCount(failed)"
+      :errors-count="getErrorsCount(validation)"
       v-bind="{ ...$attrs, ...$props }"
     >
       <template
@@ -43,7 +42,6 @@ export default {
         this.$listeners,
         {
           input: function (event) {
-            console.log('vee-input-form', event.target.value);
             vm.$emit('input', event.target.value);
           },
         }
@@ -54,8 +52,12 @@ export default {
     validate () {
       return this.$refs[`form-val-${this.id}`].validate();
     },
-    getErrorsCount (errors) {
-      return Object.values(errors).reduce((total, error) => error.length > 0 ? total + 1 : total, 0);
+    getErrorsCount (validation) {
+      let count = Object.values(validation.errors).reduce((total, error) => error.length > 0 ? total + 1 : total, 0);
+
+      this.$emit('validation', validation);
+
+      return count;
     },
   },
 };

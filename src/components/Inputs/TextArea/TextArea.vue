@@ -58,7 +58,7 @@
 /**
  * Equivalent to the html ```<textarea>``` tag
  */
-import { inputMixins } from '../../../utils/inputMixins';
+import { inputMixins } from '@/utils/inputMixins';
 export default {
   name: "TextArea",
   mixins: [
@@ -108,7 +108,7 @@ export default {
 };
 </script>
 <style lang="scss">
-  @import '../../../styles/inputs.scss';
+  @import '../../../assets/styles/scss/inputs.scss';
 </style>
 <style lang="scss" scoped>
 
