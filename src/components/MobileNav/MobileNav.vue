@@ -6,40 +6,40 @@
       @click.prevent="mobileNavToggle"
     >
       <i
-        v-if="!mNavOpened"
+        v-show="!mNavOpened"
         class="fa fa-bars"
       />
       <i
-        v-if="mNavOpened"
+        v-show="mNavOpened"
         class="fa fa-times"
       />
     </a>
     <transition name="slide-in">
       <div
         v-show="mNavOpened"
-        id="mobile-nav-wrap"
+        id="mobile-menu-wrap"
       >
-        <div id="mmenu">
+        <div id="mobile-menu">
+          <slot name="before" />
           <template v-if="links.length > 0">
             <ul>
               <li
                 v-for="(link1, index1) in links"
                 :key="`${link1.text}-${index1}`"
-                :class="{ 'is-active is-exact-active' : link1.active }"
               >
-                <nav-link :link="link1" />
+                <nav-link
+                  :link="formatLink(link1)"
+                />
                 <ul v-if="link1.submenu">
                   <li
                     v-for="(link2, index2) in link1.submenu"
                     :key="`${link2.text}-${index2}`"
-                    :class="{ 'is-active is-exact-active' : link2.active }"
                   >
-                    <nav-link :link="link2" />
+                    <nav-link :link="formatLink(link2)" />
                     <ul v-if="link2.submenu">
                       <li
                         v-for="(link3, index3) in link2.submenu"
                         :key="`${link3.text}-${index3}`"
-                        :class="{ 'is-active is-exact-active' : link3.active }"
                       >
                         <nav-link :link="link3" />
                       </li>
@@ -52,11 +52,12 @@
           <template v-else>
             <slot />
           </template>
+          <slot name="after" />
         </div>
-        <div id="mmenu-close-bar">
+        <div id="mobile-menu-close-bar">
           <button
             class="button"
-            @click.prevent="mNavOpened = !mNavOpened"
+            @click.prevent="mobileNavToggle"
           >
             <span>Close</span>
             <span class="icon">
@@ -93,22 +94,30 @@ export default {
     this.prepMobileNav();
   },
   methods: {
+    formatLink (link) {
+
+      //if link has submenu, automatically make it a native type link to avoid vue-router issues
+      if (link.submenu) {
+        link.type = 'native';
+      }
+      return link;
+    },
     prepMobileNav () {
-      if (this.isMobile && this.$slots['mobile-nav']) {
+
+      const self = this;
+
+      if (this.isMobile) {
 
         const header = document.querySelector('#app-header');
-        const mobileNav = document.querySelector('#mobile-nav-wrap');
-        const mmenu = document.querySelector('#mmenu');
+        const mobileMenuWrap = document.querySelector('#mobile-menu-wrap');
+        const mobileMenu = document.querySelector('#mobile-menu');
 
-        if (mobileNav) {
-          mobileNav.style['top'] = header.offsetHeight + 'px';
-          mobileNav.style['height'] = `calc(100% - ${header.offsetHeight + 45}px)`;
+        if (mobileMenuWrap) {
+          mobileMenuWrap.style['top'] = header.offsetHeight + 'px';
+          mobileMenuWrap.style['height'] = `calc(100% - ${header.offsetHeight + 45}px)`;
         }
 
-        const mobileNavList = mmenu.querySelectorAll('ul li');
-
-        const activeListItem = [ mmenu.querySelector('ul li.active'), mmenu.querySelector('ul li.is-exact-active') ];
-
+        const mobileNavList = mobileMenu.querySelectorAll('ul li');
 
         mobileNavList.forEach(listItem => {
 
@@ -132,19 +141,33 @@ export default {
 
               li.classList.toggle('opened');
             });
+          } else {
+            //Closes mobile menu on click when link/route changes
+            listItem.querySelector(':scope > a').addEventListener('click', function (event) {
+
+              const a = event.target;
+              const li = a.parentNode;
+
+              //remove existing classes from siblings
+              const siblings = li.parentNode.querySelectorAll('li');
+              siblings.forEach(sibling => sibling !== li ? sibling.classList.remove('opened') : null);
+
+              self.mobileNavToggle();
+
+            });
           }
         });
 
         //Find current/active page and open nesting to top
-        activeListItem.forEach(activeItem => {
-          if (activeItem) {
-            let parent = activeItem.parentNode.parentNode;
-            while (parent.tagName === "LI") {
-              const hasSubmenu = parent.querySelector('a.has-submenu');
-              if (hasSubmenu) {
-                parent.classList.add('opened');
-                parent = parent.parentNode.parentNode;
-              }
+        const activeListItems = mobileMenu.querySelectorAll('ul li a.is-active, ul li a.router-link-exact-active');
+
+        activeListItems.forEach(activeListItem => {
+          let parent = activeListItem.parentNode.parentNode.parentNode;
+          while (parent.tagName === "LI") {
+            const hasSubmenu = parent.querySelector('a.has-submenu');
+            if (hasSubmenu) {
+              parent.classList.add('opened');
+              parent = parent.parentNode.parentNode;
             }
           }
         });
@@ -153,10 +176,10 @@ export default {
     },
     mobileNavToggle () {
 
-      this.mNavOpened = !this.mNavOpened;
-
       let body = document.querySelector('body');
       body.classList.toggle('m-nav-opened');
+
+      this.mNavOpened = !this.mNavOpened;
 
     },
   },
@@ -170,8 +193,8 @@ export default {
     }
   }
 
-  #mobile-nav-wrap {
-    z-index: 999999;
+  #mobile-menu-wrap {
+    z-index: 999;
     position: fixed;
     left: 0;
     width: 100%;
@@ -180,7 +203,7 @@ export default {
     color: $white;
   }
 
-  #mmenu-close-bar {
+  #mobile-menu-close-bar {
     button {
       background-color: $ben-franklin-blue;
       color: $white;
@@ -191,17 +214,13 @@ export default {
     bottom: 0;
     left: 0;
     width: 100%;
+    z-index: 999;
   }
 </style>
 
 <style lang="scss">
 
-  body {
-    m-nav-opened {
-      overflow: hidden;
-    }
-  }
-  #mmenu {
+  #mobile-menu {
     width: 100%;
     height: 100%;
     overflow: scroll;
@@ -212,17 +231,16 @@ export default {
         list-style-type: none;
         border-bottom: solid 1px rgba(150, 201, 255, 0.22);
         transition: all 0.25s ease-in;
-        &.is-active, &.is-exact-active {
+        &.is-active, &.router-link-exact-active {
           background-color: $ben-franklin-blue;
         }
         > a {
           color: $white;
           font-size: $size-large;
-          padding: 1rem 1rem;
+          padding: 1rem 3rem;
           display: block;
           position: relative;
-          margin: 0 2rem;
-          &.is-active, &.is-exact-active {
+          &.is-active, &.router-link-exact-active {
             background-color: $ben-franklin-blue;
             font-weight: $weight-semibold;
           }
@@ -236,6 +254,7 @@ export default {
               height: 2px;
               background-color: $white;
               display: block;
+              transition: all 0.25s ease-in;
               content: "";
             }
             &:before {
@@ -259,7 +278,10 @@ export default {
           > a {
             font-weight: $weight-semibold;
             &:before {
-              transform: translateY(-50%) rotate(0deg);
+              transform: translateY(-50%) rotate(45deg);
+            }
+            &:after {
+              transform: translateY(-50%) rotate(-45deg);
             }
           }
           > ul {
@@ -279,7 +301,7 @@ export default {
           > li {
             list-style-type: none;
             border: 0;
-            &.is-active, &.is-exact-active {
+            &.is-active, &.router-link-exact-active {
               background-color: $ben-franklin-blue;
             }
             > a {
@@ -288,7 +310,7 @@ export default {
               padding: 1rem 1rem;
               display: block;
               margin: 0 2rem;
-              &.is-active, &.is-exact-active {
+              &.is-active, &.router-link-exact-active {
                 background-color: $ben-franklin-blue;
                 font-weight: $weight-semibold;
               }
@@ -315,9 +337,9 @@ export default {
                   color: $white;
                   font-size: $size-large;
                   display: block;
-                  padding: 1rem 0;
+                  padding: 1rem;
                   margin: 0 2rem;
-                  &.is-active, &.is-exact-active {
+                  &.is-active, &.router-link-exact-active {
                     background-color: $ben-franklin-blue;
                     font-weight: $weight-semibold;
                     &:before {
@@ -351,5 +373,6 @@ export default {
   .slide-in-enter, .slide-in-leave-to
   /* .slide-fade-leave-active below version 2.1.8 */ {
     transform: translateX(-100%);
+    opacity: 0;
   }
 </style>

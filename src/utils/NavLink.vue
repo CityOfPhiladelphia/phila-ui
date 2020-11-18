@@ -1,6 +1,6 @@
 <template>
   <a
-    v-if="link.type === 'link'"
+    v-if="link.type === 'native'"
     v-bind="link.attrs || {}"
     :href="link.href"
     :class="{ 'is-active': link.active }"
@@ -16,7 +16,7 @@
     <a
       :href="href"
       v-bind="link.attrs || {}"
-      :class="{ 'is-exact-active': isExactActive }"
+      :class="{ 'is-active': isExactActive }"
       @click="navigate"
     >
       {{ link.text }}

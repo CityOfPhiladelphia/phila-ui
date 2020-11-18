@@ -1,5 +1,9 @@
 <template>
-  <div class="dropdown-nav">
+  <div
+    class="dropdown-nav"
+    :class="{ 'is-active' : isActive }"
+    @click="isActive = !isActive"
+  >
     <template v-if="nav.links.length > 0">
       <button>
         <span
@@ -8,7 +12,7 @@
         >
           <i class="fas fa-user-circle" />
         </span>
-        <span>{{ nav.trigger }}</span>
+        <span>{{ nav.button }}</span>
       </button>
       <ul>
         <template v-for="(link, index) in nav.links">
@@ -44,12 +48,17 @@ export default {
       type: Object,
       default () {
         return {
-          trigger: 'My Link',
+          button: 'My Link',
           icon: null,
           links: [],
         };
       },
     },
+  },
+  data () {
+    return {
+      isActive: false,
+    };
   },
   mounted () {
     this.addDropdownArrow();
@@ -59,7 +68,11 @@ export default {
       const dropdowns = document.querySelectorAll('.dropdown-nav');
       if (dropdowns) {
         dropdowns.forEach(dropdown => {
-          dropdown.querySelector('button').classList.add('navbar-link');
+          const btn = dropdown.querySelector('button');
+          btn.classList.add('navbar-link');
+          if (this.isMobile) {
+            btn.classList.add('is-arrowless');
+          }
         });
       }
     },
@@ -71,7 +84,7 @@ export default {
   .dropdown-nav {
     text-align: left;
     position: relative;
-    &.is-active, &:hover {
+    &.is-active {
       background-color: $ben-franklin-blue;
       ul {
         display: block;
@@ -93,6 +106,7 @@ export default {
       white-space: nowrap;
       &:hover {
         background-color: $ben-franklin-blue;
+        color: $white;
       }
       &.navbar-link {
         vertical-align: middle;
@@ -109,16 +123,14 @@ export default {
         }
       }
       @include until ($tablet) {
-        span {
-          display: none;
-        }
-        span.icon {
-          display: inline-block;
-        }
+        padding: 0 0.5rem 0.5rem 0.5rem;
         &.navbar-link {
-          padding: 0;
-          &:after {
+          span {
             display: none;
+          }
+          span.icon {
+            display: inline-block;
+            padding: 0;
           }
         }
       }
@@ -126,9 +138,10 @@ export default {
     ul {
       display: none;
       position: absolute;
-      width: auto;
+      right: 0;
       background-color: $ben-franklin-blue;
       z-index: 999;
+      width: auto;
       li {
         float: right;
         width: 100%;
@@ -138,7 +151,7 @@ export default {
           line-height: 1.1;
           width: 100%;
           display: block;
-          &:hover, &.is-active, &.is-exact-active {
+          &:hover {
             background-color: $ben-franklin-blue-light;
             color: $grey-dark;
           }

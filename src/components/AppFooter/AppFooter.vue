@@ -1,8 +1,7 @@
 <template>
   <footer
-    v-if="!isMobile"
+    v-if="!isHiddenMobile"
     id="app-footer"
-    class="is-hidden-mobile"
     :class="{ 'is-sticky': isSticky }"
   >
     <div class="container" />
@@ -44,6 +43,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    isHiddenMobile: {
+      type: Boolean,
+      default: true,
+    },
     links: {
       type: Array,
       default: () => {
@@ -51,48 +54,20 @@ export default {
       },
     },
   },
-  computed: {
-    localLinks() {
-      // Prepare links
-      let localLinks = [];
-      this.links.forEach(link => {
-        let defaults =  { href: "#", text: "link here", "attrs": {}};
-        Object.keys(link).forEach(key =>  {
-          if (defaults[key]) {
-            defaults[key] = link[key];
-          } else {
-            defaults.attrs[key] = link[key];
-          }
-        });
-        localLinks.push(Object.assign({}, defaults));
-      });
-      return localLinks;
-    },
-  },
   mounted () {
     const main = document.querySelector('#app-content');
     const footer = document.querySelector('#app-footer');
 
     if (this.isSticky) {
-      Vue.nextTick(function () {
-        main.style['padding-bottom'] = `${footer.offsetHeight}px`;
-      });
+      main.style['padding-bottom'] = `${footer.offsetHeight}px`;
     } else {
-      if (!this.isMobile) {
-        Vue.nextTick(function () {
+      if (!this.isHiddenMobile) {
+        const header = document.querySelector('#app-header');
+        const mainHeight = header.offsetHeight + footer.offsetHeight;
 
-          const header = document.querySelector('#app-header');
-          const mainHeight = header.offsetHeight + footer.offsetHeight;
-
-          main.style['min-height'] = `calc(100vh - ${mainHeight}px)`;
-        });
+        main.style['min-height'] = `calc(100vh - ${mainHeight}px)`;
       }
     }
-  },
-  methods: {
-    isURL(link) {
-      return (/https?:\/\//.test(link));
-    },
   },
 };
 </script>
@@ -117,7 +92,7 @@ export default {
     &.is-sticky {
       position: fixed;
       bottom: 0;
-      z-index: 999;
+      z-index: 99;
     }
     ul {
       list-style: none;

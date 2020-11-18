@@ -17,12 +17,12 @@
           <div class="columns is-marginless is-mobile is-vcentered is-multiline">
             <div
               v-if="$slots['mobile-nav'] && isMobile"
-              class="column is-1 has-text-centered mobile-nav-col"
+              class="column is-narrow has-text-centered mobile-nav-col"
             >
               <slot name="mobile-nav" />
             </div>
             <div
-              v-if="!isMobile && appLogoImage && appLogoLink"
+              v-if="showBranding"
               class="column is-narrow logo-col"
             >
               <branding
@@ -31,8 +31,8 @@
               />
             </div>
             <div
-              class="column title-col"
-              :class="{ 'is-9-mobile': showRightNavOnSide, 'is-mobile-10': !showRightNavOnSide, 'no-mobile': !$slots['mobile-nav'] }"
+              class="column title-col is-narrow"
+              :class="{ 'no-mobile': isMobile && !$slots['mobile-nav'], 'is-4': isTablet && showBranding }"
             >
               <div>
                 <a
@@ -52,10 +52,13 @@
             </div>
             <div
               v-if="showLeftNav || showRightNav"
-              class="column dropdown-nav-col"
-              :class="{ 'is-narrow' : showRightNavOnSide, 'is-12': showLeftNav }"
+              class="column nav-col"
+              :class="{ 'is-12': !isMobile && showLeftNav }"
             >
-              <div class="level">
+              <div
+                class="level"
+                :class="{ 'is-pulled-right': showRightNavOnSide }"
+              >
                 <div
                   v-if="showLeftNav"
                   class="level-left"
@@ -125,14 +128,9 @@ export default {
     */
     appLogoImage: {
       type: Object,
-      // default () {
-      //   return null;
-      // },
-      default: () => ({
-        src: "https://standards.phila.gov/img/logo/city-of-philadelphia-yellow-white.png",
-        alt: "City of Philadelphia logo",
-        width: 170,
-      }),
+      default () {
+        return null;
+      },
     },
 
     /**
@@ -140,13 +138,9 @@ export default {
     */
     appLogoLink: {
       type: Object,
-      // default () {
-      //   return null;
-      // },
-      default: () => ({
-        href: "https://www.phila.gov",
-        target: "_blank",
-      }),
+      default () {
+        return null;
+      },
     },
     /**
      * The application's title/name
@@ -207,6 +201,9 @@ export default {
         )
       );
     },
+    showBranding () {
+      return this.appLogoImage && this.appLogoLink && !this.isMobile;
+    },
   },
   created () {
     window.addEventListener("resize", this.handleResize);
@@ -253,8 +250,7 @@ export default {
 
 <style lang="scss">
   .m-nav-opened {
-    height: 100vh;
-    width: 100vw;
+    height:100%;
     overflow: hidden;
   }
 </style>
@@ -272,7 +268,7 @@ export default {
       position: fixed;
       top:0;
       left:0;
-      z-index: 999;
+      z-index: 998;
     }
   }
 
@@ -286,9 +282,8 @@ export default {
           padding-bottom: 0.5rem;
         }
 
-        &.dropdown-nav-col {
-          padding-bottom: 0;
-          padding-right: 0;
+        &.nav-col {
+          padding: 0;
         }
         &.logo-col {
           padding-left: 0;
