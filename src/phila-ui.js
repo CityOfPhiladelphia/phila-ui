@@ -12,20 +12,20 @@ import TextArea from './components/Inputs/TextArea';
 import TabsNav from './components/TabsNav';
 import MobileNav from './components/MobileNav';
 import DropdownNav from './components/DropdownNav';
-import VeeTextbox from './components/Inputs/VeeTextbox';
-import VeeTextArea from './components/Inputs/VeeTextArea';
-import VeeCheckbox from './components/Inputs/VeeCheckbox';
-import VeeRadio from './components/Inputs/VeeRadio';
-import VeeDropdown from './components/Inputs/VeeDropdown';
-import VeeInputForm from './components/Inputs/VeeInputForm';
-import Responsiveness from './plugins/Responsiveness';
+// import VeeTextbox from './components/Inputs/VeeTextbox';
+// import VeeTextArea from './components/Inputs/VeeTextArea';
+// import VeeCheckbox from './components/Inputs/VeeCheckbox';
+// import VeeRadio from './components/Inputs/VeeRadio';
+// import VeeDropdown from './components/Inputs/VeeDropdown';
+// import VeeInputForm from './components/Inputs/VeeInputForm';
+import ResponsiveHelper from './plugins/ResponsiveHelper';
 
 /**
  * Function to install components globally
  */
 const install = function(Vue, settings = {}) {
 
-  Vue.use(Responsiveness);
+  Vue.use(ResponsiveHelper);
 
   if (this.installed) {
     return;
@@ -56,14 +56,14 @@ export {
   TabsNav,
   MobileNav,
   DropdownNav,
-  VeeTextbox,
-  VeeTextArea,
-  VeeCheckbox,
-  VeeRadio,
-  VeeDropdown,
-  VeeInputForm,
+  // VeeTextbox,
+  // VeeTextArea,
+  // VeeCheckbox,
+  // VeeRadio,
+  // VeeDropdown,
+  // VeeInputForm,
   //Responsive Plugin
-  Responsiveness,
+  ResponsiveHelper,
   // Install Helper for Vue
   install,
 };

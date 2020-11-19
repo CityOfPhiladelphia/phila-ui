@@ -97,7 +97,7 @@ export default {
       color: $white;
       font-size: $size-small;
       font-weight: $weight-normal;
-      padding: 0.5rem 2.3rem 0.5rem 1rem;
+      padding: 0.5rem 2.3rem 0.5rem 0.75rem;
       border: 0;
       transition: background-color, 0.25s ease-in-out;
       max-width: 200px;

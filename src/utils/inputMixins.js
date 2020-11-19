@@ -10,10 +10,13 @@ export const inputMixins = {
     /**
      * Error message
      */
-    error: {
-      type: String,
-      default: null,
+    errors: {
+      type: [ Array, String ],
+      default () {
+        return '';
+      },
     },
+
     /**
      * VeeValidate custom errror messages
      */
@@ -30,6 +33,12 @@ export const inputMixins = {
     },
   },
   computed: {
+    error () {
+      if (Array.isArray(this.errors)) {
+        return this.errors[0];
+      }
+      return this.errors;
+    },
     classes () {
       let classes = [];
       if (this.$attrs.required !== undefined) {

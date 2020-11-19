@@ -106,6 +106,12 @@ export default {
       type: Boolean,
       default: true,
     },
+    // errors: {
+    //   type: [ Array, String ],
+    //   default () {
+    //     return '';
+    //   },
+    // },
   },
   computed: {
     inputListeners: function () {

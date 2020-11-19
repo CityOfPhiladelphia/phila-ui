@@ -66,8 +66,8 @@
             </span>
           </div>
           <div id="trusted-panel">
-            <div class="columns is-centered is-marginless is-mobile is-multiline">
-              <div class="column is-12-mobile">
+            <div class="columns is-centered is-marginless is-multiline is-tablet">
+              <div class="column">
                 <div class="trust-icon">
                   <span class="icon circle-icon">
                     <i class="fas fa-lock" />
@@ -80,7 +80,7 @@
                   The <strong>https://</strong> in the address bar means your information is encrypted and can not be accessed by anyone else
                 </div>
               </div>
-              <div class="column is-12-mobile">
+              <div class="column">
                 <div class="trust-icon-right">
                   <span class="icon circle-icon">
                     <i class="fas fa-university" />
