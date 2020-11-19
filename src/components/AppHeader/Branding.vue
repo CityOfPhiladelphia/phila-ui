@@ -1,11 +1,11 @@
 <template>
   <div id="app-logo">
     <a
-      v-bind="appLogoLink"
+      v-bind="brandingLink"
       class="is-inline-block"
     >
       <img
-        v-bind="appLogoImage"
+        v-bind="brandingImage"
       >
     </a>
   </div>
@@ -13,7 +13,7 @@
 <script>
 export default {
   props: {
-    appLogoImage: {
+    brandingImage: {
       type: Object,
       default () {
         return null;
@@ -23,7 +23,7 @@ export default {
     /**
      * The logo link
     */
-    appLogoLink: {
+    brandingLink: {
       type: Object,
       default () {
         return null;

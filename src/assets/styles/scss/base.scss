@@ -349,19 +349,3 @@ table {
     }
   }
 }
-
-#app {
-  @include until($desktop) {
-    #app-header {
-      .container {
-        padding: 0 1rem;
-      }
-    }
-  }
-}
-
-@include until($tablet) {
-  html {
-    font-size: 16px;
-  }
-}

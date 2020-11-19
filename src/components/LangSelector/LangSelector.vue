@@ -1,23 +1,24 @@
 <template>
-  <div v-if="ready">
-    <dropdown-nav>
-      <button>
-        <span class="icon"><i class="fa fa-globe" /></span>
-        <span>{{ selectedLang }}</span>
-      </button>
-      <ul>
-        <li
-          v-for="(lang, i) in languages"
-          :key="`languages${i}`"
-        >
-          <a
-            href="#"
-            @click.prevent="changeLang(lang.language)"
-          >{{ lang.title }}</a>
-        </li>
-      </ul>
-    </dropdown-nav>
-  </div>
+  <dropdown-nav
+    v-if="ready"
+    id="lang-selector"
+  >
+    <button>
+      <span class="icon"><i class="fa fa-globe" /></span>
+      <span>{{ selectedLang }}</span>
+    </button>
+    <ul>
+      <li
+        v-for="(lang, i) in languages"
+        :key="`languages${i}`"
+      >
+        <a
+          href="#"
+          @click.prevent="changeLang(lang.language)"
+        >{{ lang.title }}</a>
+      </li>
+    </ul>
+  </dropdown-nav>
 </template>
 
 <script>
@@ -76,3 +77,17 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+  @include until ($tablet) {
+    #lang-selector {
+      width: 50px;
+      text-align: center;
+      button {
+        width: 100%;
+        text-align: center;
+        padding: 0.6rem;
+      };
+    }
+  }
+</style>

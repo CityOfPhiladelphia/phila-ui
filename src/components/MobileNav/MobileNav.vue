@@ -1,8 +1,11 @@
 <template>
-  <div id="mobile-nav">
+  <div
+    id="mobile-nav"
+    :class="{ 'opened': mNavOpened }"
+  >
     <a
       href="#"
-      class="icon is-size-3"
+      class="icon is-size-2"
       @click.prevent="mobileNavToggle"
     >
       <i
@@ -71,6 +74,7 @@
 </template>
 <script>
 import NavLink from '@/utils/NavLink.vue';
+import Vue from 'vue';
 
 export default {
   name: 'MobileNav',
@@ -108,68 +112,71 @@ export default {
 
       if (this.isMobile) {
 
-        const header = document.querySelector('#app-header');
-        const mobileMenuWrap = document.querySelector('#mobile-menu-wrap');
-        const mobileMenu = document.querySelector('#mobile-menu');
+        Vue.nextTick(function () {
+          const header = document.querySelector('#app-header');
+          const mobileMenuWrap = document.querySelector('#mobile-menu-wrap');
+          const mobileMenu = document.querySelector('#mobile-menu');
 
-        if (mobileMenuWrap) {
-          mobileMenuWrap.style['top'] = header.offsetHeight + 'px';
-          mobileMenuWrap.style['height'] = `calc(100% - ${header.offsetHeight + 45}px)`;
-        }
+          if (mobileMenuWrap) {
+            console.log(header.offsetHeight);
+            mobileMenuWrap.style['top'] = header.offsetHeight + 'px';
+            mobileMenuWrap.style['height'] = `calc(100% - ${header.offsetHeight + 45}px)`;
+          }
 
-        const mobileNavList = mobileMenu.querySelectorAll('ul li');
+          const mobileNavList = mobileMenu.querySelectorAll('ul li');
 
-        mobileNavList.forEach(listItem => {
+          mobileNavList.forEach(listItem => {
 
-          const nestedUl = listItem.querySelector('ul');
+            const nestedUl = listItem.querySelector('ul');
 
-          if (nestedUl) {
+            if (nestedUl) {
 
-            const nestingAnchor = listItem.querySelector('a');
+              const nestingAnchor = listItem.querySelector('a');
 
-            nestingAnchor.classList.add("has-submenu");
+              nestingAnchor.classList.add("has-submenu");
 
-            nestingAnchor.addEventListener('click', function (event) {
+              nestingAnchor.addEventListener('click', function (event) {
 
-              event.preventDefault();
-              const a = event.target;
-              const li = a.parentNode;
+                event.preventDefault();
+                const a = event.target;
+                const li = a.parentNode;
 
-              //remove existing classes from siblings
-              const siblings = li.parentNode.querySelectorAll('li');
-              siblings.forEach(sibling => sibling !== li ? sibling.classList.remove('opened') : null);
+                //remove existing classes from siblings
+                const siblings = li.parentNode.querySelectorAll('li');
+                siblings.forEach(sibling => sibling !== li ? sibling.classList.remove('opened') : null);
 
-              li.classList.toggle('opened');
-            });
-          } else {
+                li.classList.toggle('opened');
+              });
+            } else {
             //Closes mobile menu on click when link/route changes
-            listItem.querySelector(':scope > a').addEventListener('click', function (event) {
+              listItem.querySelector(':scope > a').addEventListener('click', function (event) {
 
-              const a = event.target;
-              const li = a.parentNode;
+                const a = event.target;
+                const li = a.parentNode;
 
-              //remove existing classes from siblings
-              const siblings = li.parentNode.querySelectorAll('li');
-              siblings.forEach(sibling => sibling !== li ? sibling.classList.remove('opened') : null);
+                //remove existing classes from siblings
+                const siblings = li.parentNode.querySelectorAll('li');
+                siblings.forEach(sibling => sibling !== li ? sibling.classList.remove('opened') : null);
 
-              self.mobileNavToggle();
+                self.mobileNavToggle();
 
-            });
-          }
-        });
-
-        //Find current/active page and open nesting to top
-        const activeListItems = mobileMenu.querySelectorAll('ul li a.is-active, ul li a.router-link-exact-active');
-
-        activeListItems.forEach(activeListItem => {
-          let parent = activeListItem.parentNode.parentNode.parentNode;
-          while (parent.tagName === "LI") {
-            const hasSubmenu = parent.querySelector('a.has-submenu');
-            if (hasSubmenu) {
-              parent.classList.add('opened');
-              parent = parent.parentNode.parentNode;
+              });
             }
-          }
+          });
+
+          //Find current/active page and open nesting to top
+          const activeListItems = mobileMenu.querySelectorAll('ul li a.is-active, ul li a.router-link-exact-active');
+
+          activeListItems.forEach(activeListItem => {
+            let parent = activeListItem.parentNode.parentNode.parentNode;
+            while (parent.tagName === "LI") {
+              const hasSubmenu = parent.querySelector('a.has-submenu');
+              if (hasSubmenu) {
+                parent.classList.add('opened');
+                parent = parent.parentNode.parentNode;
+              }
+            }
+          });
         });
 
       }
@@ -188,8 +195,14 @@ export default {
 
 <style lang="scss" scoped>
   #mobile-nav {
+    padding: 0.5rem;
+    &.opened {
+      background-color: $ben-franklin-blue;
+    }
     .icon {
       color: $white;
+      width: 29px;
+      height: 29px;
     }
   }
 

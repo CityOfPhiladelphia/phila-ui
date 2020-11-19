@@ -104,12 +104,14 @@ export default {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      @include until ($tablet) {
+        font-size: $size-2;
+      }
       &:hover {
         background-color: $ben-franklin-blue;
         color: $white;
       }
       &.navbar-link {
-        vertical-align: middle;
         text-align: left;
         &:after {
           border-color: $white;
@@ -119,18 +121,24 @@ export default {
         .icon {
           vertical-align: middle;
           font-size: 1.4rem;
-          padding-right: 0.5rem;
+          @include until ($tablet) {
+            font-size: $size-2;
+          }
         }
       }
       @include until ($tablet) {
-        padding: 0 0.5rem 0.5rem 0.5rem;
+        padding: 0.5rem;
         &.navbar-link {
+          line-height: 0;
           span {
             display: none;
           }
           span.icon {
-            display: inline-block;
+            text-align: center;
+            display: inline;
             padding: 0;
+            width: 29px;
+            height: 29px;
           }
         }
       }
@@ -145,6 +153,7 @@ export default {
       li {
         float: right;
         width: 100%;
+        border-bottom: 1px solid $ben-franklin-blue-light;
         a {
           padding: 1rem 2rem;
           color: $white;
@@ -154,9 +163,6 @@ export default {
           &:hover {
             background-color: $ben-franklin-blue-light;
             color: $grey-dark;
-          }
-          @include until ($tablet) {
-            padding: 0.5rem 1rem;
           }
         }
       }

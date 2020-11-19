@@ -12,11 +12,16 @@
         <div class="level is-marginless is-mobile">
           <div class="level-left">
             <div class="level-item">
-              <img
-                src="~/assets/images/phila-small-logo.svg"
-                width="139"
-                height="18"
+              <a
+                href="https://www.phila.gov"
+                target="_blank"
               >
+                <img
+                  src="~/assets/images/phila-small-logo.svg"
+                  width="139"
+                  height="18"
+                >
+              </a>
             </div>
           </div>
           <div class="level-right">
@@ -125,6 +130,11 @@ export default {
 
   #trusted-site {
     color: $white;
+    .container {
+      @include until ($tablet) {
+        padding-left: 1rem !important;
+      }
+    }
     a, strong {
       color: $white;
     }

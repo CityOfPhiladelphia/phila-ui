@@ -17,22 +17,27 @@
           <div class="columns is-marginless is-mobile is-vcentered is-multiline">
             <div
               v-if="$slots['mobile-nav'] && isMobile"
-              class="column is-narrow has-text-centered mobile-nav-col"
+              class="column has-text-centered mobile-nav-col"
             >
               <slot name="mobile-nav" />
             </div>
             <div
               v-if="showBranding"
-              class="column is-narrow logo-col"
+              class="column is-narrow branding-col"
             >
               <branding
-                :app-logo-image="appLogoImage"
-                :app-logo-link="appLogoLink"
+                :branding-image="brandingImage"
+                :branding-link="brandingLink"
               />
             </div>
             <div
-              class="column title-col is-narrow"
-              :class="{ 'no-mobile': isMobile && !$slots['mobile-nav'], 'is-4': isTablet && showBranding }"
+              class="column title-col"
+              :class="{
+                'no-mobile-nav': isMobile && !$slots['mobile-nav'],
+                'is-4': !isMobile && showBranding && showRightNavOnSide,
+                'is-6': !showBranding && showRightNavOnSide,
+                'is-8': !isMobile && !showRightNavOnSide && !showBranding
+              }"
             >
               <div>
                 <a
@@ -57,7 +62,7 @@
             >
               <div
                 class="level"
-                :class="{ 'is-pulled-right': showRightNavOnSide }"
+                :class="{ 'is-pulled-right': !isMobile && !showLeftNav }"
               >
                 <div
                   v-if="showLeftNav"
@@ -126,7 +131,7 @@ export default {
     /**
      * The application logo. By default the City logo is used, however this could be used to display a department's logo.
     */
-    appLogoImage: {
+    brandingImage: {
       type: Object,
       default () {
         return null;
@@ -136,7 +141,7 @@ export default {
     /**
      * The logo link
     */
-    appLogoLink: {
+    brandingLink: {
       type: Object,
       default () {
         return null;
@@ -186,12 +191,15 @@ export default {
     };
   },
   computed: {
+
     showRightNavOnSide () {
       return !this.showLeftNav && this.showRightNav;
     },
+
     showLeftNav () {
       return (this.$slots['tabs-nav'] || this.$slots['left-nav']) && !this.isMobile;
     },
+
     showRightNav () {
       return (
         (
@@ -201,9 +209,11 @@ export default {
         )
       );
     },
+
     showBranding () {
-      return this.appLogoImage && this.appLogoLink && !this.isMobile;
+      return this.brandingImage && this.brandingLink && !this.isMobile;
     },
+
   },
   created () {
     window.addEventListener("resize", this.handleResize);
@@ -249,6 +259,17 @@ export default {
 </script>
 
 <style lang="scss">
+  #app-header {
+    .container {
+      padding: 0 1rem;
+    }
+    @include until ($tablet) {
+      .container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+    }
+  }
   .m-nav-opened {
     height:100%;
     overflow: hidden;
@@ -274,36 +295,49 @@ export default {
 
   #main-nav {
     > .columns {
+
       .column {
         padding-top: 0.5rem;
         padding-bottom: 1rem;
 
         @include until ($tablet) {
-          padding-bottom: 0.5rem;
+          padding: 0;
+        }
+
+        &.mobile-nav-col {
+          @include until ($tablet) {
+            width: 50px;
+            flex: none;
+          }
+        }
+
+        &.branding-col {
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        &.title-col {
+          padding-left: 0;
+          @include until ($tablet) {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            width: calc(100% - 100px);
+            flex: none;
+            &.no-mobile-nav {
+              padding-left: 1rem;
+              width: calc(100% - 50px);
+            }
+          }
         }
 
         &.nav-col {
           padding: 0;
-        }
-        &.logo-col {
-          padding-left: 0;
-          padding-right: 0;
-        }
-        &.title-col {
-          padding-left: 0;
-          padding-right: 0;
           @include until ($tablet) {
-            padding-left: 0.75rem;
-          }
-          &.no-mobile {
-            padding-left: 0 !important;
+            width: 50px;
+            flex: none;
           }
         }
-        &.mobile-nav-col {
-          margin-left: -0.25rem;
-          padding-left: 0;
-          padding-right: 0;
-        }
+
       }
     }
   }
@@ -322,7 +356,7 @@ export default {
       padding: 0;
       @include until ($tablet) {
         font-weight: $weight-normal;
-        font-size: $size-large;
+        font-size: $size-normal;
       }
     }
     h2 {
