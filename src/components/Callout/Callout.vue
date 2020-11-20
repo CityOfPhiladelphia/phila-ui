@@ -1,6 +1,6 @@
 <template>
   <article class="message">
-    <div :class="'message-body'">
+    <div class="message-body">
       <template
         v-if="message"
       >
@@ -10,6 +10,7 @@
         <template
           v-if="$slots['default']"
         >
+          <!-- The default slot allows for custom html -->
           <slot name="default" />
         </template>
       </template>
@@ -18,7 +19,7 @@
 </template>
 <script>
 /**
- * Use this component for messages and warnings.
+ * Displays messages and warnings. Pass a class attribute to the component to change the callout color.
  */
 export default {
   name: 'Callout',

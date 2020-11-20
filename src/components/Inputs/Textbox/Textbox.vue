@@ -65,8 +65,8 @@
  * Equivalent to the html ```<input type="text">``` tag
  */
 
-import { inputMixins } from '../../../utils/inputMixins';
-
+import { inputMixins } from '@/utils/inputMixins';
+// @group Inputs
 export default {
   name: "Textbox",
   mixins: [
@@ -106,6 +106,12 @@ export default {
       type: Boolean,
       default: true,
     },
+    // errors: {
+    //   type: [ Array, String ],
+    //   default () {
+    //     return '';
+    //   },
+    // },
   },
   computed: {
     inputListeners: function () {
@@ -134,7 +140,7 @@ export default {
 </script>
 
 <style lang="scss">
-  @import '../../../styles/inputs.scss';
+  @import '../../../assets/styles/scss/inputs.scss';
 </style>
 
 <style lang="scss" scoped>

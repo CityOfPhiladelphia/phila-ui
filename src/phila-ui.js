@@ -1,7 +1,6 @@
 // Components
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
-import MobileMenu from './components/MobileMenu';
 import Callout from './components/Callout';
 import InputForm from './components/Inputs/InputForm';
 import Checkbox from './components/Inputs/Checkbox';
@@ -10,17 +9,24 @@ import Dropdown from './components/Inputs/Dropdown';
 import LangSelector from './components/LangSelector';
 import Textbox from './components/Inputs/Textbox';
 import TextArea from './components/Inputs/TextArea';
-import VeeTextbox from './components/Inputs/VeeTextbox';
-import VeeTextArea from './components/Inputs/VeeTextArea';
-import VeeCheckbox from './components/Inputs/VeeCheckbox';
-import VeeRadio from './components/Inputs/VeeRadio';
-import VeeDropdown from './components/Inputs/VeeDropdown';
-import VeeInputForm from './components/Inputs/VeeInputForm';
+import TabsNav from './components/TabsNav';
+import MobileNav from './components/MobileNav';
+import DropdownNav from './components/DropdownNav';
+// import VeeTextbox from './components/Inputs/VeeTextbox';
+// import VeeTextArea from './components/Inputs/VeeTextArea';
+// import VeeCheckbox from './components/Inputs/VeeCheckbox';
+// import VeeRadio from './components/Inputs/VeeRadio';
+// import VeeDropdown from './components/Inputs/VeeDropdown';
+// import VeeInputForm from './components/Inputs/VeeInputForm';
+import ResponsiveHelper from './plugins/ResponsiveHelper';
 
 /**
  * Function to install components globally
  */
 const install = function(Vue, settings = {}) {
+
+  Vue.use(ResponsiveHelper);
+
   if (this.installed) {
     return;
   }
@@ -39,7 +45,6 @@ const install = function(Vue, settings = {}) {
 export {
   AppHeader,
   AppFooter,
-  MobileMenu,
   Callout,
   InputForm,
   Checkbox,
@@ -48,12 +53,17 @@ export {
   Dropdown,
   Textbox,
   TextArea,
-  VeeTextbox,
-  VeeTextArea,
-  VeeCheckbox,
-  VeeRadio,
-  VeeDropdown,
-  VeeInputForm,
+  TabsNav,
+  MobileNav,
+  DropdownNav,
+  // VeeTextbox,
+  // VeeTextArea,
+  // VeeCheckbox,
+  // VeeRadio,
+  // VeeDropdown,
+  // VeeInputForm,
+  //Responsive Plugin
+  ResponsiveHelper,
   // Install Helper for Vue
   install,
 };

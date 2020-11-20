@@ -18,8 +18,8 @@
     </div>
     <slot />
     <div
-      v-if="!isValid && errorsCount > 0"
-      class="form-errors has-text-centered has-text-weight-bold has-text-love-park-red-dark"
+      v-if="!hideErrorsCount && errorsCount > 0"
+      class="form-errors has-text-centered has-text-weight-bold has-text-danger"
     >
       <span class="icon">
         <i class="fa fa-exclamation-triangle" />
@@ -29,15 +29,14 @@
       </span>
     </div>
     <template v-if="$slots['submit']">
-      <div class="form-submit form-padding has-text-centered">
-        <slot
-          name="submit"
-        />
+      <div class="form-submit form-padding">
+        <slot name="submit" />
       </div>
     </template>
   </form>
 </template>
 <script>
+// @group Inputs
 export default {
   name: "InputForm",
   inheritAttrs: false,
@@ -45,16 +44,6 @@ export default {
     id: {
       type: String,
       default: () => `ta_${Math.random().toString(12).substring(2, 8)}`,
-    },
-    isValid: {
-      type: [ Boolean ],
-      default () {
-        return null;
-      },
-    },
-    errorsCount: {
-      type: [ String, Number ],
-      default: 0,
     },
     title: {
       type: String,
@@ -64,8 +53,24 @@ export default {
       type: String,
       default: '',
     },
+    errors: {
+      type: [ Object, String, Number ],
+      default () {
+        return '';
+      },
+    },
+    hideErrorsCount: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
+    errorsCount () {
+      if (typeof this.errors === 'string' || typeof this.errors === 'number') {
+        return this.errors;
+      }
+      return this.countVeeValidateErrors(this.errors);
+    },
     inputListeners: function () {
       var vm = this;
       return Object.assign({},
@@ -76,6 +81,13 @@ export default {
           },
         }
       );
+    },
+  },
+  methods: {
+    countVeeValidateErrors (errors) {
+      let count = Object.values(errors).reduce((total, error) => error.length > 0 ? total + 1 : total, 0);
+
+      return count;
     },
   },
 };
