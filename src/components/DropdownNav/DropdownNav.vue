@@ -30,6 +30,7 @@
       </ul>
     </template>
     <template v-else>
+      <!-- The default slot takes a ```button``` as the trigger, and an unordered list (```<ul>```) of links as the dropdown items. -->
       <slot />
     </template>
   </div>
@@ -38,17 +39,24 @@
 <script>
 import NavLink from '@/utils/NavLink.vue';
 
+/**
+ * @group Navigation
+ * A dropdown navigation.  Primarily a slot of AppHeader.
+ */
 export default {
   name: 'DropdownNav',
   components: {
     NavLink,
   },
   props: {
+    /**
+     * An Object which includes the button (trigger), a FontAwesome icon (optional), and the list of links (See NavLink component)
+     */
     nav: {
       type: Object,
       default () {
         return {
-          button: 'My Link',
+          button: 'My Items',
           icon: null,
           links: [],
         };

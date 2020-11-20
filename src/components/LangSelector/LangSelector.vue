@@ -24,12 +24,19 @@
 <script>
 import DropdownNav from 'components/DropdownNav/DropdownNav.vue';
 
+/**
+ * @group Navigation
+ * A language dropdopwn navigation.  Primarily a slot of AppHeader. Requires the third-party component [vue-i18n](https://kazupon.github.io/vue-i18n/) (not included)
+ */
 export default {
   name: 'LangSelector',
   components: {
     DropdownNav,
   },
   props: {
+    /**
+    * An array of language objects
+    */
     languages: {
       type: Array,
       validator: function (languages) {
@@ -45,10 +52,6 @@ export default {
           {
             language: "en-US",
             title: "English",
-          },
-          {
-            language: "es",
-            title: "Español",
           },
         ];
       },

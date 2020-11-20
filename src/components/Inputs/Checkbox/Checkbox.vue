@@ -65,6 +65,10 @@
 </template>
 <script>
 import { inputMixins } from '@/utils/inputMixins';
+/**
+ * @group Inputs
+ * Displays one or more checkboxes
+ */
 export default {
   name: 'Checkbox',
   mixins: [

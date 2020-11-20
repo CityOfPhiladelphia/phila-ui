@@ -19,6 +19,7 @@
               v-if="$slots['mobile-nav'] && isMobile"
               class="column has-text-centered mobile-nav-col"
             >
+              <!-- Mobile navigation (See MobileNav component) -->
               <slot name="mobile-nav" />
             </div>
             <div
@@ -72,12 +73,14 @@
                     v-if="$slots['tabs-nav']"
                     class="level-item"
                   >
+                    <!-- Tabbed navigation (See TabsNav component) -->
                     <slot name="tabs-nav" />
                   </div>
                   <div
                     v-if="$slots['left-nav']"
                     class="level-item"
                   >
+                    <!-- Allows additional items on the left side of the header (on the right of the tabs navigation) -->
                     <slot name="left-nav" />
                   </div>
                 </div>
@@ -89,18 +92,21 @@
                     v-if="$slots['right-nav'] && !isMobile"
                     class="level-item"
                   >
+                    <!-- Allows additional items on the right side of the header (on the left of the dropdown navigation) -->
                     <slot name="right-nav" />
                   </div>
                   <div
                     v-if="$slots['lang-selector-nav']"
                     class="level-item"
                   >
+                    <!-- Language Selector (See LangSeletor component) -->
                     <slot name="lang-selector-nav" />
                   </div>
                   <div
                     v-if="$slots['dropdown-nav'] && !isMobile"
                     class="level-item"
                   >
+                    <!-- Dropdown navigation (See DropdownNav component) -->
                     <slot name="dropdown-nav" />
                   </div>
                 </div>
@@ -119,7 +125,8 @@ import TrustedSite from './TrustedSite.vue';
 import Branding from './Branding.vue';
 
 /**
- * This is the main application header.
+ * @group Navigation
+ * This is the application's main header.
  */
 export default {
   name: 'AppHeader',
@@ -128,8 +135,9 @@ export default {
     Branding,
   },
   props: {
+
     /**
-     * The application logo. By default the City logo is used, however this could be used to display a department's logo.
+     * Branding image (eg. department logo). Accepts an Object of image attributes (eg. src)
     */
     brandingImage: {
       type: Object,
@@ -139,14 +147,17 @@ export default {
     },
 
     /**
-     * The logo link
+     * Branding image link. Accepts an Object of link attributes.
     */
     brandingLink: {
       type: Object,
       default () {
-        return null;
+        return {
+          href: '/',
+        };
       },
     },
+
     /**
      * The application's title/name
     */
@@ -154,6 +165,7 @@ export default {
       type: String,
       default: "",
     },
+
     /**
      * The application's subtitle
     */
@@ -161,8 +173,9 @@ export default {
       type: String,
       default: "",
     },
+
     /**
-     * The application's link. By default it links to the root.
+     * The application's link.
     */
     appLink: {
       type: String,
@@ -170,14 +183,15 @@ export default {
     },
 
     /**
-     * Allows the header elements (logo, title, navigation...) to expand with the window width, or stay in the center
+     * Allows the header elements (logo, title, navigation...) to expand with the window width, or stay in the center (not recommended)
     */
     isFluid: {
       type: Boolean,
       default: false,
     },
+
     /**
-     * Sticks the header to the top of the page
+     * Fixes the header to the top of the page
     */
     isSticky: {
       type: Boolean,

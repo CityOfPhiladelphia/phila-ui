@@ -59,6 +59,7 @@
  * Equivalent to the html ```<textarea>``` tag
  */
 import { inputMixins } from '@/utils/inputMixins';
+// @group Inputs
 export default {
   name: "TextArea",
   mixins: [

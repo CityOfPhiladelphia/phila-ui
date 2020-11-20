@@ -25,9 +25,16 @@
 </template>
 
 <script>
+/**
+ * @group Navigation
+ * NavLink is a link utility component and it's not exported as other components. By default it accepts a router-link (most common), but it also accepts native links.
+ */
 export default {
   name: "NavLink",
   props: {
+    /**
+     * A link Object. ```{ type: [null/native], href: '', active: [bool], click: [func], attrs: 'all other anchor attributes'  }```. If using native links, set tyoe to ```native```.
+     */
     link: {
       type: Object,
       default () {

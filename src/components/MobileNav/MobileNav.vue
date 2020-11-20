@@ -23,6 +23,7 @@
         id="mobile-menu-wrap"
       >
         <div id="mobile-menu">
+          <!-- Allows for additional content before the main list of items -->
           <slot name="before" />
           <template v-if="links.length > 0">
             <ul>
@@ -53,8 +54,10 @@
             </ul>
           </template>
           <template v-else>
+            <!-- The default slot accepts an unordered list of links which can be nested 2 times -->
             <slot />
           </template>
+          <!-- Allows for additional content after the main list of items -->
           <slot name="after" />
         </div>
         <div id="mobile-menu-close-bar">
@@ -75,13 +78,19 @@
 <script>
 import NavLink from '@/utils/NavLink.vue';
 import Vue from 'vue';
-
+/**
+ * @group Navigation
+ * The mobile navigation.  Primarily a slot of AppHeader.
+ */
 export default {
   name: 'MobileNav',
   components: {
     NavLink,
   },
   props: {
+    /**
+     * An array of links (See NavLink component)
+     */
     links: {
       type: Array,
       default () {

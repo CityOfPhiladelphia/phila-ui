@@ -17,18 +17,19 @@
         </ul>
       </template>
       <template v-else>
+        <!-- The default slot takes an unordered list (```<ul>```) of links. -->
         <slot />
       </template>
     </div>
   </footer>
 </template>
 <script>
-
 import NavLink from '@/utils/NavLink.vue';
 import Vue from 'vue';
 
 /**
- * This is the application's main footer.
+ * @group Navigation
+ * This is the application's main footer. It accepts a list of links via slot or props
  */
 export default {
   name: 'AppFooter',
@@ -37,24 +38,31 @@ export default {
   },
   props: {
     /**
-     * An array of links to be displayed. Each link should have at least a `href` and a `text` property. The href property of the link may contain a function, a string, or a router-link object.
+     * Fixes footer to the bottom of the window
     */
     isSticky: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Hides footer navigation on mobile (recommended)
+    */
     isHiddenMobile: {
       type: Boolean,
       default: true,
     },
+    /**
+     * An array of objects (See NavLink under utils).
+    */
     links: {
       type: Array,
       default: () => {
-        return []; // Each link requires at least a href and text properties.
+        return [];
       },
     },
   },
   mounted () {
+
     const main = document.querySelector('#app-content');
     const footer = document.querySelector('#app-footer');
 

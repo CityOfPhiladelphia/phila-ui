@@ -64,6 +64,7 @@
 </template>
 <script>
 import { inputMixins } from '@/utils/inputMixins';
+// @group Inputs
 export default {
   name: 'Radio',
   mixins: [

@@ -76,6 +76,10 @@
 </template>
 <script>
 import { inputMixins } from '@/utils/inputMixins';
+/**
+ * @group Inputs
+ * Styled dropdown menu
+ */
 export default {
   name: 'Dropdown',
   mixins: [

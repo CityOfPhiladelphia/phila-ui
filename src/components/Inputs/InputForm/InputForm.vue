@@ -36,6 +36,7 @@
   </form>
 </template>
 <script>
+// @group Inputs
 export default {
   name: "InputForm",
   inheritAttrs: false,

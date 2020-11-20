@@ -66,7 +66,7 @@
  */
 
 import { inputMixins } from '@/utils/inputMixins';
-
+// @group Inputs
 export default {
   name: "Textbox",
   mixins: [
