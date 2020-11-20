@@ -163,7 +163,7 @@ export default {
     */
     appTitle: {
       type: String,
-      default: "",
+      default: "Application Name",
     },
 
     /**
