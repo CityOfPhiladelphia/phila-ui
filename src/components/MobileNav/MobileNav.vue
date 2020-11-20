@@ -231,6 +231,7 @@ export default {
       color: $white;
       font-weight: $weight-normal;
       font-size: $size-large;
+      width: 100%;
     }
     position: fixed;
     bottom: 0;
