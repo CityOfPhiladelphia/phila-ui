@@ -48,7 +48,7 @@ export default {
       font-size: $size-small;
       padding: 0.5rem 1.125rem;
       margin-right: 0.5rem;
-      &.is-active {
+      &.is-active, &.router-link-exact-active {
         background-color: $white;
       }
     }
