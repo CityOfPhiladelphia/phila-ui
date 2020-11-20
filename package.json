@@ -36,7 +36,8 @@
     "sass-loader": "^7.1.0",
     "semantic-release": "^17.1.1",
     "vue": "^2.6.10",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "vuese": "^1.4.7"
   },
   "dependencies": {
     "bulma": "^0.8.1",
