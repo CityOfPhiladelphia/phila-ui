@@ -11,37 +11,6 @@ badge: WIP
 
 A link helper component. By default it accepts a router-link (most common), but it also accepts native links.
 
-## Usage
-
-#### Import single component...
-
-```js
-import { NavLink } from '@phila/phila-ui';
-
-//register it locally...
-components: {
-  NavLink,
-}
-
-//... or register it globally
-Vue.component('nav-link', NavLink);
-```
-
-#### or import the whole library,
-
-```js
-import * as PhilaUI from "@phila/phila-ui";
-
-//register it globally
-Vue.use(PhilaUI);
-```
-
-#### then use it in the vue template
-
-```html
-<nav-link></nav-link>
-```
-
 ## Props
 
 | Prop name | Description                                                                                                                                                           | Type   | Values | Default |

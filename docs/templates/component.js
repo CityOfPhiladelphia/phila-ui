@@ -16,26 +16,9 @@ module.exports = function (
   const wipBadge = tags.wip ? 'WIP' : '';
   const noExport = tags.noExport ? true : false;
 
-  //Adds vee-validate integration support alert
-  let veeValidateIntegration = '';
-  if (tags.group[0]['description'] === 'Inputs') {
-    veeValidateIntegration = '<alert>Supports VeeValidate. See [VeeValidate Integration](/vee-validate-integration).</alert>';
-  }
-
-  return `
-  ---
-  title: ${tags.niceName ? tags.niceName[0]['description'] : displayName}
-  menuTitle: ${tags.niceName ? tags.niceName[0]['description'] : displayName} ${wipBadge ? '(' + wipBadge + ')' : ''}
-  description: ${description}
-  category: ${tags.group ? "Components | " + tags.group[0]['description'] : "Components"}
-  position: ${tags.position ? tags.position[0]['description'] : 100}
-  badge: ${wipBadge}
-  ---
-
-  ${description}
-
-  ${veeValidateIntegration}
-
+  let usage = '';
+  if (!noExport) {
+    usage = `
   ## Usage
   #### Import single component...
   \`\`\` js
@@ -62,6 +45,30 @@ module.exports = function (
   \`\`\` html
   ${cTag}
   \`\`\`
+  `;
+  }
+
+  //Adds vee-validate integration support alert
+  let veeValidateIntegration = '';
+  if (tags.group[0]['description'] === 'Inputs') {
+    veeValidateIntegration = '<alert>Supports VeeValidate. See [VeeValidate Integration](/vee-validate-integration).</alert>';
+  }
+
+  return `
+  ---
+  title: ${tags.niceName ? tags.niceName[0]['description'] : displayName}
+  menuTitle: ${tags.niceName ? tags.niceName[0]['description'] : displayName} ${wipBadge ? '(' + wipBadge + ')' : ''}
+  description: ${description}
+  category: ${tags.group ? "Components | " + tags.group[0]['description'] : "Components"}
+  position: ${tags.position ? tags.position[0]['description'] : 100}
+  badge: ${wipBadge}
+  ---
+
+  ${description}
+
+  ${veeValidateIntegration}
+
+  ${usage}
 
   ${renderedUsage.props}
   ${renderedUsage.methods}
