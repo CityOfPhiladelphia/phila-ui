@@ -106,8 +106,8 @@ export default {
       default: 'text',
     },
     /**
-     * The input value / v-model
-     */
+    * @ignore
+    */
     value: {
       type: [ String, Number ],
       default: "",

@@ -52,8 +52,8 @@ Vue.use(PhilaUI);
 | errors       | Error message                                                                                     | array\|string  | -                                                | function() {<br> return '';<br>}                                                                                     |
 | options      | The checkboxes options.                                                                           | object\|array  | `Array of Strings`, `Array of Objects`, `Object` | () => {<br> return {<br> 'option-1': 'Option 1',<br> 'option-2': 'Option 2',<br> 'option-3': 'Option 3',<br> };<br>} |
 | textKey      | The Object key containing the checkbox text. Required when using options as an Array of Objects.  | string         | -                                                | ""                                                                                                                   |
-| value        |                                                                                                   | array          | -                                                | []                                                                                                                   |
 | valueKey     | The Object key containing the checkbox value. Required when using options as an Array of Objects. | string         | -                                                | ""                                                                                                                   |
+| value        |                                                                                                   | array          | -                                                | []                                                                                                                   |
 | label        | The label used for the checkbox or group of checkboxes                                            | string         | -                                                | ''                                                                                                                   |
 | desc         | The description used for the checkbox or group of checkboxes                                      | string         | -                                                | ''                                                                                                                   |
 | numOfColumns | Splits a group of checkboxes into columns 1 or more columns                                       | string\|number | -                                                | 1                                                                                                                    |
@@ -62,7 +62,7 @@ Vue.use(PhilaUI);
 
 | Name  | Description             | Bindings |
 | ----- | ----------------------- | -------- |
-| label |                         |          |
+| label | Alternative label       |          |
 | desc  | Alternative description |          |
 
 ## Code Samples

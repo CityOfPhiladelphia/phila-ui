@@ -9,6 +9,7 @@
           {{ label }}
         </template>
         <template v-else>
+          <!-- @slot Alternative label -->
           <slot name="label" />
         </template>
       </legend>
@@ -102,18 +103,23 @@ export default {
       type: String,
       default: "",
     },
-    value: {
-      type: Array,
-      default () {
-        return [];
-      },
-    },
+
     /**
      * The Object key containing the checkbox value. Required when using options as an Array of Objects.
      */
     valueKey: {
       type: String,
       default: "",
+    },
+
+    /**
+    * @ignore
+    */
+    value: {
+      type: Array,
+      default () {
+        return [];
+      },
     },
     /**
      * The label used for the checkbox or group of checkboxes
@@ -129,6 +135,7 @@ export default {
       type: String,
       default: '',
     },
+
     /**
      * Splits a group of checkboxes into columns 1 or more columns
      */
