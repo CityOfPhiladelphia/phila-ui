@@ -26,18 +26,17 @@
 
 <script>
 /**
- * A link helper component. By default it accepts a router-link (most common), but it also accepts native links.
+ * A helper component that creates router-links and links. It assumes all links are a ``router-link`` (most common), but a non-router link can also be used.
  * @niceName Navigation Link
  * @group Other
  * @position 305
- * @wip
  * @noExport
  */
 export default {
   name: "NavLink",
   props: {
     /**
-     * A link Object. ```{ type: [null/native], href: '', active: [bool], click: [func], attrs: 'all other anchor attributes'  }```. If using native links, set tyoe to ```native```.
+     * A link Object. See more in [Code Samples](#code-samples)
      */
     link: {
       type: Object,

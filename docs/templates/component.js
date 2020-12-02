@@ -46,6 +46,8 @@ module.exports = function (
   ${cTag}
   \`\`\`
   `;
+  } else {
+    usage = '<alert type="warning">NavLink is NOT exported as other components. </alert>';
   }
 
   //Adds vee-validate integration support alert

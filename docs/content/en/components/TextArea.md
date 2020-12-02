@@ -62,6 +62,8 @@ Vue.use(PhilaUI);
 | ---- | ----------------------- | -------- |
 | desc | Alternative description |          |
 
+<alert type="warning">Please, note that the component tag is `<text-area>` (with a dash) to prevent collision with the textarea html tag.</alert>
+
 ## Code Samples
 
 ### Label

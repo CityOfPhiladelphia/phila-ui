@@ -11,6 +11,8 @@ badge: WIP
 
 A sample component template
 
+<alert type="warning">NavLink is NOT exported as other components. </alert>
+
 ## Slots
 
 | Name    | Description | Bindings |
