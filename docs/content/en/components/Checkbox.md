@@ -46,24 +46,24 @@ Vue.use(PhilaUI);
 
 ## Props
 
-| Prop name    | Description                             | Type           | Values | Default                                                                                                              |
-| ------------ | --------------------------------------- | -------------- | ------ | -------------------------------------------------------------------------------------------------------------------- |
-| id           | Random id is generated if none provided | string         | -      | () => `ta_${Math.random().toString(12).substring(2, 8)}`                                                             |
-| errors       | Error message                           | array\|string  | -      | function() {<br> return '';<br>}                                                                                     |
-| options      |                                         | object\|array  | -      | () => {<br> return {<br> 'option-1': 'Option 1',<br> 'option-2': 'Option 2',<br> 'option-3': 'Option 3',<br> };<br>} |
-| textKey      |                                         | string         | -      | ""                                                                                                                   |
-| value        |                                         | array          | -      | []                                                                                                                   |
-| valueKey     |                                         | string         | -      | ""                                                                                                                   |
-| label        |                                         | string         | -      | ''                                                                                                                   |
-| desc         |                                         | string         | -      | ''                                                                                                                   |
-| numOfColumns |                                         | string\|number | -      | 1                                                                                                                    |
+| Prop name    | Description                                                                                       | Type           | Values                                           | Default                                                                                                              |
+| ------------ | ------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| id           | Random id is generated if none provided                                                           | string         | -                                                | () => `ta_${Math.random().toString(12).substring(2, 8)}`                                                             |
+| errors       | Error message                                                                                     | array\|string  | -                                                | function() {<br> return '';<br>}                                                                                     |
+| options      | The checkboxes options.                                                                           | object\|array  | `Array of Strings`, `Array of Objects`, `Object` | () => {<br> return {<br> 'option-1': 'Option 1',<br> 'option-2': 'Option 2',<br> 'option-3': 'Option 3',<br> };<br>} |
+| textKey      | The Object key containing the checkbox text. Required when using options as an Array of Objects.  | string         | -                                                | ""                                                                                                                   |
+| value        |                                                                                                   | array          | -                                                | []                                                                                                                   |
+| valueKey     | The Object key containing the checkbox value. Required when using options as an Array of Objects. | string         | -                                                | ""                                                                                                                   |
+| label        | The label used for the checkbox or group of checkboxes                                            | string         | -                                                | ''                                                                                                                   |
+| desc         | The description used for the checkbox or group of checkboxes                                      | string         | -                                                | ''                                                                                                                   |
+| numOfColumns | Splits a group of checkboxes into columns 1 or more columns                                       | string\|number | -                                                | 1                                                                                                                    |
 
 ## Slots
 
-| Name  | Description | Bindings |
-| ----- | ----------- | -------- |
-| label |             |          |
-| desc  |             |          |
+| Name  | Description             | Bindings |
+| ----- | ----------------------- | -------- |
+| label |                         |          |
+| desc  | Alternative description |          |
 
 ## Code Samples
 
@@ -113,12 +113,22 @@ options: [
 ];
 ```
 
-### Displaying errors
+### Columns
 
-To display an error provide a string with the error, or an array of errors. Only the first error in the array is displayed.
+By default the checkboxes are displayed in one column. Add more columns to make large amount of checkboxes easier to read.
 
 ```html
-<textbox errors="This field required" />
+<checkbox num-of-columns="3" />
 ```
 
-<alert>This component supports VeeValidate errors. [Learn how validate](/vee-validate-integration) with the VeeValidade plugin.<a></alert>
+<alert>Uses the css property `columns`</alert>
+
+### Displaying errors
+
+To display an error provide a String with the error, or an Array of errors. Only the first error in the array is displayed.
+
+```html
+<checkbox errors="This field required" />
+```
+
+<alert>This component supports VeeValidate errors. [Learn how to validate](/vee-validate-integration) with the VeeValidade plugin.<a></alert>

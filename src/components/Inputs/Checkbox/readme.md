@@ -51,12 +51,21 @@ options: [
 ]
 ```
 
-### Displaying errors
-To display an error provide a string with the error, or an array of errors. Only the first error in the array is displayed.
+### Columns
+By default the checkboxes are displayed in one column. Add more columns to make large amount of checkboxes easier to read.
 ```html
-  <textbox
+  <checkbox
+    num-of-columns="3"
+  />
+```
+<alert>Uses the css property ```columns```</alert>
+
+### Displaying errors
+To display an error provide a String with the error, or an Array of errors. Only the first error in the array is displayed.
+```html
+  <checkbox
     errors="This field required"
   />
 ```
 
-<alert>This component supports VeeValidate errors. [Learn how validate](/vee-validate-integration) with the VeeValidade plugin.<a></alert>
+<alert>This component supports VeeValidate errors. [Learn how to validate](/vee-validate-integration) with the VeeValidade plugin.<a></alert>

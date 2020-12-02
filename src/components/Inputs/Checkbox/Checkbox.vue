@@ -29,6 +29,7 @@
           v-if="$slots['desc']"
           class="is-field-info"
         >
+          <!-- @slot Alternative description -->
           <slot name="desc" />
         </div>
       </template>
@@ -80,6 +81,10 @@ export default {
     event: 'change',
   },
   props: {
+    /**
+     * The checkboxes options.
+     * @values Array of Strings, Array of Objects, Object
+     */
     options: {
       type: [ Object, Array ],
       default: () => {
@@ -90,6 +95,9 @@ export default {
         };
       },
     },
+    /**
+     * The Object key containing the checkbox text. Required when using options as an Array of Objects.
+     */
     textKey: {
       type: String,
       default: "",
@@ -100,18 +108,30 @@ export default {
         return [];
       },
     },
+    /**
+     * The Object key containing the checkbox value. Required when using options as an Array of Objects.
+     */
     valueKey: {
       type: String,
       default: "",
     },
+    /**
+     * The label used for the checkbox or group of checkboxes
+     */
     label: {
       type: String,
       default: '',
     },
+    /**
+     * The description used for the checkbox or group of checkboxes
+     */
     desc: {
       type: String,
       default: '',
     },
+    /**
+     * Splits a group of checkboxes into columns 1 or more columns
+     */
     numOfColumns: {
       type: [ String, Number ],
       default: 1,

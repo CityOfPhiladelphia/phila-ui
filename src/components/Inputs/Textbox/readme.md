@@ -64,11 +64,11 @@ Use ```is-loading``` to indicate that the input is fetching content.
 <alert>The loading indicator temporarily replaces the input icon.</alert>
 
 ### Displaying errors
-To display an error provide a string with the error, or an array of errors. Only the first error in the array is displayed.
+To display an error provide a String with the error, or an Array of errors. Only the first error in the array is displayed.
 ```html
   <textbox
     errors="This field required"
   />
 ```
 
-<alert>This component supports VeeValidate errors. [Learn how validate](/vee-validate-integration) with the VeeValidade plugin.<a></alert>
+<alert>This component supports VeeValidate errors. [Learn how to validate](/vee-validate-integration) with the VeeValidade plugin.<a></alert>

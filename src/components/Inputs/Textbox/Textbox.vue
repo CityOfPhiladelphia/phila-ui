@@ -47,7 +47,7 @@
             v-if="$slots['desc']"
             class="supplemental-text"
           >
-            <!-- @slot Alternative input description -->
+            <!-- @slot Alternative description -->
             <slot name="desc" />
           </div>
         </template>
