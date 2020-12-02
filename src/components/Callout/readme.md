@@ -1,38 +1,72 @@
-### Examples
-Use color classes from phila-ui or bulma.
+## Code Samples
 
-```vue live
+### Message ``<slot>``
+Use the message slot in case it contains html code that needs to be rendered, otherwise use the ``message`` prop.
+
+### Message Types
+There are two ways of changing the callout color.
+
+1. Use the prop ``type``
+2. Passing a class attribute to the callout (uses bulma colors)
+
+The default callout has a gray color
+```html
+<callout message="This is the default message" />
+```
+
+### Using the prop ``type``
+#### Info
+```html
 <callout
-  message="My super message"
-  class="is-info"
+  message="This is a info message"
+  type="info"
 />
 ```
 
-```vue live
+#### Success
+```html
 <callout
-  message="My super message"
-  class="is-danger"
+ message="This is a success message"
+ type="success"
 />
 ```
 
-
-<!--
-**Example of a success message using a phila-ui class:**
-<Callout message="A success message" class="is-danger"/>
-
-```jsx
-  <callout message="A success message" class="is-kelly-drive-green" />
+#### Warning
+```html
+<callout
+ message="This is a warning message"
+ type="warning"
+/>
 ```
 
-**Example of an error message using a bulma class:**
-```jsx
-  <callout message="An error message" class="is-danger" />
+#### Danger
+```html
+<callout
+ message="This is a danger message"
+ type="danger"
+/>
 ```
 
-**Example of an info message using a bulma class:**
-```jsx
-  <callout message="An info message" class="is-info" />
-``` -->
+### Using the class attribute
+```html
+<callout
+ message="This is a info message"
+ class="is-info"
+/>
 
-### Disclaimer:
-Uses v-html. Be careful with what content that you pass to the component. Do not use for rendering content to the url.
+<callout
+ message="This is a success message"
+ class="is-success"
+/>
+
+<callout
+ message="This is a warning message"
+ class="is-warning"
+/>
+
+<callout
+ message="This is a danger message"
+ class="is-danger"
+/>
+
+```

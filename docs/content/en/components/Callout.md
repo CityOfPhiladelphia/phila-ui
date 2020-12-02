@@ -1,15 +1,15 @@
 ---
 
 title: Callout / Message
-menuTitle: Callout / Message (WIP)
-description: Displays messages and warnings. Pass a class attribute to the component to change the callout color.
+menuTitle: Callout / Message
+description: Displays messages and warnings
 category: Components | Other
 position: 300
-badge: WIP
+badge:
 
 ---
 
-Displays messages and warnings. Pass a class attribute to the component to change the callout color.
+Displays messages and warnings
 
 ## Usage
 
@@ -44,46 +44,70 @@ Vue.use(PhilaUI);
 
 ## Props
 
-| Prop name | Description                 | Type   | Values | Default |
-| --------- | --------------------------- | ------ | ------ | ------- |
-| message   | The message to be displayed | string | -      | ''      |
+| Prop name | Description                 | Type   | Values                                 | Default |
+| --------- | --------------------------- | ------ | -------------------------------------- | ------- |
+| message   | The message to be displayed | string | -                                      | ''      |
+| type      | The type of message         | string | `info`, `success`, `warning`, `danger` | ''      |
 
 ## Slots
 
-| Name    | Description | Bindings |
-| ------- | ----------- | -------- |
-| default |             |          |
+| Name    | Description         | Bindings |
+| ------- | ------------------- | -------- |
+| default | Alternative message |          |
 
-### Examples
+## Code Samples
 
-Use color classes from phila-ui or bulma.
+### Message `<slot>`
 
-```vue live
-<callout message="My super message" class="is-info" />
+Use the message slot in case it contains html code that needs to be rendered, otherwise use the `message` prop.
+
+### Message Types
+
+There are two ways of changing the callout color.
+
+1. Use the prop `type`
+2. Passing a class attribute to the callout (uses bulma colors)
+
+The default callout has a gray color
+
+```html
+<callout message="This is the default message" />
 ```
 
-```vue live
-<callout message="My super message" class="is-danger" />
+### Using the prop `type`
+
+#### Info
+
+```html
+<callout message="This is a info message" type="info" />
 ```
 
-<!--
-**Example of a success message using a phila-ui class:**
-<Callout message="A success message" class="is-danger"/>
+#### Success
 
-```jsx
-  <callout message="A success message" class="is-kelly-drive-green" />
+```html
+<callout message="This is a success message" type="success" />
 ```
 
-**Example of an error message using a bulma class:**
-```jsx
-  <callout message="An error message" class="is-danger" />
+#### Warning
+
+```html
+<callout message="This is a warning message" type="warning" />
 ```
 
-**Example of an info message using a bulma class:**
-```jsx
-  <callout message="An info message" class="is-info" />
-``` -->
+#### Danger
 
-### Disclaimer:
+```html
+<callout message="This is a danger message" type="danger" />
+```
 
-Uses v-html. Be careful with what content that you pass to the component. Do not use for rendering content to the url.
+### Using the class attribute
+
+```html
+<callout message="This is a info message" class="is-info" />
+
+<callout message="This is a success message" class="is-success" />
+
+<callout message="This is a warning message" class="is-warning" />
+
+<callout message="This is a danger message" class="is-danger" />
+```

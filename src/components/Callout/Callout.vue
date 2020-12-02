@@ -1,5 +1,8 @@
 <template>
-  <article class="message">
+  <div
+    class="message"
+    :class="messageType"
+  >
     <div class="message-body">
       <template
         v-if="message"
@@ -10,20 +13,19 @@
         <template
           v-if="$slots['default']"
         >
-          <!-- The default slot allows for custom html -->
+          <!-- @slot Alternative message -->
           <slot name="default" />
         </template>
       </template>
     </div>
-  </article>
+  </div>
 </template>
 <script>
 /**
- * Displays messages and warnings. Pass a class attribute to the component to change the callout color.
+ * Displays messages and warnings
  * @niceName Callout / Message
  * @group Other
  * @position 300
- * @wip
  */
 export default {
   name: 'Callout',
@@ -35,6 +37,24 @@ export default {
       type: String,
       default: '',
       required: true,
+    },
+
+    /**
+     * The type of message
+     * @values info, success, warning, danger
+    */
+    type: {
+      type: String,
+      default: '',
+    },
+  },
+  computed: {
+    messageType () {
+      let t = '';
+      if (this.type !== '') {
+        t = `is-${this.type}`;
+      }
+      return t;
     },
   },
 };
