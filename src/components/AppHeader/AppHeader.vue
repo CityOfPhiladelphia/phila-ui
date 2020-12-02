@@ -19,7 +19,7 @@
               v-if="$slots['mobile-nav'] && isMobile"
               class="column has-text-centered mobile-nav-col"
             >
-              <!-- Mobile navigation (See MobileNav component) -->
+              <!-- @slot See [Mobile Navigation](/components/MobileNav) -->
               <slot name="mobile-nav" />
             </div>
             <div
@@ -73,14 +73,14 @@
                     v-if="$slots['tabs-nav']"
                     class="level-item"
                   >
-                    <!-- Tabbed navigation (See TabsNav component) -->
+                    <!-- @slot See [Tabbed Navigation](/components/TabsNav) -->
                     <slot name="tabs-nav" />
                   </div>
                   <div
                     v-if="$slots['left-nav']"
                     class="level-item"
                   >
-                    <!-- Allows additional items on the left side of the header (on the right of the tabs navigation) -->
+                    <!-- @slot Allows additional items on the left side of the header (on the right of the tabs navigation) -->
                     <slot name="left-nav" />
                   </div>
                 </div>
@@ -92,21 +92,21 @@
                     v-if="$slots['right-nav'] && !isMobile"
                     class="level-item"
                   >
-                    <!-- Allows additional items on the right side of the header (on the left of the dropdown navigation) -->
+                    <!-- @slot Allows additional items on the right side of the header (on the left of the dropdown navigation) -->
                     <slot name="right-nav" />
                   </div>
                   <div
                     v-if="$slots['lang-selector-nav']"
                     class="level-item"
                   >
-                    <!-- Language Selector (See LangSeletor component) -->
+                    <!-- @slot See [Language Selector](/components/LangSelector) -->
                     <slot name="lang-selector-nav" />
                   </div>
                   <div
                     v-if="$slots['dropdown-nav'] && !isMobile"
                     class="level-item"
                   >
-                    <!-- Dropdown navigation (See DropdownNav component) -->
+                    <!-- @slot See [Dropdown Navigation](/components/DropdownNav) -->
                     <slot name="dropdown-nav" />
                   </div>
                 </div>
@@ -121,12 +121,14 @@
 <script>
 
 import Vue from 'vue';
-import TrustedSite from './TrustedSite.vue';
-import Branding from './Branding.vue';
+import TrustedSite from './_TrustedSite.vue';
+import Branding from './_Branding.vue';
 
 /**
- * @group Navigation
  * This is the application's main header.
+ * @niceName Application Header
+ * @group Navigation
+ * @position 100
  */
 export default {
   name: 'AppHeader',
@@ -135,6 +137,30 @@ export default {
     Branding,
   },
   props: {
+
+    /**
+     * The application's title/name
+    */
+    appTitle: {
+      type: String,
+      default: "Application Name",
+    },
+
+    /**
+     * The application's title link. 99% of the time the application title should link to itself.
+    */
+    appLink: {
+      type: String,
+      default: "/",
+    },
+
+    /**
+     * The application's subtitle/description
+    */
+    appSubtitle: {
+      type: String,
+      default: "",
+    },
 
     /**
      * Branding image (eg. department logo). Accepts an Object of image attributes (eg. src)
@@ -159,31 +185,7 @@ export default {
     },
 
     /**
-     * The application's title/name
-    */
-    appTitle: {
-      type: String,
-      default: "Application Name",
-    },
-
-    /**
-     * The application's subtitle
-    */
-    appSubtitle: {
-      type: String,
-      default: "",
-    },
-
-    /**
-     * The application's link.
-    */
-    appLink: {
-      type: String,
-      default: "/",
-    },
-
-    /**
-     * Allows the header elements (logo, title, navigation...) to expand with the window width, or stay in the center (not recommended)
+     * Allows the header elements (logo, title, navigation...) to expand with the window width, or stay aligned in the center (not recommended).
     */
     isFluid: {
       type: Boolean,
@@ -192,6 +194,7 @@ export default {
 
     /**
      * Fixes the header to the top of the page
+     * Requires the application to have a <main> tag
     */
     isSticky: {
       type: Boolean,
@@ -331,6 +334,7 @@ export default {
 
         &.title-col {
           padding-left: 0;
+          text-align: left;
           @include until ($tablet) {
             padding-top: 0.5rem;
             padding-bottom: 0.5rem;

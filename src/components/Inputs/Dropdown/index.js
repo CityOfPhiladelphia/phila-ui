@@ -1,6 +1,6 @@
 // Import vue component
 import component from './Dropdown.vue';
-import prepareForExport from '@/utils/prepareForExport';
+import prepareForExport from 'utils/prepareForExport';
 
 prepareForExport(component);
 

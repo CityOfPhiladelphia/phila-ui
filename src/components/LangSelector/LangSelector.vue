@@ -25,8 +25,10 @@
 import DropdownNav from 'components/DropdownNav/DropdownNav.vue';
 
 /**
+ * A language dropdopwn navigation.  Primarily used as a slot of the [Application Header](/components/AppHeader). <alert type="warning">Requires the third-party component [vue-i18n](https://kazupon.github.io/vue-i18n/) which is not included. See #[dependencies](#dependencies).</alert>
+ * @niceName Language Selector
  * @group Navigation
- * A language dropdopwn navigation.  Primarily a slot of AppHeader. Requires the third-party component [vue-i18n](https://kazupon.github.io/vue-i18n/) (not included)
+ * @position 130
  */
 export default {
   name: 'LangSelector',

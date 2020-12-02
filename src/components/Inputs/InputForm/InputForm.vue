@@ -16,6 +16,7 @@
     >
       {{ desc }}
     </div>
+    <!-- @slot The form inputs -->
     <slot />
     <div
       v-if="!hideErrorsCount && errorsCount > 0"
@@ -30,13 +31,19 @@
     </div>
     <template v-if="$slots['submit']">
       <div class="form-submit form-padding">
+        <!-- @slot Submit button placement. For standard forms, it's best to use this slot to keep the submit button as the last element in the form, bellow the errors count). -->
         <slot name="submit" />
       </div>
     </template>
   </form>
 </template>
 <script>
-// @group Inputs
+/**
+ * A ```<form>``` wrapper with error handling and submit button.
+ * @niceName Form
+ * @group Inputs
+ * @position 200
+ */
 export default {
   name: "InputForm",
   inheritAttrs: false,

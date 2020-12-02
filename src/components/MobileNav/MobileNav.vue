@@ -76,11 +76,14 @@
   </div>
 </template>
 <script>
-import NavLink from '@/utils/NavLink.vue';
+import NavLink from 'components/NavLink/NavLink.vue';
 import Vue from 'vue';
+
 /**
+ * The mobile navigation.  Primarily, used as a slot of the [Application Header](/components/AppHeader).
+ * @niceName Mobile Navigation
  * @group Navigation
- * The mobile navigation.  Primarily a slot of AppHeader.
+ * @position 110
  */
 export default {
   name: 'MobileNav',
@@ -89,7 +92,7 @@ export default {
   },
   props: {
     /**
-     * An array of links (See NavLink component)
+     * An array of links . See [Navigation Link](/components/NavLink)
      */
     links: {
       type: Array,
@@ -127,7 +130,6 @@ export default {
           const mobileMenu = document.querySelector('#mobile-menu');
 
           if (mobileMenuWrap) {
-            console.log(header.offsetHeight);
             mobileMenuWrap.style['top'] = header.offsetHeight + 'px';
             mobileMenuWrap.style['height'] = `calc(100% - ${header.offsetHeight + 45}px)`;
           }

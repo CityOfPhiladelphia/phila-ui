@@ -1,10 +1,22 @@
 ### Examples
 Use color classes from phila-ui or bulma.
 
-<MyComponent>
-  <Callout message="My super message" class="is-info"/>
-</MyComponent>
+```vue live
+<callout
+  message="My super message"
+  class="is-info"
+/>
+```
 
+```vue live
+<callout
+  message="My super message"
+  class="is-danger"
+/>
+```
+
+
+<!--
 **Example of a success message using a phila-ui class:**
 <Callout message="A success message" class="is-danger"/>
 
@@ -20,7 +32,7 @@ Use color classes from phila-ui or bulma.
 **Example of an info message using a bulma class:**
 ```jsx
   <callout message="An info message" class="is-info" />
-```
+``` -->
 
 ### Disclaimer:
 Uses v-html. Be careful with what content that you pass to the component. Do not use for rendering content to the url.

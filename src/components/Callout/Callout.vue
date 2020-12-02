@@ -20,6 +20,10 @@
 <script>
 /**
  * Displays messages and warnings. Pass a class attribute to the component to change the callout color.
+ * @niceName Callout / Message
+ * @group Other
+ * @position 300
+ * @wip
  */
 export default {
   name: 'Callout',

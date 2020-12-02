@@ -62,10 +62,12 @@
   </div>
 </template>
 <script>
-import { inputMixins } from '@/utils/inputMixins';
+import { inputMixins } from 'utils/inputMixins';
 /**
- * @group Inputs
  * Displays one or more checkboxes
+ * @niceName Checkboxes
+ * @group Inputs
+ * @position 210
  */
 export default {
   name: 'Checkbox',

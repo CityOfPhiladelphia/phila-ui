@@ -75,10 +75,13 @@
   </div>
 </template>
 <script>
-import { inputMixins } from '@/utils/inputMixins';
+import { inputMixins } from 'utils/inputMixins';
 /**
+ * Styled select input
+ * @niceName Dropdown / Select
  * @group Inputs
- * Styled dropdown menu
+ * @position 220
+ * @wip
  */
 export default {
   name: 'Dropdown',

@@ -1,6 +1,6 @@
 <template>
   <footer
-    v-if="!isHiddenMobile"
+    v-if="(isMobile && !isHiddenMobile) || !isMobile"
     id="app-footer"
     :class="{ 'is-sticky': isSticky }"
   >
@@ -17,19 +17,21 @@
         </ul>
       </template>
       <template v-else>
-        <!-- The default slot takes an unordered list (```<ul>```) of links. -->
+        <!-- @slot The default slot takes an unordered list (```<ul>```) of links. -->
         <slot />
       </template>
     </div>
   </footer>
 </template>
 <script>
-import NavLink from '@/utils/NavLink.vue';
+import NavLink from 'components/NavLink/NavLink.vue';
 import Vue from 'vue';
 
 /**
+ * This is the application's main footer. It displays a list of links via slot or props
+ * @niceName Application Footer
  * @group Navigation
- * This is the application's main footer. It accepts a list of links via slot or props
+ * @position 105
  */
 export default {
   name: 'AppFooter',
@@ -52,7 +54,7 @@ export default {
       default: true,
     },
     /**
-     * An array of objects (See NavLink under utils).
+     * An array of objects. See [Navigation Link](/components/NavLink)
     */
     links: {
       type: Array,
@@ -63,17 +65,24 @@ export default {
   },
   mounted () {
 
-    const main = document.querySelector('#app-content');
+    const main = document.querySelector('main');
     const footer = document.querySelector('#app-footer');
 
     if (this.isSticky) {
-      main.style['padding-bottom'] = `${footer.offsetHeight}px`;
+      if (main) {
+        main.style['padding-bottom'] = `${footer.offsetHeight}px`;
+      } else {
+        console.warn('missing <main> tag for footer positioning');
+      }
     } else {
-      if (!this.isHiddenMobile) {
+      if ((this.isMobile && !this.isHiddenMobile) || !this.isMobile) {
         const header = document.querySelector('#app-header');
-        const mainHeight = header.offsetHeight + footer.offsetHeight;
-
-        main.style['min-height'] = `calc(100vh - ${mainHeight}px)`;
+        if (header) {
+          const mainHeight = header.offsetHeight + footer.offsetHeight;
+          main.style['min-height'] = `calc(100vh - ${mainHeight}px)`;
+        } else {
+          console.warn('missing <app-header> for footer positioning');
+        }
       }
     }
   },

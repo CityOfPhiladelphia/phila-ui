@@ -4,6 +4,7 @@ a {
 
 main {
   padding: 1rem;
+  display: block;
 }
 
 .is-fullwidth {
@@ -216,7 +217,8 @@ main {
   }
 
   &.is-secondary {
-    @extend .is-primary, .is-outlined;
+    @extend .is-primary;
+    @extend .is-outlined;
     border-width: 0.125rem;
     color: $ben-franklin-blue;
     border-color: $ben-franklin-blue;

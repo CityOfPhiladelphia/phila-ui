@@ -47,6 +47,7 @@
             v-if="$slots['desc']"
             class="supplemental-text"
           >
+            <!-- @slot Alternative input description -->
             <slot name="desc" />
           </div>
         </template>
@@ -61,12 +62,13 @@
   </div>
 </template>
 <script>
+import { inputMixins } from 'utils/inputMixins';
 /**
- * Equivalent to the html ```<input type="text">``` tag
+ * Displays a text input
+ * @niceName Text Input
+ * @group Inputs
+ * @position 205
  */
-
-import { inputMixins } from '@/utils/inputMixins';
-// @group Inputs
 export default {
   name: "Textbox",
   mixins: [
@@ -74,44 +76,63 @@ export default {
   ],
   inheritAttrs: false,
   props: {
+    /**
+     * The input label
+     */
     label: {
       type: String,
       default: '',
     },
+    /**
+     * The input description
+     */
     desc: {
       type: String,
       default: '',
     },
+    /**
+     * The input placeholder
+     */
     placeholder: {
       type: String,
       default: 'Insert placeholder here',
     },
+    /**
+     * The input type
+     * @values text, number
+     */
     type: {
       type: String,
       default: 'text',
     },
+    /**
+     * The input value / v-model
+     */
     value: {
       type: [ String, Number ],
       default: "",
     },
+    /**
+     * The input icon. It expects font-awesome icon classes.
+     */
     icon: {
       type: String,
       default: '',
     },
+    /**
+     * Whether a loading indicator should be displayed
+     */
     isLoading: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Whether the label should be displayed inside the input (true) or above it (false).
+     */
     innerLabel: {
       type: Boolean,
       default: true,
     },
-    // errors: {
-    //   type: [ Array, String ],
-    //   default () {
-    //     return '';
-    //   },
-    // },
   },
   computed: {
     inputListeners: function () {

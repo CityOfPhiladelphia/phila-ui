@@ -37,11 +37,13 @@
 </template>
 
 <script>
-import NavLink from '@/utils/NavLink.vue';
+import NavLink from 'components/NavLink/NavLink.vue';
 
 /**
+ * A dropdown navigation.  Primarily used as a slot of the [Application Header](/components/AppHeader).
+ * @niceName Dropdown Navigation
  * @group Navigation
- * A dropdown navigation.  Primarily a slot of AppHeader.
+ * @position 125
  */
 export default {
   name: 'DropdownNav',
@@ -50,7 +52,7 @@ export default {
   },
   props: {
     /**
-     * An Object which includes the button (trigger), a FontAwesome icon (optional), and the list of links (See NavLink component)
+     * An Object which includes the button (trigger), a FontAwesome icon (optional), and the list of links. See [Navigation Link](/components/NavLink)
      */
     nav: {
       type: Object,

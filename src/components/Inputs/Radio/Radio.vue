@@ -62,8 +62,14 @@
   </div>
 </template>
 <script>
-import { inputMixins } from '@/utils/inputMixins';
-// @group Inputs
+import { inputMixins } from 'utils/inputMixins';
+/**
+ * Displays a group of radio buttons
+ * @niceName Radio Buttons
+ * @group Inputs
+ * @position 215
+ * @wip
+ */
 export default {
   name: 'Radio',
   mixins: [

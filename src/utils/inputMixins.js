@@ -17,15 +17,6 @@ export const inputMixins = {
       },
     },
 
-    /**
-     * VeeValidate custom errror messages
-     */
-    errorMessages: {
-      type: Object,
-      default () {
-        return {};
-      },
-    },
   },
   watch: {
     error () {

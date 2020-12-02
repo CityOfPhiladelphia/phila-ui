@@ -54,11 +54,14 @@
   </div>
 </template>
 <script>
+import { inputMixins } from 'utils/inputMixins';
 /**
- * Equivalent to the html ```<textarea>``` tag
+ * A textarea input
+ * @niceName Textarea
+ * @group Inputs
+ * @position 225
+ * @wip
  */
-import { inputMixins } from '@/utils/inputMixins';
-// @group Inputs
 export default {
   name: "TextArea",
   mixins: [

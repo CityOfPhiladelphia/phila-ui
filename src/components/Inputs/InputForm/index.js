@@ -1,6 +1,6 @@
 // Import vue component
 import component from './InputForm.vue';
-import prepareForExport from '@/utils/prepareForExport';
+import prepareForExport from 'utils/prepareForExport';
 
 prepareForExport(component);
 

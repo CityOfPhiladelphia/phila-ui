@@ -1,0 +1,9 @@
+{
+  "title": "PhilaUI Docs",
+  "url": "https://github.com/CityOfPhiladelphia/phila-ui",
+  "logo": {
+    "light": "/city-of-philadelphia-alt.svg",
+    "dark": "/city-of-philadelphia.svg"
+  },
+  "github": "https://github.com/CityOfPhiladelphia/phila-ui"
+}

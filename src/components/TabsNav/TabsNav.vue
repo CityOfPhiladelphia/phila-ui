@@ -9,17 +9,19 @@
       </template>
     </template>
     <template v-else>
-      <!-- The default slot accepts side-by-side links (no other elements) -->
+      <!-- @slot The default slot accepts side-by-side links (no other elements) -->
       <slot />
     </template>
   </div>
 </template>
 <script>
-import NavLink from '@/utils/NavLink.vue';
+import NavLink from 'components/NavLink/NavLink.vue';
 
 /**
+ * A tabbed navigation. Primarily used as a slot of the [Application Header](/components/AppHeader).
+ * @niceName Tabbed Navigation
  * @group Navigation
- * A tabbed navigation.  Primarily a slot of AppHeader.
+ * @position 120
  */
 export default {
   name: 'TabsNav',
@@ -28,7 +30,7 @@ export default {
   },
   props: {
     /**
-     * An array of links (See NavLink)
+     * An array of links. See [Navigation Link](/components/NavLink)
      */
     links: {
       type: Array,
