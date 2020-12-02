@@ -63,6 +63,7 @@
         v-if="$slots['desc']"
         class="supplemental-text"
       >
+        <!-- @slot Alternative description -->
         <slot name="desc" />
       </div>
     </template>
@@ -81,7 +82,6 @@ import { inputMixins } from 'utils/inputMixins';
  * @niceName Dropdown / Select
  * @group Inputs
  * @position 220
- * @wip
  */
 export default {
   name: 'Dropdown',
@@ -90,10 +90,11 @@ export default {
   ],
   inheritAttrs: false,
   props: {
-    label: {
-      type: String,
-      default: '',
-    },
+
+    /**
+     * The dropdown options.
+     * @values Array of Strings, Array of Objects, Object
+     */
     options: {
       type: [ Object, Array ],
       default: () => {
@@ -102,34 +103,71 @@ export default {
         };
       },
     },
+
+    /**
+     * The dropdown label
+     */
+    label: {
+      type: String,
+      default: '',
+    },
+
+    /**
+     * The dropdown placeholder
+     */
     placeholder: {
       type: String,
       default: '',
     },
+
+    /**
+     * The Object key containing the dropdown text. Required when using options as an Array of Objects.
+     */
     textKey: {
       type: String,
       default: "",
     },
+
+    /**
+     * The dropdown value / v-model
+     */
     value: {
       type: String,
       default: '',
     },
+
+    /**
+     * The Object key containing the dropdown value. Required when using options as an Array of Objects.
+     */
     valueKey: {
       type: String,
       default: "",
     },
+
+    /**
+     * The dropdown description
+     */
     desc: {
       type: String,
       default: '',
     },
+
+    /**
+     * The dropdown icon. It expects font-awesome icon classes.
+     */
     icon: {
       type: String,
       default: '',
     },
+
+    /**
+     * Whether the label should be displayed inside the dropdown (true) or above it (false).
+     */
     innerLabel: {
       type: Boolean,
       default: true,
     },
+
   },
   data () {
     return {

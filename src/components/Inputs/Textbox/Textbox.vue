@@ -83,6 +83,7 @@ export default {
       type: String,
       default: '',
     },
+
     /**
      * The input description
      */
@@ -90,6 +91,7 @@ export default {
       type: String,
       default: '',
     },
+
     /**
      * The input placeholder
      */
@@ -97,6 +99,7 @@ export default {
       type: String,
       default: 'Insert placeholder here',
     },
+
     /**
      * The input type
      * @values text, number
@@ -105,13 +108,15 @@ export default {
       type: String,
       default: 'text',
     },
+
     /**
-    * @ignore
-    */
+     * The text input value / v-model
+     */
     value: {
       type: [ String, Number ],
       default: "",
     },
+
     /**
      * The input icon. It expects font-awesome icon classes.
      */
@@ -119,6 +124,7 @@ export default {
       type: String,
       default: '',
     },
+
     /**
      * Whether a loading indicator should be displayed
      */
@@ -126,6 +132,7 @@ export default {
       type: Boolean,
       default: false,
     },
+
     /**
      * Whether the label should be displayed inside the input (true) or above it (false).
      */
@@ -133,6 +140,7 @@ export default {
       type: Boolean,
       default: true,
     },
+
   },
   computed: {
     inputListeners: function () {

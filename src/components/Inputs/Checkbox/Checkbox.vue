@@ -121,6 +121,7 @@ export default {
         return [];
       },
     },
+
     /**
      * The label used for the checkbox or group of checkboxes
      */

@@ -3,10 +3,6 @@
     class="input-wrap input-textarea"
     :class="classes"
   >
-    <!--
-      trigered on input change
-      @event input
-    -->
     <div class="field">
       <label
         v-if="!innerLabel"
@@ -40,6 +36,7 @@
             v-if="$slots['desc']"
             class="supplemental-text"
           >
+            <!-- @slot Alternative description -->
             <slot name="desc" />
           </div>
         </template>
@@ -60,7 +57,6 @@ import { inputMixins } from 'utils/inputMixins';
  * @niceName Textarea
  * @group Inputs
  * @position 225
- * @wip
  */
 export default {
   name: "TextArea",
@@ -69,26 +65,47 @@ export default {
   ],
   inheritAttrs: false,
   props: {
+
+    /**
+     * The textarea value / v-model
+     */
     value: {
       type: [ String, Number ],
       default: "",
     },
+
+    /**
+     * The textarea label
+     */
     label: {
       type: String,
       default: '',
     },
+
+    /**
+     * The textarea placeholder
+     */
     placeholder: {
       type: String,
       default: 'Insert label placeholder here',
     },
+
+    /**
+     * The textarea description
+     */
     desc: {
       type: String,
       default: '',
     },
+
+    /**
+     * Whether the label should be displayed inside the textarea (true) or above it (false).
+     */
     innerLabel: {
       type: Boolean,
       default: true,
     },
+
   },
   data () {
     return {

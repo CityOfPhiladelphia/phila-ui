@@ -54,7 +54,7 @@ Vue.use(PhilaUI);
 | desc        | The input description                                                              | string         | -                | ''                                                       |
 | placeholder | The input placeholder                                                              | string         | -                | 'Insert placeholder here'                                |
 | type        | The input type                                                                     | string         | `text`, `number` | 'text'                                                   |
-| value       |                                                                                    | string\|number | -                | ""                                                       |
+| value       | The text input value / v-model                                                     | string\|number | -                | ""                                                       |
 | icon        | The input icon. It expects font-awesome icon classes.                              | string         | -                | ''                                                       |
 | isLoading   | Whether a loading indicator should be displayed                                    | boolean        | -                | false                                                    |
 | innerLabel  | Whether the label should be displayed inside the input (true) or above it (false). | boolean        | -                | true                                                     |
