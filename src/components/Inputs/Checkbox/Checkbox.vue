@@ -44,8 +44,10 @@
           <input
             :id="`cb-${key}-${id}`"
             :name="`cb-${key}-${id}`"
+            :aria-checked="modelValue.includes(optionValue(option, value))"
             type="checkbox"
             class="is-checkradio"
+            role="checkbox"
             v-bind="option.attrs || {}"
             :value="optionValue(option, value)"
             @change="updateModelValue($event, optionValue(option, value))"
