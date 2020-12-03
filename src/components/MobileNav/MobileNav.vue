@@ -29,7 +29,7 @@
           <!-- Allows for additional content before the main list of items -->
           <slot name="before" />
           <template v-if="links.length > 0">
-            <ul>
+            <ul role="navigation" aria-label="Mobile Navigation">
               <li
                 v-for="(link1, index1) in links"
                 :key="`${link1.text}-${index1}`"
