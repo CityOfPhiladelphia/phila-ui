@@ -51,7 +51,7 @@ Use the slot when the description contains html that needs to be rendered. For i
 To display an error provide a String with the error, or an Array of errors. Only the first error in the array is displayed.
 ```html
   <text-area
-    errors="This field required"
+    errors="This field is required"
   />
 ```
 

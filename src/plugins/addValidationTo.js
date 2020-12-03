@@ -6,5 +6,4 @@ export default (Vue, options) => {
     let cWithValidation = withValidation(Vue.options.components[input]);
     Vue.component(inputWV, cWithValidation);
   });
-  console.log(Vue.options.components);
 };

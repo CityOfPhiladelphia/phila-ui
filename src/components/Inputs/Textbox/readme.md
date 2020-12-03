@@ -67,7 +67,7 @@ Use ```is-loading``` to indicate that the input is fetching content.
 To display an error provide a String with the error, or an Array of errors. Only the first error in the array is displayed.
 ```html
   <textbox
-    errors="This field required"
+    errors="This field is required"
   />
 ```
 

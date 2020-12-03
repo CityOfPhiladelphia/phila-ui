@@ -64,7 +64,7 @@ By default the radio buttons are displayed in one column. Add more columns to ma
 To display an error provide a String with the error, or an Array of errors. Only the first error in the array is displayed.
 ```html
   <radio
-    errors="This field required"
+    errors="This field is required"
   />
 ```
 

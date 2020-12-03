@@ -176,7 +176,7 @@ options: [
 To display an error provide a String with the error, or an Array of errors. Only the first error in the array is displayed.
 
 ```html
-<dropdown errors="This field required" />
+<dropdown errors="This field is required" />
 ```
 
 <alert>This component supports VeeValidate errors. [Learn how to validate](/vee-validate-integration) with the VeeValidade plugin.<a></alert>

@@ -64,7 +64,7 @@ By default the checkboxes are displayed in one column. Add more columns to make 
 To display an error provide a String with the error, or an Array of errors. Only the first error in the array is displayed.
 ```html
   <checkbox
-    errors="This field required"
+    errors="This field is required"
   />
 ```
 
