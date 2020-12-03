@@ -18,12 +18,12 @@
           <span>{{ error }}</span>
         </div>
       </template>
-      <dic
+      <div
         v-if="desc"
         class="is-field-info"
       >
         {{ desc }}
-      </dic>
+      </div>
       <template v-else>
         <div
           v-if="$slots['desc']"
@@ -35,6 +35,7 @@
       <div
         :id="`rd-group-${id}`"
         :style="`columns: ${numOfColumns} auto`"
+        role="radiogroup"
       >
         <div
           v-for="(option, key) in options"
@@ -44,6 +45,8 @@
           <input
             :id="`rd-${key}-${id}`"
             type="radio"
+            role="radio"
+            :aria-checked="modelValue === optionValue(option, key)"
             :name="`rd-${key}-${id}`"
             class="is-checkradio"
             :value="optionValue(option, key)"
