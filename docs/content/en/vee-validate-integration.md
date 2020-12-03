@@ -1,9 +1,9 @@
 ---
 title: VeeValidate Integration
-menuTitle: VeeValidate Integration (WIP)
+menuTitle: VeeValidate Integration
 category: 'Other'
 position: 1000
-badge: WIP
+badge: ''
 ---
 
 All PhilaUI input components support the third-party [VeeValidate](https://logaretm.github.io/vee-validate/) library.
@@ -74,6 +74,7 @@ The PhilaUI components that have validation can now accept VeeValidate props. Fo
   name="Full Name"
   rules="required"
   mode="eager"
+  required
 >
 ```
 <alert>Note that the ``name`` attributed is added so that VeeValidate knows this field's "nice" name, which is used on the default error messages.</alert>

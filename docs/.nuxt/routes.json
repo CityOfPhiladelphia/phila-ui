@@ -3,21 +3,18 @@
     "name": "releases___en",
     "path": "/releases",
     "component": "/Users/ibdf/dev/phila-ui/docs/node_modules/@nuxt/content-theme-docs/src/pages/releases.vue",
-    "chunkName": "pages/releases",
-    "_name": "_ef83bfda"
+    "chunkName": "pages/releases"
   },
   {
     "name": "index___en",
     "path": "/",
     "component": "/Users/ibdf/dev/phila-ui/docs/node_modules/@nuxt/content-theme-docs/src/pages/_.vue",
-    "chunkName": "pages/_",
-    "_name": "_ce324fb0"
+    "chunkName": "pages/_"
   },
   {
     "name": "all___en",
     "path": "/*",
     "component": "/Users/ibdf/dev/phila-ui/docs/node_modules/@nuxt/content-theme-docs/src/pages/_.vue",
-    "chunkName": "pages/_",
-    "_name": "_ce324fb0"
+    "chunkName": "pages/_"
   }
 ]
