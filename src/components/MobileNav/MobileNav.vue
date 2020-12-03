@@ -1,6 +1,7 @@
 <template>
   <div
     id="mobile-nav"
+    aria-label="Mobile Nav"
     :class="{ 'opened': mNavOpened }"
   >
     <a
@@ -10,10 +11,12 @@
     >
       <i
         v-show="!mNavOpened"
+        title="Open Mobile Nav"
         class="fa fa-bars"
       />
       <i
         v-show="mNavOpened"
+        title="Close Mobile Nav"
         class="fa fa-times"
       />
     </a>
@@ -67,7 +70,7 @@
           >
             <span>Close</span>
             <span class="icon">
-              <i class="fa fa-times" />
+              <i title="Close Mobile Menu" class="fa fa-times" />
             </span>
           </button>
         </div>
