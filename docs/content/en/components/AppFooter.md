@@ -60,7 +60,7 @@ Vue.use(PhilaUI);
 
 ### Props vs Slots Links
 
-The footer links can be added via props using the [Navigation Links](/components/NavLinks) format.
+The footer links can be added via props using the [Navigation Links](/components/NavLink) format.
 
 ```html
 <app-footer :links="myFooterLinks" />

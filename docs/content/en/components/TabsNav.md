@@ -58,10 +58,10 @@ Vue.use(PhilaUI);
 
 ### Props vs Slots Links
 
-The Tabbed Navigation links can be added via props using the [Navigation Links](/components/NavLinks) format.
+The Tabbed Navigation links can be added via props using the [Navigation Links](/components/NavLink) format.
 
 ```html
-<tabs-nav :links="myTabbedNavLinks" />
+<tabs-nav :links="myTabbedNavLink" />
 ```
 
 Or the links can be added using the default slot. The default slot accepts any number of anchors.
