@@ -1,20 +1,72 @@
-### Examples
-Use color classes from phila-ui or bulma.
+## Code Samples
 
-**Example of a success message using a phila-ui class:**
-```jsx
-  <callout message="A success message" class="is-kelly-drive-green" />
+### Message ``<slot>``
+Use the message slot in case it contains html code that needs to be rendered, otherwise use the ``message`` prop.
+
+### Message Types
+There are two ways of changing the callout color.
+
+1. Use the prop ``type``
+2. Passing a class attribute to the callout (uses bulma colors)
+
+The default callout has a gray color
+```html
+<callout message="This is the default message" />
 ```
 
-**Example of an error message using a bulma class:**
-```jsx
-  <callout message="An error message" class="is-danger" />
+### Using the prop ``type``
+#### Info
+```html
+<callout
+  message="This is a info message"
+  type="info"
+/>
 ```
 
-**Example of an info message using a bulma class:**
-```jsx
-  <callout message="An info message" class="is-info" />
+#### Success
+```html
+<callout
+ message="This is a success message"
+ type="success"
+/>
 ```
 
-### Disclaimer:
-Uses v-html. Be careful with what content that you pass to the component. Do not use for rendering content to the url.
+#### Warning
+```html
+<callout
+ message="This is a warning message"
+ type="warning"
+/>
+```
+
+#### Danger
+```html
+<callout
+ message="This is a danger message"
+ type="danger"
+/>
+```
+
+### Using the class attribute
+```html
+<callout
+ message="This is a info message"
+ class="is-info"
+/>
+
+<callout
+ message="This is a success message"
+ class="is-success"
+/>
+
+<callout
+ message="This is a warning message"
+ class="is-warning"
+/>
+
+<callout
+ message="This is a danger message"
+ class="is-danger"
+/>
+
+```

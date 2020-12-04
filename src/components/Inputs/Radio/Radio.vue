@@ -1,57 +1,181 @@
 <template>
-  <div class="input-wrap input-radio">
-    <input
-      :id="id"
-      class="is-checkradio is-info"
-      v-bind="$attrs"
-      :checked="shouldBeChecked"
-      :value="value"
-      type="radio"
-      @change="updateInput"
-    >
-    <label
-      :for="id"
-      class="radio"
-    >
-      <slot />
-    </label>
+  <div
+    class="input-wrap input-radio"
+    :class="classes"
+  >
+    <fieldset>
+      <legend>
+        <template v-if="label">
+          {{ label }}
+        </template>
+        <template v-else>
+          <!-- @slot Alternative label -->
+          <slot name="label" />
+        </template>
+      </legend>
+      <template v-if="error">
+        <div class="input-error-msg">
+          <span class="icon"><i class="fas fa-exclamation-circle" /></span>
+          <span>{{ error }}</span>
+        </div>
+      </template>
+      <div
+        v-if="desc"
+        class="is-field-info"
+      >
+        {{ desc }}
+      </div>
+      <template v-else>
+        <div
+          v-if="$slots['desc']"
+          class="is-field-info"
+        >
+          <!-- @slot Alternative description -->
+          <slot name="desc" />
+        </div>
+      </template>
+      <div
+        :id="`rd-group-${id}`"
+        :style="`columns: ${numOfColumns} auto`"
+        role="radiogroup"
+      >
+        <div
+          v-for="(option, key) in options"
+          :key="key"
+          class="control"
+        >
+          <input
+            :id="`rd-${key}-${id}`"
+            type="radio"
+            role="radio"
+            :aria-checked="modelValue === optionValue(option, key)"
+            :name="`rd-${key}-${id}`"
+            class="is-checkradio"
+            :value="optionValue(option, key)"
+            :checked="modelValue === optionValue(option, key)"
+            v-bind="option.attrs || {}"
+            v-on="inputListeners"
+          >
+          <label
+            :for="`rd-${key}-${id}`"
+          >
+            {{ !textKey ? option : option[textKey] }}
+          </label>
+        </div>
+      </div>
+    </fieldset>
   </div>
 </template>
 <script>
+import { inputMixins } from 'utils/inputMixins';
+/**
+ * Displays a group of radio buttons
+ * @niceName Radio Buttons
+ * @group Inputs
+ * @position 215
+ */
 export default {
-  name: "Radio",
+  name: 'Radio',
+  mixins: [
+    inputMixins,
+  ],
+  inheritAttrs: false,
   model: {
     prop: "modelValue",
     event: "change",
   },
   props: {
-    id: {
+
+    /**
+     * The radio buttons options.
+     * @values Array of Strings, Array of Objects, Object
+     */
+    options: {
+      type: [ Object, Array ],
+      default: () => {
+        return {
+          'option-1': 'Option 1',
+          'option-2': 'Option 2',
+          'option-3': 'Option 3',
+        };
+      },
+    },
+
+    /**
+     * The Object key containing the checkbox text. Required when using options as an Array of Objects.
+     */
+    textKey: {
       type: String,
-      default: () => `rb_${Math.random().toString(12).substring(2, 8)}`,
-    },
-    value: {
-      type: [ String, Number, Boolean ],
-      required: true,
-    },
-    modelValue: {
-      type: [ String, Number, Boolean, Array ],
       default: "",
+    },
+
+    /**
+     * The Object key containing the checkbox value. Required when using options as an Array of Objects.
+     */
+    valueKey: {
+      type: String,
+      default: "",
+    },
+
+    /**
+    * @ignore
+    */
+    value: {
+      type: String,
+      default: '',
+    },
+
+    /**
+    * @ignore
+    */
+    modelValue: {
+      type: String,
+      default: '',
+    },
+
+    /**
+     * The label used for the group of radio buttons
+     */
+    label: {
+      type: String,
+      default: '',
+    },
+
+    /**
+     * The description used for the group of radio buttons
+     */
+    desc: {
+      type: String,
+      default: '',
+    },
+
+    /**
+     * Splits a group of checkboxes into columns 1 or more columns
+     */
+    numOfColumns: {
+      type: [ String, Number ],
+      default: 1,
     },
   },
   computed: {
-    shouldBeChecked() {
-      return this.modelValue === this.value;
+    inputListeners: function () {
+      var vm = this;
+      return Object.assign({},
+        this.$listeners,
+        {
+          input: function (event) {
+            vm.$emit('input', event.target.value);
+          },
+          change: function (event) {
+            vm.$emit('change', event.target.value);
+          },
+        }
+      );
     },
-  },
-  methods: {
-    updateInput() {
-      this.$emit("change", this.value);
-    },
-    uniqid() {},
   },
 };
 </script>
+
 <style lang="scss">
-  // @import '../base.scss';
-  @import '../../../styles/inputs.scss';
+  @import '../../../assets/styles/scss/inputs.scss';
 </style>

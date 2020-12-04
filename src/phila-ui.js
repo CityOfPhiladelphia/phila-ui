@@ -1,19 +1,26 @@
 // Components
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
-import MobileMenu from './components/MobileMenu';
 import Callout from './components/Callout';
+import InputForm from './components/Inputs/InputForm';
 import Checkbox from './components/Inputs/Checkbox';
 import Radio from './components/Inputs/Radio';
 import Dropdown from './components/Inputs/Dropdown';
 import LangSelector from './components/LangSelector';
 import Textbox from './components/Inputs/Textbox';
 import TextArea from './components/Inputs/TextArea';
-
+import TabsNav from './components/TabsNav';
+import MobileNav from './components/MobileNav';
+import DropdownNav from './components/DropdownNav';
+import ResponsiveHelpers from './plugins/ResponsiveHelpers';
+import AddValidationTo from './plugins/AddValidationTo';
 /**
  * Function to install components globally
  */
 const install = function(Vue, settings = {}) {
+
+  Vue.use(ResponsiveHelpers);
+
   if (this.installed) {
     return;
   }
@@ -27,20 +34,30 @@ const install = function(Vue, settings = {}) {
       this[componentName].install.call(null, Vue, componentSettings);
     }
   }
+
+  if (settings.AddValidationTo) {
+    Vue.use(AddValidationTo, settings.AddValidationTo);
+  }
+
 };
 
 export {
   AppHeader,
   AppFooter,
-  MobileMenu,
   Callout,
+  InputForm,
   Checkbox,
   LangSelector,
   Radio,
   Dropdown,
   Textbox,
   TextArea,
-
+  TabsNav,
+  MobileNav,
+  DropdownNav,
+  ResponsiveHelpers,
+  // AddValidationTo,
   // Install Helper for Vue
   install,
 };
+

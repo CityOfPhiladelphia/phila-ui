@@ -1,41 +1,101 @@
 <template>
-  <span
-    class="select is-fullwidth"
-    :class="{ required: $attrs.required !== undefined }"
+  <div
+    class="input-wrap input-dropdown"
+    :class="classes"
   >
-    <label>
-      <select
-        v-bind="$attrs"
-        @change="onChange($event)"
+    <div class="field">
+      <label
+        v-if="!innerLabel"
+        class="label"
+        :for="`dd-${id}`"
       >
-        <option
-          v-if="defaultOption !== null"
-          value=""
+        {{ label }}
+      </label>
+      <div
+        class="control is-large"
+        :class="inputModifierClasses"
+      >
+        <div
+          class="select is-fullwidth"
         >
-          {{ defaultOption }}
-        </option>
-        <option
-          v-for="(option, key) in options"
-          :key="key"
-          :value="!valueKey ? key : option[valueKey]"
-          :selected="isSelected(key, option)"
-          :disabled="option['disabled'] ? option['disabled'] : false"
-        >
-          {{ !textKey ? option : option[textKey] }}
-        </option>
-      </select>
-    </label>
-  </span>
+          <label
+            v-if="localSelected !== '' && innerLabel"
+            :for="`dd-${id}`"
+          >
+            {{ label ? label : placeholder }}
+          </label>
+          <select
+            :id="`dd-${id}`"
+            v-model="localSelected"
+            :aria-label="label ? label : placeholder"
+            v-bind="$attrs"
+            v-on="inputListeners"
+          >
+            <option value="">
+              {{ this.$attrs.required !== undefined ? `${placeholder}*` : placeholder }}
+            </option>
+            <option
+              v-for="(option, key) in options"
+              :key="key"
+              :value="optionValue(option, key)"
+              :selected="isSelected(key, option)"
+              :disabled="option['disabled'] ? option['disabled'] : false"
+            >
+              {{ !textKey ? option : option[textKey] }}
+            </option>
+          </select>
+          <span
+            v-if="icon"
+            class="icon is-large is-left input-icon"
+          >
+            <i :class="icon" />
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      v-if="desc"
+      class="supplemental-text"
+    >
+      {{ desc }}
+    </div>
+    <template v-else>
+      <div
+        v-if="$slots['desc']"
+        class="supplemental-text"
+      >
+        <!-- @slot Alternative description -->
+        <slot name="desc" />
+      </div>
+    </template>
+    <template v-if="error">
+      <div class="input-error-msg">
+        <span class="icon"><i class="fas fa-exclamation-circle" /></span>
+        <span>{{ error }}</span>
+      </div>
+    </template>
+  </div>
 </template>
 <script>
+import { inputMixins } from 'utils/inputMixins';
+/**
+ * Styled select input
+ * @niceName Dropdown / Select
+ * @group Inputs
+ * @position 220
+ */
 export default {
   name: 'Dropdown',
+  mixins: [
+    inputMixins,
+  ],
   inheritAttrs: false,
   props: {
-    value: {
-      type: [ Object, String, Boolean, Number ],
-      default: '',
-    },
+
+    /**
+     * The dropdown options.
+     * @values Array of Strings, Array of Objects, Object
+     */
     options: {
       type: [ Object, Array ],
       default: () => {
@@ -44,40 +104,136 @@ export default {
         };
       },
     },
-    defaultOption: {
+
+    /**
+     * The dropdown label
+     */
+    label: {
       type: String,
-      default: "Default option",
+      default: '',
     },
-    valueKey: {
+
+    /**
+     * The dropdown placeholder
+     */
+    placeholder: {
       type: String,
-      default: "",
+      default: '',
     },
+
+    /**
+     * The Object key containing the dropdown text. Required when using options as an Array of Objects.
+     */
     textKey: {
       type: String,
       default: "",
     },
+
+    /**
+     * The dropdown value / v-model
+     */
+    value: {
+      type: String,
+      default: '',
+    },
+
+    /**
+     * The Object key containing the dropdown value. Required when using options as an Array of Objects.
+     */
+    valueKey: {
+      type: String,
+      default: "",
+    },
+
+    /**
+     * The dropdown description
+     */
+    desc: {
+      type: String,
+      default: '',
+    },
+
+    /**
+     * The dropdown icon. It expects font-awesome icon classes.
+     */
+    icon: {
+      type: String,
+      default: '',
+    },
+
+    /**
+     * Whether the label should be displayed inside the dropdown (true) or above it (false).
+     */
+    innerLabel: {
+      type: Boolean,
+      default: true,
+    },
+
+  },
+  data () {
+    return {
+      localSelected: '',
+    };
+  },
+  computed: {
+    inputListeners: function () {
+      var vm = this;
+      delete this.$listeners.input;
+      return Object.assign(
+        {},
+        this.$listeners,
+        {
+          change: function (event) {
+            //Input event is necessary for v-model
+            vm.$emit('input', vm.localSelected);
+            //Change event is necessary for everything else
+            vm.$emit('change', vm.localSelected);
+          },
+        }
+      );
+    },
+    inputModifierClasses () {
+      let classes = [];
+      if (this.icon !== '') {
+        classes.push('has-icons-left');
+      }
+      return classes.join(' ');
+    },
   },
   methods: {
-    isSelected(key, option) {
-      if (this.valueKey) {
-        return option[this.valueKey] === this.value;
+    isSelected (key, option) {
+      let dropdownOptionValue = this.optionValue(option, key);
+
+      if (dropdownOptionValue === this.value) {
+        this.localSelected = this.value;
       }
-      return key === this.value;
-    },
-    onChange($event) {
-      this.$nextTick(() => {
-        this.$emit('input', $event.target.value);
-      });
     },
   },
 };
 </script>
+
 <style lang="scss">
+@import '../../../assets/styles/scss/inputs.scss';
+</style>
+
+<style lang="scss" scoped>
+
+.input-dropdown {
   .select {
+    height: 3.5rem;
+    label {
+      top: 0;
+      left: 0;
+      opacity: 1;
+    }
     select {
-      &:active, &:focus {
-        border-width: 2px;
-      }
+      height: 100%;
+      width: 100%;
+    }
+    label + select {
+      padding: 1rem 1rem 0 0.5rem;
     }
   }
+}
+
 </style>

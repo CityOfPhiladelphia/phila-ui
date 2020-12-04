@@ -1,105 +1,194 @@
 <template>
-  <div class="input-wrap input-checkbox">
-    <input
-      :id="id"
-      class="is-checkradio is-info"
-      :class="shouldBeChecked ? 'has-background-color' : ''"
-      v-bind="$attrs"
-      :value="value"
-      :checked="shouldBeChecked"
-      :aria-checked="shouldBeChecked"
-      :aria-labelledby="id"
-      :aria-required="$attrs.required"
-      type="checkbox"
-      @change="updateInput"
-      @on="$listeners"
-    >
-    <label
-      :for="id"
-      class="checkbox"
-    >
-      <slot />
-    </label>
+  <div
+    class="input-wrap input-checkbox"
+    :class="classes"
+  >
+    <fieldset>
+      <legend>
+        <template v-if="label">
+          {{ label }}
+        </template>
+        <template v-else>
+          <!-- @slot Alternative label -->
+          <slot name="label" />
+        </template>
+      </legend>
+      <template v-if="error">
+        <div class="input-error-msg">
+          <span class="icon"><i class="fas fa-exclamation-circle" /></span>
+          <span>{{ error }}</span>
+        </div>
+      </template>
+      <div
+        v-if="desc"
+        class="is-field-info"
+      >
+        {{ desc }}
+      </div>
+      <template v-else>
+        <div
+          v-if="$slots['desc']"
+          class="is-field-info"
+        >
+          <!-- @slot Alternative description -->
+          <slot name="desc" />
+        </div>
+      </template>
+      <div
+        :id="`cb-group-${id}`"
+        :style="`columns: ${numOfColumns} auto`"
+      >
+        <div
+          v-for="(option, key) in options"
+          :key="`k-${key}`"
+          class="control"
+        >
+          <input
+            :id="`cb-${key}-${id}`"
+            :name="`cb-${key}-${id}`"
+            :aria-checked="modelValue.includes(optionValue(option, value))"
+            type="checkbox"
+            class="is-checkradio"
+            role="checkbox"
+            v-bind="option.attrs || {}"
+            :value="optionValue(option, value)"
+            @change="updateModelValue($event, optionValue(option, value))"
+            v-on="inputListeners"
+          >
+          <label
+            :for="`cb-${key}-${id}`"
+          >
+            {{ !textKey ? option : option[textKey] }}
+          </label>
+        </div>
+      </div>
+    </fieldset>
   </div>
 </template>
 <script>
+import { inputMixins } from 'utils/inputMixins';
+/**
+ * Displays one or more checkboxes
+ * @niceName Checkboxes
+ * @group Inputs
+ * @position 210
+ */
 export default {
   name: 'Checkbox',
+  mixins: [
+    inputMixins,
+  ],
   inheritAttrs: false,
   model: {
     prop: 'modelValue',
     event: 'change',
   },
   props: {
-    id: {
+    /**
+     * The checkboxes options.
+     * @values Array of Strings, Array of Objects, Object
+     */
+    options: {
+      type: [ Object, Array ],
+      default: () => {
+        return {
+          'option-1': 'Option 1',
+          'option-2': 'Option 2',
+          'option-3': 'Option 3',
+        };
+      },
+    },
+    /**
+     * The Object key containing the checkbox text. Required when using options as an Array of Objects.
+     */
+    textKey: {
       type: String,
-      default: () => `cb_${Math.random().toString(12).substring(2, 8)}`,
-    },
-    value: {
-      type: [ String, Number, Boolean, Array ],
-      required: true,
-    },
-
-    // This prop represents the v-model value
-    modelValue: {
-      type: [ String, Number, Boolean, Array ],
-      default: false,
+      default: "",
     },
 
     /**
-     * true-value and false-value are properties from vuejs checkboxes
-     * used when you want to assign a value to the v-model when checked or unchecked
-     * like 'yes' or 'no'
+     * The Object key containing the checkbox value. Required when using options as an Array of Objects.
      */
-    trueValue: {
-      type: [ String, Number, Boolean ],
-      default: true,
+    valueKey: {
+      type: String,
+      default: "",
     },
-    falseValue: {
-      type: [ String, Number, Boolean ],
-      default: false,
+
+    /**
+    * @ignore
+    */
+    value: {
+      type: Array,
+      default () {
+        return [];
+      },
+    },
+
+    /**
+     * The label used for the checkbox or group of checkboxes
+     */
+    label: {
+      type: String,
+      default: '',
+    },
+    /**
+     * The description used for the checkbox or group of checkboxes
+     */
+    desc: {
+      type: String,
+      default: '',
+    },
+
+    /**
+     * Splits a group of checkboxes into columns 1 or more columns
+     */
+    numOfColumns: {
+      type: [ String, Number ],
+      default: 1,
     },
   },
+  data () {
+    return {
+      modelValue: [],
+    };
+  },
   computed: {
-    shouldBeChecked() {
-      if (this.modelValue) {
-        if (this.modelValue instanceof Array) {
-          return this.modelValue.includes(this.value);
+    inputListeners: function () {
+      var vm = this;
+      return Object.assign({},
+        this.$listeners,
+        {
+          change: async function (event) {
+            vm.$emit('change', vm.modelValue);
+          },
         }
-
-        return this.modelValue === this.trueValue
-          || this.modelValue === this.value;
-      }
-
-      return !!this.$attrs.checked;
+      );
     },
   },
   methods: {
-    updateInput(event) {
-      let isChecked = event.target.checked;
-
-      if (this.modelValue instanceof Array) {
-        let newValue = [ ...this.modelValue ];
-
-        if (isChecked) {
-          newValue.push(this.value);
+    updateModelValue (event, value) {
+      if (event.target.checked) {
+        if (this.options.length === 1) {
+          this.modelValue = [ this.$attrs['true-value'] || value ];
         } else {
-          newValue.splice(newValue.indexOf(this.value), 1);
+          this.modelValue.push(value);
         }
-
-        this.$emit('change', newValue);
       } else {
-        if (this.value) {
-          this.$emit('change', isChecked ? this.value : this.falseValue);
+        if (this.options.length === 1) {
+          if (this.$attrs['false-value']) {
+            this.modelValue.push(this.$attrs['false-value']);
+          } else {
+            this.modelValue = [];
+          }
         } else {
-          this.$emit('change', isChecked ? this.value : this.falseValue);
+          this.modelValue.splice(this.modelValue.indexOf(value), 1);
         }
       }
     },
   },
 };
 </script>
+
 <style lang="scss">
-  // @import '../base.scss';
-  @import '../../../styles/inputs.scss';
-</style> 
+  @import '../../../assets/styles/scss/inputs.scss';
+</style>
