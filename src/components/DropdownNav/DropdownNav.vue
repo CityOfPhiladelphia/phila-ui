@@ -17,13 +17,25 @@
       <ul role="menu">
         <template v-for="(link, index) in nav.links">
           <template v-if="link.type === 'link'">
-            <li :key="`ddl-${index}`" role="none">
-              <nav-link :link="link" role="menuitem" />
+            <li
+              :key="`ddl-${index}`"
+              role="none"
+            >
+              <nav-link
+                :link="link"
+                role="menuitem"
+              />
             </li>
           </template>
           <template v-else>
-            <li :key="`ddl-${index}`" role="none">
-              <nav-link :link="link" role="menuitem" />
+            <li
+              :key="`ddl-${index}`"
+              role="none"
+            >
+              <nav-link
+                :link="link"
+                role="menuitem"
+              />
             </li>
           </template>
         </template>
