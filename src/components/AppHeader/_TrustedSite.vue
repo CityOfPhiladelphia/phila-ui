@@ -20,6 +20,7 @@
                   src="~/assets/images/phila-small-logo.svg"
                   width="139"
                   height="18"
+                  alt="City of Philadelphia trusted site"
                 >
               </a>
             </div>

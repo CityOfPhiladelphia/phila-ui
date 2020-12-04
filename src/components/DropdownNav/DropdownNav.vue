@@ -129,6 +129,7 @@ export default {
           margin-top: -0.5rem;
         }
         .icon {
+          padding-right: 0.4rem;
           vertical-align: middle;
           font-size: 1.4rem;
           @include until ($tablet) {
@@ -159,13 +160,14 @@ export default {
       right: 0;
       background-color: $ben-franklin-blue;
       z-index: 999;
+      min-width: 100%;
       width: auto;
       li {
         float: right;
         width: 100%;
         border-bottom: 1px solid $ben-franklin-blue-light;
         a {
-          padding: 1rem 2rem;
+          padding: 0.75rem 2rem;
           color: $white;
           line-height: 1.1;
           width: 100%;

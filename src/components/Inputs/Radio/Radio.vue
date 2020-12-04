@@ -19,12 +19,12 @@
           <span>{{ error }}</span>
         </div>
       </template>
-      <dic
+      <div
         v-if="desc"
         class="is-field-info"
       >
         {{ desc }}
-      </dic>
+      </div>
       <template v-else>
         <div
           v-if="$slots['desc']"

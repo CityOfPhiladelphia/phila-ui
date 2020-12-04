@@ -79,7 +79,7 @@ form {
   padding: 0.5rem 0.5rem 0.5rem;
   position: relative;
   label {
-    font-size: 0.813rem;
+    font-size: 0.875rem;
     color: $grey-dark;
     font-weight: $weight-bold;
     line-height: 1.5rem;
@@ -92,7 +92,7 @@ form {
       label {
         &:after {
           content: "*";
-          font-size: 0.813rem;
+          font-size: 0.875rem;
         }
       }
     }
@@ -116,6 +116,11 @@ form {
     }
     &.input-textbox, &.input-textarea, &.input-dropdown {
       label {
+        color: $love-park-red-dark;
+      }
+    }
+    &.input-checkbox, &.input-radio {
+      legend {
         color: $love-park-red-dark;
       }
     }
@@ -157,7 +162,7 @@ form {
     }
     fieldset {
       legend {
-        padding: 0 0 .5rem 0;
+        padding: 0 0 .1rem 0;
       }
     }
 
@@ -165,7 +170,7 @@ form {
       fieldset legend {
         &:after {
           content: "*";
-          font-size: 0.813rem;
+          font-size: 0.875rem;
         }
       }
     }

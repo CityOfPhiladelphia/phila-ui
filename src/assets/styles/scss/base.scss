@@ -23,109 +23,104 @@ main {
   justify-content: space-between !important;
 }
 
-/** Header Styles **/
-.headers {
-  font-family: $family-secondary;
-  font-weight: $weight-normal;
-  margin-bottom: 1rem;
-  &:not(:first-child) {
-    margin-top: 0 !important;
-  }
-  &.heading-with-background {
-    margin-bottom: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    background-color: $ghost-grey;
-    font-size: $size-3;
-  }
-  &.heading-with-contrast {
-    margin-bottom: .5rem;
-    border-bottom: 10px solid $ben-franklin-blue;
-    font-size: $size-2;
-  }
-  &.is-size-1, &.is-1 {
-    line-height: 2.5rem;
-  }
-  &.is-size-2, &.is-2 {
-    line-height: 2rem;
-  }
-  &.is-size-3, &.is-3 {
-    line-height: 1.5rem;
-  }
-  &.is-size-4, &.is-size-5, &.is-size-6, &.is-size-7, &.is-4, &.is-5, &.is-6, &.is-7{
-    line-height: 1.5rem;
-  }
-  &.title {
-    font-weight: $weight-normal;
-    &.is-1 {
-      line-height: 2.5rem;
-    }
-    &.is-2 {
-      line-height: 2rem;
-    }
-    &.is-3 {
-      line-height: 1.5rem;
-    }
-    &.is-4, &.is-5, &.is-6, &.is-7 {
-      line-height: 1.5rem;
-    }
-  }
-  &.subtitle {
-    font-family: $family-sans-serif;
-    font-weight: $weight-normal;
-    &.is-1 {
-      font-size: 1.5rem;
-      line-height: 2rem;
-    }
-    &.is-2 {
-      font-size: $size-3;
-      line-height: 1.5rem;
-    }
-    &.is-3 {
-      font-size: 1rem;
-      line-height: 1.5rem;
-    }
-    &.is-4, &.is-5, &.is-6, &.is-7 {
-      font-size: 0.875rem;
-      line-height: 1.125rem;
-    }
-  }
-
-  &.subtitle, &.title {
-    margin-bottom: 0;
-  }
-
-  &.title + .subtitle {
-    margin-bottom: 1rem !important;
-  }
-
-  &.subtitle + .title {
-    margin-bottom: 1rem !important;
-  }
-
-  &.subtitle:not(.is-spaced) + .title {
-    margin-top: 0;
-  }
-
-  &.title:not(.is-spaced) + .subtitle {
-    margin-top: 0;
-  }
-
-  &.title:not(:last-child) {
-    margin-bottom: 0;
-  }
-
-  &.subtitle:not(:last-child) {
-    margin-bottom: 0 !important;
-  }
-}
 
 .content {
 
   padding: 1.5rem;
 
-  h1, h2, h3, h4, h5, h6, div {
-    @extend .headers;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $family-secondary;
+    font-weight: $weight-normal;
+    margin-bottom: 1rem;
+    &:not(:first-child) {
+      margin-top: 0 !important;
+    }
+    &.heading-with-background {
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      background-color: $ghost-grey;
+      font-size: $size-3;
+    }
+    &.heading-with-contrast {
+      margin-bottom: .5rem;
+      border-bottom: 10px solid $ben-franklin-blue;
+      font-size: $size-2;
+    }
+    &.is-size-1, &.is-1 {
+      line-height: 2rem;
+    }
+    &.is-size-2, &.is-2 {
+      line-height: 1.75rem;
+    }
+    &.is-size-3, &.is-3 {
+      line-height: 1.25rem;
+    }
+    &.is-size-4, &.is-size-5, &.is-size-6, &.is-size-7, &.is-4, &.is-5, &.is-6, &.is-7{
+      line-height: 1.125rem;
+    }
+    &.title {
+      font-weight: $weight-normal;
+      &.is-1 {
+        line-height: 1.125rem;
+      }
+      &.is-2 {
+        line-height: 1.14rem;
+      }
+      &.is-3 {
+        line-height: 1.2rem;
+      }
+      &.is-4, &.is-5, &.is-6, &.is-7 {
+        line-height: 1.33rem;
+      }
+    }
+
+    &.title + .subtitle {
+      margin-bottom: 1rem !important;
+    }
+
+    &.title:not(.is-spaced) + .subtitle {
+      margin-top: 0;
+    }
+
+    &.title:not(:last-child) {
+      margin-bottom: 0;
+    }
+  }
+
+  div {
+    &.subtitle {
+      font-family: $family-sans-serif;
+      font-weight: $weight-normal;
+      &.is-1 {
+        font-size: 1.5rem;
+        line-height: 1.33rem;
+      }
+      &.is-2 {
+        font-size: 1.25rem;
+        line-height: 1.2rem;
+      }
+      &.is-3 {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+      &.is-4, &.is-5, &.is-6, &.is-7 {
+        font-size: 0.875rem;
+        line-height: 1.29rem;
+      }
+    }
+    &.subtitle {
+      margin-bottom: 0;
+    }
+    &.subtitle + .title {
+      margin-bottom: 1rem !important;
+    }
+    &.subtitle:not(.is-spaced) + .title {
+      margin-top: 0;
+    }
+    &.subtitle:not(:last-child) {
+      margin-bottom: 0 !important;
+    }
   }
 
   p {
