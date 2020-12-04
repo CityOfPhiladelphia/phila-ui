@@ -7,6 +7,7 @@
     <a
       href="#"
       class="icon is-size-2"
+      aria-label="Mobile Nav"
       @click.prevent="mobileNavToggle"
     >
       <i
