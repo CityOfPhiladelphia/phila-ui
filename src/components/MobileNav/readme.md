@@ -2,10 +2,10 @@
 <alert type="warning">The Mobile Navigation only shows on screens smaller than 768px.</alert>
 
 ### Props vs Slots Links
-The Mobile Navigation links can be added via props using the [Navigation Links](/components/NavLinks) format.
+The Mobile Navigation links can be added via props using the [Navigation Links](/components/NavLink) format.
 ```html
   <mobile-nav
-    :links="myMobileNavLinks"
+    :links="myMobileNavLink"
   />
 ```
 

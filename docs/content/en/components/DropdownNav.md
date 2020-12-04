@@ -61,26 +61,26 @@ Vue.use(PhilaUI);
 The Dropdown Navigation links can be added via props:
 
 ```html
-<dropdown-nav :links="myDropdownNavLinks" />
+<dropdown-nav :links="myDropdownNavLink" />
 ```
 
 ```js
-myDropdownNavLinks: {
+myDropdownNavLink: {
   button: "Options", //trigger
   links: [
     {
-      href: "profile"
+      href: "profile",
       text: "Profile",
     },
     {
-      href: "logout"
+      href: "logout",
       text: "Logout",
     }
   ]
 }
 ```
 
-<alert>The key `links` uses the same format as the [Navigation Links](/components/NavLinks).</alert>
+<alert>The key `links` uses the same format as the [Navigation Links](/components/NavLink).</alert>
 
 Or the links can be added using the default slot. The default slot accepts a `<button>` which acts as the trigger, followed by a `<ul>` of links.
 

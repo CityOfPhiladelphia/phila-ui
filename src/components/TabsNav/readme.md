@@ -1,9 +1,9 @@
 ## Code Samples
 ### Props vs Slots Links
-The Tabbed Navigation links can be added via props using the [Navigation Links](/components/NavLinks) format.
+The Tabbed Navigation links can be added via props using the [Navigation Links](/components/NavLink) format.
 ```html
   <tabs-nav
-    :links="myTabbedNavLinks"
+    :links="myTabbedNavLink"
   />
 ```
 

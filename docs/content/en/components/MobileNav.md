@@ -62,10 +62,10 @@ Vue.use(PhilaUI);
 
 ### Props vs Slots Links
 
-The Mobile Navigation links can be added via props using the [Navigation Links](/components/NavLinks) format.
+The Mobile Navigation links can be added via props using the [Navigation Links](/components/NavLink) format.
 
 ```html
-<mobile-nav :links="myMobileNavLinks" />
+<mobile-nav :links="myMobileNavLink" />
 ```
 
 Or the links can be added using the default slot. The default slot accepts an unodered list of links.

@@ -163,12 +163,14 @@ export default {
     },
 
     /**
-     * Branding image (eg. department logo). Accepts an Object of image attributes (eg. src)
+     * Branding image (eg. department logo). Accepts an Object of image attributes.
     */
     brandingImage: {
       type: Object,
       default () {
-        return null;
+        return {
+          src: '',
+        };
       },
     },
 
