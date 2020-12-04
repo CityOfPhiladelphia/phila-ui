@@ -14,7 +14,6 @@ import MobileNav from './components/MobileNav';
 import DropdownNav from './components/DropdownNav';
 import ResponsiveHelpers from './plugins/ResponsiveHelpers';
 import addValidationTo from './plugins/AddValidationTo';
-
 /**
  * Function to install components globally
  */
