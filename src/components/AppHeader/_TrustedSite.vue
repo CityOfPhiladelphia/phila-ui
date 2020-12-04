@@ -64,7 +64,10 @@
               <a
                 href="#"
                 @click="tsdStatus=!tsdStatus"
-              ><i title="Close Trusted Site Details" class="fas fa-times" /></a>
+              ><i
+                title="Close Trusted Site Details"
+                class="fas fa-times"
+              /></a>
             </span>
           </div>
           <div id="trusted-panel">

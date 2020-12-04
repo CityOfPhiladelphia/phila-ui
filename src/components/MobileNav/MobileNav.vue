@@ -29,7 +29,10 @@
           <!-- Allows for additional content before the main list of items -->
           <slot name="before" />
           <template v-if="links.length > 0">
-            <ul role="navigation" aria-label="Mobile Navigation">
+            <ul
+              role="navigation"
+              aria-label="Mobile Navigation"
+            >
               <li
                 v-for="(link1, index1) in links"
                 :key="`${link1.text}-${index1}`"
@@ -70,7 +73,10 @@
           >
             <span>Close</span>
             <span class="icon">
-              <i title="Close Mobile Menu" class="fa fa-times" />
+              <i
+                title="Close Mobile Menu"
+                class="fa fa-times"
+              />
             </span>
           </button>
         </div>

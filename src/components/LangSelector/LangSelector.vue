@@ -10,8 +10,8 @@
     <ul role="menu">
       <li
         v-for="(lang, i) in languages"
-        role="none"
         :key="`languages${i}`"
+        role="none"
       >
         <a
           href="#"

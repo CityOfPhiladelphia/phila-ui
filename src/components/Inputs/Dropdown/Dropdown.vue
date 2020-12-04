@@ -26,8 +26,8 @@
           </label>
           <select
             :id="`dd-${id}`"
-            :aria-label="label ? label : placeholder"
             v-model="localSelected"
+            :aria-label="label ? label : placeholder"
             v-bind="$attrs"
             v-on="inputListeners"
           >
