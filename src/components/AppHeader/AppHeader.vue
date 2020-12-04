@@ -167,11 +167,7 @@ export default {
     */
     brandingImage: {
       type: Object,
-      default () {
-        return {
-          src: '',
-        };
-      },
+      default: null,
     },
 
     /**
