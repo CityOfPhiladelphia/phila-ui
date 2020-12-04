@@ -7,7 +7,6 @@ const globalComponents = {
   CodeGroup: () => import('../../node_modules/@nuxt/content-theme-docs/src/components/global/base/CodeGroup.vue' /* webpackChunkName: "components/global/base/CodeGroup" */).then(c => c.default || c),
   CodeSandbox: () => import('../../node_modules/@nuxt/content-theme-docs/src/components/global/base/CodeSandbox.vue' /* webpackChunkName: "components/global/base/CodeSandbox" */).then(c => c.default || c),
   List: () => import('../../node_modules/@nuxt/content-theme-docs/src/components/global/base/List.vue' /* webpackChunkName: "components/global/base/List" */).then(c => c.default || c),
-  AppColorSwitcher: () => import('../../node_modules/@nuxt/content-theme-docs/src/components/global/app/AppColorSwitcher.vue' /* webpackChunkName: "components/global/app/AppColorSwitcher" */).then(c => c.default || c),
   BuiltWithNuxtDark: () => import('../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/BuiltWithNuxtDark.vue' /* webpackChunkName: "components/global/icons/BuiltWithNuxtDark" */).then(c => c.default || c),
   BuiltWithNuxtLight: () => import('../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/BuiltWithNuxtLight.vue' /* webpackChunkName: "components/global/icons/BuiltWithNuxtLight" */).then(c => c.default || c),
   IconArrowLeft: () => import('../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/IconArrowLeft.vue' /* webpackChunkName: "components/global/icons/IconArrowLeft" */).then(c => c.default || c),
@@ -28,7 +27,8 @@ const globalComponents = {
   IconTranslate: () => import('../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/IconTranslate.vue' /* webpackChunkName: "components/global/icons/IconTranslate" */).then(c => c.default || c),
   IconTwitter: () => import('../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/IconTwitter.vue' /* webpackChunkName: "components/global/icons/IconTwitter" */).then(c => c.default || c),
   IconX: () => import('../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/IconX.vue' /* webpackChunkName: "components/global/icons/IconX" */).then(c => c.default || c),
-  IconXCircle: () => import('../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/IconXCircle.vue' /* webpackChunkName: "components/global/icons/IconXCircle" */).then(c => c.default || c)
+  IconXCircle: () => import('../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/IconXCircle.vue' /* webpackChunkName: "components/global/icons/IconXCircle" */).then(c => c.default || c),
+  AppColorSwitcher: () => import('../../node_modules/@nuxt/content-theme-docs/src/components/global/app/AppColorSwitcher.vue' /* webpackChunkName: "components/global/app/AppColorSwitcher" */).then(c => c.default || c)
 }
 
 for (const name in globalComponents) {

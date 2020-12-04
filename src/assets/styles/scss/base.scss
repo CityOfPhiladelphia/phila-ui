@@ -61,18 +61,18 @@ main {
     }
     &.title {
       font-weight: $weight-normal;
-      &.is-1 {
-        line-height: 1.125rem;
-      }
-      &.is-2 {
-        line-height: 1.14rem;
-      }
-      &.is-3 {
-        line-height: 1.2rem;
-      }
-      &.is-4, &.is-5, &.is-6, &.is-7 {
-        line-height: 1.33rem;
-      }
+      // &.is-1 {
+      //   line-height: 1.125rem;
+      // }
+      // &.is-2 {
+      //   line-height: 1.14rem;
+      // }
+      // &.is-3 {
+      //   line-height: 1.2rem;
+      // }
+      // &.is-4, &.is-5, &.is-6, &.is-7 {
+      //   line-height: 1.33rem;
+      // }
     }
 
     &.title + .subtitle {

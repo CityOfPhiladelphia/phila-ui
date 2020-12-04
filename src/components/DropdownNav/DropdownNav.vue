@@ -68,6 +68,7 @@ export default {
      */
     nav: {
       type: Object,
+      required: true,
       default () {
         return {
           button: 'My Items',

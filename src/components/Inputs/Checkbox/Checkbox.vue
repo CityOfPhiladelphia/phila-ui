@@ -158,7 +158,7 @@ export default {
       return Object.assign({},
         this.$listeners,
         {
-          change: function (event) {
+          change: async function (event) {
             vm.$emit('change', vm.modelValue);
           },
         }

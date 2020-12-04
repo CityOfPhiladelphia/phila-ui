@@ -20,7 +20,7 @@
     <slot />
     <div
       v-if="!hideErrorsCount && errorsCount > 0"
-      class="form-errors has-text-centered has-text-weight-bold has-text-danger"
+      class="form-errors has-text-centered has-text-weight-bold has-text-love-park-red-dark"
     >
       <span class="icon">
         <i class="fa fa-exclamation-triangle" />
@@ -92,7 +92,12 @@ export default {
   },
   methods: {
     countVeeValidateErrors (errors) {
-      let count = Object.values(errors).reduce((total, error) => error.length > 0 ? total + 1 : total, 0);
+
+      let values = Object.keys(errors).map(key => {
+        return errors[key];
+      });
+
+      let count = values.reduce((total, error) => error.length > 0 ? total + 1 : total, 0);
 
       return count;
     },
