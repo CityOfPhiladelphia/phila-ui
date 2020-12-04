@@ -96,6 +96,9 @@ export default async (ssrContext) => {
     ssrContext.rendered = () => {
       // Add the state from the vuex store
       ssrContext.nuxt.state = store.state
+
+      // Stop recording store mutations
+      ssrContext.unsetMutationObserver()
     }
   }
 
@@ -119,8 +122,6 @@ export default async (ssrContext) => {
     app.context.error({ statusCode: 404, path: ssrContext.url, message: 'This page could not be found' })
     return renderErrorPage()
   }
-
-  const s = Date.now()
 
   // Components are already resolved by setContext -> getRouteData (app/utils.js)
   const Components = getMatchedComponents(router.match(ssrContext.url))
@@ -165,6 +166,10 @@ export default async (ssrContext) => {
   if (ssrContext.nuxt.error) {
     return renderErrorPage()
   }
+
+  // Record store mutations for full-static after nuxtServerInit and Middleware
+  ssrContext.nuxt.mutations =[]
+  ssrContext.unsetMutationObserver = store.subscribe(m => { ssrContext.nuxt.mutations.push([m.type, m.payload]) })
 
   /*
   ** Set layout
@@ -275,8 +280,6 @@ export default async (ssrContext) => {
 
     return Promise.all(promises)
   }))
-
-  if (process.env.DEBUG && asyncDatas.length) console.debug('Data fetching ' + ssrContext.url + ': ' + (Date.now() - s) + 'ms')
 
   // datas are the first row of each
   ssrContext.nuxt.data = asyncDatas.map(r => r[0] || {})
