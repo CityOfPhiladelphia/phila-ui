@@ -18,6 +18,7 @@
               >
                 <img
                   src="~/assets/images/phila-small-logo.svg"
+                  aria-label="Link To https://www.phila.gov"
                   width="139"
                   height="18"
                   alt="City of Philadelphia trusted site"
@@ -63,7 +64,7 @@
               <a
                 href="#"
                 @click="tsdStatus=!tsdStatus"
-              ><i class="fas fa-times" /></a>
+              ><i title="Close Trusted Site Details" class="fas fa-times" /></a>
             </span>
           </div>
           <div id="trusted-panel">

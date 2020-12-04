@@ -7,12 +7,13 @@
     <div class="container" />
     <div class="container has-text-centered">
       <template v-if="links.length > 0">
-        <ul class="inline-list">
+        <ul role="menu" class="inline-list">
           <li
             v-for="(link, index) in links"
             :key="`fl-${index}`"
+            role="none"
           >
-            <nav-link :link="link" />
+            <nav-link :link="link" role="menuitem" />
           </li>
         </ul>
       </template>

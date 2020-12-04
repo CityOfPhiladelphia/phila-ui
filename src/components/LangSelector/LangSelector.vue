@@ -7,13 +7,15 @@
       <span class="icon"><i class="fa fa-globe" /></span>
       <span>{{ selectedLang }}</span>
     </button>
-    <ul>
+    <ul role="menu">
       <li
         v-for="(lang, i) in languages"
+        role="none"
         :key="`languages${i}`"
       >
         <a
           href="#"
+          role="menuitem"
           @click.prevent="changeLang(lang.language)"
         >{{ lang.title }}</a>
       </li>
