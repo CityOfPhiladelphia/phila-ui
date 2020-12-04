@@ -4,7 +4,10 @@
     id="lang-selector"
   >
     <button>
-      <span class="icon"><i title="Language Selector" class="fa fa-globe" /></span>
+      <span class="icon"><i
+        title="Language Selector"
+        class="fa fa-globe"
+      /></span>
       <span>{{ selectedLang }}</span>
     </button>
     <ul role="menu">

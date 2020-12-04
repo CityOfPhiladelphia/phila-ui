@@ -6,12 +6,19 @@
   "scripts": {
     "build": "vue-cli-service lint --no-fix && rollup --config build/rollup.config.js",
     "lint": "vue-cli-service lint",
-    "watch": "rollup --watch --config build/rollup.config.js",
-    "scss": "node-sass --watch src/styles/compile_all.scss -o src/css"
+    "scss": "node-sass --watch src/styles/compile_all.scss -o src/css",
+    "watch": "rollup --watch --config build/rollup.config.js"
   },
   "main": "dist/phila-ui.umd.js",
   "module": "dist/phila-ui.esm.js",
   "unpkg": "dist/phila-ui.min.js",
+  "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/runtime": "^7.12.5",
+    "bulma": "^0.8.1",
+    "bulma-checkradio": "^1.1.1",
+    "core-js": "^3.6.5"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
@@ -19,9 +26,9 @@
     "@rollup/plugin-babel": "^5.2.1",
     "@rollup/plugin-image": "^2.0.5",
     "@semantic-release/git": "^7.0.18",
-    "@vue/cli-plugin-babel": "^3.11.0",
-    "@vue/cli-plugin-eslint": "^3.11.0",
-    "@vue/cli-service": "^3.11.0",
+    "@vue/cli-plugin-babel": "^4.5.9",
+    "@vue/cli-plugin-eslint": "^4.5.9",
+    "@vue/cli-service": "^4.5.9",
     "babel-eslint": "^10.0.3",
     "conventional-changelog-conventionalcommits": "^4.5.0",
     "cssnano": "^4.1.10",
@@ -40,11 +47,5 @@
     "semantic-release": "^17.3.0",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
-  },
-  "dependencies": {
-    "@babel/plugin-transform-runtime": "^7.12.1",
-    "@babel/runtime": "^7.12.5",
-    "bulma": "^0.8.1",
-    "bulma-checkradio": "^1.1.1"
   }
 }
