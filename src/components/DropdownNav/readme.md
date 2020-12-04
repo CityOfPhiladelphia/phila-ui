@@ -12,11 +12,11 @@ myDropdownNavLinks: {
   button: "Options", //trigger
   links: [
     {
-      href: "profile"
+      href: "profile",
       text: "Profile",
     },
     {
-      href: "logout"
+      href: "logout",
       text: "Logout",
     }
   ]
