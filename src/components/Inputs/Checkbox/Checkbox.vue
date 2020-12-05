@@ -52,7 +52,6 @@
             role="checkbox"
             v-bind="option.attrs || {}"
             :value="optionValue(option, value)"
-            @change="updateModelValue($event, optionValue(option, value))"
             v-on="inputListeners"
           >
           <label
@@ -118,7 +117,7 @@ export default {
     * @ignore
     */
     value: {
-      type: Array,
+      type: null,
       default () {
         return [];
       },
@@ -158,8 +157,17 @@ export default {
       return Object.assign({},
         this.$listeners,
         {
-          change: async function (event) {
+          change: function (event) {
+
+            //Updates the vmodel value before emitting it
+            vm.updateModelValue(event, event.target.value);
+
+            //IE11 needs the change event to be emitted as it does not listen to input
             vm.$emit('change', vm.modelValue);
+
+            //VeeValidate needs the input event to be emitted.
+            vm.$emit('input', vm.modelValue);
+
           },
         }
       );
