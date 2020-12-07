@@ -8,7 +8,4 @@ export default theme({
   content: {
     liveEdit: false,
   },
-  router: {
-    base: '/phila-ui/',
-  },
 });
