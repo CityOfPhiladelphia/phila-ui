@@ -28,7 +28,6 @@
   "devDependencies": {
     "@nuxtjs/style-resources": "^1.0.0",
     "node-sass": "^4.0.0",
-    "sass-loader": "^10.1.0",
-    "vue-friendly-iframe": "^0.18.0"
+    "sass-loader": "^10.1.0"
   }
 }

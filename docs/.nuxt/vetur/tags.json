@@ -35,12 +35,6 @@
   "LazyList": {
     "description": "Auto imported from components/global/base/List.vue"
   },
-  "AppColorSwitcher": {
-    "description": "Auto imported from components/global/app/AppColorSwitcher.vue"
-  },
-  "LazyAppColorSwitcher": {
-    "description": "Auto imported from components/global/app/AppColorSwitcher.vue"
-  },
   "BuiltWithNuxtDark": {
     "description": "Auto imported from components/global/icons/BuiltWithNuxtDark.vue"
   },
@@ -166,6 +160,12 @@
   },
   "LazyIconXCircle": {
     "description": "Auto imported from components/global/icons/IconXCircle.vue"
+  },
+  "AppColorSwitcher": {
+    "description": "Auto imported from components/global/app/AppColorSwitcher.vue"
+  },
+  "LazyAppColorSwitcher": {
+    "description": "Auto imported from components/global/app/AppColorSwitcher.vue"
   },
   "AppCopyButton": {
     "description": "Auto imported from components/app/AppCopyButton.vue"

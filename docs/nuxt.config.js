@@ -1,4 +1,5 @@
 import theme from '@nuxt/content-theme-docs';
+import path from 'path';
 
 export default theme({
   docs: {
@@ -6,5 +7,8 @@ export default theme({
   },
   content: {
     liveEdit: false,
+  },
+  router: {
+    base: '/phila-ui/',
   },
 });

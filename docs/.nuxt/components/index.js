@@ -4,7 +4,6 @@ export { default as CodeBlock } from '../../node_modules/@nuxt/content-theme-doc
 export { default as CodeGroup } from '../../node_modules/@nuxt/content-theme-docs/src/components/global/base/CodeGroup.vue'
 export { default as CodeSandbox } from '../../node_modules/@nuxt/content-theme-docs/src/components/global/base/CodeSandbox.vue'
 export { default as List } from '../../node_modules/@nuxt/content-theme-docs/src/components/global/base/List.vue'
-export { default as AppColorSwitcher } from '../../node_modules/@nuxt/content-theme-docs/src/components/global/app/AppColorSwitcher.vue'
 export { default as BuiltWithNuxtDark } from '../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/BuiltWithNuxtDark.vue'
 export { default as BuiltWithNuxtLight } from '../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/BuiltWithNuxtLight.vue'
 export { default as IconArrowLeft } from '../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/IconArrowLeft.vue'
@@ -26,6 +25,7 @@ export { default as IconTranslate } from '../../node_modules/@nuxt/content-theme
 export { default as IconTwitter } from '../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/IconTwitter.vue'
 export { default as IconX } from '../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/IconX.vue'
 export { default as IconXCircle } from '../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/IconXCircle.vue'
+export { default as AppColorSwitcher } from '../../node_modules/@nuxt/content-theme-docs/src/components/global/app/AppColorSwitcher.vue'
 export { default as AppCopyButton } from '../../node_modules/@nuxt/content-theme-docs/src/components/app/AppCopyButton.vue'
 export { default as AppDropdown } from '../../node_modules/@nuxt/content-theme-docs/src/components/app/AppDropdown.vue'
 export { default as AppFooter } from '../../node_modules/@nuxt/content-theme-docs/src/components/app/AppFooter.vue'
@@ -44,7 +44,6 @@ export const LazyCodeBlock = import('../../node_modules/@nuxt/content-theme-docs
 export const LazyCodeGroup = import('../../node_modules/@nuxt/content-theme-docs/src/components/global/base/CodeGroup.vue' /* webpackChunkName: "components/global/base/CodeGroup" */).then(c => c.default || c)
 export const LazyCodeSandbox = import('../../node_modules/@nuxt/content-theme-docs/src/components/global/base/CodeSandbox.vue' /* webpackChunkName: "components/global/base/CodeSandbox" */).then(c => c.default || c)
 export const LazyList = import('../../node_modules/@nuxt/content-theme-docs/src/components/global/base/List.vue' /* webpackChunkName: "components/global/base/List" */).then(c => c.default || c)
-export const LazyAppColorSwitcher = import('../../node_modules/@nuxt/content-theme-docs/src/components/global/app/AppColorSwitcher.vue' /* webpackChunkName: "components/global/app/AppColorSwitcher" */).then(c => c.default || c)
 export const LazyBuiltWithNuxtDark = import('../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/BuiltWithNuxtDark.vue' /* webpackChunkName: "components/global/icons/BuiltWithNuxtDark" */).then(c => c.default || c)
 export const LazyBuiltWithNuxtLight = import('../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/BuiltWithNuxtLight.vue' /* webpackChunkName: "components/global/icons/BuiltWithNuxtLight" */).then(c => c.default || c)
 export const LazyIconArrowLeft = import('../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/IconArrowLeft.vue' /* webpackChunkName: "components/global/icons/IconArrowLeft" */).then(c => c.default || c)
@@ -66,6 +65,7 @@ export const LazyIconTranslate = import('../../node_modules/@nuxt/content-theme-
 export const LazyIconTwitter = import('../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/IconTwitter.vue' /* webpackChunkName: "components/global/icons/IconTwitter" */).then(c => c.default || c)
 export const LazyIconX = import('../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/IconX.vue' /* webpackChunkName: "components/global/icons/IconX" */).then(c => c.default || c)
 export const LazyIconXCircle = import('../../node_modules/@nuxt/content-theme-docs/src/components/global/icons/IconXCircle.vue' /* webpackChunkName: "components/global/icons/IconXCircle" */).then(c => c.default || c)
+export const LazyAppColorSwitcher = import('../../node_modules/@nuxt/content-theme-docs/src/components/global/app/AppColorSwitcher.vue' /* webpackChunkName: "components/global/app/AppColorSwitcher" */).then(c => c.default || c)
 export const LazyAppCopyButton = import('../../node_modules/@nuxt/content-theme-docs/src/components/app/AppCopyButton.vue' /* webpackChunkName: "components/app/AppCopyButton" */).then(c => c.default || c)
 export const LazyAppDropdown = import('../../node_modules/@nuxt/content-theme-docs/src/components/app/AppDropdown.vue' /* webpackChunkName: "components/app/AppDropdown" */).then(c => c.default || c)
 export const LazyAppFooter = import('../../node_modules/@nuxt/content-theme-docs/src/components/app/AppFooter.vue' /* webpackChunkName: "components/app/AppFooter" */).then(c => c.default || c)

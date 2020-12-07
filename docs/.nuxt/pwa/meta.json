@@ -58,16 +58,16 @@
   "link": [
     {
       "rel": "shortcut icon",
-      "href": "/_nuxt/icons/icon_64x64.ec4e7f.png"
+      "href": "/phila-ui/_nuxt/icons/icon_64x64.ec4e7f.png"
     },
     {
       "rel": "apple-touch-icon",
-      "href": "/_nuxt/icons/icon_512x512.ec4e7f.png",
+      "href": "/phila-ui/_nuxt/icons/icon_512x512.ec4e7f.png",
       "sizes": "512x512"
     },
     {
       "rel": "manifest",
-      "href": "/_nuxt/manifest.4185437a.json",
+      "href": "/phila-ui/_nuxt/manifest.b6d0d671.json",
       "hid": "manifest"
     }
   ],
