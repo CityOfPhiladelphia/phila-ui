@@ -1,8 +1,23 @@
 [
   {
-    "name": "",
-    "path": "",
-    "component": "/Users/ibdf/dev/phila-ui/docs-build/node_modules/@nuxt/vue-app/template/pages/index.vue",
-    "_name": "_1f1027ba"
+    "name": "releases___en",
+    "path": "/releases",
+    "component": "/Users/ibdf/dev/phila-ui/docs/node_modules/@nuxt/content-theme-docs/src/pages/releases.vue",
+    "chunkName": "pages/releases",
+    "_name": "_ef83bfda"
+  },
+  {
+    "name": "index___en",
+    "path": "/",
+    "component": "/Users/ibdf/dev/phila-ui/docs/node_modules/@nuxt/content-theme-docs/src/pages/_.vue",
+    "chunkName": "pages/_",
+    "_name": "_ce324fb0"
+  },
+  {
+    "name": "all___en",
+    "path": "/*",
+    "component": "/Users/ibdf/dev/phila-ui/docs/node_modules/@nuxt/content-theme-docs/src/pages/_.vue",
+    "chunkName": "pages/_",
+    "_name": "_ce324fb0"
   }
 ]

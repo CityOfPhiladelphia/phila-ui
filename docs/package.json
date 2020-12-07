@@ -7,8 +7,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "docgen": "vue-docgen --watch",
-    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+    "docgen": "vue-docgen --watch"
   },
   "dependencies": {
     "@nuxt/content": "^1.11.1",
@@ -29,8 +28,6 @@
   "devDependencies": {
     "@nuxtjs/style-resources": "^1.0.0",
     "node-sass": "^4.0.0",
-    "push-dir": "^0.4.1",
-    "sass-loader": "^10.1.0",
-    "vue-friendly-iframe": "^0.18.0"
+    "sass-loader": "^10.1.0"
   }
 }

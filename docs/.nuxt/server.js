@@ -43,7 +43,7 @@ const createNext = ssrContext => (opts) => {
   }
   opts.query = stringify(opts.query)
   opts.path = opts.path + (opts.query ? '?' + opts.query : '')
-  const routerBase = '/'
+  const routerBase = '/phila-ui/'
   if (!opts.path.startsWith('http') && (routerBase !== '/' && !opts.path.startsWith(routerBase))) {
     opts.path = urlJoin(routerBase, opts.path)
   }
@@ -70,7 +70,7 @@ export default async (ssrContext) => {
   // Used for beforeNuxtRender({ Components, nuxtState })
   ssrContext.beforeRenderFns = []
   // Nuxt object (window.{{globals.context}}, defaults to window.__NUXT__)
-  ssrContext.nuxt = { layout: 'default', data: [], fetch: [], error: null, serverRendered: true, routePath: '' }
+  ssrContext.nuxt = { layout: 'default', data: [], fetch: [], error: null, state: null, serverRendered: true, routePath: '' }
   // Remove query from url is static target
   if (process.static && ssrContext.url) {
     ssrContext.url = ssrContext.url.split('?')[0]
@@ -78,7 +78,7 @@ export default async (ssrContext) => {
   // Public runtime config
   ssrContext.nuxt.config = ssrContext.runtimeConfig.public
   // Create the app definition and the instance (created for each request)
-  const { app, router } = await createApp(ssrContext, { ...ssrContext.runtimeConfig.public, ...ssrContext.runtimeConfig.private })
+  const { app, router, store } = await createApp(ssrContext, { ...ssrContext.runtimeConfig.public, ...ssrContext.runtimeConfig.private })
   const _app = new Vue(app)
   // Add ssr route path to nuxt context so we can account for page navigation between ssr and csr
   ssrContext.nuxt.routePath = app.context.route.path
@@ -92,6 +92,11 @@ export default async (ssrContext) => {
   const beforeRender = async () => {
     // Call beforeNuxtRender() methods
     await Promise.all(ssrContext.beforeRenderFns.map(fn => promisify(fn, { Components, nuxtState: ssrContext.nuxt })))
+
+    ssrContext.rendered = () => {
+      // Add the state from the vuex store
+      ssrContext.nuxt.state = store.state
+    }
   }
 
   const renderErrorPage = async () => {
@@ -115,13 +120,34 @@ export default async (ssrContext) => {
     return renderErrorPage()
   }
 
+  const s = Date.now()
+
   // Components are already resolved by setContext -> getRouteData (app/utils.js)
   const Components = getMatchedComponents(router.match(ssrContext.url))
 
   /*
+  ** Dispatch store nuxtServerInit
+  */
+  if (store._actions && store._actions.nuxtServerInit) {
+    try {
+      await store.dispatch('nuxtServerInit', app.context)
+    } catch (err) {
+      console.debug('Error occurred when calling nuxtServerInit: ', err.message)
+      throw err
+    }
+  }
+  // ...If there is a redirect or an error, stop the process
+  if (ssrContext.redirected) {
+    return noopApp()
+  }
+  if (ssrContext.nuxt.error) {
+    return renderErrorPage()
+  }
+
+  /*
   ** Call global middleware (nuxt.config.js)
   */
-  let midd = []
+  let midd = ["nuxti18n"]
   midd = midd.map((name) => {
     if (typeof name === 'function') {
       return name
@@ -249,6 +275,8 @@ export default async (ssrContext) => {
 
     return Promise.all(promises)
   }))
+
+  if (process.env.DEBUG && asyncDatas.length) console.debug('Data fetching ' + ssrContext.url + ': ' + (Date.now() - s) + 'ms')
 
   // datas are the first row of each
   ssrContext.nuxt.data = asyncDatas.map(r => r[0] || {})

@@ -1,12 +1,22 @@
 import Vue from 'vue'
 
 import { getMatchedComponentsInstances, getChildrenComponentInstancesUsingFetch, promisify, globalHandleError, urlJoin, sanitizeComponent } from './utils'
-import NuxtError from './components/nuxt-error.vue'
+import NuxtError from '../node_modules/@nuxt/content-theme-docs/src/layouts/error.vue'
 import NuxtLoading from './components/nuxt-loading.vue'
+import NuxtBuildIndicator from './components/nuxt-build-indicator'
 
-import _6f6c098b from './layouts/default.vue'
+import '../node_modules/@nuxtjs/tailwindcss/lib/files/tailwind.css'
 
-const layouts = { "_default": sanitizeComponent(_6f6c098b) }
+import '../node_modules/@nuxt/content-theme-docs/src/assets/css/main.css'
+
+import '../node_modules/@nuxt/content-theme-docs/src/assets/css/main.dev.css'
+
+import '../node_modules/prism-themes/themes/prism-material-oceanic.css'
+
+import _6f6c098b from '../node_modules/@nuxt/content-theme-docs/src/layouts/default.vue'
+import _ee708084 from '../node_modules/@nuxt/content-theme-docs/src/layouts/single.vue'
+
+const layouts = { "_default": sanitizeComponent(_6f6c098b),"_single": sanitizeComponent(_ee708084) }
 
 export default {
   render (h, props) {
@@ -41,7 +51,7 @@ export default {
       }
     }, [
       loadingEl,
-
+      h(NuxtBuildIndicator),
       transitionEl
     ])
   },
@@ -181,6 +191,10 @@ export default {
     },
 
     setLayout (layout) {
+      if(layout && typeof layout !== 'string') {
+        throw new Error('[nuxt] Avoid using non-string value as layout property.')
+      }
+
       if (!layout || !layouts['_' + layout]) {
         layout = 'default'
       }

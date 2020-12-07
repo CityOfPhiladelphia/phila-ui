@@ -1,16 +1,33 @@
 import Vue from 'vue'
-
+import Vuex from 'vuex'
 import Meta from 'vue-meta'
 import ClientOnly from 'vue-client-only'
 import NoSsr from 'vue-no-ssr'
 import { createRouter } from './router.js'
 import NuxtChild from './components/nuxt-child.js'
-import NuxtError from './components/nuxt-error.vue'
+import NuxtError from '../node_modules/@nuxt/content-theme-docs/src/layouts/error.vue'
 import Nuxt from './components/nuxt.js'
 import App from './App.js'
 import { setContext, getLocation, getRouteData, normalizeError } from './utils'
+import { createStore } from './store.js'
 
 /* Plugins */
+
+import nuxt_plugin_plugin_344fb217 from 'nuxt_plugin_plugin_344fb217' // Source: ./components/plugin.js (mode: 'all')
+import nuxt_plugin_pluginclient_4fec9a13 from 'nuxt_plugin_pluginclient_4fec9a13' // Source: ./content/plugin.client.js (mode: 'client')
+import nuxt_plugin_pluginserver_94b3e8ca from 'nuxt_plugin_pluginserver_94b3e8ca' // Source: ./content/plugin.server.js (mode: 'server')
+import nuxt_plugin_pluginrouting_64a8600e from 'nuxt_plugin_pluginrouting_64a8600e' // Source: ./nuxt-i18n/plugin.routing.js (mode: 'all')
+import nuxt_plugin_pluginmain_f9ba73d4 from 'nuxt_plugin_pluginmain_f9ba73d4' // Source: ./nuxt-i18n/plugin.main.js (mode: 'all')
+import nuxt_plugin_workbox_3bc04589 from 'nuxt_plugin_workbox_3bc04589' // Source: ./workbox.js (mode: 'client')
+import nuxt_plugin_meta_60999ade from 'nuxt_plugin_meta_60999ade' // Source: ./pwa/meta.js (mode: 'all')
+import nuxt_plugin_icons_15af67be from 'nuxt_plugin_icons_15af67be' // Source: ./pwa/icons.js (mode: 'all')
+import nuxt_plugin_pluginserver_4d97a522 from 'nuxt_plugin_pluginserver_4d97a522' // Source: ./color-mode/plugin.server.js (mode: 'server')
+import nuxt_plugin_pluginclient_737abbe7 from 'nuxt_plugin_pluginclient_737abbe7' // Source: ./color-mode/plugin.client.js (mode: 'client')
+import nuxt_plugin_markdown_667a7ee3 from 'nuxt_plugin_markdown_667a7ee3' // Source: ../node_modules/@nuxt/content-theme-docs/src/plugins/markdown (mode: 'all')
+import nuxt_plugin_init_9269fdf8 from 'nuxt_plugin_init_9269fdf8' // Source: ../node_modules/@nuxt/content-theme-docs/src/plugins/init (mode: 'all')
+import nuxt_plugin_i18n_6bd029b2 from 'nuxt_plugin_i18n_6bd029b2' // Source: ../node_modules/@nuxt/content-theme-docs/src/plugins/i18n.client (mode: 'client')
+import nuxt_plugin_vuescrollactive_41e62aee from 'nuxt_plugin_vuescrollactive_41e62aee' // Source: ../node_modules/@nuxt/content-theme-docs/src/plugins/vue-scrollactive (mode: 'all')
+import nuxt_plugin_menu_4ba55674 from 'nuxt_plugin_menu_4ba55674' // Source: ../node_modules/@nuxt/content-theme-docs/src/plugins/menu.client (mode: 'client')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -48,16 +65,31 @@ Vue.use(Meta, {"keyName":"head","attribute":"data-n-head","ssrAttribute":"data-n
 
 const defaultTransition = {"name":"page","mode":"out-in","appear":false,"appearClass":"appear","appearActiveClass":"appear-active","appearToClass":"appear-to"}
 
+const originalRegisterModule = Vuex.Store.prototype.registerModule
+const baseStoreOptions = { preserveState: process.client }
+
+function registerModule (path, rawModule, options = {}) {
+  return originalRegisterModule.call(this, path, rawModule, { ...baseStoreOptions, ...options })
+}
+
 async function createApp(ssrContext, config = {}) {
   const router = await createRouter(ssrContext)
+
+  const store = createStore(ssrContext)
+  // Add this.$router into store actions/mutations
+  store.$router = router
+
+  // Fix SSR caveat https://github.com/nuxt/nuxt.js/issues/3757#issuecomment-414689141
+  store.registerModule = registerModule
 
   // Create Root instance
 
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"meta":[],"link":[],"style":[],"script":[]},
+    head: {"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"}],"link":[{"hid":"gf-prefetch","rel":"dns-prefetch","href":"https:\u002F\u002Ffonts.gstatic.com\u002F"},{"hid":"gf-preconnect","rel":"preconnect","href":"https:\u002F\u002Ffonts.gstatic.com\u002F","crossorigin":""},{"hid":"gf-preload","rel":"preload","as":"style","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=DM+Sans&family=DM+Mono"}],"style":[],"script":[{"hid":"nuxt-color-mode-script","innerHTML":"!function (){\"use strict\";var e=window,s=document,o=s.documentElement,a=[\"dark\",\"light\"],t=window.localStorage.getItem(\"nuxt-color-mode\")||\"system\",c=\"system\"===t?l():t,i=s.body.getAttribute(\"data-color-mode-forced\");function r(e){var s=\"\"+e+\"-mode\";o.classList?o.classList.add(s):o.className+=\" \"+s}function n(s){return e.matchMedia(\"(prefers-color-scheme\"+s+\")\")}function l(){if(e.matchMedia&&\"not all\"!==n(\"\").media)for(var s of a)if(n(\":\"+s).matches)return s;return\"light\"}i&&(c=i),r(c),e[\"__NUXT_COLOR_MODE__\"]={preference:t,value:c,getColorScheme:l,addClass:r,removeClass:function(e){var s=\"\"+e+\"-mode\";o.classList?o.classList.remove(s):o.className=o.className.replace(new RegExp(s,\"g\"),\"\")}}}();\n","pbody":true},{"hid":"gf-script","innerHTML":"(function(){var l=document.createElement('link');l.rel=\"stylesheet\";l.href=\"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=DM+Sans&family=DM+Mono\";document.querySelector(\"head\").appendChild(l);})();"}],"__dangerouslyDisableSanitizersByTagID":{"nuxt-color-mode-script":["innerHTML"],"gf-script":["innerHTML"],"gf-noscript":["innerHTML"]},"noscript":[{"hid":"gf-noscript","innerHTML":"\u003Clink rel=\"stylesheet\" href=\"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=DM+Sans&family=DM+Mono\"\u003E"}]},
 
+    store,
     router,
     nuxt: {
       defaultTransition,
@@ -102,6 +134,9 @@ async function createApp(ssrContext, config = {}) {
     ...App
   }
 
+  // Make app available into store via this.app
+  store.app = app
+
   const next = ssrContext ? ssrContext.next : location => app.router.push(location)
   // Resolve route
   let route
@@ -114,6 +149,7 @@ async function createApp(ssrContext, config = {}) {
 
   // Set context to app.context
   await setContext(app, {
+    store,
     route,
     next,
     error: app.nuxt.error.bind(app),
@@ -140,6 +176,9 @@ async function createApp(ssrContext, config = {}) {
       app.context[key] = value
     }
 
+    // Add into store
+    store[key] = app[key]
+
     // Check if plugin not already installed
     const installKey = '__nuxt_' + key + '_installed__'
     if (Vue[installKey]) {
@@ -161,6 +200,13 @@ async function createApp(ssrContext, config = {}) {
   // Inject runtime config as $config
   inject('config', config)
 
+  if (process.client) {
+    // Replace store state before plugins execution
+    if (window.__NUXT__ && window.__NUXT__.state) {
+      store.replaceState(window.__NUXT__.state)
+    }
+  }
+
   // Add enablePreview(previewData = {}) in context for plugins
   if (process.static && process.client) {
     app.context.enablePreview = function (previewData = {}) {
@@ -169,6 +215,66 @@ async function createApp(ssrContext, config = {}) {
     }
   }
   // Plugin execution
+
+  if (typeof nuxt_plugin_plugin_344fb217 === 'function') {
+    await nuxt_plugin_plugin_344fb217(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_pluginclient_4fec9a13 === 'function') {
+    await nuxt_plugin_pluginclient_4fec9a13(app.context, inject)
+  }
+
+  if (process.server && typeof nuxt_plugin_pluginserver_94b3e8ca === 'function') {
+    await nuxt_plugin_pluginserver_94b3e8ca(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_pluginrouting_64a8600e === 'function') {
+    await nuxt_plugin_pluginrouting_64a8600e(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_pluginmain_f9ba73d4 === 'function') {
+    await nuxt_plugin_pluginmain_f9ba73d4(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_workbox_3bc04589 === 'function') {
+    await nuxt_plugin_workbox_3bc04589(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_meta_60999ade === 'function') {
+    await nuxt_plugin_meta_60999ade(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_icons_15af67be === 'function') {
+    await nuxt_plugin_icons_15af67be(app.context, inject)
+  }
+
+  if (process.server && typeof nuxt_plugin_pluginserver_4d97a522 === 'function') {
+    await nuxt_plugin_pluginserver_4d97a522(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_pluginclient_737abbe7 === 'function') {
+    await nuxt_plugin_pluginclient_737abbe7(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_markdown_667a7ee3 === 'function') {
+    await nuxt_plugin_markdown_667a7ee3(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_init_9269fdf8 === 'function') {
+    await nuxt_plugin_init_9269fdf8(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_i18n_6bd029b2 === 'function') {
+    await nuxt_plugin_i18n_6bd029b2(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_vuescrollactive_41e62aee === 'function') {
+    await nuxt_plugin_vuescrollactive_41e62aee(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_menu_4ba55674 === 'function') {
+    await nuxt_plugin_menu_4ba55674(app.context, inject)
+  }
 
   // Lock enablePreview in context
   if (process.static && process.client) {
@@ -199,6 +305,7 @@ async function createApp(ssrContext, config = {}) {
   }
 
   return {
+    store,
     app,
     router
   }
