@@ -22,6 +22,8 @@ See VeeValidation documentation on how to register/extend the [validation rules]
 ## PhilaUI setup
 Below are two ways of using the ``withValidation`` function, depending on how PhilaUI was registered.
 
+<alert type="warning">Important: currently ``withValidation`` does NOT render a component's slot. In this case the ``<ValidationProvider>`` will have to be manually added to the template.</alert>
+
 ### Global registration
 If importing the whole PhilaUI library and registering it globally with ``Vue.use(PhilaUI)``, then a PhilaUI helper can be used to automate this task.
 
