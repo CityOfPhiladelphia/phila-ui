@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Deploy Docs
 
 on:
   push:
@@ -12,10 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - uses: webfactory/ssh-agent@v0.4.1
-      with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
     - name: Use Node.js 10.x
       uses: actions/setup-node@v1
       with:
@@ -23,8 +19,7 @@ jobs:
 
     - name: generate
       run: |
-        cd docs
-        npm run generate
+        cd docs && npm run generate
 
     - name: Deploy to s3
       env:
