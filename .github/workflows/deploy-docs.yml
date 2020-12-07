@@ -19,7 +19,7 @@ jobs:
 
     - name: generate
       run: |
-        cd docs && npm run generate
+        cd docs && npm install && npm run generate
 
     - name: Deploy to s3
       env:

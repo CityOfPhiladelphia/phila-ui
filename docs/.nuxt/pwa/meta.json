@@ -23,7 +23,7 @@
     {
       "hid": "description",
       "name": "description",
-      "content": "## Setup"
+      "content": "See: https://cityofphiladelphia.github.io/phila-ui/"
     },
     {
       "hid": "theme-color",
@@ -52,7 +52,7 @@
       "hid": "og:description",
       "name": "og:description",
       "property": "og:description",
-      "content": "## Setup"
+      "content": "See: https://cityofphiladelphia.github.io/phila-ui/"
     }
   ],
   "link": [
@@ -67,7 +67,7 @@
     },
     {
       "rel": "manifest",
-      "href": "/phila-ui/_nuxt/manifest.b6d0d671.json",
+      "href": "/phila-ui/_nuxt/manifest.a8e4dbe6.json",
       "hid": "manifest"
     }
   ],
