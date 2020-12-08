@@ -51,7 +51,7 @@
             class="is-checkradio"
             role="checkbox"
             v-bind="option.attrs || {}"
-            :value="optionValue(option, value)"
+            :value="optionValue(option, key)"
             v-on="inputListeners"
           >
           <label
@@ -175,6 +175,7 @@ export default {
   },
   methods: {
     updateModelValue (event, value) {
+      console.log(value);
       if (event.target.checked) {
         if (this.options.length === 1) {
           this.modelValue = [ this.$attrs['true-value'] || value ];
