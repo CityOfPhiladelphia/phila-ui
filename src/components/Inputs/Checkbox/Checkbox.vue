@@ -175,7 +175,6 @@ export default {
   },
   methods: {
     updateModelValue (event, value) {
-      console.log(value);
       if (event.target.checked) {
         if (this.options.length === 1) {
           this.modelValue = [ this.$attrs['true-value'] || value ];
