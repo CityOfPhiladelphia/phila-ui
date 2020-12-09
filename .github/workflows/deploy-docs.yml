@@ -28,4 +28,4 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: |
         aws s3 sync docs/dist s3://phila-ui-docs --region us-east-1 --delete
-        aws cloudfront create-invalidation --distribution-id E15XMAQMMD8586 --paths "/*"
+        aws cloudfront create-invalidation --distribution-id ELN6LO4HZUFT9 --paths "/*"
