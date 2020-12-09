@@ -51,7 +51,7 @@
             class="is-checkradio"
             role="checkbox"
             v-bind="option.attrs || {}"
-            :value="optionValue(option, value)"
+            :value="optionValue(option, key)"
             v-on="inputListeners"
           >
           <label
@@ -113,11 +113,8 @@ export default {
       default: "",
     },
 
-    /**
-    * @ignore
-    */
     value: {
-      type: null,
+      type: [ Array ],
       default () {
         return [];
       },
@@ -153,6 +150,9 @@ export default {
   },
   computed: {
     inputListeners: function () {
+
+      delete this.$listeners['input'];
+
       var vm = this;
       return Object.assign({},
         this.$listeners,
