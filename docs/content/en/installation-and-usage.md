@@ -7,7 +7,7 @@ badge: ''
 ---
 
 ## Installing
-Using npm is recommended for installing PhilaUI.
+Using npm is recommended:
 ```
 npm install @phila/phila-ui --save
 ```
@@ -66,7 +66,7 @@ Using the components in the vue template:
 ```
 
 ## Styles
-PhilaUI scss modifies and expands on the defaults of the [Bulma](https://bulma.io/) library, thuss Bulma is included as a dependency of PhilaUI.
+PhilaUI scss modifies and expands on the defaults of the [Bulma](https://bulma.io/) library, thus Bulma is included as a dependency of PhilaUI.
 
 ### Importing styles
 Styles need to be imported seperately from components. It's best to do it in the project's main scss file.
@@ -90,7 +90,7 @@ If needed, scss files can be imported individually, which would allow certain va
 <alert type="warning">A css minified file is not currently exported, as the project should handle the final css output.</alert>
 
 ### Making variables available
-It's recommended to import PhilaUI scss variables globally, so that they can be referred to, in the project.
+It's recommended to import PhilaUI scss variables globally, so that they can be referred to in the project's other styles.
 
 #### Example of adding PhilaUI variables to the vue.config.js
 ```js

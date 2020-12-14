@@ -49,7 +49,7 @@ Vue.use(PhilaUI);
 | appTitle      | The application's title/name                                                                                                              | string  | -      | "Application Name"    |
 | appLink       | The application's title link. 99% of the time the application title should link to itself.                                                | string  | -      | "/"                   |
 | appSubtitle   | The application's subtitle/description                                                                                                    | string  | -      | ""                    |
-| brandingImage | Branding image (eg. department logo). Accepts an Object of image attributes.                                                              | object  | -      | {<br> src: '',<br>}   |
+| brandingImage | Branding image (eg. department logo). Accepts an Object of image attributes.                                                              | object  | -      | null                  |
 | brandingLink  | Branding image link. Accepts an Object of link attributes.                                                                                | object  | -      | {<br> href: '/',<br>} |
 | isFluid       | Allows the header elements (logo, title, navigation...) to expand with the window width, or stay aligned in the center (not recommended). | boolean | -      | false                 |
 | isSticky      | Fixes the header to the top of the page<br>Requires the application to have a <main> tag                                                  | boolean | -      | true                  |
@@ -99,10 +99,7 @@ The `branding-image` accepts an object of `<img>` attributes.
 }
 ```
 
-<alert>The image width and height are not enforced. Use the width image attribute or css styles to set it. Setting a width will add the following style rules <code>
-    height: auto;
-    max-width: 100%;
-    </code></alert>
+<alert>The image width and height are not enforced. Use the image attributes width/height, or css styles to set it.</alert>
 
 The `branding-link` accepts an object of `<a>` attributes.
 
