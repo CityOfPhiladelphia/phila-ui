@@ -38,6 +38,23 @@ As long as the PhilaUI watcher is running, changes to the PhilaUI library should
 ### Submit your changes
 Whenever changes are made to PhilaUI a PR should be submitted and approved before the content is pushed to production.
 
+PhilaUI follows the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) guidelines for commit messages.
+
+**Usage summary:**
+| Message | Usage | Effect |
+|---|---|---|
+| ***fix:*** | for bug fixing and patches | relase: patch bump |
+| ***style:*** |for styles only fixes | no release |
+| ***docs:*** | for documentation updates | no release |
+| ***feat:*** | for minor added features | relase: minor version bump |
+| ***BREAKING CHANGE:*** | (in the commit body) for major releases | release: major version bump |
+
+For the sake of keeping things organized branch names can follow a similar convention:
+- fix/{fix-name}
+- style/{style-name}
+- feat/{feat-name}
+- docs/{docs-name}
+
 ### Component requirements
 Before making to production components should be checked for the following requirements:
 
