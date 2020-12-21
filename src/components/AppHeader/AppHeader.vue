@@ -192,7 +192,7 @@ export default {
 
     /**
      * Fixes the header to the top of the page
-     * Requires the application to have a <main> tag
+     * Requires the application to have the ``<main>`` tag for content positioning calculations
     */
     isSticky: {
       type: Boolean,
