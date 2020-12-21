@@ -6,6 +6,6 @@
     "dark": "/city-of-philadelphia.svg"
   },
   "defaultDir": "docs",
-  "defaultBranch": "docs",
+  "defaultBranch": "master",
   "github": "CityOfPhiladelphia/phila-ui"
 }
