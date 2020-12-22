@@ -28,6 +28,30 @@ export default [ 'phila-ui' ].map((name) => ({
   },
   ],
   plugins: [
+    alias({
+      entries: [
+        {
+          find: '@',
+          replacement: path.resolve(projectRootDir, 'src'),
+        },
+        // {
+        //   find: 'utils',
+        //   replacement: path.resolve(projectRootDir, 'src/utils'),
+        // },
+        // {
+        //   find: 'components',
+        //   replacement: path.resolve(projectRootDir, 'src/components'),
+        // },
+        {
+          find: 'assets',
+          replacement: path.resolve(projectRootDir, 'src/assets'),
+        },
+        {
+          find: 'styles',
+          replacement: path.resolve(projectRootDir, 'src/assets/styles/scss'),
+        },
+      ],
+    }),
     image(),
     commonjs(),
     vue({
@@ -50,26 +74,6 @@ export default [ 'phila-ui' ].map((name) => ({
     babel({
       exclude: 'node_modules/**',
       babelHelpers: 'runtime',
-    }),
-    alias({
-      entries: [
-        {
-          find: 'utils',
-          replacement: path.resolve(projectRootDir, 'src/utils'),
-        },
-        {
-          find: 'components',
-          replacement: path.resolve(projectRootDir, 'src/components'),
-        },
-        {
-          find: 'assets',
-          replacement: path.resolve(projectRootDir, 'src/assets'),
-        },
-        {
-          find: 'styles',
-          replacement: path.resolve(projectRootDir, 'src/assets/styles/scss'),
-        },
-      ],
     }),
   ],
 }));

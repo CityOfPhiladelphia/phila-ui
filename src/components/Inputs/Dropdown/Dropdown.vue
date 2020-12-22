@@ -77,7 +77,7 @@
   </div>
 </template>
 <script>
-import { inputMixins } from 'utils/inputMixins';
+import { inputMixins } from '@/utils/inputMixins';
 /**
  * Styled select input
  * @niceName Dropdown / Select
@@ -189,7 +189,7 @@ export default {
             //Change event is necessary for everything else
             vm.$emit('change', vm.localSelected);
           },
-        }
+        },
       );
     },
     inputModifierClasses () {

@@ -62,7 +62,7 @@
   </div>
 </template>
 <script>
-import { inputMixins } from 'utils/inputMixins';
+import { inputMixins } from '@/utils/inputMixins';
 /**
  * Displays a text input
  * @niceName Text Input
@@ -151,7 +151,7 @@ export default {
           input: function (event) {
             vm.$emit('input', event.target.value);
           },
-        }
+        },
       );
     },
     inputModifierClasses () {
