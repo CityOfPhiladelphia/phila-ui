@@ -112,6 +112,12 @@
                 </div>
               </div>
             </div>
+            <div
+              v-if="$slots['textbox-form']"
+              class="column has-text-centered mobile-nav-col"
+            >
+              <slot name="textbox-form" />
+            </div>
           </div>
         </nav>
       </div>
