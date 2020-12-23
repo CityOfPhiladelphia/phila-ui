@@ -1,14 +1,11 @@
 import { mount } from '@vue/test-utils';
 import AppHeader from '@/components/AppHeader';
+import { links } from './resources';
 
 
 describe('AppHeader', () => {
   it('Render props: appTitle, appLink, appSubtittle, brandingImage and brandingLink when passed, and slotss.', async () => {
-    const brandingLink = {
-      type: 'native',
-      href: 'https://example.com',
-      id: 'id1',
-    };
+    const brandingLink = links[0];
 
     const tabsNav = `<div>Tabs Nav</div>`;
     const leftNav = `<div>Left Nav</div>`;
@@ -51,7 +48,7 @@ describe('AppHeader', () => {
     expect(html).toContain('http://example.com'); // Test render app link
     expect(html).toContain('https://standards.phila.gov/img/logo/city-of-philadelphia-yellow-white.png'); // Test render branding image
     expect(html).toContain('City Of Philadelphia Logo'); // Second test render branding image
-    expect(html).toContain('id1'); // Test render branding link.
+    expect(html).toContain(links[0].text); // Test render branding link.
 
 
     // Test slots

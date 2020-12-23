@@ -3,6 +3,8 @@ import VueRouter from 'vue-router';
 import AppFooter from '@/components/AppFooter';
 // import AppHeader from '@/components/AppHeader';
 
+import { links } from './resources';
+
 // Creates a view instance for local unit test.
 const localVue = createLocalVue();
 localVue.use(VueRouter);
@@ -12,30 +14,7 @@ const router = new VueRouter();
 describe('AppFooter', () => {
   it('Render props.links when passed. Also test the default slot', async () => {
     const linksSlot = `<p>Links slot</p>`;
-
-    const links = [
-      {
-        type: 'native',
-        href: 'https://example.com',
-        attrs: {
-          id: 'id1',
-        },
-      },
-      {
-        type: 'native',
-        href: 'https://example.com',
-        click: () => { console.log('Just clicked'); },
-        attrs: {
-          id: 'id2',
-        },
-      },
-      {
-        href: '',
-        attrs: {
-          id: 'id3',
-        },
-      },
-    ];
+    
     const wrapper = mount(AppFooter, {
       localVue,
       router,
@@ -46,10 +25,10 @@ describe('AppFooter', () => {
     // Test the links prop. 
     const html = wrapper.html();
 
-    expect(html).toContain('https://example.com');
-    expect(html).toContain('id1');
-    expect(html).toContain('id2');
-    expect(html).toContain('id3');
+    expect(html).toContain(links[0].href);
+    expect(html).toContain(links[0].text);
+    expect(html).toContain(links[1].text);
+    expect(html).toContain(links[2].text);
 
     wrapper.setProps({ links: [] });
     await wrapper.vm.$nextTick();
