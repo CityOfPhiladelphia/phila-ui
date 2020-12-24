@@ -1,0 +1,27 @@
+name: Release
+on:
+  pull_request:
+    branches:
+      - master
+      - beta
+      - alpha
+
+jobs:
+  unitTest:
+    name: Unit Test
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+      - name: Go to Test
+        run: cd Test
+      - name: Install
+        run: npm install
+      - name: Run lint
+        run: npm run lint
+      - name: Test
+        run: npm run test:unit
