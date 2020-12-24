@@ -17,11 +17,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '10.x'
-      - name: Go to Test
-        run: cd test
-      - name: Install
-        run: npm install
-      - name: Run lint
-        run: npm run lint
-      - name: Test
-        run: npm run test:unit
+      - name: Install test and run it.
+        run: |
+          cd test 
+          npm install
+          npm run test:unit
+
