@@ -24,3 +24,16 @@ export const links = [
     },
   },
 ];
+
+export const inputCommonProps = {
+  id: 'input-id-ABCD',
+  errors: '',
+
+  name: 'inputName',
+  label: 'Input label',
+  desc: 'Input description',
+  placeholder: 'Input placeholder',
+  value: 'First value',
+  isLoading: false,
+  innerLabel: true,
+};
