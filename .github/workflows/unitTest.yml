@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: '10.x'
       - name: Go to Test
-        run: cd Test
+        run: cd test
       - name: Install
         run: npm install
       - name: Run lint
