@@ -6,6 +6,8 @@ position: 0
 badge: ''
 ---
 
+<example name="Callout1"></example>
+
 ## About PhilaUI
 PhilaUI is the standard City of Philadelphia vue application library of components and styles.
 
