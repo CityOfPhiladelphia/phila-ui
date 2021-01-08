@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import Textarea from '@/components/inputs/Textarea';
+import Textarea from '@/components/Inputs/Textarea';
 
 import { inputCommonProps } from '../resources';
 import { textErrors, testBasicAttrs } from './helpers';

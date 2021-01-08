@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import Dropdown from '@/components/inputs/Dropdown';
+import Dropdown from '@/components/Inputs/Dropdown';
 
 import { inputCommonProps } from '../resources';
 import { textErrors, testBasicAttrs } from './helpers';

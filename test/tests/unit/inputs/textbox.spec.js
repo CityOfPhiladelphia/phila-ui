@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import Textbox from '@/components/inputs/Textbox';
+import Textbox from '@/components/Inputs/Textbox';
 
 import { inputCommonProps } from '../resources';
 import { textErrors, testBasicAttrs } from './helpers';
