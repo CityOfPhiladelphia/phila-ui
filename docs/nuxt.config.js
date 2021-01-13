@@ -1,4 +1,5 @@
 import theme from '@nuxt/content-theme-docs';
+import path from 'path';
 
 export default theme({
   docs: {

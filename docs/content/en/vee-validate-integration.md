@@ -19,31 +19,31 @@ npm install vee-validate --save
 ### Register validation rules
 See VeeValidation documentation on how to register/extend the [validation rules](https://logaretm.github.io/vee-validate/guide/basics.html#adding-rules).
 
-## PhilaUI setup
+## withValidation setup
 Below are two ways of using the ``withValidation`` function, depending on how PhilaUI was registered.
 
-### Global registration
-If importing the whole PhilaUI library and registering it globally with ``Vue.use(PhilaUI)``, then a PhilaUI helper can be used to automate this task.
+<alert type="warning">The ``withValidation`` function does NOT currently support components with slots. If the input being validated requires a slot, then the input will need to be wrapped manually by using the ``<ValidationProvider>``.
+</alert>
 
-<alert type="warning">Please note that VeeValidate must be installed for the helper to work.</alert>
-
-#### Configuring the helper
-The helper settings are passed during the registration as an option. The example below would add validation to the Textbox and Checkbox components:
-
+#### Global registration using withValidation
 ```js
-//Import the whole library PhilaUI
+//Import the whole library
 import * as PhilaUI from '@phila/phila-ui';
 
-Vue.use(PhilaUI, {
-  addValidationTo: ['Textbox', 'Checkbox']
-});
+//Import withValidation
+import { withValidation } from 'vee-validate';
+
+//Register components globally
+Vue.use(PhilaUI);
+
+//Add validation to Textbox and Checkbox
+const VeeTextbox = withValidation(PhilaUI.Textbox);
+const VeeCheckbox = withValidation(PhilaUI.Checkbox);
+
+//Register new components globally
+Vue.component('VeeTextbox', VeeTextbox);
+Vue.component('VeeCheckbox', VeeCheckbox);
 ```
-
-The above, registers two new components ``<vee-textbox>`` and ``<vee-checkbox>`` which are globally available in all vue templates.
-
-
-### Local registration
-If importing PhilaUI components individually, simply, use the ```withValidation``` function as needed.
 
 #### Local registration using withValidation
 ```js

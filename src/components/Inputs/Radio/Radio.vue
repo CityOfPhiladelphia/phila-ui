@@ -48,11 +48,11 @@
             :id="`rd-${key}-${id}`"
             type="radio"
             role="radio"
-            :aria-checked="modelValue === optionValue(option, key)"
+            :aria-checked="value === optionValue(option, key)"
             :name="`rd-${key}-${id}`"
             class="is-checkradio"
             :value="optionValue(option, key)"
-            :checked="modelValue === optionValue(option, key)"
+            :checked="value === optionValue(option, key)"
             v-bind="option.attrs || {}"
             v-on="inputListeners"
           >
@@ -67,7 +67,7 @@
   </div>
 </template>
 <script>
-import { inputMixins } from 'utils/inputMixins';
+import { inputMixins } from '@/utils/inputMixins';
 /**
  * Displays a group of radio buttons
  * @niceName Radio Buttons
@@ -80,10 +80,6 @@ export default {
     inputMixins,
   ],
   inheritAttrs: false,
-  model: {
-    prop: "modelValue",
-    event: "change",
-  },
   props: {
 
     /**
@@ -121,15 +117,7 @@ export default {
     * @ignore
     */
     value: {
-      type: String,
-      default: '',
-    },
-
-    /**
-    * @ignore
-    */
-    modelValue: {
-      type: String,
+      type: null,
       default: '',
     },
 
@@ -163,13 +151,16 @@ export default {
       return Object.assign({},
         this.$listeners,
         {
-          input: function (event) {
-            vm.$emit('input', event.target.value);
-          },
           change: function (event) {
+
+            //IE11 needs the change event to be emitted as it does not listen to input
             vm.$emit('change', event.target.value);
+
+            //VeeValidate needs the input event to be emitted.
+            vm.$emit('input', event.target.value);
+
           },
-        }
+        },
       );
     },
   },
