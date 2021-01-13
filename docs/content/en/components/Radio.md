@@ -127,3 +127,25 @@ To display an error provide a String with the error, or an Array of errors. Only
 ```
 
 <alert>This component supports VeeValidate errors. [Learn how to validate](/vee-validate-integration) with the VeeValidade plugin.<a></alert>
+
+## Live Examples
+
+### Radio with Array of options
+
+<example name="Radio1" height="300"></example>
+
+### Radio with options Object
+
+<example name="Radio2" height="300"></example>
+
+### Radio with Array of Object options
+
+<example name="Radio3" height="300"></example>
+
+### Radio with error
+
+<example name="Radio4" height="350"></example>
+
+### Radio with VeeValidate's validation
+
+<example name="Radio5" height="470"></example>

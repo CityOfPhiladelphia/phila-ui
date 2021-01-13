@@ -1,20 +1,16 @@
 <template>
-  <iframe v-show="src" :src="src" class="example-iframe" :height="height">
-  </iframe>
+  <iframe
+    v-show="src"
+    :src="src"
+    class="example-iframe"
+    :height="height"
+  />
 </template>
 
 <script>
 import Vue from 'vue';
-import VueFriendlyIframe from 'vue-friendly-iframe';
-
-Vue.use(VueFriendlyIframe);
 
 export default {
-  data () {
-    return {
-      src: '',
-    }
-  },
   props: {
     name: {
       type: String,
@@ -22,23 +18,59 @@ export default {
       required: true,
     },
     height: {
-      type: [Number, String],
+      type: [ Number, String ],
       default: 400,
     },
     horizontal: {
       type: Boolean,
       default: false,
     },
+    options: {
+      type: Object,
+      default () {
+        return {
+          hasFs: true,
+        };
+      },
+    },
+  },
+  data () {
+    return {
+      src: '',
+    };
   },
   mounted () {
     if (this.name) {
-      this.src = `http://localhost:8080/loader?example=${this.name}`;
+      this.src = `http://localhost:8080/loader/${this.name}`;
+
+      let defaults = {
+        hasBar: true,
+        hasCopy: true,
+        hasCode: true,
+        hasSplit: true,
+        hasPreview: true,
+        hasFs: true,
+      };
+
+      let paramOptions = { ...defaults, ...this.options };
+      //Possible Options
+      // hasBar
+      // hasCopy
+      // hasCode
+      // hasSplit
+      // hasFs: off by default
+
+      let params = [];
+
+      Object.keys(paramOptions).forEach(key => {
+        params.push(`${key}=${paramOptions[key]}`);
+      });
+
+      this.src= `${this.src}?${params.join('&')}`;
+
     }
-    if (this.height !== 400) {
-      this.src = `${this.src}&height=${this.height}`;
-    }
-  }
-}
+  },
+};
 </script>
 <style>
   .example-iframe {
