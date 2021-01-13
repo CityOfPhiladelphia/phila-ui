@@ -70,3 +70,10 @@ The default callout has a gray color
 />
 
 ```
+
+## Live Examples
+### Callout types
+<example name="Callout1" height="500"></example>
+
+### Callout types using class and slot
+<example name="Callout2" height="500"></example>

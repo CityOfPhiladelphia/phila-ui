@@ -114,3 +114,13 @@ To display an error provide a String with the error, or an Array of errors. Only
 ```
 
 <alert>This component supports VeeValidate errors. [Learn how to validate](/vee-validate-integration) with the VeeValidade plugin.<a></alert>
+
+## Live Examples
+### Dropdown with Array of options
+<example name="Dropdown1" height="300"></example>
+
+### Dropdown with options Object
+<example name="Dropdown2" height="300"></example>
+
+### Dropdown with Array of Object options
+<example name="Dropdown3" height="300"></example>
