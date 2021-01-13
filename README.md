@@ -2,7 +2,7 @@
 City of Philadelphia Vue Applications Standards and Components
 
 ## Usage
-Usage is devided by branch:
+Usage is divided by branch:
 
 ### master
 - Production branch
