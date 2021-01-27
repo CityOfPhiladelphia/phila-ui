@@ -11,7 +11,7 @@ badge:
 
 A helper component that creates router-links and links. It assumes all links are a `router-link` (most common), but a non-router link can also be used.
 
-<alert type="warning">NavLink is NOT exported as other components. </alert>
+<alert type="warning">This component is NOT exported.</alert>
 
 ## Props
 
@@ -27,8 +27,9 @@ The NavLink Object when using it as a **router-link**.
 
 ```js
 {
-  href: "vue-router route name"; //the route name is used, and not the path
-  attrs: Object; //any other html anchor attributes
+  href: 'vue-router route name', //the route name is used, and not the path
+  text: 'My Link',
+  attrs: Object //any other html anchor attributes
 }
 ```
 

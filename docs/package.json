@@ -12,11 +12,14 @@
   "dependencies": {
     "@nuxt/content": "^1.11.1",
     "@nuxt/content-theme-docs": "^0.8.0",
-    "@phila/phila-ui": "^1.8.0-beta.12",
     "nuxt": "^2.14.7",
     "theme-colors": "0.0.5",
     "vue": "^2.6.12",
     "vue-docgen-cli": "^4.33.9",
     "vue-simple-docgen-loader": "^4.33.9"
+  },
+  "devDependencies": {
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0"
   }
 }

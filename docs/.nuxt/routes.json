@@ -1,5 +1,11 @@
 [
   {
+    "name": "examples___en",
+    "path": "/examples",
+    "component": "/Users/ibdf/dev/phila-ui/docs/pages/examples.vue",
+    "_name": "_da8fcccc"
+  },
+  {
     "name": "releases___en",
     "path": "/releases",
     "component": "/Users/ibdf/dev/phila-ui/docs/node_modules/@nuxt/content-theme-docs/src/pages/releases.vue",

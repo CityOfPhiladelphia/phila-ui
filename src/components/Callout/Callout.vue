@@ -22,7 +22,7 @@
 </template>
 <script>
 /**
- * Displays messages and warnings
+ * Displays important messages and warnings
  * @niceName Callout / Message
  * @group Other
  * @position 300

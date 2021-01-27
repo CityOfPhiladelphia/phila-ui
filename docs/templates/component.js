@@ -5,7 +5,7 @@ module.exports = function (
   fileName, // the name of the current file in the doc (to explain how to import it)
   requiresMd, // a list of all the documentation files
   // attached to the component documented. It includes documentation of subcomponents
-  { isSubComponent, hasSubComponents }// are we documenting
+  { isSubComponent, hasSubComponents },// are we documenting
   // a sub-component or does the current component have subcomponents
 ) {
   const { displayName, description, docsBlocks, tags } = doc;
@@ -47,7 +47,7 @@ module.exports = function (
   \`\`\`
   `;
   } else {
-    usage = '<alert type="warning">NavLink is NOT exported as other components. </alert>';
+    usage = '<alert type="warning">This component is NOT exported.</alert>';
   }
 
   //Adds vee-validate integration support alert

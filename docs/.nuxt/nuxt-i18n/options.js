@@ -17,7 +17,7 @@ export const parsePages = false
 export const pages = {}
 export const beforeLanguageSwitch = () => null
 export const onLanguageSwitched = () => null
-export const IS_UNIVERSAL_MODE = true
+export const IS_UNIVERSAL_MODE = false
 export const MODULE_NAME = 'nuxt-i18n'
 export const LOCALE_CODE_KEY = 'code'
 export const LOCALE_ISO_KEY = 'iso'
