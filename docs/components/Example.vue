@@ -50,15 +50,17 @@ export default {
         hasSplit: true,
         hasPreview: true,
         hasFs: true,
+        horizontal: false,
       };
 
       let paramOptions = { ...defaults, ...this.options };
       //Possible Options
-      // hasBar
-      // hasCopy
-      // hasCode
-      // hasSplit
-      // hasFs: off by default
+      // hasBar = show toolbar
+      // hasCopy = show copy button
+      // hasCode = show code button
+      // hasSplit = show split button
+      // hasFs: off by default = show full screen button
+      // horizontal: vertical by default = split panes horizontaly
 
       let params = [];
 

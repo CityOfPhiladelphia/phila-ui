@@ -161,5 +161,37 @@ Makes the header non-sticky and fluid (content stretches to the length of the wi
 </app-header>
 ```
 
-<alert>The positioning of the language selector depends on the presence of the tabbed navigation. If a tabbed navigation is present, then the language selector dropdown is aligned with the tabs. If the tabs are not present, then the dropdopwn is aligned with the title.</alert>
+<alert>The positioning of the language selector depends on the presence of the tabbed navigation. If a tabbed navigation is present, then the language selector dropdown is aligned with the tabs. If the tabs are not present, then the dropdown is aligned with the title.</alert>
 <alert>See the [Language Selector](/components/LangSelector) component for more information.</alert>
+
+## Live Examples
+
+<alert type="warning"> The application header is responsive, so its size will render smaller in the preview windows below, and some elements may be hidden. Click on the new window button/icon to view it on a larger window.</alert>
+
+### Basic application header
+
+<example name="AppHeader1" height="300" :options="{ horizontal: true}"></example>
+
+### Header with branding image
+
+<example name="AppHeader2" height="300" :options="{ horizontal: true}"></example>
+
+### Header with tabbed navigation
+
+<example name="AppHeader3" height="300" :options="{ horizontal: true}"></example>
+
+### Header with dropdown navigation
+
+<example name="AppHeader4" height="300" :options="{ horizontal: true}"></example>
+
+### Header with language selector
+
+<example name="AppHeader5" height="300" :options="{ horizontal: true}"></example>
+
+### Header with mobile navigation
+
+<example name="AppHeader6" height="300" :options="{ horizontal: true}"></example>
+
+### Header with all options and slots
+
+<example name="AppHeader" height="300" :options="{ horizontal: true}"></example>
