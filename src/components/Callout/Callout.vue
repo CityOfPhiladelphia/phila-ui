@@ -36,7 +36,6 @@ export default {
     message: {
       type: String,
       default: '',
-      required: true,
     },
 
     /**
