@@ -23,7 +23,7 @@
     {
       "hid": "description",
       "name": "description",
-      "content": "See: https://d1m9pvzdejpqbs.cloudfront.net"
+      "content": "See: https://ui.phila.gov"
     },
     {
       "hid": "theme-color",
@@ -52,7 +52,7 @@
       "hid": "og:description",
       "name": "og:description",
       "property": "og:description",
-      "content": "See: https://d1m9pvzdejpqbs.cloudfront.net"
+      "content": "See: https://ui.phila.gov"
     }
   ],
   "link": [
@@ -67,7 +67,7 @@
     },
     {
       "rel": "manifest",
-      "href": "/_nuxt/manifest.77de0095.json",
+      "href": "/_nuxt/manifest.e105a900.json",
       "hid": "manifest"
     }
   ],

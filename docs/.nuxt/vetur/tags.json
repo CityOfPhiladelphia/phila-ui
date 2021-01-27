@@ -5,42 +5,6 @@
   "LazyAppColorSwitcher": {
     "description": "Auto imported from components/global/app/AppColorSwitcher.vue"
   },
-  "Alert": {
-    "description": "Auto imported from components/global/base/Alert.vue"
-  },
-  "LazyAlert": {
-    "description": "Auto imported from components/global/base/Alert.vue"
-  },
-  "Badge": {
-    "description": "Auto imported from components/global/base/Badge.vue"
-  },
-  "LazyBadge": {
-    "description": "Auto imported from components/global/base/Badge.vue"
-  },
-  "CodeBlock": {
-    "description": "Auto imported from components/global/base/CodeBlock.vue"
-  },
-  "LazyCodeBlock": {
-    "description": "Auto imported from components/global/base/CodeBlock.vue"
-  },
-  "CodeGroup": {
-    "description": "Auto imported from components/global/base/CodeGroup.vue"
-  },
-  "LazyCodeGroup": {
-    "description": "Auto imported from components/global/base/CodeGroup.vue"
-  },
-  "CodeSandbox": {
-    "description": "Auto imported from components/global/base/CodeSandbox.vue"
-  },
-  "LazyCodeSandbox": {
-    "description": "Auto imported from components/global/base/CodeSandbox.vue"
-  },
-  "List": {
-    "description": "Auto imported from components/global/base/List.vue"
-  },
-  "LazyList": {
-    "description": "Auto imported from components/global/base/List.vue"
-  },
   "BuiltWithNuxtDark": {
     "description": "Auto imported from components/global/icons/BuiltWithNuxtDark.vue"
   },
@@ -166,6 +130,42 @@
   },
   "LazyIconXCircle": {
     "description": "Auto imported from components/global/icons/IconXCircle.vue"
+  },
+  "Alert": {
+    "description": "Auto imported from components/global/base/Alert.vue"
+  },
+  "LazyAlert": {
+    "description": "Auto imported from components/global/base/Alert.vue"
+  },
+  "Badge": {
+    "description": "Auto imported from components/global/base/Badge.vue"
+  },
+  "LazyBadge": {
+    "description": "Auto imported from components/global/base/Badge.vue"
+  },
+  "CodeBlock": {
+    "description": "Auto imported from components/global/base/CodeBlock.vue"
+  },
+  "LazyCodeBlock": {
+    "description": "Auto imported from components/global/base/CodeBlock.vue"
+  },
+  "CodeGroup": {
+    "description": "Auto imported from components/global/base/CodeGroup.vue"
+  },
+  "LazyCodeGroup": {
+    "description": "Auto imported from components/global/base/CodeGroup.vue"
+  },
+  "CodeSandbox": {
+    "description": "Auto imported from components/global/base/CodeSandbox.vue"
+  },
+  "LazyCodeSandbox": {
+    "description": "Auto imported from components/global/base/CodeSandbox.vue"
+  },
+  "List": {
+    "description": "Auto imported from components/global/base/List.vue"
+  },
+  "LazyList": {
+    "description": "Auto imported from components/global/base/List.vue"
   },
   "AppCopyButton": {
     "description": "Auto imported from components/app/AppCopyButton.vue"

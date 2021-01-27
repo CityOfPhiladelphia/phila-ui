@@ -1,6 +1,7 @@
 <template>
   <iframe
     v-show="src"
+    title="live demo"
     :src="src"
     class="example-iframe"
     :height="height"
@@ -8,7 +9,6 @@
 </template>
 
 <script>
-import Vue from 'vue';
 
 export default {
   props: {
@@ -41,7 +41,7 @@ export default {
   },
   mounted () {
     if (this.name) {
-      this.src = `http://localhost:8080/loader/${this.name}`;
+      this.src = `https://d1ndb3f1jqxfee.cloudfront.net/loader/${this.name}`;
 
       let defaults = {
         hasBar: true,

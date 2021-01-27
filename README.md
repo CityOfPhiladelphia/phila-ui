@@ -2,7 +2,7 @@
 City of Philadelphia Vue Applications Standards and Components
 
 ## Usage
-Usage is devided by branch:
+Usage is divided by branch:
 
 ### master
 - Production branch
@@ -10,16 +10,16 @@ Usage is devided by branch:
 
 ### beta
 - Beta branch, for testing new features, improvements, and bug fixes
-- Relases to NPM under Beta tag
+- Releases to NPM under Beta tag
 
 ### next (wip)
 This branch will have the next approved PhilaUI updates, safe to use in production for latest features.
 
 ## Docs
-See [PhilaUI](https://d1m9pvzdejpqbs.cloudfront.net) docs for more information about PhilaUI.
+See [PhilaUI](https://ui.phila.gov) docs for more information about PhilaUI.
 
 ### Contributing & Testing
-https://d1m9pvzdejpqbs.cloudfront.net/contributing-and-testing
+https://ui.phila.gov/contributing-and-testing
 
 ## License
-[MIT](LICENSE)
+MIT LICENSE

@@ -12,23 +12,14 @@
   "dependencies": {
     "@nuxt/content": "^1.11.1",
     "@nuxt/content-theme-docs": "^0.8.0",
-    "@phila/phila-ui": "^1.8.1",
-    "axios": "^0.21.1",
-    "codemirror": "^5.59.0",
     "nuxt": "^2.14.7",
-    "splitpanes": "^2.3.6",
     "theme-colors": "0.0.5",
-    "v-clipboard": "^2.2.3",
     "vue": "^2.6.12",
-    "vue-code-highlight": "^0.7.6",
     "vue-docgen-cli": "^4.33.9",
-    "vue-simple-docgen-loader": "^4.33.9",
-    "vuep": "^0.8.1"
+    "vue-simple-docgen-loader": "^4.33.9"
   },
   "devDependencies": {
     "sass": "^1.30.0",
-    "sass-loader": "^10.1.0",
-    "vue-friendly-iframe": "^0.19.0",
-    "vue-live-preview": "^0.4.1"
+    "sass-loader": "^10.1.0"
   }
 }

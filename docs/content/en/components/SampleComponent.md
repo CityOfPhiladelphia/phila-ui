@@ -11,7 +11,7 @@ badge:
 
 A sample component template. Start here when creating a new component for PhilaUI.
 
-<alert type="warning">NavLink is NOT exported as other components. </alert>
+<alert type="warning">This component is NOT exported.</alert>
 
 ## Slots
 
