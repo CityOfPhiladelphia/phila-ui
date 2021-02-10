@@ -49,8 +49,8 @@ export default {
     attributes () {
       const defaults = {
         desc: "Enter numbers only",
-        placeholder: "Phone Number",
-        label: "Phone Number",
+        placeholder: "Phone number",
+        label: "Phone number",
       };
 
       return {
