@@ -52,9 +52,11 @@ export default {
         placeholder: "Phone Number",
         label: "Phone Number",
       };
+
       return {
         ...defaults,
         ...this.$attrs,
+        ...this.$props,
       };
     },
     inputListeners: function () {
