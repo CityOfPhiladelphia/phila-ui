@@ -45,8 +45,8 @@
         >
           <input
             :id="`cb-${key}-${id}`"
+            v-model="localValue"
             :name="`cb-${key}-${id}`"
-            :aria-checked="modelValue.includes(optionValue(option, value))"
             type="checkbox"
             class="is-checkradio"
             role="checkbox"
@@ -78,10 +78,10 @@ export default {
     inputMixins,
   ],
   inheritAttrs: false,
-  model: {
-    prop: 'modelValue',
-    event: 'change',
-  },
+  // model: {
+  //   prop: 'modelValue',
+  //   event: 'change',
+  // },
   props: {
     /**
      * The checkboxes options.
@@ -145,7 +145,7 @@ export default {
   },
   data () {
     return {
-      modelValue: [],
+      localValue: this.value,
     };
   },
   computed: {
@@ -159,14 +159,14 @@ export default {
         {
           change: function (event) {
 
-            //Updates the vmodel value before emitting it
-            vm.updateModelValue(event, event.target.value);
+            // //Updates the vmodel value before emitting it
+            // vm.updateModelValue(event, event.target.value);
 
             //IE11 needs the change event to be emitted as it does not listen to input
-            vm.$emit('change', vm.modelValue);
+            vm.$emit('change', vm.localValue);
 
             //VeeValidate needs the input event to be emitted.
-            vm.$emit('input', vm.modelValue);
+            vm.$emit('input', vm.localValue);
 
           },
         }
