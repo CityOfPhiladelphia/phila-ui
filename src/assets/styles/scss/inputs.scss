@@ -167,6 +167,9 @@ form {
     }
 
     &.small-checkradio {
+      .control {
+        margin-bottom: .1rem;
+      }
       .is-checkradio[type=checkbox] + label {
         margin-left: 1.5rem;
         font-size: $size-small;
