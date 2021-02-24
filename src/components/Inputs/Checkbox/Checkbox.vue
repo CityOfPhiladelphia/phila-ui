@@ -1,7 +1,7 @@
 <template>
   <div
     class="input-wrap input-checkbox"
-    :class="classes"
+    :class="checkRadioClasses"
   >
     <fieldset>
       <legend>
@@ -142,6 +142,14 @@ export default {
       type: [ String, Number ],
       default: 1,
     },
+
+    /**
+     * Allows to pass bulma classes to checkbox input
+     */
+    small: {
+      type: Boolean ,
+      default: false,
+    },
   },
   data () {
     return {
@@ -171,6 +179,12 @@ export default {
           },
         },
       );
+    },
+    checkRadioClasses () {
+      if (this.small) {
+        return `${this.classes} small-checkradio`;
+      }
+      return this.classes;
     },
   },
   methods: {
