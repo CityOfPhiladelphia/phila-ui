@@ -184,7 +184,25 @@ form {
           left: -1.1rem !important;
         }
       }
+
+      .is-checkradio[type=radio] + label {
+        margin-left: 1.5rem !important;
+        font-size: $size-small;
+        &:before {
+          width: 1.125rem;
+          height: 1.125rem;
+          left: -1.5rem !important;
+          top: .18rem;
+        }
+        &:after {
+          transform: scale(0.3);
+          top: 0rem;
+          left: -1.7rem !important;
+        }
+      }
+
     }
+
 
     &.required {
       fieldset legend {

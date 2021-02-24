@@ -1,7 +1,7 @@
 <template>
   <div
     class="input-wrap input-radio"
-    :class="classes"
+    :class="checkRadioClasses"
   >
     <fieldset>
       <legend>
@@ -46,6 +46,7 @@
         >
           <input
             :id="`rd-${key}-${id}`"
+            v-model="localValue"
             type="radio"
             role="radio"
             :aria-checked="value === optionValue(option, key)"
@@ -144,9 +145,32 @@ export default {
       type: [ String, Number ],
       default: 1,
     },
+
+    /**
+     * Use small radio buttons
+     */
+    small: {
+      type: Boolean ,
+      default: false,
+    },
+
+  },
+  data () {
+    return {
+      localValue: this.value,
+    };
   },
   computed: {
+    checkRadioClasses () {
+      if (this.small) {
+        return `${this.classes} small-checkradio`;
+      }
+      return this.classes;
+    },
     inputListeners: function () {
+
+      delete this.$listeners['input'];
+
       var vm = this;
       return Object.assign({},
         this.$listeners,
@@ -154,10 +178,10 @@ export default {
           change: function (event) {
 
             //IE11 needs the change event to be emitted as it does not listen to input
-            vm.$emit('change', event.target.value);
+            vm.$emit('change', vm.localValue);
 
             //VeeValidate needs the input event to be emitted.
-            vm.$emit('input', event.target.value);
+            vm.$emit('input', vm.localValue);
 
           },
         }
