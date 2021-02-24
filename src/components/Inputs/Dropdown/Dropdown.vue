@@ -133,7 +133,7 @@ export default {
      * The dropdown value / v-model
      */
     value: {
-      type: String,
+      type: [ String, Number ],
       default: '',
     },
 
