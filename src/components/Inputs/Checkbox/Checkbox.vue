@@ -169,7 +169,7 @@ export default {
             vm.$emit('input', vm.localValue);
 
           },
-        }
+        },
       );
     },
   },
