@@ -86,7 +86,7 @@
   </div>
 </template>
 <script>
-import NavLink from 'components/NavLink/NavLink.vue';
+import NavLink from '@/components/NavLink/NavLink.vue';
 import Vue from 'vue';
 
 /**

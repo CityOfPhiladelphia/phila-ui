@@ -15,7 +15,7 @@
   </div>
 </template>
 <script>
-import NavLink from 'components/NavLink/NavLink.vue';
+import NavLink from '@/components/NavLink/NavLink.vue';
 
 /**
  * A tabbed navigation. Primarily used as a slot of the [Application Header](/components/AppHeader).

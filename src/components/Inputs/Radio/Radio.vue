@@ -67,7 +67,7 @@
   </div>
 </template>
 <script>
-import { inputMixins } from 'utils/inputMixins';
+import { inputMixins } from '@/utils/inputMixins';
 /**
  * Displays a group of radio buttons
  * @niceName Radio Buttons
@@ -160,7 +160,7 @@ export default {
             vm.$emit('input', event.target.value);
 
           },
-        }
+        },
       );
     },
   },

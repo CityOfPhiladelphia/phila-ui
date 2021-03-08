@@ -262,8 +262,11 @@ export default {
           let main = document.querySelector('main');
 
           body.classList.add('has-sticky-header');
+          if (!main) {
+            console.warn('Remember to add a main container (<main>) when the header is sticky.');
+            return;
+          }
           main.style['margin-top'] = header.offsetHeight + 'px';
-
         });
 
       }
