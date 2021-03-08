@@ -64,40 +64,47 @@ export default {
       return Object.assign({},
         this.$listeners,
         {
-          input: function (value) {
-            vm.$emit('input', vm.formatPhone(value));
-          },
+          input: this.formatAndEmitPhone,
         },
       );
     },
   },
+  watch: {
+    value(newValue, oldValue) {
+      if (newValue != oldValue) {
+        this.setValueFromOutside();
+      }
+    },
+  },
   mounted () {
-    this.localValue = this.value;
+    this.setValueFromOutside();
   },
   methods: {
-    formatPhone (event) {
-      if (event.keyCode !== 8) {
+    setValueFromOutside() {
+      this.localValue = this.value;
+      this.formatAndEmitPhone();
+    },
+    formatAndEmitPhone () {
+      let phone = this.localValue.trim().split("").filter(c => {
+        let regex = new RegExp(/\d/);
+        return regex.test(c);
+      });
 
-        let phone = this.localValue.trim().split("").filter(c => {
-          let regex = new RegExp(/\d/);
-          return regex.test(c);
-        });
-
-        this.localValue = '';
-        for (let i=0; i<phone.length;i++) {
-          if (i === 0) {
-            this.localValue += '(';
-          }
-          if (i === 3) {
-            this.localValue += ') ';
-          }
-          if (i === 6) {
-            this.localValue += ' - ';
-          }
-          this.localValue += phone[i] || '';
+      let formattedPhone = '';
+      for (let i=0; i<phone.length;i++) {
+        if (i === 0) {
+          formattedPhone += '(';
         }
-        this.localValue = this.localValue.substring(0, 16);
+        if (i === 3) {
+          formattedPhone += ') ';
+        }
+        if (i === 6) {
+          formattedPhone += ' - ';
+        }
+        formattedPhone += phone[i] || '';
       }
+      this.localValue = formattedPhone.substring(0, 16);
+      this.$emit('input', formattedPhone);
     },
   },
 };
