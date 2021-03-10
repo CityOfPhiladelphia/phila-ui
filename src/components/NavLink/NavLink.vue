@@ -4,7 +4,7 @@
     v-bind="link.attrs || {}"
     :href="link.href"
     :class="{ 'is-active': link.active }"
-    @click.prevent="link.click || null"
+    @click="callFunc"
   >
     {{ link.text }}
   </a>
@@ -43,6 +43,13 @@ export default {
       default () {
         return {};
       },
+    },
+  },
+  methods: {
+    callFunc () {
+      if (this.link.click && typeof this.link.click === 'function') {
+        this.link['click']();
+      }
     },
   },
 };
