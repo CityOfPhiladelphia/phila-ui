@@ -1,7 +1,7 @@
 <template>
   <div
     class="input-wrap input-checkbox"
-    :class="classes"
+    :class="checkRadioClasses"
   >
     <fieldset>
       <legend>
@@ -45,9 +45,10 @@
         >
           <input
             :id="`cb-${key}-${id}`"
+            v-model="localValue"
             :name="`cb-${key}-${id}`"
-            :aria-checked="modelValue.includes(optionValue(option, value))"
             type="checkbox"
+            :aria-checked="value.includes(optionValue(option, key))"
             class="is-checkradio"
             role="checkbox"
             v-bind="option.attrs || {}"
@@ -78,10 +79,6 @@ export default {
     inputMixins,
   ],
   inheritAttrs: false,
-  model: {
-    prop: 'modelValue',
-    event: 'change',
-  },
   props: {
     /**
      * The checkboxes options.
@@ -127,6 +124,7 @@ export default {
       type: String,
       default: '',
     },
+
     /**
      * The description used for the checkbox or group of checkboxes
      */
@@ -142,10 +140,19 @@ export default {
       type: [ String, Number ],
       default: 1,
     },
+
+    /**
+     * Use small checkboxes
+     */
+    small: {
+      type: Boolean ,
+      default: false,
+    },
   },
+
   data () {
     return {
-      modelValue: [],
+      localValue: this.value,
     };
   },
   computed: {
@@ -159,39 +166,26 @@ export default {
         {
           change: function (event) {
 
-            //Updates the vmodel value before emitting it
-            vm.updateModelValue(event, event.target.value);
-
             //IE11 needs the change event to be emitted as it does not listen to input
-            vm.$emit('change', vm.modelValue);
+            vm.$emit('change', vm.localValue);
 
             //VeeValidate needs the input event to be emitted.
-            vm.$emit('input', vm.modelValue);
+            vm.$emit('input', vm.localValue);
 
           },
-        }
+        },
       );
     },
-  },
-  methods: {
-    updateModelValue (event, value) {
-      if (event.target.checked) {
-        if (this.options.length === 1) {
-          this.modelValue = [ this.$attrs['true-value'] || value ];
-        } else {
-          this.modelValue.push(value);
-        }
-      } else {
-        if (this.options.length === 1) {
-          if (this.$attrs['false-value']) {
-            this.modelValue.push(this.$attrs['false-value']);
-          } else {
-            this.modelValue = [];
-          }
-        } else {
-          this.modelValue.splice(this.modelValue.indexOf(value), 1);
-        }
+    checkRadioClasses () {
+      if (this.small) {
+        return `${this.classes} small-checkradio`;
       }
+      return this.classes;
+    },
+  },
+  watch: {
+    value (newValue) {
+      this.localValue = newValue;
     },
   },
 };
