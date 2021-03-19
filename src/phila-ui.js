@@ -9,6 +9,7 @@ import Dropdown from './components/Inputs/Dropdown';
 import LangSelector from './components/LangSelector';
 import Textbox from './components/Inputs/Textbox';
 import TextArea from './components/Inputs/TextArea';
+import SearchBar from './components/Inputs/SearchBar';
 import TabsNav from './components/TabsNav';
 import MobileNav from './components/MobileNav';
 import DropdownNav from './components/DropdownNav';
@@ -57,6 +58,7 @@ export {
   TabsNav,
   MobileNav,
   DropdownNav,
+  SearchBar,
   ResponsiveHelpers,
   // addValidationTo,
   // Install Helper for Vue

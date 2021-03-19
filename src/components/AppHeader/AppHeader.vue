@@ -112,6 +112,23 @@
                 </div>
               </div>
             </div>
+            <div
+              class="column is-5"
+              :class="{ 'is-12' : isMobile } "
+            >
+              <div
+                class="level"
+                :class="{ 'is-pulled-right': !isMobile }"
+              >
+                <div class="level-right">
+                  <div class="level-item">
+                    <div v-if="$slots['search-bar']">
+                      <slot name="search-bar" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </nav>
       </div>
