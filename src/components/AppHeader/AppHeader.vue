@@ -121,13 +121,16 @@
                 class="level"
                 :class="{ 'is-pulled-right': !isMobile }"
               >
-              <!-- <div
+                <!-- <div
                 :class="{ 'is-pulled-right': !isMobile }"
               > -->
                 <div class="level-right">
-                <!-- <div> -->
-                  <div class="level-item">
                   <!-- <div> -->
+                  <div
+                    class="level-item"
+                    style="flex-grow:1"
+                  >
+                    <!-- <div> -->
                     <div v-if="$slots['search-bar']">
                       <slot name="search-bar" />
                     </div>

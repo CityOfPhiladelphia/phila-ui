@@ -1,20 +1,13 @@
 <template>
-  <div class="search-bar columns is-vcentered is-gapless is-mobile">
-    <div
-      class="column is-4 is-paddingless is-marginless"
+  <div class="search-bar">
+    <dropdown
+      v-model="dropdownValue"
+      :options="dropdownOptions"
+      @change="$emit('dropdownSelect', dropdownValue);"
     >
-      <dropdown
-        :options="dropdownOptions"
-        v-model="dropdownValue"
-        @change="$emit('dropdownSelect', dropdownValue);"
-      >
-      <!-- :value="dropdownValue" -->
-      </dropdown>
-    </div>
-    <div
-      :class="'column is-paddingless is-marginless '+ searchColumns"
-    >
-    <!-- class="column is-10 is-paddingless is-marginless" -->
+    <!-- :value="dropdownValue" -->
+    </dropdown>
+    <div id="app-search-box">
       <textbox
         id="app-search"
         v-model="localValue"
@@ -23,9 +16,27 @@
         :label="textboxLabel"
         v-on="inputListeners"
       />
+      <template
+        v-if="localValue !== ''"
+      >
+        <button
+          class="button is-secondary"
+          @click.prevent="clearSearch"
+        >
+          <i class="fa fa-times fa-lg lg" />
+        </button>
+      </template>
     </div>
+    <button
+      id="app-search-icon"
+      class="button"
+      @click.prevent="$emit('search');"
+    >
+      <!-- search -->
+      <i class="fa fa-search fa-lg lg" />
+    </button>
 
-    <div
+    <!-- <div
       v-if="localValue !== ''"
       class="column is-paddingless is-marginless"
     >
@@ -36,20 +47,7 @@
       >
         <i class="fa fa-times fa-lg lg" />
       </button>
-    </div>
-
-    <div
-      class="column is-paddingless is-marginless"
-    >
-      <button
-        id="app-search-icon"
-        class="button"
-        @click.prevent="$emit('search');"
-      >
-        <!-- search -->
-        <i class="fa fa-search fa-lg lg" />
-      </button>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
@@ -97,14 +95,11 @@ export default {
       dropdownValue: '',
     };
   },
-  mounted() {
-    this.dropdownValue = this.dropdownDefault;
-  },
   computed: {
     searchColumns() {
       let value;
       if (this.localValue == '') {
-        value = 'is-6';
+        value = 'is-7';
       } else {
         value = 'is-4';
       }
@@ -133,11 +128,14 @@ export default {
       this.localValue = value;
     },
   },
+  mounted() {
+    this.dropdownValue = this.dropdownDefault;
+  },
   methods: {
     clearSearch() {
       console.log('SearchBar.vue clearSearch is running');
       this.localValue = '';
-    }
+    },
   },
 };
 
@@ -148,19 +146,38 @@ export default {
     border: 0;
     background-color: $electric-blue;
     color: $grey-dark;
+    vertical-align: middle;
+    box-shadow: none !important;
     // i {
     //   color: $grey-dark;
     // }
   }
 
-  .search-bar {
+  #app-search-box {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - 220px);
+    position: relative;
+    button {
+      position: absolute;
+      top: 50%;
+      right: 3px;
+      transform: translateY(-50%);
+    }
+  }
 
+  .search-bar {
+    width: 100%;
+    font-size: 0;
     .input-wrap {
       padding-left: 0px;
       padding-right: 0px;
     }
 
     .input-dropdown {
+      width: 130px;
+      display: inline-block;
+      vertical-align: middle;
       .select {
         label + select {
           padding: 0 0 0 0.5rem !important;
