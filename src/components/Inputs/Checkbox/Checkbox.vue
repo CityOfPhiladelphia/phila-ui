@@ -36,6 +36,7 @@
       </template>
       <div
         :id="`cb-group-${id}`"
+        :class="checkBoxClass"
         :style="`columns: ${numOfColumns} auto`"
       >
         <div
@@ -145,9 +146,13 @@ export default {
      * Use small checkboxes
      */
     small: {
-      type: Boolean ,
+      type: Boolean,
       default: false,
     },
+    shrinkToFit: {
+      type: Boolean,
+      default: false,
+    }
   },
 
   data () {
@@ -175,6 +180,12 @@ export default {
           },
         },
       );
+    },
+    checkBoxClass() {
+      if (this.shrinkToFit) {
+        return 'checkbox-div columns';
+      }
+      return 'checkbox-div';
     },
     checkRadioClasses () {
       if (this.small) {

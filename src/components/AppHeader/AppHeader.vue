@@ -116,12 +116,18 @@
               class="column is-5"
               :class="{ 'is-12' : isMobile } "
             >
+              <!-- <div> -->
               <div
                 class="level"
                 :class="{ 'is-pulled-right': !isMobile }"
               >
+              <!-- <div
+                :class="{ 'is-pulled-right': !isMobile }"
+              > -->
                 <div class="level-right">
+                <!-- <div> -->
                   <div class="level-item">
+                  <!-- <div> -->
                     <div v-if="$slots['search-bar']">
                       <slot name="search-bar" />
                     </div>
