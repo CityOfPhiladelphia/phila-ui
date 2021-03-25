@@ -189,7 +189,7 @@ export default {
             //Change event is necessary for everything else
             vm.$emit('change', vm.localSelected);
           },
-        }
+        },
       );
     },
     inputModifierClasses () {
@@ -199,6 +199,16 @@ export default {
       }
       return classes.join(' ');
     },
+  },
+  watch: {
+    value (newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.localSelected = this.value;
+      }
+    },
+  },
+  mounted () {
+    this.localSelected = this.value;
   },
   methods: {
     isSelected (key, option) {
