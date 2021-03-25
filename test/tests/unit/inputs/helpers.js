@@ -29,7 +29,8 @@ export async function testBasicAttrs(wrapper, expect, attrs, inputTag = 'input')
 
   await wrapper.vm.$nextTick();
   expect(wrapper.emitted().input).toBeTruthy();
-  expect(wrapper.emitted().input[0]).toEqual([ testUpdateValue ]);
+  // Make sure the first parameter is always the input value.
+  expect(wrapper.emitted().input[0][0]).toEqual(testUpdateValue);
 }
 
 export async function textErrors(wrapper, expect) {

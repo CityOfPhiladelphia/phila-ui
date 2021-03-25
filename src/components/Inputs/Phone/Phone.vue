@@ -84,12 +84,18 @@ export default {
       this.localValue = this.value;
       this.formatAndEmitPhone();
     },
-    formatAndEmitPhone () {
-      let phone = this.localValue.trim().split("").filter(c => {
-        let regex = new RegExp(/\d/);
-        return regex.test(c);
-      });
+    formatAndEmitPhone (value, event) {
+      if (event) {
+        const caret = event.target.selectionStart;
+        const element = event.target;
+        window.requestAnimationFrame(() => {
+          element.selectionStart = caret;
+          element.selectionEnd = caret;
+        });
+      }
 
+      let phone = this.localValue.replace(/\D/g, "").split("");
+ 
       let formattedPhone = '';
       for (let i=0; i<phone.length;i++) {
         if (i === 0) {
