@@ -151,7 +151,7 @@ export default {
           input: function (event) {
             vm.$emit('input', event.target.value);
           },
-        }
+        },
       );
     },
     inputModifierClasses () {

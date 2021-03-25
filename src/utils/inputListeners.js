@@ -8,7 +8,7 @@ export const inputListeners = {
           input: function (event) {
             vm.$emit('input', event.target.value);
           },
-        }
+        },
       );
     },
   },

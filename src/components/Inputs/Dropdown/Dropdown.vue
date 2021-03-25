@@ -189,7 +189,7 @@ export default {
             //Change event is necessary for everything else
             vm.$emit('change', vm.localSelected);
           },
-        }
+        },
       );
     },
     inputModifierClasses () {

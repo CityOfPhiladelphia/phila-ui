@@ -4,8 +4,7 @@
       v-model="dropdownValue"
       :options="dropdownOptions"
       @change="$emit('dropdownSelect', dropdownValue);"
-    >
-    </dropdown>
+    />
     <div id="app-search-box">
       <textbox
         id="app-search"
@@ -73,7 +72,9 @@ export default {
     },
     dropdownOptions: {
       type: Array,
-      default: [],
+      default: () => {
+        return [];
+      },
     },
     dropdownDefault: {
       type: String,

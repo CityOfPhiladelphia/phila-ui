@@ -152,7 +152,7 @@ export default {
     shrinkToFit: {
       type: Boolean,
       default: false,
-    }
+    },
   },
 
   data () {
