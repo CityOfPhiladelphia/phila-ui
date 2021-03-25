@@ -133,7 +133,7 @@ export default {
      * The dropdown value / v-model
      */
     value: {
-      type: String,
+      type: [ String, Number ],
       default: '',
     },
 
@@ -189,7 +189,7 @@ export default {
             //Change event is necessary for everything else
             vm.$emit('change', vm.localSelected);
           },
-        }
+        },
       );
     },
     inputModifierClasses () {
