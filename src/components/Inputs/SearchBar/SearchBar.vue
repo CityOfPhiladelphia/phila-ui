@@ -5,7 +5,6 @@
       :options="dropdownOptions"
       @change="$emit('dropdownSelect', dropdownValue);"
     >
-    <!-- :value="dropdownValue" -->
     </dropdown>
     <div id="app-search-box">
       <textbox
