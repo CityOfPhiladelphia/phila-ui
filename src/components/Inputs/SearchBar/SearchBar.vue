@@ -1,11 +1,15 @@
 <template>
   <div class="search-bar">
     <dropdown
+      v-if="hasDropdown"
       v-model="dropdownValue"
       :options="dropdownOptions"
       @change="$emit('dropdownSelect', dropdownValue);"
     />
-    <div id="app-search-box">
+    <div
+      id="app-search-box"
+      :style="`width: barWidth`"
+    >
       <textbox
         id="app-search"
         v-model="localValue"
@@ -13,6 +17,7 @@
         :placeholder="textboxPlaceholder"
         :label="textboxLabel"
         v-on="inputListeners"
+        @keyup="handleInputEnter"
       />
       <template
         v-if="localValue !== ''"
@@ -33,24 +38,10 @@
       <!-- search -->
       <i class="fa fa-search fa-lg lg" />
     </button>
-
-    <!-- <div
-      v-if="localValue !== ''"
-      class="column is-paddingless is-marginless"
-    >
-      <button
-        id="app-search-icon"
-        class="button"
-        @click.prevent="clearSearch"
-      >
-        <i class="fa fa-times fa-lg lg" />
-      </button>
-    </div> -->
   </div>
 </template>
 <script>
 
-// import NavLink from 'components/NavLink/NavLink.vue';
 import Textbox from 'components/Inputs/Textbox/Textbox.vue';
 import Dropdown from 'components/Inputs/Dropdown/Dropdown.vue';
 
@@ -58,7 +49,6 @@ export default {
   components: {
     Textbox,
     Dropdown,
-    // Navlink,
   },
   inheritAttrs: false,
   props: {
@@ -96,6 +86,24 @@ export default {
     };
   },
   computed: {
+    hasDropdown() {
+      let value;
+      if (Object.keys(this.dropdownOptions).length) {
+        value = true;
+      } else {
+        value = false;
+      }
+      return value;
+    },
+    barWidth() {
+      let value;
+      if (this.hasDropdown) {
+        value = 'calc(100% - 220px)';
+      } else {
+        value = '100%';
+      }
+      return value;
+    },
     searchColumns() {
       let value;
       if (this.localValue == '') {
@@ -132,9 +140,14 @@ export default {
     this.dropdownValue = this.dropdownDefault;
   },
   methods: {
+    handleInputEnter(event) {
+      if(event.key == "Enter") {
+        this.$emit('search');
+      }
+    },
     clearSearch() {
-      console.log('SearchBar.vue clearSearch is running');
       this.localValue = '';
+      this.$emit('clear-search');
     },
   },
 };
@@ -156,7 +169,6 @@ export default {
   #app-search-box {
     display: inline-block;
     vertical-align: middle;
-    width: calc(100% - 220px);
     position: relative;
     button {
       position: absolute;
@@ -183,6 +195,10 @@ export default {
           padding: 0 0 0 0.5rem !important;
         }
       }
+    }
+
+    @media screen and (max-width: 767px) {
+      margin-bottom: 10px;
     }
 
   }
