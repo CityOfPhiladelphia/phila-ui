@@ -1,6 +1,7 @@
 <template>
   <div class="search-bar">
     <dropdown
+      id="search-bar-dropdown"
       v-if="hasDropdown"
       v-model="dropdownValue"
       :options="dropdownOptions"
@@ -33,8 +34,9 @@
     <button
       id="app-search-icon"
       class="button"
-      @click.prevent="$emit('search');"
+      @click.prevent="handleSearchFormSubmit"
     >
+    <!-- @click.prevent="$emit('search');" -->
       <!-- search -->
       <i class="fa fa-search fa-lg lg" />
     </button>
@@ -53,6 +55,10 @@ export default {
   inheritAttrs: false,
   props: {
     value: {
+      type: String,
+      default: '',
+    },
+    searchString: {
       type: String,
       default: '',
     },
@@ -88,7 +94,7 @@ export default {
   computed: {
     hasDropdown() {
       let value;
-      if (Object.keys(this.dropdownOptions).length) {
+      if (Object.keys(this.dropdownOptions).length > 1) {
         value = true;
       } else {
         value = false;
@@ -135,14 +141,22 @@ export default {
     value (value) {
       this.localValue = value;
     },
+    searchString (value) {
+      this.localValue = value;
+    },
   },
   mounted() {
     this.dropdownValue = this.dropdownDefault;
   },
   methods: {
+    handleSearchFormSubmit() {
+      let searchObject = {};
+      searchObject[this.dropdownValue] = this.value;
+      this.$emit('search', searchObject);
+    },
     handleInputEnter(event) {
       if(event.key == "Enter") {
-        this.$emit('search');
+        this.handleSearchFormSubmit();
       }
     },
     clearSearch() {
