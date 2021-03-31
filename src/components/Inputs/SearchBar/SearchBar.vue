@@ -1,8 +1,8 @@
 <template>
   <div class="search-bar">
     <dropdown
-      id="search-bar-dropdown"
       v-if="hasDropdown"
+      id="search-bar-dropdown"
       v-model="dropdownValue"
       :options="dropdownOptions"
       @change="$emit('dropdownSelect', dropdownValue);"
@@ -36,7 +36,7 @@
       class="button"
       @click.prevent="handleSearchFormSubmit"
     >
-    <!-- @click.prevent="$emit('search');" -->
+      <!-- @click.prevent="$emit('search');" -->
       <!-- search -->
       <i class="fa fa-search fa-lg lg" />
     </button>
@@ -143,6 +143,9 @@ export default {
     },
     searchString (value) {
       this.localValue = value;
+    },
+    dropdownDefault (value) {
+      this.dropdownValue = value;
     },
   },
   mounted() {
