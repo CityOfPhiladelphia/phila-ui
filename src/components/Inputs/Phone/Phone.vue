@@ -84,18 +84,33 @@ export default {
       this.localValue = this.value;
       this.formatAndEmitPhone();
     },
-    formatAndEmitPhone (value, event) {
-      if (event) {
-        const caret = event.target.selectionStart;
-        const element = event.target;
-        window.requestAnimationFrame(() => {
-          element.selectionStart = caret;
-          element.selectionEnd = caret;
-        });
+    getCursorPosition(event, formattedPhone) {
+      if (event.data === null) {
+        return event.target.selectionStart;
       }
 
+      if (formattedPhone.length == 2) {
+        return 2;
+      }
+
+      let initialPos = event.target.selectionStart;
+      let newPosition = initialPos;
+      let threshold = 0;
+      while (/\s|\(|\)|-/gi.test(formattedPhone[newPosition]) && newPosition < 16) {
+        newPosition += 1;
+        threshold = 1;
+      }
+
+      if (initialPos == 9 || initialPos == 4) {
+        return newPosition;
+      }
+
+      return newPosition + threshold;
+    },
+    formatAndEmitPhone (value, event) { 
+      console.log(event);
       let phone = this.localValue.replace(/\D/g, "").split("");
- 
+
       let formattedPhone = '';
       for (let i=0; i<phone.length;i++) {
         if (i === 0) {
@@ -109,6 +124,15 @@ export default {
         }
         formattedPhone += phone[i] || '';
       }
+      if (event) {
+        const element = event.target;
+        const cursorPost = this.getCursorPosition(event, formattedPhone);
+        window.requestAnimationFrame(() => {
+          element.selectionStart = cursorPost;
+          element.selectionEnd = cursorPost;
+        });
+      }
+
       this.localValue = formattedPhone.substring(0, 16);
       this.$emit('input', formattedPhone);
     },
