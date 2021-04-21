@@ -1,4 +1,5 @@
 // Components
+import Accordion from './components/Accordion';
 import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 import Callout from './components/Callout';
@@ -44,6 +45,7 @@ const install = function(Vue, settings = {}) {
 };
 
 export {
+  Accordion,
   AppHeader,
   AppFooter,
   Callout,
