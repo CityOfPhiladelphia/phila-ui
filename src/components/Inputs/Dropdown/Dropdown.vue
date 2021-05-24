@@ -188,6 +188,9 @@ export default {
       default: true,
     },
 
+    /**
+     * Enables optgroup
+     */
     optgroup: {
       type: Boolean,
       defaults: false,
