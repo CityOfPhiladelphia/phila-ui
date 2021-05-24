@@ -57,6 +57,7 @@ Vue.use(PhilaUI);
 | label        | The label used for the group of radio buttons                                                     | string         | -                                                | ''                                                                                                                   |
 | desc         | The description used for the group of radio buttons                                               | string         | -                                                | ''                                                                                                                   |
 | numOfColumns | Splits a group of checkboxes into columns 1 or more columns                                       | string\|number | -                                                | 1                                                                                                                    |
+| small        | Use small radio buttons                                                                           | boolean        | -                                                | false                                                                                                                |
 
 ## Slots
 
