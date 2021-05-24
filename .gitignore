@@ -69,5 +69,5 @@ typings/
 dist
 dist/
 
-docs/.nuxt/
+docs/.nuxt/*
 docs/static/sw.js
