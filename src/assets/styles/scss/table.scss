@@ -1,0 +1,89 @@
+table.table {
+  width: 100%;
+  border: 0;
+  thead {
+    tr {
+      th {
+        background-clip: padding-box;
+        position: relative;
+        background-color: $grey-dark;
+        color: $white;
+        font-weight: $weight-semibold;
+        font-size: $size-small;
+        border: 3px solid $white;
+        padding: 10px 8px;
+        line-height: 18px;
+        &.sortable {
+          cursor: pointer;
+          padding-right: 20px;
+          &:before, &:after {
+            border-radius: 1px;
+            border: 5px solid transparent;
+            content: "";
+            display: block;
+            height: 0;
+            right: 8px;
+            top: 8px;
+            position: absolute;
+            width: 0;
+          }
+          &:before {
+            border-bottom-color: #b5b5b5;
+          }
+          &:after {
+            border-top-color: #b5b5b5;
+	          margin-top: 12px;
+          }
+          &:hover {
+            &:before {
+              border-bottom-color: $white;
+            }
+            &:after {
+              border-top-color: $white;
+            }
+          }
+          &.sorted {
+            background-color: $ben-franklin-blue;
+              color: $white;
+            &.asc {
+              &:before {
+                border-bottom-color: $white;
+              }
+              &:after {
+                border-top-color: #85b4e6;
+              }
+            }
+            &.desc {
+              &:before {
+                border-bottom-color: #85b4e6;
+              }
+              &:after {
+                border-top-color: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      &:nth-of-type(even) {
+        td {
+          background-color: #d8d8d8;
+        }
+      }
+      td {
+        background-clip: padding-box;
+        position: relative;
+        background-color: $ghost-grey;
+        color: $grey-dark;
+        font-size: $size-small;
+        border: 3px solid $white;
+        padding: 10px 8px;
+        line-height: 20px;
+      }
+    }
+  }
+  tfoot {}
+}
