@@ -45,12 +45,11 @@
                   class="app-title"
                   :href="appLink"
                 >
-                  <h1 class="is-size-5">
+                  <h1>
                     {{ appTitle }}
                   </h1>
                   <h2
                     v-if="appSubtitle && !isMobile"
-                    class="is-size-6"
                   >{{ appSubtitle }}
                   </h2>
                 </a>

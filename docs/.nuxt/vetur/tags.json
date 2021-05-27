@@ -1,4 +1,10 @@
 {
+  "AppColorSwitcher": {
+    "description": "Auto imported from components/global/app/AppColorSwitcher.vue"
+  },
+  "LazyAppColorSwitcher": {
+    "description": "Auto imported from components/global/app/AppColorSwitcher.vue"
+  },
   "Alert": {
     "description": "Auto imported from components/global/base/Alert.vue"
   },
@@ -34,12 +40,6 @@
   },
   "LazyList": {
     "description": "Auto imported from components/global/base/List.vue"
-  },
-  "AppColorSwitcher": {
-    "description": "Auto imported from components/global/app/AppColorSwitcher.vue"
-  },
-  "LazyAppColorSwitcher": {
-    "description": "Auto imported from components/global/app/AppColorSwitcher.vue"
   },
   "BuiltWithNuxtDark": {
     "description": "Auto imported from components/global/icons/BuiltWithNuxtDark.vue"
