@@ -21,11 +21,6 @@
       "content": "philaui-docs"
     },
     {
-      "hid": "description",
-      "name": "description",
-      "content": "See: https://cityofphiladelphia.github.io/phila-ui/"
-    },
-    {
       "hid": "theme-color",
       "name": "theme-color",
       "content": "#0f4d90"
@@ -47,27 +42,21 @@
       "name": "og:site_name",
       "property": "og:site_name",
       "content": "philaui-docs"
-    },
-    {
-      "hid": "og:description",
-      "name": "og:description",
-      "property": "og:description",
-      "content": "See: https://cityofphiladelphia.github.io/phila-ui/"
     }
   ],
   "link": [
     {
       "rel": "shortcut icon",
-      "href": "/phila-ui/_nuxt/icons/icon_64x64.ec4e7f.png"
+      "href": "/_nuxt/icons/icon_64x64.ec4e7f.png"
     },
     {
       "rel": "apple-touch-icon",
-      "href": "/phila-ui/_nuxt/icons/icon_512x512.ec4e7f.png",
+      "href": "/_nuxt/icons/icon_512x512.ec4e7f.png",
       "sizes": "512x512"
     },
     {
       "rel": "manifest",
-      "href": "/phila-ui/_nuxt/manifest.a8e4dbe6.json",
+      "href": "/_nuxt/manifest.afe93e5e.json",
       "hid": "manifest"
     }
   ],

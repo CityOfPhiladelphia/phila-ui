@@ -52,7 +52,7 @@ Vue.use(PhilaUI);
 | brandingImage | Branding image (eg. department logo). Accepts an Object of image attributes.                                                              | object  | -      | null                  |
 | brandingLink  | Branding image link. Accepts an Object of link attributes.                                                                                | object  | -      | {<br> href: '/',<br>} |
 | isFluid       | Allows the header elements (logo, title, navigation...) to expand with the window width, or stay aligned in the center (not recommended). | boolean | -      | false                 |
-| isSticky      | Fixes the header to the top of the page<br>Requires the application to have a <main> tag                                                  | boolean | -      | true                  |
+| isSticky      | Fixes the header to the top of the page<br>Requires the application to have the `<main>` tag for content positioning calculations         | boolean | -      | true                  |
 
 ## Slots
 

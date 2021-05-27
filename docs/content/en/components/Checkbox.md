@@ -57,6 +57,7 @@ Vue.use(PhilaUI);
 | label        | The label used for the checkbox or group of checkboxes                                            | string         | -                                                | ''                                                                                                                   |
 | desc         | The description used for the checkbox or group of checkboxes                                      | string         | -                                                | ''                                                                                                                   |
 | numOfColumns | Splits a group of checkboxes into columns 1 or more columns                                       | string\|number | -                                                | 1                                                                                                                    |
+| small        | Use small checkboxes                                                                              | boolean        | -                                                | false                                                                                                                |
 
 ## Slots
 

@@ -46,19 +46,19 @@ Vue.use(PhilaUI);
 
 ## Props
 
-| Prop name   | Description                                                                                       | Type          | Values                                           | Default                                                      |
-| ----------- | ------------------------------------------------------------------------------------------------- | ------------- | ------------------------------------------------ | ------------------------------------------------------------ |
-| id          | Random id is generated if none provided                                                           | string        | -                                                | () => `ta_${Math.random().toString(12).substring(2, 8)}`     |
-| errors      | Error message                                                                                     | array\|string | -                                                | function() {<br> return '';<br>}                             |
-| options     | The dropdown options.                                                                             | object\|array | `Array of Strings`, `Array of Objects`, `Object` | () => {<br> return {<br> 'option-1': 'Option 1',<br> };<br>} |
-| label       | The dropdown label                                                                                | string        | -                                                | ''                                                           |
-| placeholder | The dropdown placeholder                                                                          | string        | -                                                | ''                                                           |
-| textKey     | The Object key containing the dropdown text. Required when using options as an Array of Objects.  | string        | -                                                | ""                                                           |
-| value       | The dropdown value / v-model                                                                      | string        | -                                                | ''                                                           |
-| valueKey    | The Object key containing the dropdown value. Required when using options as an Array of Objects. | string        | -                                                | ""                                                           |
-| desc        | The dropdown description                                                                          | string        | -                                                | ''                                                           |
-| icon        | The dropdown icon. It expects font-awesome icon classes.                                          | string        | -                                                | ''                                                           |
-| innerLabel  | Whether the label should be displayed inside the dropdown (true) or above it (false).             | boolean       | -                                                | true                                                         |
+| Prop name   | Description                                                                                       | Type           | Values                                           | Default                                                      |
+| ----------- | ------------------------------------------------------------------------------------------------- | -------------- | ------------------------------------------------ | ------------------------------------------------------------ |
+| id          | Random id is generated if none provided                                                           | string         | -                                                | () => `ta_${Math.random().toString(12).substring(2, 8)}`     |
+| errors      | Error message                                                                                     | array\|string  | -                                                | function() {<br> return '';<br>}                             |
+| options     | The dropdown options.                                                                             | object\|array  | `Array of Strings`, `Array of Objects`, `Object` | () => {<br> return {<br> 'option-1': 'Option 1',<br> };<br>} |
+| label       | The dropdown label                                                                                | string         | -                                                | ''                                                           |
+| placeholder | The dropdown placeholder                                                                          | string         | -                                                | ''                                                           |
+| textKey     | The Object key containing the dropdown text. Required when using options as an Array of Objects.  | string         | -                                                | ""                                                           |
+| value       | The dropdown value / v-model                                                                      | string\|number | -                                                | ''                                                           |
+| valueKey    | The Object key containing the dropdown value. Required when using options as an Array of Objects. | string         | -                                                | ""                                                           |
+| desc        | The dropdown description                                                                          | string         | -                                                | ''                                                           |
+| icon        | The dropdown icon. It expects font-awesome icon classes.                                          | string         | -                                                | ''                                                           |
+| innerLabel  | Whether the label should be displayed inside the dropdown (true) or above it (false).             | boolean        | -                                                | true                                                         |
 
 ## Slots
 
