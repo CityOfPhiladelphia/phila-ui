@@ -105,6 +105,9 @@ options: [
 ]
 ```
 
+### optgroup [2.0.5](/changelog#205---2021-05-24)
+
+
 ### Displaying errors
 To display an error provide a String with the error, or an Array of errors. Only the first error in the array is displayed.
 ```html

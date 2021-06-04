@@ -7,7 +7,7 @@ badge: ''
 ---
 
 ## Installing
-Using npm is recommended:
+Using npm is recommended.
 ```
 npm install @phila/phila-ui --save
 ```
@@ -15,7 +15,7 @@ npm install @phila/phila-ui --save
 ## Importing components
 
 ### Global import and registration
-PhilaUI can be imported and registered globally, so all components are available on all pages.
+PhilaUI can be imported and registered globally, this way, all of the components are available on all pages.
 
 ```js
 //import it
@@ -48,7 +48,7 @@ components: {
 }
 ```
 
-<alert type="warning">Some navigation components make use of responsive helpers that are automatically avaible when importing the whole library and registering it globally. When importing individual components, the responsive helpers also need to be imported.</alert>
+<alert type="warning">Some navigation components make use of responsive helpers that are automatically available when importing the whole library and registering it globally. When importing individual components, the responsive helpers also need to be imported.</alert>
 
 ```js
 //importing the ResponsiveHeloer along with other components that need it.
@@ -59,17 +59,17 @@ Vue.use(ResponsiveHelpers);
 ```
 
 ### Usage
-Using the components in the vue template:
+Using the components in the Vue template:
 ```html
-<textbox>
-<checkbox>
+<textbox />
+<checkbox />
 ```
 
 ## Styles
-PhilaUI scss modifies and expands on the defaults of the [Bulma](https://bulma.io/) library, thus Bulma is included as a dependency of PhilaUI.
+PhilaUI scss modifies and expands on the defaults of the [Bulma](https://bulma.io/) css framework, thus Bulma is included as a dependency of PhilaUI.
 
 ### Importing styles
-Styles need to be imported seperately from components. It's best to do it in the project's main scss file.
+Styles need to be imported separately from components. It's best to do it in the project's main scss file.
 
 ```scss
 @import "@phila/phila-ui/src/assets/styles/scss/all.scss";
@@ -107,3 +107,5 @@ css: {
 },
 ...
 ```
+
+<alert type="warning">Depending on the version of node-sass, the "data" configuration parameter has changed to "prependData" or "additionalData".</alert>

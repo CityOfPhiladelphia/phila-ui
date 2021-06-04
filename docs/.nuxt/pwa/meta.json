@@ -21,11 +21,6 @@
       "content": "philaui-docs"
     },
     {
-      "hid": "description",
-      "name": "description",
-      "content": "See: https://ui.phila.gov"
-    },
-    {
       "hid": "theme-color",
       "name": "theme-color",
       "content": "#0f4d90"
@@ -47,12 +42,6 @@
       "name": "og:site_name",
       "property": "og:site_name",
       "content": "philaui-docs"
-    },
-    {
-      "hid": "og:description",
-      "name": "og:description",
-      "property": "og:description",
-      "content": "See: https://ui.phila.gov"
     }
   ],
   "link": [
@@ -67,7 +56,7 @@
     },
     {
       "rel": "manifest",
-      "href": "/_nuxt/manifest.e105a900.json",
+      "href": "/_nuxt/manifest.afe93e5e.json",
       "hid": "manifest"
     }
   ],
