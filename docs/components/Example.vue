@@ -41,7 +41,7 @@ export default {
   },
   mounted () {
     if (this.name) {
-      this.src = `https://d1ndb3f1jqxfee.cloudfront.net/loader/${this.name}`;
+      this.src = `https://ui-examples.phila.gov/loader/${this.name}`;
 
       let defaults = {
         hasBar: true,
