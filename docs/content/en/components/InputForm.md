@@ -124,10 +124,10 @@ When using VeeValidate, the `<input-form>` needs to be wrapped with VeeValidate'
 
 ### Manual validation
 
-A basic example of a form with textbox inputs, a submit button and manual validation.
+A basic example of a form with Textbox inputs, a submit button and manual validation.
 <example name="Form1" height="500"></example>
 
 ### VeeValidate validation
 
-A basic example of a form with textbox inputs, a submit button. Both the form and the inputs use VeeValidate for validation.
+A basic example of a form with Textbox inputs, a submit button. Both the form and the inputs use VeeValidate for validation.
 <example name="Form2" height="550"></example>

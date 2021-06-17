@@ -17,7 +17,7 @@ const i18n = new VueI18n({
   }
 })
 
-//add it globaly to the vue instance
+//add it globally to the vue instance
 new Vue({
   router,
   i18n,

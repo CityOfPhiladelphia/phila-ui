@@ -70,7 +70,7 @@ Vue.use(PhilaUI);
 
 ### Options
 
-Options can be provided as an Array when the checkbox label and value are the same.
+Options can be provided as an Array when the Checkbox label and value are the same.
 
 ```html
 <checkbox v-model="myValues" label="My Label" :options="options" />
@@ -80,7 +80,7 @@ Options can be provided as an Array when the checkbox label and value are the sa
 options: ["Option 1", "Option 2", "Option 3"];
 ```
 
-And options can be provided as an Object when the checkbox label and value are **NOT** the same.
+And options can be provided as an Object when the Checkbox label and value are **NOT** the same.
 
 ```js
 options: {

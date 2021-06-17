@@ -65,6 +65,8 @@ typings/
 .ssh
 .ssh/*
 
+.vscode
+
 # Ignore dist folder this is created by the ci process
 dist
 dist/

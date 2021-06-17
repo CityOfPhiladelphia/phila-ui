@@ -68,7 +68,7 @@ Vue.use(PhilaUI);
 
 ### Label
 
-When using the `innerLabel` option (default), the `placeholder` prop should be used as the textarea label.
+When using the `innerLabel` option (default), the `placeholder` prop should be used as the TextArea label.
 
 ```html
 <text-area v-model="myValue" placeholder="My Label" />
