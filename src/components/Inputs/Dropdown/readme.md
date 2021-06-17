@@ -1,7 +1,7 @@
 ## Code Samples
 
 ### Label
-When using the ```innerLabel``` option (default), the ```placeholder``` prop should be used as the dropdown label.
+When using the ```innerLabel``` option (default), the ```placeholder``` prop should be used as the Dropdown label.
 ```html
   <dropdown
     v-model="myValue"
@@ -29,7 +29,7 @@ When **NOT** using the ```innerLabel``` option (default), the ```placeholder``` 
 ```
 
 ### Description
-Use the ```desc``` prop or slot to provide extra information about the dropdown.
+Use the ```desc``` prop or slot to provide extra information about the Dropdown.
 ```html
   <dropdown
     desc="Extra information about this field"
@@ -55,7 +55,7 @@ The icon prop expects font-awesome icon classes.
 <alert>Use icons sparingly (eg. Indicating that the input has a different function).</alert>
 
 ### Options
-Options can be provided as an Array when the dropdown label and value are the same.
+Options can be provided as an Array when the Dropdown label and value are the same.
 ```html
   <dropdown
     v-model="myValues"
@@ -71,7 +71,7 @@ options: [
   'Option 3',
 ]
 ```
-And options can be provided as an Object when the dropdown label and value are **NOT** the same.
+And options can be provided as an Object when the Dropdown label and value are **NOT** the same.
 
 ```js
 options: {
@@ -104,6 +104,8 @@ options: [
   }
 ]
 ```
+
+### optgroup [2.0.5](/changelog#205---2021-05-24) WIP
 
 ### Displaying errors
 To display an error provide a String with the error, or an Array of errors. Only the first error in the array is displayed.

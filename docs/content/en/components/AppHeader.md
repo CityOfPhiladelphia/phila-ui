@@ -150,7 +150,7 @@ Makes the header non-sticky and fluid (content stretches to the length of the wi
 </app-header>
 ```
 
-<alert>The positioning of the dropdown navigation depends on the presence of the tabbed navigation. If a tabbed navigation is present, then the dropdown is aligned with the tabs. If the tabs are not present, then the dropdopwn is aligned with the title.</alert>
+<alert>The positioning of the dropdown navigation depends on the presence of the tabbed navigation. If a tabbed navigation is present, then the dropdown is aligned with the tabs. If the tabs are not present, then the dropdown is aligned with the title.</alert>
 <alert>See the [Dropdown Navigation](/components/DropdownNav) component for more information.</alert>
 
 ### Language Selector `<slot>`

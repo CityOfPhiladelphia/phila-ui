@@ -9,7 +9,7 @@ The Mobile Navigation links can be added via props using the [Navigation Links](
   />
 ```
 
-Or the links can be added using the default slot. The default slot accepts an unodered list of links.
+Or the links can be added using the default slot. The default slot accepts an unordered list of links.
 ```html
   <mobile-nav>
     <ul>

@@ -1,7 +1,7 @@
 ## Code Samples
 
 ### Options
-Options can be provided as an Array when the radio button label and value are the same.
+Options can be provided as an Array when the Radio button label and value are the same.
 ```html
   <radio
     v-model="myValues"
@@ -17,7 +17,7 @@ options: [
   'Option 3',
 ]
 ```
-And options can be provided as an Object when the radio button label and value are **NOT** the same.
+And options can be provided as an Object when the Radio button label and value are **NOT** the same.
 
 ```js
 options: {
@@ -52,7 +52,7 @@ options: [
 ```
 
 ### Columns
-By default the radio buttons are displayed in one column. Add more columns to make a large amount of radio buttons easier to read.
+By default the Radio buttons are displayed in one column. Add more columns to make a large amount of radio buttons easier to read.
 ```html
   <radio
     num-of-columns="3"
