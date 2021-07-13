@@ -72,7 +72,7 @@ export default [ 'phila-ui' ].map((name) => ({
       transformAssetUrls: true,
     }),
     babel({
-      exclude: 'node_modules/**',
+      exclude: /node_modules\/(?!(IMask|vueImask)\/).*/,
       babelHelpers: 'runtime',
     }),
   ],
