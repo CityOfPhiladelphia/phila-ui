@@ -6,7 +6,7 @@ position: 1000
 badge: ''
 ---
 
-All PhilaUI input components support the third-party [VeeValidate](https://logaretm.github.io/vee-validate/) library.
+All PhilaUI input components support the third-party [VeeValidate](https://logaretm.github.io/vee-validate/) library, version 3.
 
 Adding validation to the PhilaUI input components requires wrapping the PhilaUI input with VeeValidate's ``<ValidationProvider>`` component, which watches for changes in the input. VeeValidate provides a function called ``withValidation`` which does just that. [Learn more](https://logaretm.github.io/vee-validate/api/with-validation.html) about this function.
 

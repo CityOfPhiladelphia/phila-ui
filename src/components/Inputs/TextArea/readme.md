@@ -3,7 +3,7 @@
 ## Code Samples
 
 ### Label
-When using the ```innerLabel``` option (default), the ```placeholder``` prop should be used as the textarea label.
+When using the ```innerLabel``` option (default), the ```placeholder``` prop should be used as the TextArea label.
 ```html
   <text-area
     v-model="myValue"
@@ -56,3 +56,13 @@ To display an error provide a String with the error, or an Array of errors. Only
 ```
 
 <alert>This component supports VeeValidate errors. [Learn how to validate](/vee-validate-integration) with the VeeValidade plugin.<a></alert>
+
+## Live Examples
+### Textarea with placeholder and description
+<example name="TextArea1" height="300"></example>
+
+### Textarea with error
+<example name="TextArea2" height="300"></example>
+
+### Textarea with VeeValidate's validation
+<example name="TextArea3" height="380"></example>

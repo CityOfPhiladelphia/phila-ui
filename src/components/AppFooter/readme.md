@@ -7,7 +7,7 @@ The footer links can be added via props using the [Navigation Links](/components
   />
 ```
 
-Or the links can be added using the default slot. The default slot accepts an unodered list of links.
+Or the links can be added using the default slot. The default slot accepts an unordered list of links.
 ```html
   <app-footer>
     <ul>
@@ -37,3 +37,13 @@ If the footer must be displayed on mobile, set ``is-hidden-mobile`` to ``false``
   <app-footer
     :is-hidden-mobile="false"
   />
+```
+
+## Live Examples
+<alert type="warning">Open the iframe below in a new window as the footer is by default hidden on smaller screens</alert>
+
+### Non-sticky, using the slot
+<example name="AppFooter1" height="300" :options="{ horizontal: true}"></example>
+
+### Sticky, using the link prop
+<example name="AppFooter2" height="300" :options="{ horizontal: true}"></example>

@@ -7,7 +7,7 @@ Use the message slot in case it contains html code that needs to be rendered, ot
 There are two ways of changing the callout color.
 
 1. Use the prop ``type``
-2. Passing a class attribute to the callout (uses bulma colors)
+2. Passing a class attribute to the callout (uses Bulma colors)
 
 The default callout has a gray color
 ```html
@@ -70,3 +70,10 @@ The default callout has a gray color
 />
 
 ```
+
+## Live Examples
+### Callout types
+<example name="Callout1" height="500"></example>
+
+### Callout types using class and slot
+<example name="Callout2" height="500"></example>

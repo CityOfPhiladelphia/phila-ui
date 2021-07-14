@@ -59,6 +59,7 @@ Vue.use(PhilaUI);
 | desc        | The dropdown description                                                                          | string         | -                                                | ''                                                           |
 | icon        | The dropdown icon. It expects font-awesome icon classes.                                          | string         | -                                                | ''                                                           |
 | innerLabel  | Whether the label should be displayed inside the dropdown (true) or above it (false).             | boolean        | -                                                | true                                                         |
+| optgroup    | Enables optgroup                                                                                  | boolean        | -                                                |                                                              |
 
 ## Slots
 
@@ -70,7 +71,7 @@ Vue.use(PhilaUI);
 
 ### Label
 
-When using the `innerLabel` option (default), the `placeholder` prop should be used as the dropdown label.
+When using the `innerLabel` option (default), the `placeholder` prop should be used as the Dropdown label.
 
 ```html
 <dropdown v-model="myValue" placeholder="My Label" />
@@ -99,7 +100,7 @@ When **NOT** using the `innerLabel` option (default), the `placeholder` and `lab
 
 ### Description
 
-Use the `desc` prop or slot to provide extra information about the dropdown.
+Use the `desc` prop or slot to provide extra information about the Dropdown.
 
 ```html
 <dropdown desc="Extra information about this field" />
@@ -127,7 +128,7 @@ The icon prop expects font-awesome icon classes.
 
 ### Options
 
-Options can be provided as an Array when the dropdown label and value are the same.
+Options can be provided as an Array when the Dropdown label and value are the same.
 
 ```html
 <dropdown v-model="myValues" label="My Label" :options="options" />
@@ -137,7 +138,7 @@ Options can be provided as an Array when the dropdown label and value are the sa
 options: ["Option 1", "Option 2", "Option 3"];
 ```
 
-And options can be provided as an Object when the dropdown label and value are **NOT** the same.
+And options can be provided as an Object when the Dropdown label and value are **NOT** the same.
 
 ```js
 options: {
@@ -171,6 +172,8 @@ options: [
 ];
 ```
 
+### optgroup [2.0.5](/changelog#205---2021-05-24) WIP
+
 ### Displaying errors
 
 To display an error provide a String with the error, or an Array of errors. Only the first error in the array is displayed.
@@ -180,3 +183,17 @@ To display an error provide a String with the error, or an Array of errors. Only
 ```
 
 <alert>This component supports VeeValidate errors. [Learn how to validate](/vee-validate-integration) with the VeeValidade plugin.<a></alert>
+
+## Live Examples
+
+### Dropdown with Array of options
+
+<example name="Dropdown1" height="300"></example>
+
+### Dropdown with options Object
+
+<example name="Dropdown2" height="300"></example>
+
+### Dropdown with Array of Object options
+
+<example name="Dropdown3" height="300"></example>

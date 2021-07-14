@@ -7,10 +7,10 @@ badge: ''
 ---
 
 ## About PhilaUI
-PhilaUI is the standard City of Philadelphia vue application library of components and styles.
+PhilaUI is the standard City of Philadelphia Vue.js application library of components and styles.
 
 ### Components
-The components are built with Vue and meant to be used on new Vue applications or imported into existing applications.
+The components are built with Vue.js and meant to be used with new Vue applications or imported into existing applications.
 
 ### Styles
-The styles are built on top of the [Bulma](https://bulma.io/) css library and based off of the City of Philadelphia Standards.
+The styles are built on top of the [Bulma](https://bulma.io/) css framework and based off of the [City of Philadelphia Standards](https://standards.phila.gov/).

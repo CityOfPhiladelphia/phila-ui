@@ -54,7 +54,13 @@ export const inputMixins = {
       }
     },
     optionValue (option, key) {
-      if (Array.isArray(this.options)) {
+      let options = this.options;
+
+      if (this.optgroup) {
+        options = this.ungrouppedOptions;
+      }
+
+      if (Array.isArray(options)) {
         if (typeof option === 'string') {
           return option;
         }
@@ -64,6 +70,7 @@ export const inputMixins = {
       } else {
         return key;
       }
+
     },
   },
 };

@@ -34,15 +34,34 @@
             <option value="">
               {{ this.$attrs.required !== undefined ? `${placeholder}*` : placeholder }}
             </option>
-            <option
-              v-for="(option, key) in options"
-              :key="key"
-              :value="optionValue(option, key)"
-              :selected="isSelected(key, option)"
-              :disabled="option['disabled'] ? option['disabled'] : false"
-            >
-              {{ !textKey ? option : option[textKey] }}
-            </option>
+            <template v-if="optgroup">
+              <optgroup
+                v-for="(groupValue, group) in options"
+                :key="group"
+                :label="group"
+              >
+                <option
+                  v-for="(option, key) in options[group]"
+                  :key="key"
+                  :value="optionValue(option, key)"
+                  :selected="isSelected(key, option)"
+                  :disabled="option['disabled'] ? option['disabled'] : false"
+                >
+                  {{ !textKey ? option : option[textKey] }}
+                </option>
+              </optgroup>
+            </template>
+            <template v-else>
+              <option
+                v-for="(option, key) in options"
+                :key="key"
+                :value="optionValue(option, key)"
+                :selected="isSelected(key, option)"
+                :disabled="option['disabled'] ? option['disabled'] : false"
+              >
+                {{ !textKey ? option : option[textKey] }}
+              </option>
+            </template>
           </select>
           <span
             v-if="icon"
@@ -169,6 +188,14 @@ export default {
       default: true,
     },
 
+    /**
+     * Enables optgroup
+     */
+    optgroup: {
+      type: Boolean,
+      defaults: false,
+    },
+
   },
   data () {
     return {
@@ -176,6 +203,25 @@ export default {
     };
   },
   computed: {
+    ungrouppedOptions () {
+
+      let ungroup = [];
+      let ungroupObj = {};
+      let type = '';
+
+      Object.keys(this.options).forEach(group => {
+        if (Array.isArray(this.options[group])) {
+          type = 'array';
+          ungroup.push(this.options[group]);
+        } else {
+          type = 'obj';
+          Object.assign(ungroupObj, this.options[group]);
+        }
+      });
+
+      return type === 'array' ? ungroup : ungroupObj;
+
+    },
     inputListeners: function () {
       var vm = this;
       delete this.$listeners.input;
