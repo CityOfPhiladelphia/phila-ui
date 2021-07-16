@@ -1,3 +1,13 @@
 {
-  "presets": ["@babel/preset-env", "@vue/app"]
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "usage",
+        // "debug": true,
+        "corejs": 3,
+      },
+    ],
+    "@vue/app",
+  ]
 }

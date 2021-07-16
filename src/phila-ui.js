@@ -13,8 +13,6 @@ import TabsNav from './components/TabsNav';
 import MobileNav from './components/MobileNav';
 import DropdownNav from './components/DropdownNav';
 import ResponsiveHelpers from './plugins/ResponsiveHelpers';
-// import addValidationTo from './plugins/AddValidationTo';
-
 
 /**
  * Function to install components globally
@@ -37,10 +35,6 @@ const install = function(Vue, settings = {}) {
     }
   }
 
-  // if (settings.addValidationTo) {
-  //   Vue.use(addValidationTo, settings.addValidationTo);
-  // }
-
 };
 
 export {
@@ -58,8 +52,6 @@ export {
   MobileNav,
   DropdownNav,
   ResponsiveHelpers,
-  // addValidationTo,
-  // Install Helper for Vue
-  install,
+  install, // Install Helper for Vue
 };
 
