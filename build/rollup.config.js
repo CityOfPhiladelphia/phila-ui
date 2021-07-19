@@ -53,6 +53,7 @@ export default [ 'phila-ui' ].map((name) => ({
     },
   ],
   external: [
+    // /@babel\/runtime/,
     'vue',
   ],
   plugins: [
