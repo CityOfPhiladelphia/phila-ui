@@ -24,6 +24,8 @@ export default {
   },
   methods: {
     acceptEvent(e) {
+      console.log(e.detail._value);
+      console.log(e.detail);
       const maskRef = e.detail;
       this.$emit('input', maskRef._value);
       this.$emit('unmasked-input', maskRef._unmaskedValue);
