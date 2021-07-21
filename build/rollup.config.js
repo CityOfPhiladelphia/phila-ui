@@ -58,28 +58,8 @@ export default [ 'phila-ui' ].map((name) => ({
   ],
   plugins: [
     image(),
-    nodeResolve(),
-    commonjs(),
-    babel({
-      exclude: 'node_modules/**',
-      babelHelpers: 'runtime',
-    }),
-    vue({
-      css: true, // Dynamically inject css as a <style> tag
-      compileTemplate: true, // Explicitly convert template to render function,
-      style: {
-        preprocessOptions: {
-          scss: {
-            data: `
-              @import "src/assets/styles/scss/variables.scss";
-              @import "src/assets/styles/scss/functions.scss";
-              @import "src/assets/styles/scss/colors.scss";
-              @import "node_modules/bulma/sass/utilities/_all.sass";
-            `,
-          },
-        },
-      },
-      transformAssetUrls: true,
+    nodeResolve({
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
     }),
     alias({
       entries: [
@@ -100,6 +80,28 @@ export default [ 'phila-ui' ].map((name) => ({
           replacement: path.resolve(projectRootDir, 'src/assets/styles/scss'),
         },
       ],
+    }),
+    vue({
+      css: true, // Dynamically inject css as a <style> tag
+      compileTemplate: true, // Explicitly convert template to render function,
+      style: {
+        preprocessOptions: {
+          scss: {
+            data: `
+              @import "src/assets/styles/scss/variables.scss";
+              @import "src/assets/styles/scss/functions.scss";
+              @import "src/assets/styles/scss/colors.scss";
+              @import "node_modules/bulma/sass/utilities/_all.sass";
+            `,
+          },
+        },
+      },
+      transformAssetUrls: true,
+    }),
+    commonjs(),
+    babel({
+      exclude: 'node_modules/**',
+      babelHelpers: 'runtime',
     }),
   ],
 }));
