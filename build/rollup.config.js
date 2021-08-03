@@ -34,14 +34,6 @@ export default [ 'phila-ui' ].map((name) => ({
           find: '@',
           replacement: path.resolve(projectRootDir, 'src'),
         },
-        // {
-        //   find: 'utils',
-        //   replacement: path.resolve(projectRootDir, 'src/utils'),
-        // },
-        // {
-        //   find: 'components',
-        //   replacement: path.resolve(projectRootDir, 'src/components'),
-        // },
         {
           find: 'assets',
           replacement: path.resolve(projectRootDir, 'src/assets'),
