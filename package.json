@@ -17,7 +17,8 @@
     "@babel/runtime": "^7.12.5",
     "bulma": "^0.8.1",
     "bulma-checkradio": "^1.1.1",
-    "core-js": "^3.6.5"
+    "core-js": "^3.6.5",
+    "vue-imask": "^6.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -45,7 +46,7 @@
     "rollup-plugin-sass": "^1.2.2",
     "rollup-plugin-vue": "^5.0.1",
     "sass-loader": "^7.1.0",
-    "semantic-release": "^17.3.0",
+    "semantic-release": "^17.4.4",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
   }

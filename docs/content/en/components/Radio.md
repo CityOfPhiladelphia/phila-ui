@@ -70,7 +70,7 @@ Vue.use(PhilaUI);
 
 ### Options
 
-Options can be provided as an Array when the radio button label and value are the same.
+Options can be provided as an Array when the Radio button label and value are the same.
 
 ```html
 <radio v-model="myValues" label="My Label" :options="options" />
@@ -80,7 +80,7 @@ Options can be provided as an Array when the radio button label and value are th
 options: ["Option 1", "Option 2", "Option 3"];
 ```
 
-And options can be provided as an Object when the radio button label and value are **NOT** the same.
+And options can be provided as an Object when the Radio button label and value are **NOT** the same.
 
 ```js
 options: {
@@ -111,7 +111,7 @@ options: [
 
 ### Columns
 
-By default the radio buttons are displayed in one column. Add more columns to make a large amount of radio buttons easier to read.
+By default the Radio buttons are displayed in one column. Add more columns to make a large amount of radio buttons easier to read.
 
 ```html
 <radio num-of-columns="3" />
@@ -128,3 +128,25 @@ To display an error provide a String with the error, or an Array of errors. Only
 ```
 
 <alert>This component supports VeeValidate errors. [Learn how to validate](/vee-validate-integration) with the VeeValidade plugin.<a></alert>
+
+## Live Examples
+
+### Radio with Array of options
+
+<example name="Radio1" height="300"></example>
+
+### Radio with options Object
+
+<example name="Radio2" height="300"></example>
+
+### Radio with Array of Object options
+
+<example name="Radio3" height="300"></example>
+
+### Radio with error
+
+<example name="Radio4" height="350"></example>
+
+### Radio with VeeValidate's validation
+
+<example name="Radio5" height="470"></example>

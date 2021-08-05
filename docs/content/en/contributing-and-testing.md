@@ -23,13 +23,13 @@ Install PhilaUI for local testing:
 
 3. Next, run ``npm run watch`` to watch for file changes.
 
-4. On a seperate terminal window, run ``npm link`` to create a symlink.
+4. On a separate terminal window, run ``npm link`` to create a symlink.
 
 ### Install the boilerplate
 
 Use this boilerplate to quickly test phila-ui components locally
 
-1. Clone the vue boilerplate ``git clone https://github.com/CityOfPhiladelphia/phila-vue-boilerplate``
+1. Clone the Vue boilerplate ``git clone https://github.com/CityOfPhiladelphia/phila-vue-boilerplate``
 2. Go into the boilerplate folder ``cd phila-vue-boilerplate`` and run ``npm install``
 3. Add the symlink created on step 4 above to the boiler plate by running ``npm link @phila/phila-ui``
 
@@ -43,10 +43,10 @@ PhilaUI follows the [Conventional Commits](https://www.conventionalcommits.org/e
 **Usage summary:**
 | Message | Usage | Effect |
 |---|---|---|
-| ***fix:*** | for bug fixing and patches | relase: patch bump |
+| ***fix:*** | for bug fixing and patches | release: patch bump |
 | ***style:*** |for styles only fixes | no release |
 | ***docs:*** | for documentation updates | no release |
-| ***feat:*** | for minor added features | relase: minor version bump |
+| ***feat:*** | for minor added features | release: minor version bump |
 | ***BREAKING CHANGE:*** | (in the commit body) for major releases | release: major version bump |
 
 For the sake of keeping things organized branch names can follow a similar convention:
@@ -73,11 +73,11 @@ PhilaUI's documentation (this website) is kept in PhilaUI's docs folder. It's bu
 
 1. Follow [steps 1 and 2 above](#install-philaui) to install PhilaUI locally.
 2. CD into the ``docs`` folder in the root of PhilaUI.
-3. Run ``npm run docgen`` to start the docge watcher
-4. On a seperate terminal window run ``npm run dev`` to start the nuxt server
+3. Run ``npm run docgen`` to start the documentation watcher
+4. On a separate terminal window run ``npm run dev`` to start the Nuxt server
 
 ### Docgen
-Docgen generates a .md file, named after the component file name, by reading all the comments from a vue component file and then searches for a readme.md file in the same component folder and appends it to the bottom. All files generated are planced in the ``/docs/content/en/components`` folder.
+Docgen generates a .md file, named after the component file name, by reading all the comments from a Vue component file and then searches for a readme.md file in the same component folder and appends it to the bottom. All files generated are placed in the ``/docs/content/en/components`` folder.
 
 <alert type="warning">Files in the ``/docs/content/en/components`` folder should never be changed as they will be overwritten each time the watcher runs</alert>
 
@@ -105,12 +105,12 @@ Positioning is a manual process. To avoid switching positions often, positioning
 For instance the **Get Started** group starts at 0, and each item inside the group increases by 5.
 - Item 1 position = 0
 - Item 2 position = 5
-- Item 3 psoition = 10 and so on...
+- Item 3 position = 10 and so on...
 
 The **Components Navigation** group starts at 100, and each item inside the group increases by 5.
 - Item 1 position = 100
 - Item 2 position = 105
-- Item 3 psoition = 110 and so on...
+- Item 3 position = 110 and so on...
 
 <alert>The word "Components" in the navigation menu is prefixed automatically to each component group.</alert>
 

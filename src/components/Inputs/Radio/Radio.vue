@@ -53,7 +53,6 @@
             :name="`rd-${key}-${id}`"
             class="is-checkradio"
             :value="optionValue(option, key)"
-            :checked="value === optionValue(option, key)"
             v-bind="option.attrs || {}"
             v-on="inputListeners"
           >
@@ -186,6 +185,11 @@ export default {
           },
         },
       );
+    },
+  },
+  watch: {
+    value (newValue) {
+      this.localValue = newValue;
     },
   },
 };

@@ -2,14 +2,14 @@
 
 title: Callout / Message
 menuTitle: Callout / Message
-description: Displays messages and warnings
+description: Displays important messages and warnings
 category: Components | Other
 position: 300
 badge:
 
 ---
 
-Displays messages and warnings
+Displays important messages and warnings
 
 ## Usage
 
@@ -66,7 +66,7 @@ Use the message slot in case it contains html code that needs to be rendered, ot
 There are two ways of changing the callout color.
 
 1. Use the prop `type`
-2. Passing a class attribute to the callout (uses bulma colors)
+2. Passing a class attribute to the callout (uses Bulma colors)
 
 The default callout has a gray color
 
@@ -111,3 +111,13 @@ The default callout has a gray color
 
 <callout message="This is a danger message" class="is-danger" />
 ```
+
+## Live Examples
+
+### Callout types
+
+<example name="Callout1" height="500"></example>
+
+### Callout types using class and slot
+
+<example name="Callout2" height="500"></example>

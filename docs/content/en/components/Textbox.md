@@ -143,3 +143,21 @@ To display an error provide a String with the error, or an Array of errors. Only
 ```
 
 <alert>This component supports VeeValidate errors. [Learn how to validate](/vee-validate-integration) with the VeeValidade plugin.<a></alert>
+
+## Live Examples
+
+### Basic text input
+
+<example name="Textbox1" height="200"></example>
+
+### Text input with error
+
+<example name="Textbox2" height="200"></example>
+
+### Text input with outer label
+
+<example name="Textbox3" height="200"></example>
+
+### Text input with VeeValidate's validation
+
+<example name="Textbox4" height="300"></example>

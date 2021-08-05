@@ -1,7 +1,7 @@
 ## Code Samples
 
 ### Options
-Options can be provided as an Array when the checkbox label and value are the same.
+Options can be provided as an Array when the Checkbox label and value are the same.
 ```html
   <checkbox
     v-model="myValues"
@@ -17,7 +17,7 @@ options: [
   'Option 3',
 ]
 ```
-And options can be provided as an Object when the checkbox label and value are **NOT** the same.
+And options can be provided as an Object when the Checkbox label and value are **NOT** the same.
 
 ```js
 options: {
@@ -69,3 +69,19 @@ To display an error provide a String with the error, or an Array of errors. Only
 ```
 
 <alert>This component supports VeeValidate errors. [Learn how to validate](/vee-validate-integration) with the VeeValidade plugin.<a></alert>
+
+## Live Examples
+### Checkbox with Array of options
+<example name="Checkbox1" height="300"></example>
+
+### Checkbox with options Object
+<example name="Checkbox2" height="300"></example>
+
+### Checkbox with Array of Object options
+<example name="Checkbox3" height="300"></example>
+
+### Checkbox with error
+<example name="Checkbox4" height="350"></example>
+
+### Checkbox with VeeValidate's validation
+<example name="Checkbox5" height="380"></example>

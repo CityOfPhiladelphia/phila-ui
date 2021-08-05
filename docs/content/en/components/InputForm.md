@@ -61,6 +61,17 @@ Vue.use(PhilaUI);
 | default | The form inputs                                                                                                                                              |          |
 | submit  | Submit button placement. For standard forms, it's best to use this slot to keep the submit button as the last element in the form, bellow the errors count). |          |
 
+## Purpose
+
+This component is not required when building a form. However it offers a couple of helpers that are useful when validating a form. It's best when used in conjunction with the VeeValidate plugin.
+
+**A few things it does:**
+
+- It wraps the form inputs with the `<form>` tag.
+- It shows an error count that can be set manually, or automatically if using the VeeValidate observer
+- It has a slot for the submit button which allows the submit button to always be the last element in the form, below the error count
+- Provides some basic form styles
+
 ## Code Samples
 
 ### Default `<slot>`
@@ -108,3 +119,15 @@ When using VeeValidate, the `<input-form>` needs to be wrapped with VeeValidate'
   <input-form :errors="errors"></input-form>
 </ValidationObserver>
 ```
+
+## Live Examples
+
+### Manual validation
+
+A basic example of a form with Textbox inputs, a submit button and manual validation.
+<example name="Form1" height="500"></example>
+
+### VeeValidate validation
+
+A basic example of a form with Textbox inputs, a submit button. Both the form and the inputs use VeeValidate for validation.
+<example name="Form2" height="550"></example>

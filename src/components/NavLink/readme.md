@@ -4,7 +4,8 @@
 The NavLink Object when using it as a **router-link**.
 ```js
 {
-  href: 'vue-router route name' //the route name is used, and not the path
+  href: 'vue-router route name', //the route name is used, and not the path
+  text: 'My Link',
   attrs: Object //any other html anchor attributes
 }
 ```

@@ -7,7 +7,7 @@
       <label
         v-if="!innerLabel"
         class="label"
-        :for="`phone-${id}`"
+        :for="`date-${id}`"
       >
         {{ label }}
       </label>
@@ -16,7 +16,7 @@
         :class="inputModifierClasses"
       >
         <input
-          :id="`phone-${id}`"
+          :id="`date-${id}`"
           v-imask="mask"
           :placeholder="$attrs.required !== undefined ? `${placeholder}*` : placeholder"
           :value="localValue"
@@ -28,7 +28,7 @@
         >
         <label
           v-if="innerLabel"
-          :for="`phone-${id}`"
+          :for="`date-${id}`"
         >
           {{ label ? label : placeholder }}
         </label>
@@ -64,6 +64,7 @@
   </div>
 </template>
 <script>
+import IMask from 'imask';
 import { inputMixins } from '@/utils/inputMixins';
 import textBoxMixins  from '@/utils/textBoxMixins';
 import maskedElementsMixins  from '@/utils/maskedElementsMixins';
@@ -75,12 +76,63 @@ import maskedElementsMixins  from '@/utils/maskedElementsMixins';
  * @position 205
  */
 export default {
-  name: "Phone",
+  name: "Date",
   mixins: [
     inputMixins,
     textBoxMixins,
     maskedElementsMixins,
   ],
+  data() {
+    return {
+      mask: {
+        mask: Date,
+        pattern: 'M/D/Y',
+        blocks: {
+          D: {
+            mask: IMask.MaskedRange,
+            from: 1,
+            to: 31,
+            maxLength: 2,
+            placeholderChar: 'D',
+          },
+          M: {
+            mask: IMask.MaskedRange,
+            from: 1,
+            to: 12,
+            maxLength: 2,
+            placeholderChar: 'M',
+          },
+          Y: {
+            mask: IMask.MaskedRange,
+            from: 1,
+            to: 9999,
+            maxLength: 4,
+            placeholderChar: 'Y',
+          },
+        },
+        format: function (date) {
+          var day = date.getDate();
+          var month = date.getMonth() + 1;
+          var year = date.getFullYear();
+
+          if (day < 10) {
+            day = "0" + day;
+          }
+          if (month < 10) {
+            month = "0" + month;
+          }
+
+          return [ month, day, year ].join('/');
+        },
+        parse: function (str) {
+          var monthDayYear = str.split('/');
+          return new Date(monthDayYear[2], monthDayYear[0] - 1, monthDayYear[1]);
+        },
+        override: true,
+        lazy: false,
+      },
+    };
+  },
 };
 </script>
 

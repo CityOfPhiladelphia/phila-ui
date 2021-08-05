@@ -183,6 +183,11 @@ export default {
       return this.classes;
     },
   },
+  watch: {
+    value (newValue) {
+      this.localValue = newValue;
+    },
+  },
 };
 </script>
 

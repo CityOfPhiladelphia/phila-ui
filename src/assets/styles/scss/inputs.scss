@@ -1,25 +1,25 @@
 input::-webkit-input-placeholder {
-  color: $grey-dark !important;
+  color: $grey-medium !important;
   opacity: 1 !important;
 }
 
 input::-moz-placeholder {
-  color: $grey-dark !important;
+  color: $grey-medium !important;
   opacity: 1 !important;
 }
 /* FF 4-18 */
 input:-moz-placeholder {
-  color: $grey-dark !important;
+  color: $grey-medium !important;
   opacity: 1 !important;
 }
 /* FF 19+ */
 input:-ms-input-placeholder {
-  color: $grey-dark !important;
+  color: $grey-medium !important;
   opacity: 1 !important;
 }
 
 input::placeholder {
-  color: $grey-dark !important;
+  color: $grey-medium !important;
   opacity: 1 !important;
 }
 
@@ -138,6 +138,30 @@ form {
         padding: 0 0 0 0.90rem;
         white-space: nowrap;
       }
+    }
+    input::-webkit-input-placeholder {
+      color: $grey-dark !important;
+      opacity: 1 !important;
+    }
+
+    input::-moz-placeholder {
+      color: $grey-dark !important;
+      opacity: 1 !important;
+    }
+    /* FF 4-18 */
+    input:-moz-placeholder {
+      color: $grey-dark !important;
+      opacity: 1 !important;
+    }
+    /* FF 19+ */
+    input:-ms-input-placeholder {
+      color: $grey-dark !important;
+      opacity: 1 !important;
+    }
+
+    input::placeholder {
+      color: $grey-dark !important;
+      opacity: 1 !important;
     }
   }
   .input, .textarea, .select select {
