@@ -1,4 +1,5 @@
 import commonjs from 'rollup-plugin-commonjs'; // Convert CommonJS modules to ES6
+import { terser } from "rollup-plugin-terser";
 import vue from 'rollup-plugin-vue'; // Handle .vue SFC files
 import babel from '@rollup/plugin-babel';
 import image from '@rollup/plugin-image';
@@ -67,5 +68,6 @@ export default [ 'phila-ui' ].map((name) => ({
       exclude: 'node_modules/**',
       babelHelpers: 'runtime',
     }),
+    terser(),
   ],
 }));
