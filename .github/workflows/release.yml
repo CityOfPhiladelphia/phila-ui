@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: '10.x'
       - name: Clean up
-        run: npm rm -rf docs test # We don't need to deploy the docs and test folders to npm, this just makes the library bigger unnecessarily.
+        run: rm -rf docs test # We don't need to deploy the docs and test folders to npm, this just makes the library bigger unnecessarily.
       - name: Install
         run: npm install
       - name: Run lint
