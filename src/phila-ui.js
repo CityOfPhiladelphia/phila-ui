@@ -6,6 +6,7 @@ import InputForm from './components/Inputs/InputForm';
 import Checkbox from './components/Inputs/Checkbox';
 import Radio from './components/Inputs/Radio';
 import Dropdown from './components/Inputs/Dropdown';
+import Phone from './components/Inputs/Phone';
 import LangSelector from './components/LangSelector';
 import Textbox from './components/Inputs/Textbox';
 import TextArea from './components/Inputs/TextArea';
@@ -59,6 +60,7 @@ export {
   MobileNav,
   DropdownNav,
   Modal,
+  Phone,
   ResponsiveHelpers,
   // addValidationTo,
   // Install Helper for Vue

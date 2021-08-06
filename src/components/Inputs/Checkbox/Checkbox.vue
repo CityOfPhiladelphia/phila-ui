@@ -66,7 +66,7 @@
   </div>
 </template>
 <script>
-import { inputMixins } from 'utils/inputMixins';
+import { inputMixins } from '@/utils/inputMixins';
 /**
  * Displays one or more checkboxes
  * @niceName Checkboxes
@@ -181,11 +181,6 @@ export default {
         return `${this.classes} small-checkradio`;
       }
       return this.classes;
-    },
-  },
-  watch: {
-    value (newValue) {
-      this.localValue = newValue;
     },
   },
 };

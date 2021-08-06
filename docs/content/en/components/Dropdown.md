@@ -59,7 +59,6 @@ Vue.use(PhilaUI);
 | desc        | The dropdown description                                                                          | string         | -                                                | ''                                                           |
 | icon        | The dropdown icon. It expects font-awesome icon classes.                                          | string         | -                                                | ''                                                           |
 | innerLabel  | Whether the label should be displayed inside the dropdown (true) or above it (false).             | boolean        | -                                                | true                                                         |
-| optgroup    | Enables optgroup                                                                                  | boolean        | -                                                |                                                              |
 
 ## Slots
 
