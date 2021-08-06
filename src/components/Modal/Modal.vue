@@ -80,7 +80,7 @@
 
 /**
  * A modal window component with basic styles for title, body, and action buttons.
- * @niceName Modal Window
+ * @niceName Modal
  * @group Other
  * @position 305
  */
