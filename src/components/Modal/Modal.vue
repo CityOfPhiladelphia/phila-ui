@@ -4,7 +4,10 @@
     class="modal-window"
     :class="`modal-${type}`"
   >
-    <div class="modal-window-x">
+    <div
+      v-if="type !== 'alert' && !hideXButton"
+      class="modal-window-x"
+    >
       <button @click.prevent="close">
         <i class="fa fa-times" />
       </button>
@@ -99,6 +102,13 @@ export default {
      * When type is = alert, hides default CANCEL and DELETE buttons.
     */
     hideAlertButtons: {
+      type: Boolean,
+      default: false,
+    },
+    /**
+     * Hide X button.
+    */
+    hideXButton: {
       type: Boolean,
       default: false,
     },
