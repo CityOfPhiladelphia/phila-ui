@@ -8,11 +8,14 @@
       v-if="type !== 'alert' && !hideXButton"
       class="modal-window-x"
     >
-      <button @click.prevent="close">
+      <button
+        aria-label="close button"
+        @click.prevent="close"
+      >
         <i class="fa fa-times" />
       </button>
     </div>
-    <h3 class="modal-window-title">
+    <div class="modal-window-title">
       <span
         v-if="type === 'alert'"
         class="modal-alert-icon"
@@ -26,7 +29,7 @@
       <template v-else>
         {{ title }}
       </template>
-    </h3>
+    </div>
     <div
       v-if="$slots['default'] || body"
       ref="modal-window-content"
