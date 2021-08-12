@@ -23,146 +23,141 @@ main {
   justify-content: space-between !important;
 }
 
-@mixin create-content($with-padding: true) {
-    a {
-      color: $ben-franklin-blue-dark;
-      text-decoration: underline;
-      font-weight: $weight-bold;
-      &.external-link {
-        &:after {
-          content: '\f35d';
-          font-family: 'Font Awesome 5 Pro';
-          font-weight: 900;
-          display: inline-block;
-          font-size: $size-small;
-          margin-left: 0.25rem;
-        }
+.content{
+  a {
+    color: $ben-franklin-blue-dark;
+    text-decoration: underline;
+    font-weight: $weight-bold;
+    &.external-link {
+      &:after {
+        content: '\f35d';
+        font-family: 'Font Awesome 5 Pro';
+        font-weight: 900;
+        display: inline-block;
+        font-size: $size-small;
+        margin-left: 0.25rem;
       }
     }
-  
-    p {
-      &.is-small {
-        a {
-          &.external-link {
-            &:after {
-              font-size: 0.7rem;
-            }
+  }
+
+  p {
+    &.is-small {
+      a {
+        &.external-link {
+          &:after {
+            font-size: 0.7rem;
           }
         }
       }
     }
+  }
   
-    
-    @if $with-padding == true { padding: 1.5rem; }
-  
-    h1, h2, h3, h4, h5, h6 {
-      font-family: $family-secondary;
-      font-weight: $weight-normal;
-      margin-bottom: 0;
-      line-height: 1.25;
-      &:not(:first-child) {
-        margin-top: 0 !important;
-      }
-      &.heading-with-background {
-        margin-bottom: 1rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        background-color: $ghost-grey;
-        font-size: $size-3;
-      }
-      &.heading-with-contrast {
-        margin-bottom: .5rem;
-        border-bottom: 10px solid $ben-franklin-blue;
-        font-size: $size-2;
-      }
-      &.is-size-1, &.is-1 {
-        font-size: $size-1;
-        line-height: $size-1;
-      }
-      &.is-size-2, &.is-2 {
-        font-size: $size-2;
-        line-height: $size-2;
-      }
-      &.is-size-3, &.is-3 {
-        font-size: $size-3;
-        line-height: $size-3;
-      }
-      &.is-size-4, &.is-4 {
-        font-size: $size-4;
-        line-height: $size-4;
-      }
-  
-      &.is-size-5, &.is-size-6, &.is-5, &.is-6 {
-        font-size: $size-small;
-        line-height: $size-small;
-      }
-  
-      &.title {
-        font-weight: $weight-normal;
-        margin-bottom: 1rem;
-      }
-  
-      &.title + .subtitle {
-        margin-top: -1rem !important;
-        margin-bottom: 1rem !important;
-      }
-  
-      &.title:not(.is-spaced) + .subtitle {
-        margin-top: 1rem;
-      }
-  
-    }
-  
-    div {
-      &.subtitle {
-        font-family: $family-sans-serif;
-        font-weight: $weight-normal;
-        &.is-1 {
-          font-size: 1.5rem;
-          line-height: 1.33rem;
-        }
-        &.is-2 {
-          font-size: 1.25rem;
-          line-height: 1.2rem;
-        }
-        &.is-3 {
-          font-size: 1rem;
-          line-height: 1.5rem;
-        }
-        &.is-4, &.is-5, &.is-6 {
-          font-size: 0.875rem;
-          line-height: 1.29rem;
-        }
-      }
-      &.subtitle {
-        margin-bottom: 0;
-      }
-      &.subtitle + .title {
-        margin-bottom: 1rem !important;
-      }
-      &.subtitle:not(.is-spaced) + .title {
-        margin-top: 0;
-      }
-    }
-  
-    p {
-      font-family: $family-sans-serif;
-      font-size: $size-medium;
-      line-height: $line-height-medium;
-  
-      &.is-large {
-        font-size: $size-large;
-        line-height: $line-height-large;
-      }
-  
-      &.is-small {
-        font-size: $size-small;
-      }
-    }
-}
+  @if $use-paddingless-content == false { padding: 1.5rem; }
 
-.content {
-  @include create-content(true);
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $family-secondary;
+    font-weight: $weight-normal;
+    margin-bottom: 0;
+    line-height: 1.25;
+    &:not(:first-child) {
+      margin-top: 0 !important;
+    }
+    &.heading-with-background {
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      background-color: $ghost-grey;
+      font-size: $size-3;
+    }
+    &.heading-with-contrast {
+      margin-bottom: .5rem;
+      border-bottom: 10px solid $ben-franklin-blue;
+      font-size: $size-2;
+    }
+    &.is-size-1, &.is-1 {
+      font-size: $size-1;
+      line-height: $size-1;
+    }
+    &.is-size-2, &.is-2 {
+      font-size: $size-2;
+      line-height: $size-2;
+    }
+    &.is-size-3, &.is-3 {
+      font-size: $size-3;
+      line-height: $size-3;
+    }
+    &.is-size-4, &.is-4 {
+      font-size: $size-4;
+      line-height: $size-4;
+    }
+
+    &.is-size-5, &.is-size-6, &.is-5, &.is-6 {
+      font-size: $size-small;
+      line-height: $size-small;
+    }
+
+    &.title {
+      font-weight: $weight-normal;
+      margin-bottom: 1rem;
+    }
+
+    &.title + .subtitle {
+      margin-top: -1rem !important;
+      margin-bottom: 1rem !important;
+    }
+
+    &.title:not(.is-spaced) + .subtitle {
+      margin-top: 1rem;
+    }
+
+  }
+
+  div {
+    &.subtitle {
+      font-family: $family-sans-serif;
+      font-weight: $weight-normal;
+      &.is-1 {
+        font-size: 1.5rem;
+        line-height: 1.33rem;
+      }
+      &.is-2 {
+        font-size: 1.25rem;
+        line-height: 1.2rem;
+      }
+      &.is-3 {
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+      &.is-4, &.is-5, &.is-6 {
+        font-size: 0.875rem;
+        line-height: 1.29rem;
+      }
+    }
+    &.subtitle {
+      margin-bottom: 0;
+    }
+    &.subtitle + .title {
+      margin-bottom: 1rem !important;
+    }
+    &.subtitle:not(.is-spaced) + .title {
+      margin-top: 0;
+    }
+  }
+
+  p {
+    font-family: $family-sans-serif;
+    font-size: $size-medium;
+    line-height: $line-height-medium;
+
+    &.is-large {
+      font-size: $size-large;
+      line-height: $line-height-large;
+    }
+
+    &.is-small {
+      font-size: $size-small;
+    }
+  }
 }
 
 /** Custom Styles **/
