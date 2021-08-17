@@ -2,6 +2,8 @@
   <div
     ref="tooltip"
     class="tooltip"
+    role="tooltip"
+    :aria-describedby="tooltipId"
   >
     <i
       ref="tooltip-icon"
@@ -49,6 +51,7 @@ export default {
     return {
       tooltipId: null,
       clickedToOpen: false,
+      savedPosition: null,
     };
   },
   mounted () {
@@ -56,18 +59,22 @@ export default {
     let self = this;
 
     const tooltipIcon = this.$refs['tooltip-icon'];
+
     this.addTooltip(tooltipIcon);
+
     const tooltipMessage = document.getElementById(this.tooltipId);
 
     tooltipIcon.addEventListener('mouseover', function () {
       this.clickedToOpen = false;
       self.setTooltipPosition(tooltipMessage, tooltipIcon);
       tooltipMessage.classList.add('show');
+      tooltipMessage.setAttribute('aria-hidden', false);
     });
 
     tooltipIcon.addEventListener('mouseout', function () {
       if (!self.clickedToOpen) {
         tooltipMessage.classList.remove('show');
+        tooltipMessage.setAttribute('aria-hidden', true);
       }
     });
 
@@ -75,27 +82,36 @@ export default {
       self.clickedToOpen = true;
       if (!tooltipMessage.classList.contains('show')) {
         tooltipMessage.classList.remove('show');
+        tooltipMessage.setAttribute('aria-hidden', true);
       }
     });
 
+    //close on click outside
     document.addEventListener('click', function (event) {
       if (event.target !== tooltipMessage && event.target !== tooltipIcon) {
         tooltipMessage.classList.remove('show');
+        tooltipMessage.setAttribute('aria-hidden', true);
         self.clickedToOpen = false;
       }
     });
 
+    //on resize, clear saved position and tooltip message box size
+    window.addEventListener('resize', function() {
+      self.savedPosition = null;
+      tooltipMessage.style.width = 'auto';
+    }, true);
+
   },
   methods: {
-    isOffScreen (x, y) {
+    isOffScreen (x, y, w, h) {
       const windowWidth = window.innerWidth;
       const windowHeight = window.innerHeight;
-      const padding = 0;
+      const padding = 20;
       if (
         x < padding ||
-        x > windowWidth ||
+        x + w > windowWidth - padding ||
         y < padding ||
-        y > windowHeight
+        y + h > windowHeight - padding
       ) {
         return true;
       }
@@ -103,72 +119,118 @@ export default {
     },
     setTooltipPosition (tooltipBox, tooltipIcon) {
 
+      //default classes
+      tooltipBox.className = 'tooltip-message tooltip-arrow';
+
       //arrow heigh offset
       const arrowHeight = 13; //8 (arrow) + 5 (prevent collision)
 
-      //get icon positions top, right, bottom, left
-      const iconPosition = tooltipIcon.getBoundingClientRect();
+      let finalPosition;
 
-      const iconPositionXCenter = tooltipIcon.clientWidth / 2 + iconPosition.left;
-      const iconPositionYCenter = tooltipIcon.clientHeight / 2 + iconPosition.top;
+      if (!this.savedPosition) {
 
-      const tooltipXCenter = tooltipBox.clientWidth / 2;
-      const tooltipYCenter = tooltipBox.clientHeight / 2;
+        let positionsCoordinates = [
+          {
+            coordinates: function () {
+              const iconPosition = tooltipIcon.getBoundingClientRect();
+              return {
+                name: 'top-center',
+                x: (tooltipIcon.offsetWidth / 2 + iconPosition.left) - (tooltipBox.offsetWidth / 2),
+                y: iconPosition.top - tooltipBox.offsetHeight - arrowHeight,
+                arrowX: 'bottom',
+                arrowY: 'center',
+              };
+            },
+          },
+          {
+            coordinates: function () {
+              const iconPosition = tooltipIcon.getBoundingClientRect();
+              return {
+                name: 'bottom-center',
+                x: (tooltipIcon.offsetWidth / 2 + iconPosition.left) - (tooltipBox.offsetWidth / 2),
+                y: iconPosition.bottom + arrowHeight,
+                arrowX: 'top',
+                arrowY: 'center',
+              };
+            },
+          },
+          {
+            coordinates: function () {
+              const iconPosition = tooltipIcon.getBoundingClientRect();
+              return {
+                name: 'right',
+                x: iconPosition.right + arrowHeight,
+                y: (tooltipIcon.offsetHeight / 2 + iconPosition.top) - (tooltipBox.offsetHeight / 2),
+                arrowX: 'left-side',
+                arrowY: '',
+              };
+            },
 
-      let positionsCoordinates = [
-        {
-          name: 'top-center',
-          x: iconPositionXCenter - tooltipXCenter,
-          y: iconPosition.top - tooltipBox.clientHeight - arrowHeight,
-          arrowX: 'bottom',
-          arrowY: 'center',
-        },
-        {
-          name: 'bottom-center',
-          x: iconPositionXCenter - tooltipXCenter,
-          y: iconPosition.bottom + arrowHeight,
-          arrowX: 'top',
-          arrowY: 'center',
-        },
-        {
-          name: 'right',
-          x: iconPosition.right + arrowHeight,
-          y: iconPositionYCenter - tooltipYCenter,
-          arrowX: 'left-side',
-          arrowY: '',
-        },
-        {
-          name: 'top-right',
-          x: iconPosition.right - tooltipBox.clientWidth + (arrowHeight / 2),
-          y: iconPosition.top - tooltipBox.clientHeight - arrowHeight,
-          arrowX: 'right',
-          arrowY: 'bottom',
-        },
-        {
-          name: 'bottom-right',
-          x: iconPosition.right - tooltipBox.clientWidth + (arrowHeight / 2),
-          y: iconPosition.bottom + arrowHeight,
-          arrowX: 'right',
-          arrowY: 'top',
-        },
-      ];
+          },
+          {
+            coordinates: function () {
+              const iconPosition = tooltipIcon.getBoundingClientRect();
+              return {
+                name: 'top-right',
+                x: iconPosition.right - tooltipBox.offsetWidth + (arrowHeight / 2),
+                y: iconPosition.top - tooltipBox.offsetHeight - arrowHeight,
+                arrowX: 'right',
+                arrowY: 'bottom',
+              };
+            },
+          },
+          {
+            coordinates: function () {
+              const iconPosition = tooltipIcon.getBoundingClientRect();
+              return {
+                name: 'bottom-right',
+                x: iconPosition.right - tooltipBox.offsetWidth + (arrowHeight / 2),
+                y: iconPosition.bottom + arrowHeight,
+                arrowX: 'right',
+                arrowY: 'top',
+              };
+            },
+          },
+        ];
 
-      //set the default to top-center
-      let finalPosition = positionsCoordinates[0];
+        //interations counter
+        let count = 0;
 
-      //if position is not auto
-      if (this.position !== 'auto') {
-        finalPosition = positionsCoordinates.filter(position => position.name === this.position)[0];
-      } else {
-        for (let i=1; i < positionsCoordinates.length; i++) {
-          if (!this.isOffScreen(positionsCoordinates[i].x, positionsCoordinates[i].y)) {
-            finalPosition = positionsCoordinates[i];
+        //abort counter
+        let runCount = 0;
+
+        //loops through each position
+        //if no position is suitable reduce tooltip width and try gain
+
+        do {
+
+          if (count === 5) {
+            //if none of the positions work, reduce width to try again
+            tooltipBox.style.width = tooltipBox.offsetWidth - 10 + 'px';
+            count = 0;
+          }
+
+          finalPosition = positionsCoordinates[count].coordinates();
+
+          //can't be running too long or browser will freeze
+          if (runCount === 100) {
+            console.log('aff... running too long');
             break;
           }
-        }
-      }
 
-      console.log(finalPosition);
+          runCount++;
+          count++;
+
+        }
+        while (this.isOffScreen(finalPosition.x, finalPosition.y, tooltipBox.offsetWidth, tooltipBox.offsetHeight));
+
+        this.savedPosition = finalPosition;
+
+      } else {
+
+        finalPosition = this.savedPosition;
+
+      }
 
       tooltipBox.classList.add(`arrow-${finalPosition.arrowX}`);
       tooltipBox.classList.add(`arrow-${finalPosition.arrowY}`);
@@ -176,14 +238,14 @@ export default {
       tooltipBox.style.transform = `translate(${finalPosition.x}px, ${finalPosition.y}px)`;
 
     },
-    genId () {
+    randomID () {
       return Math.floor((1 + Math.random()) * 0x10000)
         .toString(16)
         .substring(1);
     },
     addTooltip () {
       let tooltipMessage = document.createElement('div');
-      this.tooltipId = `ttip-${this.genId()}-${this.genId()}`;
+      this.tooltipId = `ttip-${this.randomID()}-${this.randomID()}`;
       tooltipMessage.setAttribute('id', this.tooltipId);
       tooltipMessage.classList.add('tooltip-message');
       tooltipMessage.classList.add('tooltip-arrow');
@@ -220,6 +282,10 @@ export default {
     left: 0;
     opacity: 0;
     transition: opacity 0.25s ease-in-out;
+
+    @media screen and (max-width: 500px) {
+      max-width: 90%
+    }
 
     &.tooltip-arrow {
 
