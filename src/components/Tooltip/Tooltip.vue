@@ -119,11 +119,13 @@ export default {
     },
     setTooltipPosition (tooltipBox, tooltipIcon) {
 
+      const self = this;
+
       //default classes
       tooltipBox.className = 'tooltip-message tooltip-arrow';
 
       //arrow heigh offset
-      const arrowHeight = 13; //8 (arrow) + 5 (prevent collision)
+      const arrowHeight = 10; //8 (arrow) + 2 (padding)
 
       let finalPosition;
 
@@ -193,36 +195,47 @@ export default {
           },
         ];
 
-        //interations counter
-        let count = 0;
+        if (self.position === 'auto') {
+          //interations counter
+          let count = 0;
 
-        //abort counter
-        let runCount = 0;
+          //abort counter
+          let runCount = 0;
 
-        //loops through each position
-        //if no position is suitable reduce tooltip width and try gain
+          //loops through each position
+          //if no position is suitable reduce tooltip width and try gain
 
-        do {
+          do {
 
-          if (count === 5) {
+            if (count === 5) {
             //if none of the positions work, reduce width to try again
-            tooltipBox.style.width = tooltipBox.offsetWidth - 10 + 'px';
-            count = 0;
+              tooltipBox.style.width = tooltipBox.offsetWidth - 10 + 'px';
+              count = 0;
+            }
+
+            finalPosition = positionsCoordinates[count].coordinates();
+
+            //can't be running too long or browser will freeze
+            if (runCount === 100) {
+              console.log('aff... running too long');
+              break;
+            }
+
+            runCount++;
+            count++;
+
           }
+          while (this.isOffScreen(finalPosition.x, finalPosition.y, tooltipBox.offsetWidth, tooltipBox.offsetHeight));
 
-          finalPosition = positionsCoordinates[count].coordinates();
+        } else {
 
-          //can't be running too long or browser will freeze
-          if (runCount === 100) {
-            console.log('aff... running too long');
-            break;
-          }
-
-          runCount++;
-          count++;
+          //force position given as prop
+          finalPosition = positionsCoordinates.filter(position => {
+            const info = position.coordinates();
+            return info.name === self.position;
+          })[0].coordinates();
 
         }
-        while (this.isOffScreen(finalPosition.x, finalPosition.y, tooltipBox.offsetWidth, tooltipBox.offsetHeight));
 
         this.savedPosition = finalPosition;
 
@@ -267,6 +280,7 @@ export default {
     }
   }
   .tooltip-message {
+    pointer-events: none;
     display: block;
     visibility: hidden;
     z-index: -100;
