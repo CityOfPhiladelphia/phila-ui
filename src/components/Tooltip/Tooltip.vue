@@ -284,10 +284,12 @@ export default {
 <style lang="scss">
   .tooltip {
     display: inline-block;
-    margin-left: rem-calc(10px);
+    margin-left: 5px;
     cursor: pointer;
     i {
       color: $ben-franklin-blue-dark;
+      font-size: 25px;
+      vertical-align: middle;
     }
   }
   .tooltip-message {
@@ -316,7 +318,7 @@ export default {
         position: absolute;
         top: 8px;
         right: 10px;
-        font-family: 'FontAwesome5Pro-Regular', 'Font Awesome 5 Pro', sans-serif;
+        font-family: 'FontAwesome5Pro-Solid', 'Font Awesome 5 Pro Solid', 'Font Awesome 5 Pro', sans-serif;
         font-weight: 900;
         font-size: 20px;
       }
