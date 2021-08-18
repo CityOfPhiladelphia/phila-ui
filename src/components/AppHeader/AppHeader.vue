@@ -45,12 +45,11 @@
                   class="app-title"
                   :href="appLink"
                 >
-                  <h1 class="is-size-5">
+                  <h1>
                     {{ appTitle }}
                   </h1>
                   <h2
                     v-if="appSubtitle && !isMobile"
-                    class="is-size-6"
                   >{{ appSubtitle }}
                   </h2>
                 </a>
@@ -262,8 +261,11 @@ export default {
           let main = document.querySelector('main');
 
           body.classList.add('has-sticky-header');
+          if (!main) {
+            console.warn('Remember to add a main container (<main>) when the header is sticky.');
+            return;
+          }
           main.style['margin-top'] = header.offsetHeight + 'px';
-
         });
 
       }

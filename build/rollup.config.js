@@ -1,4 +1,5 @@
 import commonjs from 'rollup-plugin-commonjs'; // Convert CommonJS modules to ES6
+import { terser } from "rollup-plugin-terser";
 import vue from 'rollup-plugin-vue'; // Handle .vue SFC files
 import babel from '@rollup/plugin-babel';
 import image from '@rollup/plugin-image';
@@ -28,6 +29,22 @@ export default [ 'phila-ui' ].map((name) => ({
   },
   ],
   plugins: [
+    alias({
+      entries: [
+        {
+          find: '@',
+          replacement: path.resolve(projectRootDir, 'src'),
+        },
+        {
+          find: 'assets',
+          replacement: path.resolve(projectRootDir, 'src/assets'),
+        },
+        {
+          find: 'styles',
+          replacement: path.resolve(projectRootDir, 'src/assets/styles/scss'),
+        },
+      ],
+    }),
     image(),
     commonjs(),
     vue({
@@ -51,25 +68,6 @@ export default [ 'phila-ui' ].map((name) => ({
       exclude: 'node_modules/**',
       babelHelpers: 'runtime',
     }),
-    alias({
-      entries: [
-        {
-          find: 'utils',
-          replacement: path.resolve(projectRootDir, 'src/utils'),
-        },
-        {
-          find: 'components',
-          replacement: path.resolve(projectRootDir, 'src/components'),
-        },
-        {
-          find: 'assets',
-          replacement: path.resolve(projectRootDir, 'src/assets'),
-        },
-        {
-          find: 'styles',
-          replacement: path.resolve(projectRootDir, 'src/assets/styles/scss'),
-        },
-      ],
-    }),
+    terser(),
   ],
 }));

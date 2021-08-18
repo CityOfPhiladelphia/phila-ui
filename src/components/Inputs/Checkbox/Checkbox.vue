@@ -66,7 +66,7 @@
   </div>
 </template>
 <script>
-import { inputMixins } from 'utils/inputMixins';
+import { inputMixins } from '@/utils/inputMixins';
 /**
  * Displays one or more checkboxes
  * @niceName Checkboxes
