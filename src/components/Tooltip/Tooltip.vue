@@ -133,6 +133,7 @@ export default {
 
       //arrow heigh offset
       const arrowHeight = 10; //8 (arrow) + 2 (padding)
+      const arrowWidth = 16;
 
       let finalPosition;
 
@@ -181,7 +182,7 @@ export default {
               const iconPosition = tooltipIcon.getBoundingClientRect();
               return {
                 name: 'top-right',
-                x: iconPosition.right - tooltipBox.offsetWidth + (arrowHeight / 2),
+                x: iconPosition.right - tooltipBox.offsetWidth + (arrowWidth / 2),
                 y: iconPosition.top - tooltipBox.offsetHeight - arrowHeight,
                 arrowX: 'right',
                 arrowY: 'bottom',
@@ -193,7 +194,7 @@ export default {
               const iconPosition = tooltipIcon.getBoundingClientRect();
               return {
                 name: 'bottom-right',
-                x: iconPosition.right - tooltipBox.offsetWidth + (arrowHeight / 2),
+                x: iconPosition.right - tooltipBox.offsetWidth + (arrowWidth / 2),
                 y: iconPosition.bottom + arrowHeight,
                 arrowX: 'right',
                 arrowY: 'top',
@@ -315,7 +316,7 @@ export default {
         position: absolute;
         top: 8px;
         right: 10px;
-        font-family: 'FontAwesome5Pro-Solid', 'Font Awesome 5 Pro Solid', 'Font Awesome 5 Pro', sans-serif;
+        font-family: 'FontAwesome5Pro-Regular', 'Font Awesome 5 Pro', sans-serif;
         font-weight: 900;
         font-size: 20px;
       }
@@ -331,14 +332,14 @@ export default {
 
       &.arrow-top {
         &:after {
-          top: -16px;
+          top: -15px;
           border-bottom-color: $grey-dark;
         }
       }
 
       &.arrow-bottom {
         &:after {
-          bottom: -16px;
+          bottom: -15px;
           border-top-color: $grey-dark;
         }
       }
@@ -364,7 +365,7 @@ export default {
 
       &.arrow-left-side {
         &:after {
-          left: -16px;
+          left: -15px;
           top: 50%;
           transform: translateY(-50%);
           border-right-color: $grey-dark;
