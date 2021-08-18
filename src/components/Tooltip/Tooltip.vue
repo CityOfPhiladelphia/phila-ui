@@ -13,6 +13,12 @@
 </template>
 
 <script>
+/**
+ * A tooltip which display a custum message on hover or click.
+ * @niceName Tooltip
+ * @group Other
+ * @position 310
+ */
 export default {
   name: 'Tooltip',
   props: {
