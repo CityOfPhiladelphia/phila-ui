@@ -123,6 +123,17 @@ export default {
       }
       return false;
     },
+    isOffScreenHorizontal (x, w) {
+      const windowWidth = window.innerWidth;
+      const padding = 20;
+      if (
+        x < padding ||
+        x + w > windowWidth - padding
+      ) {
+        return true;
+      }
+      return false;
+    },
     setTooltipPosition (tooltipBox, tooltipIcon) {
 
       const self = this;
@@ -237,13 +248,40 @@ export default {
           }
           while (this.isOffScreen(finalPosition.x, finalPosition.y, tooltipBox.offsetWidth, tooltipBox.offsetHeight));
 
+
         } else {
 
+          //abort counter
+          let runCount = 0;
+          let positionIndex;
+
           //force position given as prop
-          finalPosition = positionsCoordinates.filter(position => {
+          finalPosition = positionsCoordinates.find((position, index) => {
             const info = position.coordinates();
-            return info.name === self.position;
-          })[0].coordinates();
+
+            if (info.name === self.position) {
+              positionIndex = index;
+              return true;
+            }
+
+            return false;
+
+          }).coordinates();
+
+          while (this.isOffScreenHorizontal(finalPosition.x, tooltipBox.offsetWidth)) {
+            tooltipBox.style.width = tooltipBox.offsetWidth - 2 + 'px';
+
+            //force position given as prop
+            finalPosition = positionsCoordinates[positionIndex].coordinates();
+
+            if (runCount === 100) {
+              console.log('ugh... running too long');
+              break;
+            }
+
+            runCount++;
+
+          }
 
         }
 
