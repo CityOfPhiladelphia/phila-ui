@@ -121,8 +121,9 @@ export default {
 
       const self = this;
 
-      //default classes
+      //reset default classes
       tooltipBox.className = 'tooltip-message tooltip-arrow';
+      tooltipBox.classList.add(self.mode);
 
       //arrow heigh offset
       const arrowHeight = 10; //8 (arrow) + 2 (padding)
@@ -196,19 +197,19 @@ export default {
         ];
 
         if (self.position === 'auto') {
+
           //interations counter
           let count = 0;
 
           //abort counter
           let runCount = 0;
 
-          //loops through each position
-          //if no position is suitable reduce tooltip width and try gain
+          //loops through each predefined position
 
           do {
 
             if (count === 5) {
-            //if none of the positions work, reduce width to try again
+            //if none of the positions work (box is offscreen), reduce width of the box to try again
               tooltipBox.style.width = tooltipBox.offsetWidth - 10 + 'px';
               count = 0;
             }
@@ -217,7 +218,7 @@ export default {
 
             //can't be running too long or browser will freeze
             if (runCount === 100) {
-              console.log('aff... running too long');
+              console.log('ugh... running too long');
               break;
             }
 
@@ -237,14 +238,17 @@ export default {
 
         }
 
+        //save the last position
         this.savedPosition = finalPosition;
 
       } else {
 
+        //get saved position
         finalPosition = this.savedPosition;
 
       }
 
+      //assign position to box
       tooltipBox.classList.add(`arrow-${finalPosition.arrowX}`);
       tooltipBox.classList.add(`arrow-${finalPosition.arrowY}`);
 
@@ -260,8 +264,8 @@ export default {
       let tooltipMessage = document.createElement('div');
       this.tooltipId = `ttip-${this.randomID()}-${this.randomID()}`;
       tooltipMessage.setAttribute('id', this.tooltipId);
-      tooltipMessage.classList.add('tooltip-message');
-      tooltipMessage.classList.add('tooltip-arrow');
+      tooltipMessage.className = 'tooltip-message tooltip-arrow';
+      tooltipMessage.classList.add(this.mode);
       tooltipMessage.innerText = this.message;
       const body = document.getElementsByTagName('body')[0];
       body.append(tooltipMessage);
@@ -297,15 +301,24 @@ export default {
     opacity: 0;
     transition: opacity 0.25s ease-in-out;
 
-    @media screen and (max-width: 500px) {
-      max-width: 90%
+    @media screen and (max-width: $tablet) {
+      padding-top: 30px;
+      &:before {
+        content: "times";
+        display: block;
+        position: absolute;
+        top: 8px;
+        right: 10px;
+        font-family: 'FontAwesome5Pro-Solid', 'Font Awesome 5 Pro Solid', 'Font Awesome 5 Pro', sans-serif;
+        font-weight: 900;
+        font-size: 20px;
+      }
     }
 
     &.tooltip-arrow {
 
       &:after {
         position: absolute;
-
         content: "";
         border: solid 8px transparent;
       }
@@ -356,8 +369,29 @@ export default {
 
     &.light {
       color: $grey-dark;
-      background-color: #f0f0f0;
+      $light-color: #f0f0f0;
+      background-color: $light-color;
+      &.tooltip-arrow {
+        &.arrow-top {
+          &:after {
+            border-bottom-color: $light-color;
+          }
+        }
+
+        &.arrow-bottom {
+          &:after {
+            border-top-color: $light-color;
+          }
+        }
+
+        &.arrow-left-side {
+          &:after {
+            border-right-color: $light-color;
+          }
+        }
+      }
     }
+
     &.show {
       visibility: visible;
       opacity: 1;
