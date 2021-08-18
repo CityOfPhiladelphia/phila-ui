@@ -181,8 +181,9 @@ export default {
             coordinates: function () {
               const iconPosition = tooltipIcon.getBoundingClientRect();
               return {
+                //5 is relative to the icon marginx
                 name: 'top-right',
-                x: iconPosition.right - tooltipBox.offsetWidth + (arrowWidth / 2),
+                x: iconPosition.right - tooltipBox.offsetWidth + (arrowWidth / 2) - 5,
                 y: iconPosition.top - tooltipBox.offsetHeight - arrowHeight,
                 arrowX: 'right',
                 arrowY: 'bottom',
@@ -193,8 +194,9 @@ export default {
             coordinates: function () {
               const iconPosition = tooltipIcon.getBoundingClientRect();
               return {
+                //5 is relative to the icon marginx
                 name: 'bottom-right',
-                x: iconPosition.right - tooltipBox.offsetWidth + (arrowWidth / 2),
+                x: iconPosition.right - tooltipBox.offsetWidth + (arrowWidth / 2) - 5,
                 y: iconPosition.bottom + arrowHeight,
                 arrowX: 'right',
                 arrowY: 'top',
