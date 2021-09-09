@@ -1,6 +1,6 @@
 export class Tooltip {
 
-  constructor(el, msg, position, mode, id) {
+  constructor(el, msg, mode, id) {
 
     this.htmlBody = document.getElementsByTagName('body')[0];
     this.tooltip = el;
@@ -13,9 +13,7 @@ export class Tooltip {
     this.tooltipMessageClasses = 'tooltip-message';
     this.tooltipArrowClasses = 'tooltip-arrow';
     this.tooltipMode = mode || 'dark';
-    this.tooltipPosition = position || 'auto';
     this.currentTooltipPosition = null;
-    this.positionTries = 0;
     this.initPositionSet = false;
     this.tooltipID = id;
     this.padding = 8;

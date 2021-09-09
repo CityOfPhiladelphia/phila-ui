@@ -38,18 +38,6 @@ export default {
         return false;
       },
     },
-    position: {
-      type: String,
-      default: 'auto',
-      validator (position) {
-        const positions = [ 'auto', 'top-center', 'bottom-center', 'top-right', 'bottom-right', 'right' ];
-        if (!positions.includes(position)) {
-          console.error(`${position} is not a valid position.`);
-          return false;
-        }
-        return true;
-      },
-    },
   },
   data () {
     return {
@@ -59,7 +47,7 @@ export default {
   },
   mounted () {
     const el = this.$refs['tooltip'];
-    new Tooltip(el, this.message, this.position, this.mode, this.tooltipId);
+    new Tooltip(el, this.message, this.mode, this.tooltipId);
   },
   methods: {
     randomID () {
