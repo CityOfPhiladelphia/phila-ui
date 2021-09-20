@@ -97,12 +97,16 @@ export default {
       @media screen and (max-width: $tablet) {
         padding-top: 24px;
         &:before {
-          content: "times";
-          display: block;
+          display: inline-block;
+          font-style: normal;
+          font-variant: normal;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          content: "\f00d";
           position: absolute;
           top: 6px;
           right: 10px;
-          font-family: 'FontAwesome5Pro-Solid', 'Font Awesome 5 Pro Solid', 'Font Awesome 5 Pro', sans-serif;
+          font-family: 'Font Awesome 5 Pro', sans-serif;
           font-weight: 900;
           font-size: 20px;
         }
