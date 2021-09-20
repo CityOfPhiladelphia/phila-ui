@@ -86,9 +86,7 @@ export default {
     left: 0;
     opacity: 0;
     transition: opacity 0.25s ease-in-out;
-    @media screen and (min-width: 769px) {
-      pointer-events: none;
-    }
+    pointer-events: none;
 
     .tooltip-message {
       line-height: 20px;

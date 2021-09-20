@@ -105,7 +105,7 @@ export class Tooltip {
     }, true);
 
     //whem tooltip icon mouse over
-    this.tooltipIcon.addEventListener('mouseover', function () {
+    this.tooltipIcon.addEventListener('mouseenter', function () {
       self.updateTooltipPosition();
       self.updateArrowPosition();
       self.showTooltip();
@@ -119,7 +119,7 @@ export class Tooltip {
     });
 
     //when on mouse out
-    this.tooltipIcon.addEventListener('mouseout', function () {
+    this.tooltipIcon.addEventListener('mouseleave', function () {
       //on close if user did not click to open
       if (!self.clickedToOpen) {
         self.hideTooltip();
@@ -131,34 +131,22 @@ export class Tooltip {
       self.hideTooltip();
     });
 
-    //if mobile, when clicking on the tooltipbox close it
-    if (this.instance.isMobile || this.instance.isTablet) {
-      this.tooltipBox.addEventListener('click', function () {
-        self.updateTooltipPosition();
-        self.updateArrowPosition();
+    //if clicked to open tooltip only allow clicking elsewhere to close it
+    this.tooltipIcon.addEventListener('click', function () {
+      self.clickedToOpen = true;
+      self.updateTooltipPosition();
+      self.updateArrowPosition();
+      self.toggleTooltip();
+    }, false);
+
+
+    //hide when clicking anywhere but on its own icon
+    window.addEventListener('click', function (event) {
+      if (event.target !== self.tooltipIcon && self.clickedToOpen) {
         self.hideTooltip();
-      }, false);
-    }
-
-    //on desktop, clicking on tooltip icon keeps it open
-    if (this.instance.isDesktop || this.instance.isWideScreen) {
-
-      this.tooltipIcon.addEventListener('click', function () {
-        self.clickedToOpen = true;
-        self.updateTooltipPosition();
-        self.updateArrowPosition();
-        self.toggleTooltip();
-      }, false);
-
-      //hide when clicking anywhere but on its own icon
-      window.addEventListener('click', function (event) {
-        if (event.target !== self.tooltipIcon && self.clickedToOpen) {
-          self.hideTooltip();
-          self.clickedToOpen = false;
-        }
-      });
-
-    }
+        self.clickedToOpen = false;
+      }
+    });
 
   }
 
