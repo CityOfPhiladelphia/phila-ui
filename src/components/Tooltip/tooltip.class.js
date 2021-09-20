@@ -1,6 +1,6 @@
 export class Tooltip {
 
-  constructor(el, msg, mode, id) {
+  constructor(el, msg, mode, id, instance) {
 
     this.htmlBody = document.getElementsByTagName('body')[0];
     this.tooltip = el;
@@ -21,6 +21,7 @@ export class Tooltip {
       height: 8,
       width: 16,
     };
+    this.instance = instance;
 
     this.newTooltip();
 
@@ -73,6 +74,7 @@ export class Tooltip {
   addTooltipIcon () {
     this.tooltip.appendChild(this.tooltipIcon);
   }
+
   addTooltip() {
     this.tooltipBox.appendChild(this.tooltipMessage);
     this.tooltipBox.appendChild(this.tooltipArrow);
@@ -105,6 +107,15 @@ export class Tooltip {
       self.showTooltip();
     });
 
+    if (this.instance.isMobile || this.instance.isTablet) {
+      console.log('upda');
+      this.tooltipBox.addEventListener('click', function () {
+        self.updateTooltipPosition();
+        self.updateArrowPosition();
+        self.hideTooltip();
+      }, false);
+    }
+
     this.tooltipIcon.addEventListener('focus', function () {
       self.updateTooltipPosition();
       self.updateArrowPosition();
@@ -119,6 +130,17 @@ export class Tooltip {
       self.hideTooltip();
     });
 
+  }
+
+  toggleTooltip() {
+    console.log(this.tooltipBox.classList);
+    if (this.tooltipBox.classList.contains('show')) {
+      console.log('pk1');
+      this.hideTooltip();
+    } else {
+      console.log('pk2');
+      this.showTooltip();
+    }
   }
 
   showTooltip () {
