@@ -76,7 +76,6 @@ export default {
     }
   }
   .tooltip-box {
-    pointer-events: none;
     display: block;
     visibility: hidden;
     z-index: -100;
@@ -87,6 +86,9 @@ export default {
     left: 0;
     opacity: 0;
     transition: opacity 0.25s ease-in-out;
+    @media screen and (min-width: 769px) {
+      pointer-events: none;
+    }
 
     .tooltip-message {
       line-height: 20px;
