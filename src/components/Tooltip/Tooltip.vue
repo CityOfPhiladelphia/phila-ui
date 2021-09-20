@@ -47,7 +47,7 @@ export default {
   },
   mounted () {
     const el = this.$refs['tooltip'];
-    new Tooltip(el, this.message, this.mode, this.tooltipId);
+    new Tooltip(el, this.message, this.mode, this.tooltipId, this);
   },
   methods: {
     randomID () {
@@ -76,7 +76,7 @@ export default {
     }
   }
   .tooltip-box {
-    pointer-events: none;
+    // pointer-events: none;
     display: block;
     visibility: hidden;
     z-index: -100;
