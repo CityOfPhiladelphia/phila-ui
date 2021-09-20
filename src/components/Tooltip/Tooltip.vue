@@ -76,7 +76,7 @@ export default {
     }
   }
   .tooltip-box {
-    // pointer-events: none;
+    pointer-events: none;
     display: block;
     visibility: hidden;
     z-index: -100;
