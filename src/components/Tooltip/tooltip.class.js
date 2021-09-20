@@ -16,12 +16,14 @@ export class Tooltip {
     this.currentTooltipPosition = null;
     this.initPositionSet = false;
     this.tooltipID = id;
+    this.tooltipBtnID = `btn-${id}`;
     this.padding = 8;
     this.arrowAttrs = {
       height: 8,
       width: 16,
     };
     this.instance = instance;
+    this.clickedToOpen = false;
 
     this.newTooltip();
 
@@ -68,6 +70,7 @@ export class Tooltip {
     this.tooltipIcon = document.createElement('button');
     this.tooltipIcon.setAttribute('aria-label', 'tooltip');
     this.tooltipIcon.className = this.tooltipIconClasses;
+    this.tooltipIcon.setAttribute('id', this.tooltipBtnID);
 
   }
 
@@ -94,21 +97,42 @@ export class Tooltip {
 
     const self = this;
 
+    //when window resizes, recalculate
     window.addEventListener('resize', function () {
       self.setInitTooltipPosition();
       self.updateArrowPosition();
       self.updateTooltipPosition();
     }, true);
 
-
+    //whem tooltip icon mouse over
     this.tooltipIcon.addEventListener('mouseover', function () {
       self.updateTooltipPosition();
       self.updateArrowPosition();
       self.showTooltip();
     });
 
+    //when focused (tabbed)
+    this.tooltipIcon.addEventListener('focus', function () {
+      self.updateTooltipPosition();
+      self.updateArrowPosition();
+      self.showTooltip();
+    });
+
+    //when on mouse out
+    this.tooltipIcon.addEventListener('mouseout', function () {
+      //on close if user did not click to open
+      if (!self.clickedToOpen) {
+        self.hideTooltip();
+      }
+    });
+
+    //when unfocused (tabbed away)
+    this.tooltipIcon.addEventListener('blur', function () {
+      self.hideTooltip();
+    });
+
+    //if mobile, when clicking on the tooltipbox close it
     if (this.instance.isMobile || this.instance.isTablet) {
-      console.log('upda');
       this.tooltipBox.addEventListener('click', function () {
         self.updateTooltipPosition();
         self.updateArrowPosition();
@@ -116,30 +140,33 @@ export class Tooltip {
       }, false);
     }
 
-    this.tooltipIcon.addEventListener('focus', function () {
-      self.updateTooltipPosition();
-      self.updateArrowPosition();
-      self.showTooltip();
-    });
+    //on desktop, clicking on tooltip icon keeps it open
+    if (this.instance.isDesktop || this.instance.isWideScreen) {
 
-    this.tooltipIcon.addEventListener('mouseout', function () {
-      self.hideTooltip();
-    });
+      this.tooltipIcon.addEventListener('click', function () {
+        self.clickedToOpen = true;
+        self.updateTooltipPosition();
+        self.updateArrowPosition();
+        self.toggleTooltip();
+      }, false);
 
-    this.tooltipIcon.addEventListener('blur', function () {
-      self.hideTooltip();
-    });
+      //hide when clicking anywhere but on its own icon
+      window.addEventListener('click', function (event) {
+        if (event.target !== self.tooltipIcon && self.clickedToOpen) {
+          self.hideTooltip();
+          self.clickedToOpen = false;
+        }
+      });
+
+    }
 
   }
 
   toggleTooltip() {
-    console.log(this.tooltipBox.classList);
-    if (this.tooltipBox.classList.contains('show')) {
-      console.log('pk1');
-      this.hideTooltip();
-    } else {
-      console.log('pk2');
+    if (this.clickedToOpen) {
       this.showTooltip();
+    } else {
+      this.hideTooltip();
     }
   }
 
