@@ -91,7 +91,7 @@
  * @position 305
  */
 export default {
-  name: 'ModalWindow',
+  name: 'Modal',
   inheritAttrs: false,
   props: {
     /**
