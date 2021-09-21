@@ -23,8 +23,7 @@ main {
   justify-content: space-between !important;
 }
 
-.content {
-
+.content{
   a {
     color: $ben-franklin-blue-dark;
     text-decoration: underline;
@@ -52,8 +51,8 @@ main {
       }
     }
   }
-
-  padding: 1.5rem;
+  
+  @if $use-paddingless-content == false { padding: 1.5rem; }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: $family-secondary;
