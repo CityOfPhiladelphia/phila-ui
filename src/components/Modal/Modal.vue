@@ -23,7 +23,7 @@
         <i class="fa fa-exclamation" />
       </span>
       <template v-if="$slots['title']">
-        <!-- @slot Modal Window title -->
+        <!-- @slot Modal title -->
         <slot name="title" />
       </template>
       <template v-else>
@@ -36,7 +36,7 @@
       class="modal-window-content"
     >
       <template v-if="$slots['default']">
-        <!-- @slot Modal Window body/content -->
+        <!-- @slot Modal body/content -->
         <slot name="default" />
       </template>
       <template v-else>
@@ -86,6 +86,7 @@
 
 /**
  * A modal window component with basic styles for title, body, and action buttons.
+ * This component does not include the modal functionality. It's meant to be used with the [VueFinalModal](https://vue-final-modal.org/) third-party plugin, which is not included with PhilaUI.
  * @niceName Modal
  * @group Other
  * @position 305
@@ -95,28 +96,28 @@ export default {
   inheritAttrs: false,
   props: {
     /**
-     * When type = default, hides default CLOSE button
+     * When type = default, hide the default CLOSE button
     */
     hideCloseButton: {
       type: Boolean,
       default: false,
     },
     /**
-     * When type is = alert, hides default CANCEL and DELETE buttons.
+     * When type is = alert, hide the default CANCEL and DELETE buttons.
     */
     hideAlertButtons: {
       type: Boolean,
       default: false,
     },
     /**
-     * Hide X button.
+     * Hide the X button.
     */
     hideXButton: {
       type: Boolean,
       default: false,
     },
     /**
-     * Function to close the window
+     * Function called to close the window
     */
     close: {
       type: Function,
