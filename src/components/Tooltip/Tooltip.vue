@@ -63,16 +63,20 @@ export default {
   .tooltip {
     display: inline-block;
     margin-left: 5px;
+    vertical-align: middle;
     button {
       color: $ben-franklin-blue-dark;
       font-size: 25px;
       vertical-align: middle;
       border: 0;
       background-color: transparent;
-      box-shadow: 0;
+      box-shadow: none;
       padding: 0;
       margin: 0;
       cursor: pointer;
+      vertical-align: middle;
+      position: relative;
+      top: -2px;
     }
   }
   .tooltip-box {
@@ -95,7 +99,7 @@ export default {
       font-size: 12px;
       padding: 10px 8px 8px 8px;
       @media screen and (max-width: $tablet) {
-        padding-top: 24px;
+        padding-top: 36px;
         &:before {
           display: inline-block;
           font-style: normal;
@@ -104,8 +108,8 @@ export default {
           -webkit-font-smoothing: antialiased;
           content: "\f00d";
           position: absolute;
-          top: 6px;
-          right: 10px;
+          top: 12px;
+          right: 16px;
           font-family: 'Font Awesome 5 Pro', sans-serif;
           font-weight: 900;
           font-size: 20px;
