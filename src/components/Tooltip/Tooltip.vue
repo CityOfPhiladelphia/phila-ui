@@ -92,6 +92,7 @@ export default {
     transition: opacity 0.25s ease-in-out;
     pointer-events: none;
 
+
     .tooltip-message {
       line-height: 20px;
       color: $white;
