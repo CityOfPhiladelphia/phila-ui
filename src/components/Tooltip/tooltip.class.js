@@ -99,22 +99,18 @@ export class Tooltip {
 
     //when window resizes, recalculate
     window.addEventListener('resize', function () {
-      self.setInitTooltipPosition();
-      self.updateArrowPosition();
       self.updateTooltipPosition();
     }, true);
 
     //whem tooltip icon mouse over
     this.tooltipIcon.addEventListener('mouseenter', function () {
       self.updateTooltipPosition();
-      self.updateArrowPosition();
       self.showTooltip();
     });
 
     //when focused (tabbed)
     this.tooltipIcon.addEventListener('focus', function () {
       self.updateTooltipPosition();
-      self.updateArrowPosition();
       self.showTooltip();
     });
 
@@ -135,7 +131,6 @@ export class Tooltip {
     this.tooltipIcon.addEventListener('click', function () {
       self.clickedToOpen = true;
       self.updateTooltipPosition();
-      self.updateArrowPosition();
       self.toggleTooltip();
     }, false);
 
@@ -180,6 +175,7 @@ export class Tooltip {
       this.tooltipArrow.classList.add('arrow-up');
     } else {
       this.tooltipArrow.style.top = `${currentPosition.top + this.tooltipBox.offsetHeight}px`;
+      this.tooltipArrow.classList.remove('arrow-up');
     }
 
   }
@@ -194,7 +190,11 @@ export class Tooltip {
 
   }
 
-  updateTooltipPosition () {
+  updateTooltipPosition(init = true) {
+
+    if (init) {
+      this.setInitTooltipPosition();
+    }
 
     const windowWidth = window.innerWidth;
 
@@ -213,7 +213,8 @@ export class Tooltip {
       this.tooltipBox.style.left = `${this.padding}px`;
       this.tooltipBox.style.top = `${iconPosition.top - this.tooltipBox.offsetHeight - this.arrowAttrs.height}px`;
 
-      this.updateTooltipPosition();
+      this.updateTooltipPosition(false);
+      return;
 
     } else if (currentPosition.left + this.tooltipBox.offsetWidth > windowWidth - this.padding) {
 
@@ -221,14 +222,16 @@ export class Tooltip {
       this.tooltipBox.style.left = `${window.innerWidth - this.padding - this.tooltipBox.offsetWidth}px`;
       this.tooltipBox.style.top = `${iconPosition.top - this.tooltipBox.offsetHeight - this.arrowAttrs.height}px`;
 
-      this.updateTooltipPosition();
+      this.updateTooltipPosition(false);
+      return;
 
     } else if (currentPosition.top < this.padding) {
 
       this.tooltipBox.style.left = `${currentPosition.left}px`;
       this.tooltipBox.style.top = `${iconPosition.bottom + this.arrowAttrs.height}px`;
 
-      this.updateTooltipPosition();
+      this.updateTooltipPosition(false);
+      return;
 
     }
 
