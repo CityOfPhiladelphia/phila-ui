@@ -51,7 +51,7 @@
   </div>
 </template>
 <script>
-import { inputMixins } from 'utils/inputMixins';
+import { inputMixins } from '@/utils/inputMixins';
 /**
  * A textarea input
  * @niceName Textarea
@@ -121,7 +121,7 @@ export default {
           input: function (event) {
             vm.$emit('input', event.target.value);
           },
-        }
+        },
       );
     },
   },
