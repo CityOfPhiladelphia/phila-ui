@@ -1,6 +1,6 @@
 export class Tooltip {
 
-  constructor(el, msg, mode, id, instance) {
+  constructor(el, msg, mode, id) {
 
     this.htmlBody = document.getElementsByTagName('body')[0];
     this.tooltip = el;
@@ -22,7 +22,6 @@ export class Tooltip {
       height: 8,
       width: 16,
     };
-    this.instance = instance;
     this.clickedToOpen = false;
 
     this.newTooltip();
@@ -106,6 +105,13 @@ export class Tooltip {
     this.tooltipIcon.addEventListener('mouseenter', function () {
       self.updateTooltipPosition();
       self.showTooltip();
+    });
+
+    //hides tooltip on scroll, prevents tooltip from showing out of place while scrolling
+    window.addEventListener('scroll', function () {
+      if (self.tooltipBox.classList.contains('show')) {
+        self.hideTooltip();
+      }
     });
 
     //when focused (tabbed)
