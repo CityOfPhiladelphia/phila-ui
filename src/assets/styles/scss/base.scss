@@ -51,8 +51,12 @@ main {
       }
     }
   }
-  
+
   @if $use-paddingless-content == false { padding: 1.5rem; }
+
+  blockquote {
+    border-left-color: $flyers-orange;
+  }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: $family-secondary;
@@ -201,128 +205,6 @@ main {
   &.is-large {
     font-size: $size-large;
   }
-}
-
-.button {
-  border-width: 0.25rem;
-  font-weight: $weight-semibold;
-  border-color: transparent;
-
-  &:focus {
-    &:not(:active) {
-      box-shadow: 0 0 0 0.25em $electric-blue !important;
-    }
-  }
-
-  &.is-primary, &.is-secondary, &.is-danger, &.is-cta {
-    &:hover {
-      background-color: $grey-dark;
-      border-color: $grey-dark;
-      color: $white;
-    }
-    &:active {
-      background-color: $black;
-      border-color: $black;
-      color: $white;
-    }
-    &:disabled {
-      background-color: $sidewalk-grey;
-      border-color: $sidewalk-grey;
-      color: $white;
-    }
-  }
-
-  &.is-secondary {
-    @extend .is-primary;
-    @extend .is-outlined;
-    border-width: 0.125rem;
-    color: $ben-franklin-blue;
-    border-color: $ben-franklin-blue;
-    &:focus:not(:active) {
-      background-color: $white;
-      color: $ben-franklin-blue;
-      border-color: $ben-franklin-blue;
-    }
-    &:disabled {
-      background-color: $white !important;
-      border-color: $sidewalk-grey !important;
-      color: $sidewalk-grey !important;
-      border-width: 0.125rem !important;
-    }
-  }
-
-  &.is-tertiary {
-    border: 0 !important;
-    color: $primary;
-    &:focus {
-      &:not(:active) {
-        border-color: transparent !important;
-        border-width: 0;
-        box-shadow: 0 0 0 0.25em $grey-dark !important;
-      }
-    }
-    &:hover {
-      background-color: $grey-dark;
-      border-color: $ben-franklin-blue;
-      color: $white !important;
-    }
-    &:active {
-      background-color: $black;
-      border-color: $grey-dark;
-      color: $white;
-    }
-    &:disabled {
-      color: $sidewalk-grey;
-      &:hover {
-        background-color: $white;
-        color: $sidewalk-grey !important;
-      }
-    }
-  }
-
-  &.is-cta, input[type='submit'] {
-    font-family: $family-secondary;
-    font-weight: $weight-bold;
-    text-transform: uppercase;
-    padding: 1rem 2.5rem;
-    color: $ben-franklin-blue-dark;
-    border-color: $ben-franklin-blue-dark;
-    background-color: transparent;
-    &:not(.is-tertiary):not(.is-secondary) {
-      &:hover {
-        background-color: $grey-dark;
-      }
-      &:active {
-        background-color: $black;
-      }
-      background-color: $ben-franklin-blue-dark;
-      border-color: transparent;
-      color: $white;
-      &:disabled {
-        background-color: $sidewalk-grey;
-      }
-    }
-    &:disabled {
-      background-color: transparent;
-      color: $sidewalk-grey;
-    }
-  }
-
-  @extend .font-sizes;
-
-  &.is-small {
-    padding: 0.5rem 1rem;
-    border-radius: 0;
-  }
-
-  &.is-medium, &.is-normal {
-    padding: 0.75rem 1.5em;
-  }
-
-  &.is-large {
-    padding: 1rem 2rem;
-  }
-
 }
 
 .is-link {
