@@ -1,0 +1,104 @@
+@mixin heading {
+  font-family: $family-secondary;
+  color: $grey-dark;
+  font-weight: $weight-bold;
+  line-height: $line-height-medium;
+  margin-bottom: .5rem;
+  &:not(:first-child) {
+    margin-top: 0;
+  }
+}
+
+@mixin heading-1 {
+  @include heading;
+  font-size: 2rem;
+  font-weight: $weight-normal;
+}
+
+@mixin heading-2 {
+  @include heading;
+  font-size: 1.75rem;
+}
+
+@mixin heading-3 {
+  @include heading;
+  font-size: 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+  &.is-size-1, &.is-1 {
+    @include heading-1;
+  }
+
+  &.is-size-2, &.is-2 {
+    @include heading-2;
+  }
+
+  &.is-size-3, &.is-3 {
+    @include heading-3;
+  }
+
+  &.is-size-4, &.is-size-5, &.is-size-6 {
+    @include heading-3;
+  }
+
+  &.is-4, &.is-5, &.is-6 {
+    @include heading-3;
+  }
+
+}
+
+    // &:not(:first-child) {
+    //   margin-top: 0 !important;
+    // }
+    // &.heading-with-background {
+    //   margin-bottom: 1rem;
+    //   padding-left: 1rem;
+    //   padding-right: 1rem;
+    //   background-color: $ghost-grey;
+    //   font-size: $size-3;
+    // }
+    // &.heading-with-contrast {
+    //   margin-bottom: .5rem;
+    //   border-bottom: 10px solid $ben-franklin-blue;
+    //   font-size: $size-2;
+    // }
+    // &.is-size-1, &.is-1 {
+    //   font-size: $size-1;
+    //   line-height: $size-1;
+    // }
+    // &.is-size-2, &.is-2 {
+    //   font-size: $size-2;
+    //   line-height: $size-2;
+    // }
+    // &.is-size-3, &.is-3 {
+    //   font-size: $size-3;
+    //   line-height: $size-3;
+    // }
+    // &.is-size-4, &.is-4 {
+    //   font-size: $size-4;
+    //   line-height: $size-4;
+    // }
+
+    // &.is-size-5, &.is-size-6, &.is-5, &.is-6 {
+    //   font-size: $size-small;
+    //   line-height: $size-small;
+    // }
+
+    // &.title {
+    //   font-weight: $weight-normal;
+    //   margin-bottom: 1rem;
+    // }
+
+    // &.title + .subtitle {
+    //   margin-top: -1rem !important;
+    //   margin-bottom: 1rem !important;
+    // }
+
+    // &.title:not(.is-spaced) + .subtitle {
+    //   margin-top: 1rem;
+    // }
+
+  // }
+// }

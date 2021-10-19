@@ -1,22 +1,100 @@
 
 .button, .button.is-medium, .button.is-default {
-  border-width: 0.125rem;
+  $border-width: 0.125rem;
+  border-width: $border-width;
   border-color: transparent;
+  padding: calc(0.75rem - #{$border-width}) calc(1rem - #{$border-width});
   font-size: 1rem;
-  padding: 0.75rem 1.5rem;
+  line-height: 1.5rem;
   text-transform: uppercase;
   border-radius: 0 !important;
   font-family: $family-secondary !important;
   font-weight: $weight-semibold !important;
-  height: 3rem;
-  &.is-small {
-    padding: 0.5rem 1rem;
-    height: 2.5rem;
-  }
-  &.is-large {
+  height: auto;
+
+  span.icon {
+    height: auto;
+    width: auto;
     font-size: 1.125rem;
-    padding: 1rem 2rem;
-    height: 3.5rem;
+  }
+
+  span.icon:first-child:not(:last-child) {
+    margin-left: 0;
+    margin-right: 1rem;
+    + span {
+      padding-right: 1rem;
+    }
+  }
+
+  span.icon:last-child:not(:first-child){
+    margin: 0;
+    padding: 0;
+  }
+
+  span:first-child:not([class="icon"]) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 1rem !important;
+    + span {
+      margin-left: 1rem !important;
+    }
+  }
+
+  &.is-small {
+    padding: calc(0.5rem - #{$border-width}) calc(1rem - #{$border-width});
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    span.icon {
+      height: auto;
+      width: auto;
+      max-height: 1.125rem;
+      max-width: 1.125rem;
+    }
+
+    span.icon:first-child:not(:last-child) {
+      margin-right: .5rem;
+    }
+
+    span:first-child:not([class="icon"]) {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding-left: 1rem !important;
+      + span {
+        margin-left: .5rem !important;
+      }
+    }
+
+  }
+
+  &.is-large {
+    padding: calc(1rem - #{$border-width}) calc(2rem - #{$border-width});
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+
+    span.icon {
+      height: auto;
+      width: auto;
+      max-height: 1.125rem;
+      max-width: 1.125rem;
+    }
+
+    span.icon:first-child:not(:last-child) {
+      margin-left: -1rem;
+      margin-right: 1;
+      + span {
+        padding-right: 0;
+      }
+    }
+
+    span:first-child:not([class="icon"]) {
+      padding-left: 0 !important;
+      + span {
+        margin-left: 1rem !important;
+        margin-right: -1rem !important;
+      }
+    }
+
   }
   &:focus {
     &:not(:active) {
@@ -70,8 +148,8 @@
     }
     &:hover {
       background-color: $grey-dark;
-      border-color: $ben-franklin-blue;
-      color: $white !important;
+      border-color: $grey-dark;
+      color: $white;
     }
     &:active {
       background-color: $black;
@@ -83,6 +161,7 @@
       &:hover {
         background-color: $white;
         color: $sidewalk-grey !important;
+        border-color: transparent;
       }
     }
   }
@@ -109,5 +188,33 @@
       background-color: transparent;
       color: $sidewalk-grey;
     }
+
+    padding: calc(1rem - #{$border-width}) calc(2.5rem - #{$border-width}) !important;
+    font-size: 1.125rem !important;
+    line-height: 1.5rem !important;
+
+    span.icon {
+      height: auto;
+      width: auto;
+      max-height: 1.125rem;
+      max-width: 1.125rem;
+    }
+
+    span.icon:first-child:not(:last-child) {
+      margin-left: -1rem;
+      margin-right: 1;
+      + span {
+        padding-right: 0;
+      }
+    }
+
+    span:first-child:not([class="icon"]) {
+      padding-left: 0 !important;
+      + span {
+        margin-left: 1rem !important;
+        margin-right: -1rem !important;
+      }
+    }
+
   }
 }

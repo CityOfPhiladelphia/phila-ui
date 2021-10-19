@@ -1,0 +1,75 @@
+.content {
+
+  @if $use-paddingless-content == false { padding: 1.5rem; }
+
+  h1 {
+    @include heading-1;
+  }
+
+  h2 {
+    @include heading-2;
+  }
+
+  h3 {
+    @include heading-3;
+  }
+
+  h4 {
+    @include heading-3;
+  }
+
+  h5 {
+    @include heading-3;
+  }
+
+  h6 {
+    @include heading-3;
+  }
+
+  a {
+    color: $ben-franklin-blue-dark;
+    text-decoration: underline;
+    font-weight: $weight-bold;
+    &.external-link {
+      &:after {
+        content: '\f35d';
+        font-family: 'Font Awesome 5 Pro';
+        font-weight: 900;
+        display: inline-block;
+        font-size: $size-small;
+        margin-left: 0.25rem;
+      }
+    }
+  }
+
+  p {
+    font-family: $family-sans-serif;
+    font-size: $size-medium;
+    line-height: $line-height-medium;
+
+    &.is-large {
+      font-size: $size-large;
+      line-height: $line-height-large;
+    }
+
+    &.is-small {
+      font-size: $size-small;
+      a {
+        &.external-link {
+          &:after {
+            font-size: 0.7rem;
+          }
+        }
+      }
+    }
+
+    + h1, + h2, + h3, + h4, + h5, + h6 {
+      padding-top: .5rem;
+    }
+  }
+
+  blockquote {
+    border-left-color: $flyers-orange;
+  }
+
+}
