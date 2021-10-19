@@ -26,6 +26,10 @@
     @include heading-3;
   }
 
+  h1, h2, h3, h4, h5, h6 {
+    @include headings-set-sizes;
+  }
+
   a {
     color: $ben-franklin-blue-dark;
     text-decoration: underline;
