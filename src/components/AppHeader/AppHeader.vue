@@ -279,7 +279,7 @@ export default {
 <style lang="scss">
   #app-header {
     .container {
-      padding: 0 1rem;
+      padding: 0;
     }
     @include until ($tablet) {
       .container {
