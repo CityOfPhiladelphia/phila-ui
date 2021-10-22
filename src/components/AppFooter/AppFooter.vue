@@ -125,8 +125,18 @@ export default {
       li {
         display: inline-block;
         vertical-align: middle;
-        margin: 0 1rem;
-        padding: 0;
+        margin: 0;
+        padding: 0;        
+        &:not(:last-child) {
+          &:after {                    
+            content: "|";
+            margin: 0 1rem;
+            display: inline-block;
+            position: relative;            
+            color: $white;
+            font-weight: $weight-bold;
+          }          
+        }                
       }
     }
   }
