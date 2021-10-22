@@ -71,7 +71,7 @@
             class="button is-danger is-large"
             @click="$emit('deleteAction')"
           >
-            Delete
+            {{ deleteButtonText }}
           </button>
         </template>
         <template v-if="$slots['actions-after']">
@@ -160,6 +160,14 @@ export default {
       type: String,
       default: 'Modal window default body.',
     },
+    /**
+     * Body/content of the modal window
+     * Shows only if the 'default' slot is not used
+    */
+    deleteButtonText: {
+      type: String,
+      default: 'Delete',
+    },
   },
 };
 
@@ -220,11 +228,16 @@ export default {
   }
 
   .modal-window-actions {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     .buttons {
-      justify-content: flex-end;
+      justify-content: flex-end;      
       &:last-child {
         margin-bottom: 0;
+      }
+      .button {
+        &:not(:last-child) {
+          margin-right: 2rem !important;
+        }
       }
     }
 
