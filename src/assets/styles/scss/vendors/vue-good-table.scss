@@ -1,0 +1,15 @@
+.vgt-inner-wrap {
+  border-radius: 0;
+  box-shadow: none;
+  table.table thead tr th button {
+    width: 100%;
+    height: 100%;
+    padding: 0 .5rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
