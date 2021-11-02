@@ -268,10 +268,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../../assets/styles/scss/inputs.scss';
-</style>
-
 <style lang="scss" scoped>
 
 .input-dropdown {
