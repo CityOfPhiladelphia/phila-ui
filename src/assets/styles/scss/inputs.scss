@@ -112,8 +112,21 @@ form {
       font-size: 0.9rem;
       color: $love-park-red-dark;
       font-weight: $weight-semibold;
+      line-height: 1.2;
+      position: relative;
+      margin-top: .4rem;
       .icon {
         font-size: 1rem;
+        width: 1rem;
+        position: absolute;
+        top: -3px;
+        left: 1px;
+      }
+      span:last-child {
+        left: 1.3rem;
+        padding-right: 1.3rem;
+        position: relative;
+        display: inline-block;
       }
     }
     &.input-textbox, &.input-textarea, &.input-dropdown {
@@ -288,7 +301,7 @@ form {
   }
   .supplemental-text {
     font-size: $size-small;
-    padding: 0.2rem 0.75rem 0 0.75rem;
+    padding: 0.2rem 0.75rem 0 0.8rem;
     line-height: 1rem;
   }
 }
