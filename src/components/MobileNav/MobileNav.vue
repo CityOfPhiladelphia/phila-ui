@@ -255,6 +255,41 @@ export default {
 
 <style lang="scss">
 
+  @mixin submenu($is-opened:false) {
+    &:after {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 2px;
+      background-color: $white;
+      display: block;
+      transition: all 0.25s ease-in;
+      content: "";
+      @if($is-opened) {
+        transform: translateY(-50%) rotate(-45deg);
+      }
+    }
+    &:before {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+      width: 20px;
+      height: 2px;
+      background-color: $white;
+      display: block;
+      content: "";
+      transition: all 0.25s ease-in;
+      opacity: 1;
+      @if($is-opened) {
+        transform: translateY(-50%) rotate(45deg);
+      }
+    }
+  }
+
+
   #mobile-menu {
     width: 100%;
     height: 100%;
@@ -280,31 +315,7 @@ export default {
             font-weight: $weight-semibold;
           }
           &.has-submenu {
-            &:after {
-              position: absolute;
-              right: 1rem;
-              top: 50%;
-              transform: translateY(-50%);
-              width: 20px;
-              height: 2px;
-              background-color: $white;
-              display: block;
-              transition: all 0.25s ease-in;
-              content: "";
-            }
-            &:before {
-              position: absolute;
-              right: 1rem;
-              top: 50%;
-              transform: translateY(-50%) rotate(-90deg);
-              width: 20px;
-              height: 2px;
-              background-color: $white;
-              display: block;
-              content: "";
-              transition: all 0.25s ease-in;
-              opacity: 1;
-            }
+            @include submenu;
           }
         }
         &.opened {
@@ -312,12 +323,8 @@ export default {
           border-bottom: 2px solid $ben-franklin-blue-light;
           > a {
             font-weight: $weight-semibold;
-            &:before {
-              transform: translateY(-50%) rotate(45deg);
-            }
-            &:after {
-              transform: translateY(-50%) rotate(-45deg);
-            }
+            position: relative;
+            @include submenu(true);
           }
           > ul {
             opacity: 1;
@@ -345,15 +352,20 @@ export default {
               padding: 1rem 1rem;
               display: block;
               margin: 0 2rem;
+              position: relative;
               &.is-active, &.router-link-exact-active {
                 background-color: $ben-franklin-blue;
                 font-weight: $weight-semibold;
+              }
+              &.has-submenu {
+                @include submenu;
               }
             }
             &.opened {
               > a {
                 background-color: $ben-franklin-blue;
                 font-weight: $weight-semibold;
+                @include submenu(true);
               }
               > ul {
                 opacity: 1;
