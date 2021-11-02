@@ -75,7 +75,7 @@ export default {
     const main = document.querySelector('main');
     const footer = document.querySelector('#app-footer');
 
-    if (this.isSticky) {
+    if (this.isSticky && footer) {
       if (main) {
         main.style['padding-bottom'] = `${footer.offsetHeight}px`;
       } else {
@@ -126,17 +126,17 @@ export default {
         display: inline-block;
         vertical-align: middle;
         margin: 0;
-        padding: 0;        
+        padding: 0;
         &:not(:last-child) {
-          &:after {                    
+          &:after {
             content: "|";
             margin: 0 1rem;
             display: inline-block;
-            position: relative;            
+            position: relative;
             color: $white;
             font-weight: $weight-bold;
-          }          
-        }                
+          }
+        }
       }
     }
   }
