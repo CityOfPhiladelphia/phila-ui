@@ -35,9 +35,9 @@
               class="column title-col"
               :class="{
                 'no-mobile-nav': isMobile && !$slots['mobile-nav'],
-                'is-4': !isMobile && showBranding && showRightNavOnSide,
-                'is-6': !showBranding && showRightNavOnSide,
-                'is-8': !isMobile && !showRightNavOnSide && !showBranding
+                'is-4 has-mobile-nav': !isMobile && showBranding && showRightNavOnSide,
+                'is-6 has-mobile-nav': !showBranding && showRightNavOnSide,
+                'is-8 has-mobile-nav': !isMobile && !showRightNavOnSide && !showBranding
               }"
             >
               <div>
@@ -346,6 +346,9 @@ export default {
               padding-left: 1rem;
               width: calc(100% - 50px);
             }
+          }
+          &.has-mobile-nav {
+            padding-left: 10px;
           }
         }
 
