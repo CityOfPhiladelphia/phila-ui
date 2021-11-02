@@ -287,7 +287,11 @@ export default {
       width: 100%;
     }
     label + select {
-      padding: 1rem 1rem 0 0.5rem;
+      padding: 1rem 1rem 0 0.8rem;
+      //Fixes SELECT padding on Firefox
+      @supports ( -moz-appearance: none ){
+        padding: 1rem 1rem 0 0.5rem;
+      }
     }
   }
 }
