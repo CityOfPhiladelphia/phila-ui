@@ -101,6 +101,7 @@
       box-shadow: 0 0 0 0.25em $electric-blue !important;
     }
   }
+
   &.is-primary, &.is-secondary, &.is-danger, &.is-cta {
     &:hover {
       background-color: $grey-dark;
@@ -118,6 +119,7 @@
       color: $white;
     }
   }
+
   &.is-secondary {
     @extend .is-primary;
     @extend .is-outlined;
@@ -216,5 +218,14 @@
       }
     }
 
+  }
+}
+
+.buttons {  
+  .button:not(:last-child):not(.is-fullwidth) {
+    margin-right: 4rem;    
+  }
+  .button {    
+    margin-bottom: 2rem;
   }
 }

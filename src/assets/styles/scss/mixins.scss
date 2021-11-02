@@ -43,45 +43,44 @@
   }
 }
 
-@mixin deprecated-title-sizes {
-  &.is-size-1, &.is-1 {
-    font-size: $size-1;
-    line-height: $size-1;
-  }
-  &.is-size-2, &.is-2 {
-    font-size: $size-2;
-    line-height: $size-2;
-  }
-  &.is-size-3, &.is-3 {
-    font-size: $size-3;
-    line-height: $size-3;
-  }
-  &.is-size-4, &.is-4 {
-    font-size: $size-4;
-    line-height: $size-4;
+@mixin font-sizes {
+  &.is-small {
+    font-size: $size-small;
   }
 
-  &.is-size-5, &.is-size-6, &.is-5, &.is-6 {
-    font-size: $size-small;
-    line-height: $size-small;
+  &.is-medium, &.is-normal {
+    font-size: $size-medium;
+  }
+
+  &.is-large {
+    font-size: $size-large;
   }
 }
 
-@mixin deprecated-subtitle-sizes {
-  &.is-1 {
-    font-size: 1.5rem;
-    line-height: 1.33rem;
+@mixin link {
+
+  color: $ben-franklin-blue-dark;
+  text-decoration: underline;
+  font-weight: $weight-bold;
+
+  &.external-link {
+    &:after {
+      content: '\f35d';
+      font-family: 'Font Awesome 5 Pro';
+      font-weight: 900;
+      display: inline-block;
+      font-size: $size-small;
+      margin-left: 0.25rem;
+    }
   }
-  &.is-2 {
-    font-size: 1.25rem;
-    line-height: 1.2rem;
-  }
-  &.is-3 {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-  &.is-4, &.is-5, &.is-6 {
-    font-size: 0.875rem;
-    line-height: 1.29rem;
+
+}
+
+@mixin small-link {
+  font-size: $size-small;
+  &.external-link {
+    &:after {
+      font-size: 0.7rem;
+    }
   }
 }

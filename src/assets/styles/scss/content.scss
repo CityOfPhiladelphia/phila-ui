@@ -1,6 +1,6 @@
 .content {
 
-  @if $use-paddingless-content == false { padding: 1.5rem; }
+  padding: 0;
 
   h1 {
     @include heading-1;
@@ -31,19 +31,11 @@
   }
 
   a {
-    color: $ben-franklin-blue-dark;
-    text-decoration: underline;
-    font-weight: $weight-bold;
-    &.external-link {
-      &:after {
-        content: '\f35d';
-        font-family: 'Font Awesome 5 Pro';
-        font-weight: 900;
-        display: inline-block;
-        font-size: $size-small;
-        margin-left: 0.25rem;
-      }
-    }
+    @include link;
+  }
+
+  .is-small a, a.is-small {
+    @include small-link;
   }
 
   p {
@@ -57,19 +49,38 @@
     }
 
     &.is-small {
-      font-size: $size-small;
       a {
-        &.external-link {
-          &:after {
-            font-size: 0.7rem;
-          }
-        }
+        @include small-link;
       }
     }
 
     + h1, + h2, + h3, + h4, + h5, + h6 {
       padding-top: .5rem;
     }
+    &:last-child {
+      margin-bottom: 1rem;
+    }
+  }
+
+  ul:not(:last-child), ol:not(:last-child) {
+    margin-bottom: .5rem;
+  }
+
+  ul, ol {
+    margin-top: 0;
+  }
+
+  ul ul, ul ol, ol ol, ol ul {
+    margin-top: 0;
+  }
+
+  ul li, ol li {
+    margin: 0;
+    line-height: 2rem;
+  }
+
+  p + ul, p + ol {
+    margin-top: -.5rem;
   }
 
   blockquote {
