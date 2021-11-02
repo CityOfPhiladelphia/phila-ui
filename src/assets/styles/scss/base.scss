@@ -1,7 +1,19 @@
 main {
   padding: 2rem 0;
-  display: block;  
+  display: block;
 }
+
+.container {
+  @media screen and (max-width:1024px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media screen and (max-width:500px) {
+    padding-left: .75rem;
+    padding-right: .75rem;
+  }
+}
+
 
 a {
   transition: all 0.25s ease;
