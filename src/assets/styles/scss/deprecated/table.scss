@@ -1,0 +1,15 @@
+/** Custom Styles **/
+.table-responsive {
+  width: 100%;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+table {
+  &.is-align-middle {
+    td,
+    th {
+      vertical-align: middle;
+    }
+  }
+}

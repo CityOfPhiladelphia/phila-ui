@@ -62,7 +62,8 @@
   </div>
 </template>
 <script>
-import { inputMixins } from 'utils/inputMixins';
+import { inputMixins } from '@/utils/inputMixins';
+import textBoxMixins  from '@/utils/textBoxMixins';
 /**
  * Displays a text input
  * @niceName Text Input
@@ -73,129 +74,12 @@ export default {
   name: "Textbox",
   mixins: [
     inputMixins,
+    textBoxMixins,
   ],
-  inheritAttrs: false,
-  props: {
-    /**
-     * The input label
-     */
-    label: {
-      type: String,
-      default: '',
-    },
 
-    /**
-     * The input description
-     */
-    desc: {
-      type: String,
-      default: '',
-    },
-
-    /**
-     * The input placeholder
-     */
-    placeholder: {
-      type: String,
-      default: 'Insert placeholder here',
-    },
-
-    /**
-     * The input type
-     * @values text, number
-     */
-    type: {
-      type: String,
-      default: 'text',
-    },
-
-    /**
-     * The text input value / v-model
-     */
-    value: {
-      type: [ String, Number ],
-      default: "",
-    },
-
-    /**
-     * The input icon. It expects font-awesome icon classes.
-     */
-    icon: {
-      type: String,
-      default: '',
-    },
-
-    /**
-     * Whether a loading indicator should be displayed
-     */
-    isLoading: {
-      type: Boolean,
-      default: false,
-    },
-
-    /**
-     * Whether the label should be displayed inside the input (true) or above it (false).
-     */
-    innerLabel: {
-      type: Boolean,
-      default: true,
-    },
-
-  },
-  computed: {
-    inputListeners: function () {
-      var vm = this;
-      return Object.assign({},
-        this.$listeners,
-        {
-          input: function (event) {
-            vm.$emit('input', event.target.value);
-          },
-        }
-      );
-    },
-    inputModifierClasses () {
-      let classes = [];
-      if (this.isLoading) {
-        classes.push('is-loading');
-      }
-      if (this.icon !== '') {
-        classes.push('has-icons-right');
-      }
-      return classes.join(' ');
-    },
-  },
 };
 </script>
 
-<style lang="scss">
-  @import '../../../assets/styles/scss/inputs.scss';
-</style>
-
 <style lang="scss" scoped>
-  .input-textbox {
-    .input {
-      height: 3.5rem;
-    }
-    &.inner-label {
-      .input {
-        + label {
-          opacity: 0;
-        }
-        &:not(:placeholder-shown),
-        &:focus {
-          padding: 1rem 2.2rem 0 0.75rem;
-          + label {
-            opacity: 1;
-          }
-        }
-      }
-      .input:not(:-ms-input-placeholder) {
-        padding: 1rem 2.2rem 0 0.75rem;
-        + label {
-          opacity: 1;
-        }
-      }
-    }
-  }
+  @import '../../../assets/styles/scss/textbox-inputs.scss';
 </style>

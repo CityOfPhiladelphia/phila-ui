@@ -1,0 +1,86 @@
+@mixin heading {
+  font-family: $family-secondary;
+  color: $grey-dark;
+  font-weight: $weight-bold;
+  line-height: $line-height-medium;
+  margin-bottom: .5rem;
+  &:not(:first-child) {
+    margin-top: 0;
+  }
+}
+
+@mixin heading-1 {
+  @include heading;
+  font-size: 2rem !important;
+  font-weight: $weight-normal !important;
+}
+
+@mixin heading-2 {
+  @include heading;
+  font-size: 1.75rem !important;
+}
+
+@mixin heading-3 {
+  @include heading;
+  font-size: 1.5rem !important;
+}
+
+@mixin headings-set-sizes {
+  &.is-1 {
+    @include heading-1;
+  }
+
+  &.is-2 {
+    @include heading-2;
+  }
+
+  &.is-3 {
+    @include heading-3;
+  }
+
+  &.is-4, &.is-5, &.is-6 {
+    @include heading-3;
+  }
+}
+
+@mixin font-sizes {
+  &.is-small {
+    font-size: $size-small;
+  }
+
+  &.is-medium, &.is-normal {
+    font-size: $size-medium;
+  }
+
+  &.is-large {
+    font-size: $size-large;
+  }
+}
+
+@mixin link {
+
+  color: $ben-franklin-blue-dark;
+  text-decoration: underline;
+  font-weight: $weight-bold;
+
+  &.external-link {
+    &:after {
+      content: '\f35d';
+      font-family: 'Font Awesome 5 Pro';
+      font-weight: 900;
+      display: inline-block;
+      font-size: $size-small;
+      margin-left: 0.25rem;
+    }
+  }
+
+}
+
+@mixin small-link {
+  font-size: $size-small;
+  &.external-link {
+    &:after {
+      font-size: 0.7rem;
+    }
+  }
+}

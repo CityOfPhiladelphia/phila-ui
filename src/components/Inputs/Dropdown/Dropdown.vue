@@ -96,7 +96,7 @@
   </div>
 </template>
 <script>
-import { inputMixins } from 'utils/inputMixins';
+import { inputMixins } from '@/utils/inputMixins';
 /**
  * Styled select input
  * @niceName Dropdown / Select
@@ -268,10 +268,6 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import '../../../assets/styles/scss/inputs.scss';
-</style>
-
 <style lang="scss" scoped>
 
 .input-dropdown {
@@ -287,7 +283,11 @@ export default {
       width: 100%;
     }
     label + select {
-      padding: 1rem 1rem 0 0.5rem;
+      padding: 1rem 1rem 0 0.8rem;
+      //Fixes SELECT padding on Firefox
+      @supports ( -moz-appearance: none ){
+        padding: 1rem 1rem 0 0.5rem;
+      }
     }
   }
 }

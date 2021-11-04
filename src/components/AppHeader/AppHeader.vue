@@ -35,9 +35,9 @@
               class="column title-col"
               :class="{
                 'no-mobile-nav': isMobile && !$slots['mobile-nav'],
-                'is-4': !isMobile && showBranding && showRightNavOnSide,
-                'is-6': !showBranding && showRightNavOnSide,
-                'is-8': !isMobile && !showRightNavOnSide && !showBranding
+                'is-4 has-mobile-nav': !isMobile && showBranding && showRightNavOnSide,
+                'is-6 has-mobile-nav': !showBranding && showRightNavOnSide,
+                'is-8 has-mobile-nav': !isMobile && !showRightNavOnSide && !showBranding
               }"
             >
               <div>
@@ -45,12 +45,11 @@
                   class="app-title"
                   :href="appLink"
                 >
-                  <h1 class="is-size-5">
+                  <h1>
                     {{ appTitle }}
                   </h1>
                   <h2
                     v-if="appSubtitle && !isMobile"
-                    class="is-size-6"
                   >{{ appSubtitle }}
                   </h2>
                 </a>
@@ -120,7 +119,6 @@
 </template>
 <script>
 
-import Vue from 'vue';
 import TrustedSite from './_TrustedSite.vue';
 import Branding from './_Branding.vue';
 
@@ -255,13 +253,19 @@ export default {
       if (this.isSticky) {
 
         //wait for dom to finish updating
-        Vue.nextTick(function () {
+        this.$nextTick(function () {
 
           let body = document.querySelector('body');
           let header = document.querySelector('#app-header');
           let main = document.querySelector('main');
 
           body.classList.add('has-sticky-header');
+
+          if (!main) {
+            console.warn('Remember to add a main container (<main>) when the header is sticky.');
+            return;
+          }
+
           main.style['margin-top'] = header.offsetHeight + 'px';
 
         });
@@ -275,7 +279,7 @@ export default {
 <style lang="scss">
   #app-header {
     .container {
-      padding: 0 1rem;
+      padding: 0;
     }
     @include until ($tablet) {
       .container {
@@ -342,6 +346,9 @@ export default {
               padding-left: 1rem;
               width: calc(100% - 50px);
             }
+          }
+          &.has-mobile-nav {
+            padding-left: 10px;
           }
         }
 

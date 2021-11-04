@@ -31,7 +31,7 @@
   </footer>
 </template>
 <script>
-import NavLink from 'components/NavLink/NavLink.vue';
+import NavLink from '@/components/NavLink/NavLink.vue';
 import Vue from 'vue';
 
 /**
@@ -75,7 +75,7 @@ export default {
     const main = document.querySelector('main');
     const footer = document.querySelector('#app-footer');
 
-    if (this.isSticky) {
+    if (this.isSticky && footer) {
       if (main) {
         main.style['padding-bottom'] = `${footer.offsetHeight}px`;
       } else {
@@ -125,8 +125,18 @@ export default {
       li {
         display: inline-block;
         vertical-align: middle;
-        margin: 0 1rem;
+        margin: 0;
         padding: 0;
+        &:not(:last-child) {
+          &:after {
+            content: "|";
+            margin: 0 1rem;
+            display: inline-block;
+            position: relative;
+            color: $white;
+            font-weight: $weight-bold;
+          }
+        }
       }
     }
   }
