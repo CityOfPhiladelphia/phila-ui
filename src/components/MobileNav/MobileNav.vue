@@ -140,8 +140,8 @@ export default {
           const mobileMenu = document.querySelector('#mobile-menu');
 
           if (mobileMenuWrap) {
-            mobileMenuWrap.style['top'] = header.offsetHeight + 'px';
-            mobileMenuWrap.style['height'] = `calc(100% - ${header.offsetHeight + 45}px)`;
+            mobileMenuWrap.style.cssText = `top: ${header.offsetHeight}px`;
+            mobileMenuWrap.style.cssText = `height: calc(100% - ${header.offsetHeight + 45}px)`;
           }
 
           const mobileNavList = mobileMenu.querySelectorAll('ul li');

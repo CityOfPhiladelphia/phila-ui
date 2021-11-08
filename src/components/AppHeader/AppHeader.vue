@@ -266,7 +266,7 @@ export default {
             return;
           }
 
-          main.style['margin-top'] = header.offsetHeight + 'px';
+          main.style.cssText = `margin-top: ${header.offsetHeight}px`;
 
         });
 
