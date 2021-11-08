@@ -75,22 +75,22 @@ export default {
     const main = document.querySelector('main');
     const footer = document.querySelector('#app-footer');
 
-    if (this.isSticky && footer) {
-      if (main) {
-        main.style['padding-bottom'] = `${footer.offsetHeight}px`;
+    if (main) {
+      if (this.isSticky && footer) {
+        main.style.cssText = `padding-bottom: ${footer.offsetHeight}px`;
       } else {
-        console.warn('missing <main> tag for footer positioning');
-      }
-    } else {
-      if ((this.isMobile && !this.isHiddenMobile) || !this.isMobile) {
-        const header = document.querySelector('#app-header');
-        if (header) {
-          const mainHeight = header.offsetHeight + footer.offsetHeight;
-          main.style['min-height'] = `calc(100vh - ${mainHeight}px)`;
-        } else {
-          console.warn('missing <app-header> for footer positioning');
+        if ((this.isMobile && !this.isHiddenMobile) || !this.isMobile) {
+          const header = document.querySelector('#app-header');
+          if (header) {
+            const mainHeight = header.offsetHeight + footer.offsetHeight;
+            main.style.cssText = `min-height: calc(100vh - ${mainHeight}px)`;
+          } else {
+            console.warn('missing <app-header> for footer positioning');
+          }
         }
       }
+    } else {
+      console.warn('missing <main> tag for footer positioning');
     }
   },
 };
