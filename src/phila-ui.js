@@ -16,8 +16,6 @@ import DropdownNav from './components/DropdownNav';
 import Tooltip from './components/Tooltip';
 import Modal from './components/Modal';
 import ResponsiveHelpers from './plugins/ResponsiveHelpers';
-// import addValidationTo from './plugins/AddValidationTo';
-
 
 /**
  * Function to install components globally
@@ -40,10 +38,6 @@ const install = function(Vue, settings = {}) {
     }
   }
 
-  // if (settings.addValidationTo) {
-  //   Vue.use(addValidationTo, settings.addValidationTo);
-  // }
-
 };
 
 export {
@@ -64,8 +58,6 @@ export {
   Tooltip,
   Modal,
   ResponsiveHelpers,
-  // addValidationTo,
-  // Install Helper for Vue
   install,
 };
 
