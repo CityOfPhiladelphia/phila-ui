@@ -1,5 +1,4 @@
 .content {
-
   padding: 0;
 
   h1 {
@@ -26,7 +25,12 @@
     @include heading-3;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @include headings-set-sizes;
   }
 
@@ -34,7 +38,8 @@
     @include link;
   }
 
-  .is-small a, a.is-small {
+  .is-small a,
+  a.is-small {
     @include small-link;
   }
 
@@ -54,37 +59,48 @@
       }
     }
 
-    + h1, + h2, + h3, + h4, + h5, + h6 {
-      padding-top: .5rem;
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5,
+    + h6 {
+      padding-top: 0.5rem;
     }
     &:last-child {
       margin-bottom: 1rem;
     }
   }
 
-  ul:not(:last-child), ol:not(:last-child) {
-    margin-bottom: .5rem;
+  ul:not(:last-child),
+  ol:not(:last-child) {
+    margin-bottom: 0.5rem;
   }
 
-  ul, ol {
+  ul,
+  ol {
     margin-top: 0;
   }
 
-  ul ul, ul ol, ol ol, ol ul {
+  ul ul,
+  ul ol,
+  ol ol,
+  ol ul {
     margin-top: 0;
   }
 
-  ul li, ol li {
+  ul li,
+  ol li {
     margin: 0;
     line-height: 2rem;
   }
 
-  p + ul, p + ol {
-    margin-top: -.5rem;
+  p + ul,
+  p + ol {
+    margin-top: -0.5rem;
   }
 
   blockquote {
-    border-left-color: $flyers-orange;
+    border: 0;
   }
-
 }
