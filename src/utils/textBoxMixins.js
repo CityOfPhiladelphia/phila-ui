@@ -22,7 +22,17 @@ export default {
      */
     placeholder: {
       type: String,
-      default: 'Insert placeholder here',
+      default () {
+
+        let defaultValue = '';
+
+        if (this.$options.propsData.innerLabel === true || this.$options.propsData.innerLabel === undefined) {
+          defaultValue = 'Insert placeholder here';
+        }
+
+        return defaultValue;
+
+      },
     },
 
     /**

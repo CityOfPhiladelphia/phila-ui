@@ -16,7 +16,7 @@
           class="textarea"
           v-bind="$attrs"
           :value="value"
-          :placeholder="$attrs.required !== undefined ? placeholder + '*' : placeholder"
+          :placeholder="$attrs.required !== undefined && placeholder !== '' ? `${placeholder} *` : placeholder"
           v-on="inputListeners"
         />
         <label
@@ -87,7 +87,17 @@ export default {
      */
     placeholder: {
       type: String,
-      default: 'Insert label placeholder here',
+      default () {
+
+        let defaultValue = '';
+
+        if (this.$options.propsData.innerLabel === true || this.$options.propsData.innerLabel === undefined) {
+          defaultValue = 'Insert placeholder here';
+        }
+
+        return defaultValue;
+
+      },
     },
 
     /**
