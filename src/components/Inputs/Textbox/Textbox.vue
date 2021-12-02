@@ -19,7 +19,7 @@
           :id="`tb-${id}`"
           class="input"
           v-bind="$attrs"
-          :placeholder="$attrs.required !== undefined ? `${placeholder}*` : placeholder"
+          :placeholder="$attrs.required !== undefined && placeholder !== '' ? `${placeholder} *` : placeholder"
           :type="type"
           :value="value"
           v-on="inputListeners"
