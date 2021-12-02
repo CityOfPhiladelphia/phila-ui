@@ -19,6 +19,7 @@
     "bulma": "^0.8.1",
     "bulma-checkradio": "^1.1.1",
     "core-js": "^3.6.5",
+    "deepmerge": "^4.2.2",
     "vue-imask": "^6.2.2"
   },
   "devDependencies": {
