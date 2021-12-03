@@ -69,10 +69,10 @@ import textBoxMixins  from '@/utils/textBoxMixins';
 import maskedElementsMixins  from '@/utils/maskedElementsMixins';
 
 /**
- * Displays a text input
- * @niceName Text Input
+ * Displays a phone number input. Currently this input is compatible with US numbers only.
+ * @niceName Phone
  * @group Inputs
- * @position 205
+ * @position 230
  */
 export default {
   name: "Phone",
@@ -81,9 +81,19 @@ export default {
     textBoxMixins,
     maskedElementsMixins,
   ],
+  props: {
+    forceInputBoxSize: {
+      type: Boolean,
+      default: true,
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
   @import '../../../assets/styles/scss/textbox-inputs.scss';
+
+  .input-width {
+    max-width: 220px;
+  }
 </style>
