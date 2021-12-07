@@ -317,9 +317,9 @@ form {
 .field {
   .control {
     &.is-loading {
-      &:after {
-        top: calc(50% - 1.75rem);
-      }
+      // &:after {
+      // top: calc(50% - 1.75rem);
+      // }
       span.icon {
         opacity: 0 !important;
       }

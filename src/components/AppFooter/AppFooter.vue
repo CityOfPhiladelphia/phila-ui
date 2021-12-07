@@ -77,13 +77,13 @@ export default {
 
     if (main) {
       if (this.isSticky && footer) {
-        main.style.cssText = `padding-bottom: ${footer.offsetHeight}px`;
+        main.style.cssText = main.style.cssText + `padding-bottom: ${footer.offsetHeight}px`;
       } else {
         if ((this.isMobile && !this.isHiddenMobile) || !this.isMobile) {
           const header = document.querySelector('#app-header');
           if (header) {
             const mainHeight = header.offsetHeight + footer.offsetHeight;
-            main.style.cssText = `min-height: calc(100vh - ${mainHeight}px)`;
+            main.style.cssText = main.style.cssText + `min-height: calc(100vh - ${mainHeight}px)`;
           } else {
             console.warn('missing <app-header> for footer positioning');
           }
