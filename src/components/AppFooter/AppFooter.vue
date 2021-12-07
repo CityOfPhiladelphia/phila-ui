@@ -82,7 +82,6 @@ export default {
         if ((this.isMobile && !this.isHiddenMobile) || !this.isMobile) {
           const header = document.querySelector('#app-header');
           if (header) {
-            console.log('ok');
             const mainHeight = header.offsetHeight + footer.offsetHeight;
             main.style.cssText = main.style.cssText + `min-height: calc(100vh - ${mainHeight}px)`;
           } else {
