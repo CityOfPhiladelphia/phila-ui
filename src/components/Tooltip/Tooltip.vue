@@ -12,7 +12,7 @@
 import { Tooltip } from './tooltip.class';
 
 /**
- * A tooltip which display a custum message on hover or click.
+ * A tooltip which display a custom message on hover or click.
  * @niceName Tooltip
  * @group Other
  * @position 310
@@ -20,6 +20,10 @@ import { Tooltip } from './tooltip.class';
 export default {
   name: 'Tooltip',
   props: {
+    /**
+     * light mode: off-white bg
+     * dark mode: dark grey bg
+     */
     mode: {
       type: String,
       default: 'dark',
@@ -27,6 +31,9 @@ export default {
         return [ 'light', 'dark' ].includes(mode);
       },
     },
+    /**
+     * the tooltip message
+     */
     message: {
       type: String,
       default: 'Default tooltip message',
@@ -145,6 +152,7 @@ export default {
       .tooltip-arrow {
         border-top-color: $light-color;
         &.arrow-up {
+          border-top-color: transparent;
           border-bottom-color: $light-color;
         }
       }
