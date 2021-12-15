@@ -32,7 +32,6 @@
 </template>
 <script>
 import NavLink from '@/components/NavLink/NavLink.vue';
-import Vue from 'vue';
 
 /**
  * This is the application's main footer. It displays a list of links via slot or props

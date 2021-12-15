@@ -6,8 +6,6 @@ Styles built on top of the Bulma .content class
 @import "mixins";
 
 .content {
-  padding: 0;
-
   h1 {
     @include heading-1;
   }

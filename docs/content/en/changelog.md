@@ -11,6 +11,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.7] - ????-??-??
+
+### Added
+
+- new Phone component
+- new Modal component
+- new Tooltip component
+- deprecated styles folder
+- some code comments
+- new documentation for new components and styles
+- option to allow passing any setting to any component
+
+### Fixed
+
+- Several base style updates
+- Break down of main styles into different scss files
+- Refactoring of some styles as mixins to avoid code duplication
+- Updates some older documentation
+- Issue where the inline style was being overwritten and causing the footer positioning to be wrong
+- typos
+- loading indicator on text inputs
+- phone number input size (width)
+- blockquote styles
+- makes text inputs placeholder optional when inner-label = false
+
 ## [2.0.6] - 2021-05-24
 
 ### Fixed

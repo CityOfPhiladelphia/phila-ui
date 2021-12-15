@@ -29,3 +29,6 @@ With exception of deprecated styles
 
 /*Styles for th content class*/
 @import "content.scss";
+
+/*Vendors overwrites*/
+@import "vendors/vendors.scss";
