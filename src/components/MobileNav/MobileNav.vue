@@ -87,7 +87,6 @@
 </template>
 <script>
 import NavLink from '@/components/NavLink/NavLink.vue';
-import Vue from 'vue';
 
 /**
  * The mobile navigation.  Primarily, used as a slot of the [Application Header](/components/AppHeader).
@@ -134,7 +133,7 @@ export default {
 
       if (this.isMobile) {
 
-        Vue.nextTick(function () {
+        this.$nextTick(function () {
           const header = document.querySelector('#app-header');
           const mobileMenuWrap = document.querySelector('#mobile-menu-wrap');
           const mobileMenu = document.querySelector('#mobile-menu');
