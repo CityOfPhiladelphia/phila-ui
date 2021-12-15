@@ -101,7 +101,7 @@ export class Tooltip {
       self.updateTooltipPosition();
     }, true);
 
-    //whem tooltip icon mouse over
+    //when tooltip icon mouse over
     this.tooltipIcon.addEventListener('mouseenter', function () {
       self.updateTooltipPosition();
       self.showTooltip();

@@ -203,7 +203,7 @@ export default {
     };
   },
   computed: {
-    ungrouppedOptions () {
+    ungroupedOptions () {
 
       let ungroup = [];
       let ungroupObj = {};
