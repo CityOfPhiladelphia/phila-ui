@@ -4,7 +4,7 @@ title: Sample Component
 menuTitle: Sample Component
 description: A sample component template. Start here when creating a new component for PhilaUI.
 category: Components | Other
-position: 310
+position: 1000
 badge:
 
 ---

@@ -1,13 +1,15 @@
 ---
 title: Installation & Usage
 menuTitle: Installation  & Usage
-category: 'Get Started'
+category: "Get Started"
 position: 1
-badge: ''
+badge: ""
 ---
 
 ## Installing
+
 Using NPM is recommended.
+
 ```
 npm install @phila/phila-ui --save
 ```
@@ -15,11 +17,12 @@ npm install @phila/phila-ui --save
 ## Importing components
 
 ### Global import and registration
+
 PhilaUI can be imported and registered globally, this way, all of the components are available on all pages.
 
 ```js
 //import it
-import * as PhilaUI from '@phila/phila-ui'
+import * as PhilaUI from "@phila/phila-ui";
 
 //register it
 Vue.use(PhilaUI);
@@ -29,6 +32,7 @@ Vue.use(PhilaUI, options);
 ```
 
 ### Individual import and registration
+
 Components can also be individually imported.
 
 ```js
@@ -52,23 +56,26 @@ components: {
 
 ```js
 //importing the ResponsiveHelper along with other components that need it.
-import { AppHeader, AppFooter, ResponsiveHelpers } from '@phila/phila-ui'
+import { AppHeader, AppFooter, ResponsiveHelpers } from "@phila/phila-ui";
 
 //Register the helpers globally
 Vue.use(ResponsiveHelpers);
 ```
 
 ### Usage
+
 Using the components in the Vue template:
+
 ```html
-<textbox />
-<checkbox />
+<textbox /> <checkbox />
 ```
 
 ## Styles
+
 PhilaUI scss modifies and expands on the defaults of the [Bulma](https://bulma.io/) css framework, thus Bulma is included as a dependency of PhilaUI.
 
 ### Importing styles
+
 Styles need to be imported separately from components. It's best to do it in the project's main SCSS file.
 
 ```scss
@@ -78,6 +85,7 @@ Styles need to be imported separately from components. It's best to do it in the
 <alert>The all.scss file has everything needed to get started. It includes the Bulma library and PhilaUI styles.</alert>
 
 ### Overwriting scss variables
+
 If needed, SCSS files can be imported individually, which would allow certain variables to be overwritten.
 
 ```scss
@@ -90,10 +98,33 @@ If needed, SCSS files can be imported individually, which would allow certain va
 <alert type="warning">A css minified file is not currently exported, as the project should handle the final css output.</alert>
 
 ### Making variables available
+
 It's recommended to import PhilaUI SCSS variables globally, so that they can be referred to in the project's other styles.
 
 #### Example of adding PhilaUI variables to the vue.config.js
+
+Import all SCSS variables and mixins.
+
 ```js
+
+...
+css: {
+  loaderOptions: {
+    sass: {
+      data: `
+        @import "~@phila/phila-ui/src/assets/styles/scss/helpers.scss";
+        @import "~@phila/phila-ui/src/assets/styles/scss/mixins.scss";
+      `,
+    },
+  },
+},
+...
+```
+
+Import specific SCSS variable files.
+
+```js
+
 ...
 css: {
   loaderOptions: {

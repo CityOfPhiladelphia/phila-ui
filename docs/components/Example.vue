@@ -41,7 +41,7 @@ export default {
   },
   mounted () {
     if (this.name) {
-      this.src = `https://ui-examples.phila.gov/loader/${this.name}`;
+      this.src = `http://localhost:8080/loader/${this.name}`;
 
       let defaults = {
         hasBar: true,
