@@ -3,7 +3,7 @@
   color: $grey-dark;
   font-weight: $weight-bold;
   line-height: $line-height-medium;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   &:not(:first-child) {
     margin-top: 0;
   }
@@ -38,7 +38,9 @@
     @include heading-3;
   }
 
-  &.is-4, &.is-5, &.is-6 {
+  &.is-4,
+  &.is-5,
+  &.is-6 {
     @include heading-3;
   }
 }
@@ -48,7 +50,8 @@
     font-size: $size-small;
   }
 
-  &.is-medium, &.is-normal {
+  &.is-medium,
+  &.is-normal {
     font-size: $size-medium;
   }
 
@@ -58,29 +61,135 @@
 }
 
 @mixin link {
-
   color: $ben-franklin-blue-dark;
   text-decoration: underline;
   font-weight: $weight-bold;
 
-  &.external-link {
+  &.external-link,
+  &.is-external-link {
     &:after {
-      content: '\f35d';
-      font-family: 'Font Awesome 5 Pro';
+      content: "\f35d";
+      font-family: "Font Awesome 5 Pro";
       font-weight: 900;
       display: inline-block;
       font-size: $size-small;
       margin-left: 0.25rem;
     }
   }
-
+  &.is-inverted {
+    color: $white;
+  }
 }
 
 @mixin small-link {
   font-size: $size-small;
-  &.external-link {
+  &.external-link,
+  &.is-external-link {
     &:after {
       font-size: 0.7rem;
     }
+  }
+}
+
+@mixin table-styles {
+  width: 100%;
+  border: 0;
+  thead {
+    tr {
+      th {
+        background-clip: padding-box;
+        position: relative;
+        background-color: $grey-dark;
+        color: $white;
+        font-weight: $weight-semibold;
+        font-size: $size-small;
+        border: 3px solid $white;
+        padding: 10px 8px;
+        line-height: 18px;
+        &.sortable {
+          cursor: pointer;
+          padding-right: 20px;
+          &:before,
+          &:after {
+            border-radius: 1px;
+            border: 5px solid transparent;
+            content: "";
+            display: block;
+            height: 0;
+            right: 8px;
+            top: 8px;
+            position: absolute;
+            width: 0;
+          }
+          &:before {
+            border-bottom-color: #b5b5b5;
+          }
+          &:after {
+            border-top-color: #b5b5b5;
+            margin-top: 12px;
+          }
+          &:hover {
+            &:before {
+              border-bottom-color: $white;
+            }
+            &:after {
+              border-top-color: $white;
+            }
+          }
+          &.sorting {
+            background-color: $ben-franklin-blue;
+            color: $white;
+            &.sorting-asc {
+              &:before {
+                border-bottom-color: $white;
+              }
+              &:after {
+                border-top-color: #85b4e6;
+              }
+            }
+            &.sorting-desc {
+              &:before {
+                border-bottom-color: #85b4e6;
+              }
+              &:after {
+                border-top-color: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      &:nth-of-type(even) {
+        td {
+          background-color: #d8d8d8;
+        }
+      }
+      td {
+        background-clip: padding-box;
+        position: relative;
+        background-color: $ghost-grey;
+        color: $grey-dark;
+        font-size: $size-small;
+        border: 3px solid $white;
+        padding: 10px 8px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  &.is-align-middle {
+    td,
+    th {
+      vertical-align: middle;
+    }
+  }
+
+  &.table-responsive {
+    width: 100%;
+    overflow: hidden;
+    overflow-x: auto;
   }
 }

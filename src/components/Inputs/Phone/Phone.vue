@@ -82,6 +82,9 @@ export default {
     maskedElementsMixins,
   ],
   props: {
+    /**
+     * Forces the phone input box to be at a specific width.
+     */
     forceInputBoxSize: {
       type: Boolean,
       default: true,

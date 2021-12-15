@@ -1,3 +1,10 @@
+/*
+Content Styles
+Styles built on top of the Bulma .content class
+*/
+
+@import "mixins";
+
 .content {
   padding: 0;
 
@@ -102,5 +109,9 @@
 
   blockquote {
     border: 0;
+  }
+
+  table {
+    @include table-styles;
   }
 }

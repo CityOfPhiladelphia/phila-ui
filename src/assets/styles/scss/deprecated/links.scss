@@ -1,0 +1,32 @@
+@import "../mixins.scss";
+
+.is-link {
+  @include font-sizes;
+  font-weight: $weight-semibold;
+  border: 0;
+  color: $primary;
+  &:focus {
+    border-color: transparent;
+    outline-width: 0;
+    &:not(:active) {
+      border-color: transparent !important;
+      border-width: 0;
+      border-radius: 0;
+      box-shadow: 0 0 0 0.25em $electric-blue !important;
+    }
+  }
+  &:hover {
+    background-color: $ben-franklin-blue;
+    border-color: $ben-franklin-blue;
+    color: $white !important;
+  }
+  &:active {
+    background-color: $grey-dark;
+    border-color: $grey-dark;
+    color: $white;
+  }
+  .icon {
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+  }
+}

@@ -60,7 +60,7 @@ export const inputMixins = {
       let options = this.options;
 
       if (this.optgroup) {
-        options = this.ungrouppedOptions;
+        options = this.ungroupedOptions;
       }
 
       if (Array.isArray(options)) {

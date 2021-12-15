@@ -86,10 +86,9 @@
 
 /**
  * A modal window component with basic styles for title, body, and action buttons.
- * This component does not include the modal functionality. It's meant to be used with the [VueFinalModal](https://vue-final-modal.org/) third-party plugin, which is not included with PhilaUI.
  * @niceName Modal
  * @group Other
- * @position 305
+ * @position 302
  */
 export default {
   name: 'Modal',
@@ -230,7 +229,7 @@ export default {
   .modal-window-actions {
     margin-top: 1.5rem;
     .buttons {
-      justify-content: flex-end;      
+      justify-content: flex-end;
       &:last-child {
         margin-bottom: 0;
       }
