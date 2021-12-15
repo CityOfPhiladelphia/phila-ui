@@ -1,3 +1,8 @@
+/*
+Shared input styles
+Used by all input components
+*/
+
 input::-webkit-input-placeholder {
   color: $grey-medium !important;
   opacity: 1 !important;
