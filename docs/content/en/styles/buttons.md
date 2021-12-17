@@ -85,3 +85,7 @@ Use the `.buttons` wrapper class to display buttons on the same line.
 ### Buttons with loading animation
 
 <example name="Buttons3" height="300"></example>
+
+### Buttons with icons
+
+<example name="Buttons4" height="300"></example>

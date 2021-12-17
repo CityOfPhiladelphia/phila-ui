@@ -11,7 +11,7 @@ badge:
 
 Displays a phone number input. Currently this input is compatible with US numbers only.
 
-<alert>Supports VeeValidate. See [VeeValidate Integration](/vee-validate-integration).</alert>
+<alert>Supports VeeValidate. See [VeeValidate Integration](/vendors/vee-validate-integration).</alert>
 
 ## Usage
 

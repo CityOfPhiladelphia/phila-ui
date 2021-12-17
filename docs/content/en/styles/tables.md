@@ -33,6 +33,8 @@ Adds the table styles outside of the _.content_ class.
 
 ### `th.sortable`
 
+<alert>The actual sorting functionality is not provided, only the styles. The sorting markup is compatible with the [vue-good-table](https://xaksis.github.io/vue-good-table/) plugin. View a vue-good-table [example](/vendors/vue-good-table).</alert>
+
 Adds sorting icons to table header
 
 ```html
