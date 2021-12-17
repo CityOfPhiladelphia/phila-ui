@@ -53,7 +53,7 @@ module.exports = function (
   //Adds vee-validate integration support alert
   let veeValidateIntegration = '';
   if (tags.group[0]['description'] === 'Inputs') {
-    veeValidateIntegration = '<alert>Supports VeeValidate. See [VeeValidate Integration](/vee-validate-integration).</alert>';
+    veeValidateIntegration = '<alert>Supports VeeValidate. See [VeeValidate Integration](/vendors/vee-validate-integration).</alert>';
   }
 
   return `
