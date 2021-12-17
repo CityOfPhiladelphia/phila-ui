@@ -40,3 +40,13 @@ For the sake of design, at times, combining a heading element with a different s
 ```html
 <h2 class="is-1">A h2 heading with h1 styles</h2>
 ```
+
+## Live examples
+
+### Headings within the content class
+
+<example name="Headings1" height="500"></example>
+
+### Headings with size classes
+
+<example name="Headings2" height="500"></example>

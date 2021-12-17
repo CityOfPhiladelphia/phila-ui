@@ -52,6 +52,8 @@ components: {
 }
 ```
 
+### Responsive Helpers
+
 <alert type="warning">Some navigation components make use of responsive helpers that are automatically available when importing the whole library and registering it globally. When importing individual components, the responsive helpers also need to be imported.</alert>
 
 ```js
@@ -61,6 +63,8 @@ import { AppHeader, AppFooter, ResponsiveHelpers } from "@phila/phila-ui";
 //Register the helpers globally
 Vue.use(ResponsiveHelpers);
 ```
+
+Learn how to use [Responsive Helpers](/responsive-helpers).
 
 ### Usage
 

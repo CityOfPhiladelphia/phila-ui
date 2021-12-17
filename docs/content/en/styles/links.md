@@ -25,3 +25,9 @@ It reduces the font size and the external link icon.
 ### `.is-inverted`
 
 Changes the color of the link to white, only needed when on a dark background.
+
+## Live examples
+
+### Links with custom classes
+
+<example name="Links1" height="500"></example>
