@@ -1,28 +1,46 @@
 @mixin heading {
   font-family: $family-secondary;
   color: $grey-dark;
-  font-weight: $weight-bold;
-  line-height: $line-height-medium;
-  margin-bottom: 0.5rem;
-  &:not(:first-child) {
-    margin-top: 0;
-  }
+  font-weight: $weight-semibold;
+  margin: 0 0 0.5rem 0;
 }
 
 @mixin heading-1 {
   @include heading;
+  line-height: 2.5rem;
   font-size: 2rem !important;
-  font-weight: $weight-normal !important;
 }
 
 @mixin heading-2 {
   @include heading;
+  line-height: 2.1875rem;
   font-size: 1.75rem !important;
 }
 
 @mixin heading-3 {
   @include heading;
+  line-height: 1.875rem;
   font-size: 1.5rem !important;
+}
+
+@mixin heading-4 {
+  @include heading;
+  line-height: 1.5625rem;
+  font-size: 1.25rem !important;
+}
+
+@mixin heading-5 {
+  @include heading;
+  line-height: 1.25rem;
+  font-size: 1rem !important;
+}
+
+@mixin heading-6 {
+  @include heading;
+  line-height: 1.25rem;
+  font-size: 1rem !important;
+  font-weight: $weight-normal;
+  text-transform: uppercase;
 }
 
 @mixin headings-set-sizes {
@@ -38,10 +56,16 @@
     @include heading-3;
   }
 
-  &.is-4,
-  &.is-5,
+  &.is-4 {
+    @include heading-4;
+  }
+
+  &.is-5 {
+    @include heading-5;
+  }
+
   &.is-6 {
-    @include heading-3;
+    @include heading-6;
   }
 }
 

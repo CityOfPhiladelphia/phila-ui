@@ -107,7 +107,7 @@ It's recommended to import PhilaUI SCSS variables globally, so that they can be 
 
 #### Example of adding PhilaUI variables to the vue.config.js
 
-Import all SCSS variables and mixins.
+Import all SCSS variables
 
 ```js
 
@@ -117,7 +117,6 @@ css: {
     sass: {
       data: `
         @import "~@phila/phila-ui/src/assets/styles/scss/helpers.scss";
-        @import "~@phila/phila-ui/src/assets/styles/scss/mixins.scss";
       `,
     },
   },

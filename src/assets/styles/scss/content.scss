@@ -19,15 +19,15 @@ Styles built on top of the Bulma .content class
   }
 
   h4 {
-    @include heading-3;
+    @include heading-4;
   }
 
   h5 {
-    @include heading-3;
+    @include heading-5;
   }
 
   h6 {
-    @include heading-3;
+    @include heading-6;
   }
 
   h1,
@@ -62,18 +62,6 @@ Styles built on top of the Bulma .content class
       a {
         @include small-link;
       }
-    }
-
-    + h1,
-    + h2,
-    + h3,
-    + h4,
-    + h5,
-    + h6 {
-      padding-top: 0.5rem;
-    }
-    &:last-child {
-      margin-bottom: 1rem;
     }
   }
 
