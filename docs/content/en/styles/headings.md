@@ -14,15 +14,9 @@ Headings should be hierarchically inserted from larger to smaller on a page, or 
 
 Typically only one `<h1>` per page.
 
-### h2, h3
+### h2, h3, h4, h5, h6
 
-Use it normally, as needed.
-
-### h4, h5, h6
-
-These headings are hardly ever used and should be avoided when possible.
-
-<alert>Headings 1 - 3 have unique styles and sizes. However, headings 4 - 6 maintain the same style as heading 3.</alert>
+Use it normally, as needed, maintaining hierarchy when possible.
 
 ## Overwriting heading styles
 
