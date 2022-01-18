@@ -64,7 +64,7 @@
               <a
                 href="#"
                 aria-label="Close Trusted Site Details"
-                @click="tsdStatus=!tsdStatus"
+                @click.prevent="updateStatus"
               ><i
                 class="fas fa-times"
               /></a>
