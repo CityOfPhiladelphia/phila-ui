@@ -1,7 +1,7 @@
 ---
 title: Overview
 menuTitle: Overview
-category: "Styles Guide"
+category: "Style Guide"
 position: 10
 badge: ""
 ---

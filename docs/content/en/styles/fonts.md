@@ -1,7 +1,7 @@
 ---
 title: Fonts
 menuTitle: Fonts
-category: "Styles Guide"
+category: "Style Guide"
 position: 15
 badge: ""
 ---

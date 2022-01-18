@@ -1,7 +1,7 @@
 ---
 title: The Content Class
 menuTitle: Content Class
-category: "Styles Guide"
+category: "Style Guide"
 position: 11
 badge: ""
 ---

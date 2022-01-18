@@ -1,7 +1,7 @@
 ---
 title: Headings
 menuTitle: Headings
-category: "Styles Guide"
+category: "Style Guide"
 position: 16
 badge: ""
 ---

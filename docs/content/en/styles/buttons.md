@@ -1,7 +1,7 @@
 ---
 title: Buttons
 menuTitle: Buttons
-category: "Styles Guide"
+category: "Style Guide"
 position: 12
 badge: ""
 ---

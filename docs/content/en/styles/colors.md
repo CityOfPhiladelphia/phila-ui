@@ -1,7 +1,7 @@
 ---
 title: Colors
 menuTitle: Colors
-category: "Styles Guide"
+category: "Style Guide"
 position: 13
 badge: ""
 ---

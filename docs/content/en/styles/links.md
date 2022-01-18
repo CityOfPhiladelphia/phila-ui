@@ -1,8 +1,8 @@
 ---
 title: Links / Anchors
 menuTitle: Links
-category: "Styles Guide"
-position: 17
+category: "Style Guide"
+position: 18
 badge: ""
 ---
 
