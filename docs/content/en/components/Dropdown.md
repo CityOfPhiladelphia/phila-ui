@@ -11,7 +11,7 @@ badge:
 
 Styled select input
 
-<alert>Supports VeeValidate. See [VeeValidate Integration](/vee-validate-integration).</alert>
+<alert>Supports VeeValidate. See [VeeValidate Integration](/vendors/vee-validate-integration).</alert>
 
 ## Usage
 
