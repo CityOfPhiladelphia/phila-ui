@@ -4,7 +4,7 @@ import path from 'path';
 export default theme({
   ssr: false,
   env: {
-    docsBaseUrl: process.env === "production" ? process.env.DOCS_BASE_URL : 'http://localhost:8080',
+    docsBaseUrl: process.env.DOCS_BASE_URL,
   },
   docs: {
     primaryColor: '#0f4d90',
