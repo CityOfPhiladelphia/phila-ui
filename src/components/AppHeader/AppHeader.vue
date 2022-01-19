@@ -243,10 +243,16 @@ export default {
   .container {
     padding: 0;
   }
+  @include until($desktop) {
+    .container {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+  }
   @include until($tablet) {
     .container {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
+      padding-left: 0rem !important;
+      padding-right: 0rem !important;
     }
   }
 }
