@@ -6,7 +6,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "NODE_ENV=production; nuxt generate",
+    "generate": "nuxt generate",
     "docgen": "vue-docgen --watch"
   },
   "dependencies": {
