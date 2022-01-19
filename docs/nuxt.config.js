@@ -4,7 +4,7 @@ import path from 'path';
 export default theme({
   ssr: false,
   env: {
-    docsBaseUrl: process.env.DOCS_BASE_URL,
+    docsBaseUrl: "https://ui-examples.phila.gov",
   },
   docs: {
     primaryColor: '#0f4d90',
