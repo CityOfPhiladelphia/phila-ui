@@ -1,8 +1,8 @@
 ---
 title: Tables
 menuTitle: Tables
-category: "Styles Guide"
-position: 18
+category: "Style Guide"
+position: 19
 badge: ""
 ---
 
