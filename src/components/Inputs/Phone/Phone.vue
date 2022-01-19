@@ -18,6 +18,7 @@
         <input
           :id="`phone-${id}`"
           v-imask="mask"
+          v-bind="$attrs"
           :placeholder="$attrs.required !== undefined && placeholder !== '' ? `${placeholder} *` : placeholder"
           :value="localValue"
           class="input"
