@@ -1,9 +1,9 @@
 ---
 title: Colors
-menuTitle: Colors
-category: "Styles Guide"
+menuTitle: Colors (next)
+category: "Style Guide"
 position: 13
-badge: ""
+badge: "next"
 ---
 
 PhilaUI colors are based off of Phila.gov's [Digital Standards](https://standards.phila.gov/). All PhilaUI components and most elements within _.content_ class are already styled, thus adding new colors and/or using color classes should be done sparingly.

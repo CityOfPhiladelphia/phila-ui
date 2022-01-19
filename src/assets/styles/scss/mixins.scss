@@ -91,6 +91,7 @@
 
   &.external-link,
   &.is-external-link {
+    display: inline-block;
     &:after {
       content: "\f35d";
       font-family: "Font Awesome 5 Pro";

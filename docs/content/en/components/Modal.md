@@ -1,11 +1,11 @@
 ---
 
 title: Modal
-menuTitle: Modal
+menuTitle: Modal (next)
 description: A modal window component with basic styles for title, body, and action buttons.
 category: Components | Other
 position: 302
-badge:
+badge: next
 
 ---
 
@@ -50,10 +50,10 @@ Vue.use(PhilaUI);
 | hideAlertButtons | When type is = alert, hide the default CANCEL and DELETE buttons.                                                                                           | boolean | -      | false                        |
 | hideXButton      | Hide the X button.                                                                                                                                          | boolean | -      | false                        |
 | close            | Function called to close the window                                                                                                                         | func    | -      |                              |
-| type             | Type of windows available:<br>'default' type includes a CLOSE button<br>'alert' type includes CANCEL and DELETE buttons<br>'none' does not include anything | string  | -      | 'default'                    |
-| title            | Title of the modal window<br>Shows only if the 'title' slot is not used                                                                                     | string  | -      | 'Modal window default title' |
-| body             | Body/content of the modal window<br>Shows only if the 'default' slot is not used                                                                            | string  | -      | 'Modal window default body.' |
-| deleteButtonText | Body/content of the modal window<br>Shows only if the 'default' slot is not used                                                                            | string  | -      | 'Delete'                     |
+| type             | Type of windows available:<br>'default' type includes a CLOSE button<br>'alert' type includes CANCEL and DELETE buttons<br>'none' does not include anything | string  | -      | "default"                    |
+| title            | Title of the modal window<br>Shows only if the 'title' slot is not used                                                                                     | string  | -      | "Modal window default title" |
+| body             | Body/content of the modal window<br>Shows only if the 'default' slot is not used                                                                            | string  | -      | "Modal window default body." |
+| deleteButtonText | Body/content of the modal window<br>Shows only if the 'default' slot is not used                                                                            | string  | -      | "Delete"                     |
 
 ## Events
 

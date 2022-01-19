@@ -1,20 +1,12 @@
 <template>
-  <header
-    id="app-header"
-    ref="app-header"
-    :class="{ 'is-sticky' : isSticky }"
-  >
-    <trusted-site
-      :is-fluid="isFluid"
-      @update-status="stickyHeader"
-    />
+  <header id="app-header" ref="app-header" :class="{ 'is-sticky': isSticky }">
+    <trusted-site :is-fluid="isFluid" @update-status="stickyHeader" />
     <div id="nav-wrap">
-      <div
-        class="container"
-        :class="{ 'is-fluid' : isFluid }"
-      >
+      <div class="container" :class="{ 'is-fluid': isFluid }">
         <nav id="main-nav">
-          <div class="columns is-marginless is-mobile is-vcentered is-multiline">
+          <div
+            class="columns is-marginless is-mobile is-vcentered is-multiline"
+          >
             <div
               v-if="$slots['mobile-nav'] && isMobile"
               class="column has-text-centered mobile-nav-col"
@@ -22,10 +14,7 @@
               <!-- @slot See [Mobile Navigation](/components/MobileNav) -->
               <slot name="mobile-nav" />
             </div>
-            <div
-              v-if="showBranding"
-              class="column is-narrow branding-col"
-            >
+            <div v-if="showBranding" class="column is-narrow branding-col">
               <branding
                 :branding-image="brandingImage"
                 :branding-link="brandingLink"
@@ -35,23 +24,18 @@
               class="column title-col"
               :class="{
                 'no-mobile-nav': isMobile && !$slots['mobile-nav'],
-                'is-4 has-mobile-nav': !isMobile && showBranding && showRightNavOnSide,
-                'is-6 has-mobile-nav': !showBranding && showRightNavOnSide,
-                'is-8 has-mobile-nav': !isMobile && !showRightNavOnSide && !showBranding
+                'is-4': !isMobile && showBranding && showRightNavOnSide,
+                'is-6': !showBranding && showRightNavOnSide,
+                'is-8': !isMobile && !showRightNavOnSide && !showBranding,
+                'has-mobile-nav': $slots['mobile-nav'] && isMobile,
               }"
             >
               <div>
-                <a
-                  class="app-title"
-                  :href="appLink"
-                >
+                <a class="app-title" :href="appLink">
                   <h1>
                     {{ appTitle }}
                   </h1>
-                  <h2
-                    v-if="appSubtitle && !isMobile"
-                  >{{ appSubtitle }}
-                  </h2>
+                  <h2 v-if="appSubtitle && !isMobile">{{ appSubtitle }}</h2>
                 </a>
               </div>
             </div>
@@ -64,29 +48,17 @@
                 class="level"
                 :class="{ 'is-pulled-right': !isMobile && !showLeftNav }"
               >
-                <div
-                  v-if="showLeftNav"
-                  class="level-left"
-                >
-                  <div
-                    v-if="$slots['tabs-nav']"
-                    class="level-item"
-                  >
+                <div v-if="showLeftNav" class="level-left">
+                  <div v-if="$slots['tabs-nav']" class="level-item">
                     <!-- @slot See [Tabbed Navigation](/components/TabsNav) -->
                     <slot name="tabs-nav" />
                   </div>
-                  <div
-                    v-if="$slots['left-nav']"
-                    class="level-item"
-                  >
+                  <div v-if="$slots['left-nav']" class="level-item">
                     <!-- @slot Allows additional items on the left side of the header (on the right of the tabs navigation) -->
                     <slot name="left-nav" />
                   </div>
                 </div>
-                <div
-                  v-if="showRightNav"
-                  class="level-right"
-                >
+                <div v-if="showRightNav" class="level-right">
                   <div
                     v-if="$slots['right-nav'] && !isMobile"
                     class="level-item"
@@ -94,10 +66,7 @@
                     <!-- @slot Allows additional items on the right side of the header (on the left of the dropdown navigation) -->
                     <slot name="right-nav" />
                   </div>
-                  <div
-                    v-if="$slots['lang-selector-nav']"
-                    class="level-item"
-                  >
+                  <div v-if="$slots['lang-selector-nav']" class="level-item">
                     <!-- @slot See [Language Selector](/components/LangSelector) -->
                     <slot name="lang-selector-nav" />
                   </div>
@@ -118,9 +87,8 @@
   </header>
 </template>
 <script>
-
-import TrustedSite from './_TrustedSite.vue';
-import Branding from './_Branding.vue';
+import TrustedSite from "./_TrustedSite.vue";
+import Branding from "./_Branding.vue";
 
 /**
  * This is the application's main header.
@@ -129,16 +97,15 @@ import Branding from './_Branding.vue';
  * @position 100
  */
 export default {
-  name: 'AppHeader',
+  name: "AppHeader",
   components: {
     TrustedSite,
     Branding,
   },
   props: {
-
     /**
      * The application's title/name
-    */
+     */
     appTitle: {
       type: String,
       default: "Application Name",
@@ -146,7 +113,7 @@ export default {
 
     /**
      * The application's title link. 99% of the time the application title should link to itself.
-    */
+     */
     appLink: {
       type: String,
       default: "/",
@@ -154,7 +121,7 @@ export default {
 
     /**
      * The application's subtitle/description
-    */
+     */
     appSubtitle: {
       type: String,
       default: "",
@@ -162,7 +129,7 @@ export default {
 
     /**
      * Branding image (eg. department logo). Accepts an Object of image attributes.
-    */
+     */
     brandingImage: {
       type: Object,
       default: null,
@@ -170,19 +137,19 @@ export default {
 
     /**
      * Branding image link. Accepts an Object of link attributes.
-    */
+     */
     brandingLink: {
       type: Object,
-      default () {
+      default() {
         return {
-          href: '/',
+          href: "/",
         };
       },
     },
 
     /**
      * Allows the header elements (logo, title, navigation...) to expand with the window width, or stay aligned in the center (not recommended).
-    */
+     */
     isFluid: {
       type: Boolean,
       default: false,
@@ -191,55 +158,52 @@ export default {
     /**
      * Fixes the header to the top of the page
      * Requires the application to have the ``<main>`` tag for content positioning calculations
-    */
+     */
     isSticky: {
       type: Boolean,
       default: true,
     },
-
   },
-  data () {
+  data() {
     return {
       timeout: null,
     };
   },
   computed: {
-
-    showRightNavOnSide () {
+    showRightNavOnSide() {
       return !this.showLeftNav && this.showRightNav;
     },
 
-    showLeftNav () {
-      return (this.$slots['tabs-nav'] || this.$slots['left-nav']) && !this.isMobile;
-    },
-
-    showRightNav () {
+    showLeftNav() {
       return (
-        (
-          this.$slots['lang-selector-nav'] ||
-          this.$slots['dropdown-nav'] ||
-          this.$slots['right-nav']
-        )
+        (this.$slots["tabs-nav"] || this.$slots["left-nav"]) && !this.isMobile
       );
     },
 
-    showBranding () {
-      return this.brandingImage && this.brandingLink && !this.isMobile;
+    showRightNav() {
+      return (
+        this.$slots["lang-selector-nav"] ||
+        this.$slots["dropdown-nav"] ||
+        this.$slots["right-nav"]
+      );
     },
 
+    showBranding() {
+      return this.brandingImage && this.brandingLink && !this.isMobile;
+    },
   },
-  created () {
+  created() {
     window.addEventListener("resize", this.handleResize);
   },
   destroyed() {
     window.removeEventListener("resize", this.handleResize);
     clearTimeout(this.timeout);
   },
-  mounted () {
+  mounted() {
     this.stickyHeader();
   },
   methods: {
-    handleResize () {
+    handleResize() {
       if (this.timeout) {
         clearTimeout(this.timeout);
       }
@@ -248,28 +212,26 @@ export default {
       }, 500);
     },
 
-    stickyHeader () {
-
+    stickyHeader() {
       if (this.isSticky) {
-
         //wait for dom to finish updating
         this.$nextTick(function () {
+          let body = document.querySelector("body");
+          let header = document.querySelector("#app-header");
+          let main = document.querySelector("main");
 
-          let body = document.querySelector('body');
-          let header = document.querySelector('#app-header');
-          let main = document.querySelector('main');
-
-          body.classList.add('has-sticky-header');
+          body.classList.add("has-sticky-header");
 
           if (!main) {
-            console.warn('Remember to add a main container (<main>) when the header is sticky.');
+            console.warn(
+              "Remember to add a main container (<main>) when the header is sticky."
+            );
             return;
           }
 
-          main.style.cssText = main.style.cssText + `margin-top: ${header.offsetHeight}px`;
-
+          main.style.cssText =
+            main.style.cssText + `margin-top: ${header.offsetHeight}px`;
         });
-
       }
     },
   },
@@ -277,118 +239,119 @@ export default {
 </script>
 
 <style lang="scss">
-  #app-header {
+#app-header {
+  .container {
+    padding: 0;
+  }
+  @include until($desktop) {
     .container {
-      padding: 0;
-    }
-    @include until ($tablet) {
-      .container {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-      }
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
     }
   }
-  .m-nav-opened {
-    height:100%;
-    overflow: hidden;
+  @include until($tablet) {
+    .container {
+      padding-left: 0rem !important;
+      padding-right: 0rem !important;
+    }
   }
+}
+.m-nav-opened {
+  height: 100%;
+  overflow: hidden;
+}
 </style>
 
 <style lang="scss" scoped>
-
-  #app-header {
-
-    @include until ($tablet) {
-      border-bottom: 2px solid $electric-blue;
-    }
-
-    &.is-sticky {
-      width: 100%;
-      position: fixed;
-      top:0;
-      left:0;
-      z-index: 998;
-    }
+#app-header {
+  @include until($tablet) {
+    border-bottom: 2px solid $electric-blue;
   }
 
-  #main-nav {
-    > .columns {
+  &.is-sticky {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998;
+  }
+}
 
-      .column {
-        padding-top: 0.5rem;
-        padding-bottom: 1rem;
+#main-nav {
+  > .columns {
+    .column {
+      padding-top: 0.5rem;
+      padding-bottom: 1rem;
 
-        @include until ($tablet) {
-          padding: 0;
-        }
-
-        &.mobile-nav-col {
-          @include until ($tablet) {
-            width: 50px;
-            flex: none;
-          }
-        }
-
-        &.branding-col {
-          padding-left: 0;
-          padding-right: 0;
-        }
-
-        &.title-col {
-          padding-left: 0;
-          text-align: left;
-          @include until ($tablet) {
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-            width: calc(100% - 100px);
-            flex: none;
-            &.no-mobile-nav {
-              padding-left: 1rem;
-              width: calc(100% - 50px);
-            }
-          }
-          &.has-mobile-nav {
-            padding-left: 10px;
-          }
-        }
-
-        &.nav-col {
-          padding: 0;
-          @include until ($tablet) {
-            width: 50px;
-            flex: none;
-          }
-        }
-
+      @include until($tablet) {
+        padding: 0;
       }
-      margin: 5px 0;
-    }
-  }
 
-  #nav-wrap {
-    background-color: $ben-franklin-blue-dark;
-  }
+      &.mobile-nav-col {
+        @include until($tablet) {
+          width: 50px;
+          flex: none;
+        }
+      }
 
-  a.app-title {
-    color: $white;
-    h1 {
-      font-family: $family-secondary;
-      font-size: 1.375rem;
-      font-weight: $weight-bold;
-      line-height: 1.09;
-      padding: 0;
-      @include until ($tablet) {
-        font-weight: $weight-normal;
-        font-size: $size-normal;
+      &.branding-col {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      &.title-col {
+        padding-left: 0;
+        text-align: left;
+        @include until($tablet) {
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+          width: calc(100% - 100px);
+          flex: none;
+          &.no-mobile-nav {
+            padding-left: 1rem;
+            width: calc(100% - 50px);
+          }
+        }
+        &.has-mobile-nav {
+          padding-left: 10px;
+        }
+      }
+
+      &.nav-col {
+        padding: 0;
+        @include until($tablet) {
+          width: 50px;
+          flex: none;
+        }
       }
     }
-    h2 {
-      font-family: $family-secondary;
-      font-size: $size-large;
+    margin: 5px 0;
+  }
+}
+
+#nav-wrap {
+  background-color: $ben-franklin-blue-dark;
+}
+
+a.app-title {
+  color: $white;
+  h1 {
+    font-family: $family-secondary;
+    font-size: 1.375rem;
+    font-weight: $weight-bold;
+    line-height: 1.09;
+    padding: 0;
+    @include until($tablet) {
       font-weight: $weight-normal;
-      line-height: 1.33;
-      padding: 0;
+      font-size: $size-normal;
     }
   }
-
+  h2 {
+    font-family: $family-secondary;
+    font-size: $size-large;
+    font-weight: $weight-normal;
+    line-height: 1.33;
+    padding: 0;
+  }
+}
 </style>

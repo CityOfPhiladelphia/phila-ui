@@ -1,9 +1,9 @@
 ---
 title: Links / Anchors
-menuTitle: Links
-category: "Styles Guide"
-position: 17
-badge: ""
+menuTitle: Links (next)
+category: "Style Guide"
+position: 18
+badge: "next"
 ---
 
 Links are automatically styled within the _.content_ class.

@@ -1,9 +1,9 @@
 ---
 title: Fonts
-menuTitle: Fonts
-category: "Styles Guide"
+menuTitle: Fonts (next)
+category: "Style Guide"
 position: 15
-badge: ""
+badge: "next"
 ---
 
 ## Font Families

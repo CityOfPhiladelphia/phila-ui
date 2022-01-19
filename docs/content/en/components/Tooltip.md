@@ -1,11 +1,11 @@
 ---
 
 title: Tooltip
-menuTitle: Tooltip
+menuTitle: Tooltip (next)
 description: A tooltip which display a custom message on hover or click.
 category: Components | Other
 position: 310
-badge:
+badge: next
 
 ---
 
@@ -46,8 +46,8 @@ Vue.use(PhilaUI);
 
 | Prop name | Description                                         | Type   | Values          | Default                   |
 | --------- | --------------------------------------------------- | ------ | --------------- | ------------------------- |
-| mode      | light mode: off-white bg<br>dark mode: dark grey bg | string | `light`, `dark` | 'dark'                    |
-| message   | the tooltip message                                 | string | -               | 'Default tooltip message' |
+| mode      | light mode: off-white bg<br>dark mode: dark grey bg | string | `light`, `dark` | "dark"                    |
+| message   | the tooltip message                                 | string | -               | "Default tooltip message" |
 
 ## Notes
 

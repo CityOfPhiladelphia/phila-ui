@@ -19,7 +19,11 @@
           :id="`phone-${id}`"
           v-imask="mask"
           v-bind="$attrs"
-          :placeholder="$attrs.required !== undefined && placeholder !== '' ? `${placeholder} *` : placeholder"
+          :placeholder="
+            $attrs.required !== undefined && placeholder !== ''
+              ? `${placeholder} *`
+              : placeholder
+          "
           :value="localValue"
           class="input"
           @accept="onAccept"
@@ -65,23 +69,20 @@
   </div>
 </template>
 <script>
-import { inputMixins } from '@/utils/inputMixins';
-import textBoxMixins  from '@/utils/textBoxMixins';
-import maskedElementsMixins  from '@/utils/maskedElementsMixins';
+import { inputMixins } from "@/utils/inputMixins";
+import textBoxMixins from "@/utils/textBoxMixins";
+import maskedElementsMixins from "@/utils/maskedElementsMixins";
 
 /**
  * Displays a phone number input. Currently this input is compatible with US numbers only.
  * @niceName Phone
  * @group Inputs
  * @position 230
+ * @badge next
  */
 export default {
   name: "Phone",
-  mixins: [
-    inputMixins,
-    textBoxMixins,
-    maskedElementsMixins,
-  ],
+  mixins: [ inputMixins, textBoxMixins, maskedElementsMixins ],
   props: {
     /**
      * Forces the phone input box to be at a specific width.
@@ -95,9 +96,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '../../../assets/styles/scss/textbox-inputs.scss';
+@import "../../../assets/styles/scss/textbox-inputs.scss";
 
-  .input-width {
-    max-width: 220px;
-  }
+.input-width {
+  max-width: 220px;
+}
 </style>
