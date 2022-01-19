@@ -1,9 +1,9 @@
 ---
 title: Icons
-menuTitle: Icons
+menuTitle: Icons (next)
 category: "Style Guide"
 position: 17
-badge: ""
+badge: "next"
 ---
 
 ## Intro

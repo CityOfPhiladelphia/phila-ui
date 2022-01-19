@@ -1,9 +1,9 @@
 ---
 title: Buttons
-menuTitle: Buttons
+menuTitle: Buttons (next)
 category: "Style Guide"
 position: 12
-badge: ""
+badge: "next"
 ---
 
 Styling buttons require adding a `.button` class to the button or anchor element, a style class, and optionally a size class.

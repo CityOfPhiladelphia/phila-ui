@@ -1,9 +1,9 @@
 ---
 title: Headings
-menuTitle: Headings
+menuTitle: Headings (next)
 category: "Style Guide"
 position: 16
-badge: ""
+badge: "next"
 ---
 
 ## Intro
