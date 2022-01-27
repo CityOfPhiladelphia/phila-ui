@@ -67,7 +67,6 @@
  * @niceName Modal
  * @group Other
  * @position 302
- * @badge next
  */
 export default {
   name: "Modal",

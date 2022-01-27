@@ -1,11 +1,11 @@
 ---
 
 title: Modal
-menuTitle: Modal (next)
+menuTitle: Modal
 description: A modal window component with basic styles for title, body, and action buttons.
 category: Components | Other
 position: 302
-badge: next
+badge:
 
 ---
 
