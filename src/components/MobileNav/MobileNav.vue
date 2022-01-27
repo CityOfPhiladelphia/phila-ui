@@ -86,8 +86,7 @@
   </div>
 </template>
 <script>
-import NavLink from 'components/NavLink/NavLink.vue';
-import Vue from 'vue';
+import NavLink from '@/components/NavLink/NavLink.vue';
 
 /**
  * The mobile navigation.  Primarily, used as a slot of the [Application Header](/components/AppHeader).
@@ -134,14 +133,14 @@ export default {
 
       if (this.isMobile) {
 
-        Vue.nextTick(function () {
+        this.$nextTick(function () {
           const header = document.querySelector('#app-header');
           const mobileMenuWrap = document.querySelector('#mobile-menu-wrap');
           const mobileMenu = document.querySelector('#mobile-menu');
 
           if (mobileMenuWrap) {
-            mobileMenuWrap.style['top'] = header.offsetHeight + 'px';
-            mobileMenuWrap.style['height'] = `calc(100% - ${header.offsetHeight + 45}px)`;
+            mobileMenuWrap.style.cssText = mobileMenuWrap.style.cssText + `top: ${header.offsetHeight}px`;
+            mobileMenuWrap.style.cssText = mobileMenuWrap.style.cssText + `height: calc(100% - ${header.offsetHeight + 45}px)`;
           }
 
           const mobileNavList = mobileMenu.querySelectorAll('ul li');
@@ -255,6 +254,41 @@ export default {
 
 <style lang="scss">
 
+  @mixin submenu($is-opened:false) {
+    &:after {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 2px;
+      background-color: $white;
+      display: block;
+      transition: all 0.25s ease-in;
+      content: "";
+      @if($is-opened) {
+        transform: translateY(-50%) rotate(-45deg);
+      }
+    }
+    &:before {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+      width: 20px;
+      height: 2px;
+      background-color: $white;
+      display: block;
+      content: "";
+      transition: all 0.25s ease-in;
+      opacity: 1;
+      @if($is-opened) {
+        transform: translateY(-50%) rotate(45deg);
+      }
+    }
+  }
+
+
   #mobile-menu {
     width: 100%;
     height: 100%;
@@ -280,31 +314,7 @@ export default {
             font-weight: $weight-semibold;
           }
           &.has-submenu {
-            &:after {
-              position: absolute;
-              right: 1rem;
-              top: 50%;
-              transform: translateY(-50%);
-              width: 20px;
-              height: 2px;
-              background-color: $white;
-              display: block;
-              transition: all 0.25s ease-in;
-              content: "";
-            }
-            &:before {
-              position: absolute;
-              right: 1rem;
-              top: 50%;
-              transform: translateY(-50%) rotate(-90deg);
-              width: 20px;
-              height: 2px;
-              background-color: $white;
-              display: block;
-              content: "";
-              transition: all 0.25s ease-in;
-              opacity: 1;
-            }
+            @include submenu;
           }
         }
         &.opened {
@@ -312,12 +322,8 @@ export default {
           border-bottom: 2px solid $ben-franklin-blue-light;
           > a {
             font-weight: $weight-semibold;
-            &:before {
-              transform: translateY(-50%) rotate(45deg);
-            }
-            &:after {
-              transform: translateY(-50%) rotate(-45deg);
-            }
+            position: relative;
+            @include submenu(true);
           }
           > ul {
             opacity: 1;
@@ -345,15 +351,20 @@ export default {
               padding: 1rem 1rem;
               display: block;
               margin: 0 2rem;
+              position: relative;
               &.is-active, &.router-link-exact-active {
                 background-color: $ben-franklin-blue;
                 font-weight: $weight-semibold;
+              }
+              &.has-submenu {
+                @include submenu;
               }
             }
             &.opened {
               > a {
                 background-color: $ben-franklin-blue;
                 font-weight: $weight-semibold;
+                @include submenu(true);
               }
               > ul {
                 opacity: 1;

@@ -1,0 +1,220 @@
+@mixin heading {
+  font-family: $family-secondary;
+  color: $grey-dark;
+  font-weight: $weight-semibold;
+  margin: 0 0 0.5rem 0;
+}
+
+@mixin heading-1 {
+  @include heading;
+  line-height: 2.5rem;
+  font-size: 2rem !important;
+}
+
+@mixin heading-2 {
+  @include heading;
+  line-height: 2.1875rem;
+  font-size: 1.75rem !important;
+}
+
+@mixin heading-3 {
+  @include heading;
+  line-height: 1.875rem;
+  font-size: 1.5rem !important;
+}
+
+@mixin heading-4 {
+  @include heading;
+  line-height: 1.5625rem;
+  font-size: 1.25rem !important;
+}
+
+@mixin heading-5 {
+  @include heading;
+  line-height: 1.25rem;
+  font-size: 1rem !important;
+}
+
+@mixin heading-6 {
+  @include heading;
+  line-height: 1.25rem;
+  font-size: 1rem !important;
+  font-weight: $weight-normal;
+  text-transform: uppercase;
+}
+
+@mixin headings-set-sizes {
+  &.is-1 {
+    @include heading-1;
+  }
+
+  &.is-2 {
+    @include heading-2;
+  }
+
+  &.is-3 {
+    @include heading-3;
+  }
+
+  &.is-4 {
+    @include heading-4;
+  }
+
+  &.is-5 {
+    @include heading-5;
+  }
+
+  &.is-6 {
+    @include heading-6;
+  }
+}
+
+@mixin font-sizes {
+  &.is-small {
+    font-size: $size-small;
+  }
+
+  &.is-medium,
+  &.is-normal {
+    font-size: $size-medium;
+  }
+
+  &.is-large {
+    font-size: $size-large;
+  }
+}
+
+@mixin link {
+  color: $ben-franklin-blue-dark;
+  text-decoration: underline;
+  font-weight: $weight-bold;
+
+  &.external-link,
+  &.is-external-link {
+    display: inline-block;
+    &:after {
+      content: "\f35d";
+      font-family: "Font Awesome 5 Pro";
+      font-weight: 900;
+      display: inline-block;
+      font-size: $size-small;
+      margin-left: 0.25rem;
+    }
+  }
+  &.is-inverted {
+    color: $white;
+  }
+}
+
+@mixin small-link {
+  font-size: $size-small;
+  &.external-link,
+  &.is-external-link {
+    &:after {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+@mixin table-styles {
+  width: 100%;
+  border: 0;
+  thead {
+    tr {
+      th {
+        background-clip: padding-box;
+        position: relative;
+        background-color: $grey-dark;
+        color: $white;
+        font-weight: $weight-semibold;
+        font-size: $size-small;
+        border: 3px solid $white;
+        padding: 10px 8px;
+        line-height: 18px;
+        &.sortable {
+          cursor: pointer;
+          padding-right: 20px;
+          &:before,
+          &:after {
+            border-radius: 1px;
+            border: 5px solid transparent;
+            content: "";
+            display: block;
+            height: 0;
+            right: 8px;
+            top: 8px;
+            position: absolute;
+            width: 0;
+          }
+          &:before {
+            border-bottom-color: #b5b5b5;
+          }
+          &:after {
+            border-top-color: #b5b5b5;
+            margin-top: 12px;
+          }
+          &:hover {
+            &:before {
+              border-bottom-color: $white;
+            }
+            &:after {
+              border-top-color: $white;
+            }
+          }
+          &.sorting {
+            background-color: $ben-franklin-blue;
+            color: $white;
+            &.sorting-asc {
+              &:before {
+                border-bottom-color: $white;
+              }
+              &:after {
+                border-top-color: #85b4e6;
+              }
+            }
+            &.sorting-desc {
+              &:before {
+                border-bottom-color: #85b4e6;
+              }
+              &:after {
+                border-top-color: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  tbody {
+    tr {
+      &:nth-of-type(even) {
+        td {
+          background-color: #d8d8d8;
+        }
+      }
+      td {
+        background-clip: padding-box;
+        position: relative;
+        background-color: $ghost-grey;
+        color: $grey-dark;
+        font-size: $size-small;
+        border: 3px solid $white;
+        padding: 10px 8px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  &.is-align-middle {
+    td,
+    th {
+      vertical-align: middle;
+    }
+  }
+
+  &.table-responsive {
+    width: 100%;
+    overflow: hidden;
+    overflow-x: auto;
+  }
+}

@@ -11,7 +11,7 @@ badge:
 
 Displays a text input
 
-<alert>Supports VeeValidate. See [VeeValidate Integration](/vee-validate-integration).</alert>
+<alert>Supports VeeValidate. See [VeeValidate Integration](/vendors/vee-validate-integration).</alert>
 
 ## Usage
 
@@ -46,18 +46,18 @@ Vue.use(PhilaUI);
 
 ## Props
 
-| Prop name   | Description                                                                        | Type           | Values           | Default                                                  |
-| ----------- | ---------------------------------------------------------------------------------- | -------------- | ---------------- | -------------------------------------------------------- |
-| id          | Random id is generated if none provided                                            | string         | -                | () => `ta_${Math.random().toString(12).substring(2, 8)}` |
-| errors      | Error message                                                                      | array\|string  | -                | function() {<br> return '';<br>}                         |
-| label       | The input label                                                                    | string         | -                | ''                                                       |
-| desc        | The input description                                                              | string         | -                | ''                                                       |
-| placeholder | The input placeholder                                                              | string         | -                | 'Insert placeholder here'                                |
-| type        | The input type                                                                     | string         | `text`, `number` | 'text'                                                   |
-| value       | The text input value / v-model                                                     | string\|number | -                | ""                                                       |
-| icon        | The input icon. It expects font-awesome icon classes.                              | string         | -                | ''                                                       |
-| isLoading   | Whether a loading indicator should be displayed                                    | boolean        | -                | false                                                    |
-| innerLabel  | Whether the label should be displayed inside the input (true) or above it (false). | boolean        | -                | true                                                     |
+| Prop name   | Description                                                                        | Type           | Values           | Default                                                                                                                                                                                                                                                |
+| ----------- | ---------------------------------------------------------------------------------- | -------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| id          | Random id is generated if none provided                                            | string         | -                | () => `ta_${Math.random().toString(12).substring(2, 8)}`                                                                                                                                                                                               |
+| errors      | Error message                                                                      | array\|string  | -                | function() {<br> return '';<br>}                                                                                                                                                                                                                       |
+| label       | The input label                                                                    | string         | -                | ''                                                                                                                                                                                                                                                     |
+| desc        | The input description                                                              | string         | -                | ''                                                                                                                                                                                                                                                     |
+| placeholder | The input placeholder                                                              | string         | -                | function() {<br><br> let defaultValue = '';<br><br> if (this.$options.propsData.innerLabel === true \|\| this.$options.propsData.innerLabel === undefined) {<br> defaultValue = 'Insert placeholder here';<br> }<br><br> return defaultValue;<br><br>} |
+| type        | The input type                                                                     | string         | `text`, `number` | 'text'                                                                                                                                                                                                                                                 |
+| value       | The text input value / v-model                                                     | string\|number | -                | ""                                                                                                                                                                                                                                                     |
+| icon        | The input icon. It expects font-awesome icon classes.                              | string         | -                | ''                                                                                                                                                                                                                                                     |
+| isLoading   | Whether a loading indicator should be displayed                                    | boolean        | -                | false                                                                                                                                                                                                                                                  |
+| innerLabel  | Whether the label should be displayed inside the input (true) or above it (false). | boolean        | -                | true                                                                                                                                                                                                                                                   |
 
 ## Slots
 
@@ -142,7 +142,7 @@ To display an error provide a String with the error, or an Array of errors. Only
 <textbox errors="This field is required" />
 ```
 
-<alert>This component supports VeeValidate errors. [Learn how to validate](/vee-validate-integration) with the VeeValidade plugin.<a></alert>
+<alert>This component supports VeeValidate errors. [Learn how to validate](/vendors/vee-validate-integration) with the VeeValidade plugin.<a></alert>
 
 ## Live Examples
 

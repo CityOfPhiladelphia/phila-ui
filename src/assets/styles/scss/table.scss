@@ -1,0 +1,10 @@
+/*
+Table Styles
+PhilaUI table styles applied to the .table class, and compatible with the vue-good-table plugin
+*/
+
+@import "mixins";
+
+table.table {
+  @include table-styles;
+}

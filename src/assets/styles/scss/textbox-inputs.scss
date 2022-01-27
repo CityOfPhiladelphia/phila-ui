@@ -1,0 +1,29 @@
+/*
+Input Textbox Styles
+Applied to the Textbox component and other components that inherit the Textbox visuals
+*/
+.input-textbox {
+  .input {
+    height: 3.5rem;
+  }
+  &.inner-label {
+    .input {
+      + label {
+        opacity: 0;
+      }
+      &:not(:placeholder-shown),
+      &:focus {
+        padding: 1rem 2.2rem 0 0.75rem;
+        + label {
+          opacity: 1;
+        }
+      }
+    }
+    .input:not(:-ms-input-placeholder) {
+      padding: 1rem 2.2rem 0 0.75rem;
+      + label {
+        opacity: 1;
+      }
+    }
+  }
+}

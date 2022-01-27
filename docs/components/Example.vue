@@ -9,7 +9,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     name: {
@@ -18,7 +17,7 @@ export default {
       required: true,
     },
     height: {
-      type: [ Number, String ],
+      type: [Number, String],
       default: 400,
     },
     horizontal: {
@@ -27,21 +26,21 @@ export default {
     },
     options: {
       type: Object,
-      default () {
+      default() {
         return {
           hasFs: true,
         };
       },
     },
   },
-  data () {
+  data() {
     return {
-      src: '',
+      src: "",
     };
   },
-  mounted () {
+  mounted() {
     if (this.name) {
-      this.src = `https://ui-examples.phila.gov/loader/${this.name}`;
+      this.src = `${process.env.docsBaseUrl}/loader/${this.name}`;
 
       let defaults = {
         hasBar: true,
@@ -64,18 +63,17 @@ export default {
 
       let params = [];
 
-      Object.keys(paramOptions).forEach(key => {
+      Object.keys(paramOptions).forEach((key) => {
         params.push(`${key}=${paramOptions[key]}`);
       });
 
-      this.src= `${this.src}?${params.join('&')}`;
-
+      this.src = `${this.src}?${params.join("&")}`;
     }
   },
 };
 </script>
 <style>
-  .example-iframe {
-    width: 100%;
-  }
+.example-iframe {
+  width: 100%;
+}
 </style>

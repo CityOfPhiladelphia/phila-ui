@@ -11,7 +11,7 @@ badge:
 
 Styled select input
 
-<alert>Supports VeeValidate. See [VeeValidate Integration](/vee-validate-integration).</alert>
+<alert>Supports VeeValidate. See [VeeValidate Integration](/vendors/vee-validate-integration).</alert>
 
 ## Usage
 
@@ -172,7 +172,30 @@ options: [
 ];
 ```
 
-### optgroup [2.0.5](/changelog#205---2021-05-24) WIP
+### With optgroup
+
+Version [2.0.5](/changelog) and up.
+
+```html
+<dropdown :optgroup="true" />
+```
+
+When optgroup is true, wrap the options in an object where the object key is the group name.
+
+```js
+options: {
+  "Group 1": [
+    "Group 1 - Option 1",
+    "Group 1 - Option 2",
+    "Group 1 - Option 3",
+  ],
+  "Group 2": [
+    "Group 2 - Option 1",
+    "Group 2 - Option 2",
+    "Group 2 - Option 3",
+  ],
+},
+```
 
 ### Displaying errors
 
@@ -182,7 +205,7 @@ To display an error provide a String with the error, or an Array of errors. Only
 <dropdown errors="This field is required" />
 ```
 
-<alert>This component supports VeeValidate errors. [Learn how to validate](/vee-validate-integration) with the VeeValidade plugin.<a></alert>
+<alert>This component supports VeeValidate errors. [Learn how to validate](/vendors/vee-validate-integration) with the VeeValidade plugin.<a></alert>
 
 ## Live Examples
 
@@ -197,3 +220,7 @@ To display an error provide a String with the error, or an Array of errors. Only
 ### Dropdown with Array of Object options
 
 <example name="Dropdown3" height="300"></example>
+
+### Dropdown with optgroup enabled
+
+<example name="Dropdown4" height="300"></example>

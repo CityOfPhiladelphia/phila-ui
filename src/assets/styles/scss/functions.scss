@@ -6,6 +6,8 @@
 /// @group functions
 ////
 
+@use 'sass:math';
+
 $global-font-size: 100% !default;
 
 /// Removes the unit (e.g. px, em, rem) from a value, returning the number only.
@@ -34,12 +36,12 @@ $global-font-size: 100% !default;
 
   // If the base font size is a %, then multiply it by 16px
   // This is because 100% font size = 16px in most all browsers
-  @if unit($base) == '%' {
-    $base: ($base / 100%) * 16px;
+  @if unit($base) == "%" {
+    $base: math.div($base, 100%) * 16px;
   }
 
   // Using rem as base allows correct scaling
-  @if unit($base) == 'rem' {
+  @if unit($base) == "rem" {
     $base: strip-unit($base) * 16px;
   }
 

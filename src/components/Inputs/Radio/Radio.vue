@@ -67,7 +67,7 @@
   </div>
 </template>
 <script>
-import { inputMixins } from 'utils/inputMixins';
+import { inputMixins } from '@/utils/inputMixins';
 /**
  * Displays a group of radio buttons
  * @niceName Radio Buttons
@@ -194,7 +194,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-  @import '../../../assets/styles/scss/inputs.scss';
-</style>

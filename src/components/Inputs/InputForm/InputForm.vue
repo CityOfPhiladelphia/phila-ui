@@ -4,18 +4,18 @@
     v-bind="$attrs"
     novalidate
   >
-    <h3
+    <div
       v-if="title"
-      class="title is-4 form-padding"
+      class="form-title form-padding"
     >
       {{ title }}
-    </h3>
-    <div
+    </div>
+    <p
       v-if="desc"
-      class="subtitle is-5 form-padding"
+      class="form-subtitle form-padding"
     >
       {{ desc }}
-    </div>
+    </p>
     <!-- @slot The form inputs -->
     <slot />
     <div
@@ -105,6 +105,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+  .form-title {
+    @include heading-2;
+  }
   .form-errors {
     font-size: 0.875rem;
     padding: 1rem 1.5rem;

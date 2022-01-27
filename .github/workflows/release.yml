@@ -5,6 +5,7 @@ on:
       - master
       - beta
       - alpha
+      - next
 
 jobs:
   release:
@@ -17,6 +18,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '10.x'
+      - name: Clean up
+        run: rm -rf docs test # We don't need to deploy the docs and test folders to npm, this just makes the library bigger unnecessarily.
       - name: Install
         run: npm install
       - name: Run lint

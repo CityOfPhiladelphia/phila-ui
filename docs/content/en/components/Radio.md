@@ -11,7 +11,7 @@ badge:
 
 Displays a group of radio buttons
 
-<alert>Supports VeeValidate. See [VeeValidate Integration](/vee-validate-integration).</alert>
+<alert>Supports VeeValidate. See [VeeValidate Integration](/vendors/vee-validate-integration).</alert>
 
 ## Usage
 
@@ -127,7 +127,7 @@ To display an error provide a String with the error, or an Array of errors. Only
 <radio errors="This field is required" />
 ```
 
-<alert>This component supports VeeValidate errors. [Learn how to validate](/vee-validate-integration) with the VeeValidade plugin.<a></alert>
+<alert>This component supports VeeValidate errors. [Learn how to validate](/vendors/vee-validate-integration) with the VeeValidade plugin.<a></alert>
 
 ## Live Examples
 

@@ -78,9 +78,9 @@ $size-1: 2rem;
 $size-2: 1.75rem;
 $size-3: 1.25rem;
 $size-4: 1.125rem;
-$size-5: 1.125rem;
-$size-6: 1.125rem;
-$size-7: 1.125rem;
+$size-5: $size-small;
+$size-6: $size-small;
+$size-7: $size-small;
 $link-hover: $ben-franklin-blue-dark;
 
 $tablet: 768px !default;

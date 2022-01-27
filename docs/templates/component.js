@@ -1,3 +1,5 @@
+const { construct } = require("core-js/library/fn/reflect");
+
 module.exports = function (
   renderedUsage, // props, events, methods and slots documentation rendered
   doc, // the object returned by vue-docgen-api
@@ -13,7 +15,9 @@ module.exports = function (
   const dashName = displayName.replace(/([a-zA-Z])(?=[A-Z])/g, '$1-').toLowerCase();
   const cTag = '<' + dashName + ' ></' + dashName + '>';
 
-  const wipBadge = tags.wip ? 'WIP' : '';
+  const badge = tags.badge ? tags.badge[0]['description'] : '';
+  const badgeTitle = badge !== "" ?  `(${tags.badge[0]['description']})` : '';
+
   const noExport = tags.noExport ? true : false;
 
   let usage = '';
@@ -53,17 +57,17 @@ module.exports = function (
   //Adds vee-validate integration support alert
   let veeValidateIntegration = '';
   if (tags.group[0]['description'] === 'Inputs') {
-    veeValidateIntegration = '<alert>Supports VeeValidate. See [VeeValidate Integration](/vee-validate-integration).</alert>';
+    veeValidateIntegration = '<alert>Supports VeeValidate. See [VeeValidate Integration](/vendors/vee-validate-integration).</alert>';
   }
 
   return `
   ---
   title: ${tags.niceName ? tags.niceName[0]['description'] : displayName}
-  menuTitle: ${tags.niceName ? tags.niceName[0]['description'] : displayName} ${wipBadge ? '(' + wipBadge + ')' : ''}
+  menuTitle: ${tags.niceName ? tags.niceName[0]['description'] : displayName} ${badgeTitle}
   description: ${description}
   category: ${tags.group ? "Components | " + tags.group[0]['description'] : "Components"}
   position: ${tags.position ? tags.position[0]['description'] : 100}
-  badge: ${wipBadge}
+  badge: ${badge}
   ---
 
   ${description}

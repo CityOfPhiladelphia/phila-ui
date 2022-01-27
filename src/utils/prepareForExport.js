@@ -1,4 +1,7 @@
 function prepareForExport (component) {
+
+  const merge = require('deepmerge');
+
   // Declare install function executed by Vue.use()
   component.install = function (Vue, settings = {}) {
     if (component.installed) {
@@ -6,8 +9,10 @@ function prepareForExport (component) {
     }
     component.installed = true;
 
-    const name = settings.altName ? settings.altName : component.name;
-    Vue.component(name, component);
+    const name = settings.altName || settings.name || component.name;
+    const componentWithSettings = merge.all([ component, settings ]);
+
+    Vue.component(name, componentWithSettings);
   };
 
   // Create module definition for Vue.use()

@@ -1,0 +1,239 @@
+/*
+Buttons Styles
+PhilaUI button styles, overwrites and appends to Bulma button styles
+*/
+
+.button,
+.button.is-medium,
+.button.is-default {
+  $border-width: 0.125rem;
+  border-width: $border-width;
+  border-color: transparent;
+  padding: calc(0.75rem - #{$border-width}) calc(1rem - #{$border-width});
+  font-size: 1rem !important;
+  line-height: 1.5rem !important;
+  text-transform: uppercase !important;
+  border-radius: 0 !important;
+  font-family: $family-secondary !important;
+  font-weight: $weight-semibold !important;
+  height: auto !important;
+  text-decoration: none !important;
+
+  span.icon {
+    height: auto;
+    width: auto;
+    font-size: 1.125rem;
+  }
+
+  span.icon:first-child:not(:last-child) {
+    margin-left: 0;
+    margin-right: 1rem;
+    + span {
+      padding-right: 1rem;
+    }
+  }
+
+  span.icon:last-child:not(:first-child) {
+    margin: 0;
+    padding: 0;
+  }
+
+  span:first-child:not([class="icon"]) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 1rem !important;
+    + span {
+      margin-left: 1rem !important;
+    }
+  }
+
+  &.is-small {
+    padding: calc(0.5rem - #{$border-width}) calc(1rem - #{$border-width});
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    span.icon {
+      height: auto;
+      width: auto;
+      max-height: 1.125rem;
+      max-width: 1.125rem;
+    }
+
+    span.icon:first-child:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+
+    span:first-child:not([class="icon"]) {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding-left: 1rem !important;
+      + span {
+        margin-left: 0.5rem !important;
+      }
+    }
+  }
+
+  &.is-large {
+    padding: calc(1rem - #{$border-width}) calc(2rem - #{$border-width});
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+
+    span.icon {
+      height: auto;
+      width: auto;
+      max-height: 1.125rem;
+      max-width: 1.125rem;
+    }
+
+    span.icon:first-child:not(:last-child) {
+      margin-left: -1rem;
+      margin-right: 1;
+      + span {
+        padding-right: 0;
+      }
+    }
+
+    span:first-child:not([class="icon"]) {
+      padding-left: 0 !important;
+      + span {
+        margin-left: 1rem !important;
+        margin-right: -1rem !important;
+      }
+    }
+  }
+  &:focus {
+    &:not(:active) {
+      box-shadow: 0 0 0 0.25em $electric-blue !important;
+    }
+  }
+
+  &.is-primary,
+  &.is-secondary,
+  &.is-danger,
+  &.is-cta {
+    &:hover {
+      background-color: $grey-dark;
+      border-color: $grey-dark;
+      color: $white;
+    }
+    &:active {
+      background-color: $black;
+      border-color: $black;
+      color: $white;
+    }
+    &:disabled {
+      background-color: $sidewalk-grey;
+      border-color: $sidewalk-grey;
+      color: $white;
+    }
+  }
+
+  &.is-secondary {
+    @extend .is-primary;
+    @extend .is-outlined;
+    color: $ben-franklin-blue;
+    border-color: $ben-franklin-blue;
+    &:focus:not(:active) {
+      background-color: $white;
+      color: $ben-franklin-blue;
+      border-color: $ben-franklin-blue;
+    }
+    &:disabled {
+      background-color: $white !important;
+      border-color: $sidewalk-grey !important;
+      color: $sidewalk-grey !important;
+      border-width: 0.125rem !important;
+    }
+  }
+
+  &.is-tertiary {
+    border-color: transparent;
+    color: $primary;
+    &:focus {
+      &:not(:active) {
+        background-color: $white;
+        color: $ben-franklin-blue;
+        border-color: transparent;
+      }
+    }
+    &:hover {
+      background-color: $grey-dark;
+      border-color: $grey-dark;
+      color: $white;
+    }
+    &:active {
+      background-color: $black;
+      border-color: $grey-dark;
+      color: $white;
+    }
+    &:disabled {
+      color: $sidewalk-grey;
+      &:hover {
+        background-color: $white;
+        color: $sidewalk-grey !important;
+        border-color: transparent;
+      }
+    }
+  }
+
+  &.is-cta,
+  input[type="submit"] {
+    color: $ben-franklin-blue-dark;
+    border-color: $ben-franklin-blue-dark;
+    background-color: transparent;
+    &:not(.is-tertiary):not(.is-secondary) {
+      &:hover {
+        background-color: $grey-dark;
+      }
+      &:active {
+        background-color: $black;
+      }
+      background-color: $ben-franklin-blue-dark;
+      border-color: transparent;
+      color: $white;
+      &:disabled {
+        background-color: $sidewalk-grey;
+      }
+    }
+    &:disabled {
+      background-color: transparent;
+      color: $sidewalk-grey;
+    }
+
+    padding: calc(1rem - #{$border-width}) calc(2.5rem - #{$border-width}) !important;
+    font-size: 1.125rem !important;
+    line-height: 1.5rem !important;
+
+    span.icon {
+      height: auto;
+      width: auto;
+      max-height: 1.125rem;
+      max-width: 1.125rem;
+    }
+
+    span.icon:first-child:not(:last-child) {
+      margin-left: -1rem;
+      margin-right: 1;
+      + span {
+        padding-right: 0;
+      }
+    }
+
+    span:first-child:not([class="icon"]) {
+      padding-left: 0 !important;
+      + span {
+        margin-left: 1rem !important;
+        margin-right: -1rem !important;
+      }
+    }
+  }
+}
+
+.buttons {
+  .button:not(:last-child):not(.is-fullwidth) {
+    margin-right: 4rem;
+  }
+  .button {
+    margin-bottom: 2rem;
+  }
+}

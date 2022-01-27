@@ -1,6 +1,6 @@
 {
   "name": "@phila/phila-ui",
-  "version": "1.7.0",
+  "version": "2.0.7",
   "description": "Phila-UI: City of Philadelphia Components Library",
   "author": "City of Philadelphia",
   "scripts": {
@@ -15,9 +15,12 @@
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/runtime": "^7.12.5",
-    "bulma": "^0.8.1",
+    "@vue/composition-api": "^1.2.4",
+    "bulma": "^0.9.3",
     "bulma-checkradio": "^1.1.1",
-    "core-js": "^3.6.5"
+    "core-js": "^3.6.5",
+    "deepmerge": "^4.2.2",
+    "vue-imask": "^6.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -27,24 +30,18 @@
     "@rollup/plugin-babel": "^5.2.1",
     "@rollup/plugin-image": "^2.0.5",
     "@semantic-release/git": "^7.0.18",
-    "@vue/cli-plugin-babel": "^4.5.9",
-    "@vue/cli-plugin-eslint": "^4.5.9",
-    "@vue/cli-service": "^4.5.9",
+    "@vue/cli-plugin-babel": "^4.5.15",
+    "@vue/cli-plugin-eslint": "^4.5.15",
+    "@vue/cli-service": "^4.5.15",
     "babel-eslint": "^10.0.3",
     "conventional-changelog-conventionalcommits": "^4.5.0",
-    "cssnano": "^4.1.10",
     "eslint": "^6.5.1",
     "eslint-plugin-vue": "^5.2.3",
-    "node-sass": "^4.0.0",
     "rollup": "^1.23.1",
-    "rollup-plugin-alias": "^2.0.1",
-    "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-multi-entry": "^2.1.0",
-    "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-sass": "^1.2.2",
     "rollup-plugin-vue": "^5.0.1",
-    "sass-loader": "^7.1.0",
+    "sass": "^1.45.0",
+    "sass-loader": "^10.2.0",
     "semantic-release": "^17.3.0",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
