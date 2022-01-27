@@ -207,9 +207,14 @@ export default {
       margin-bottom: 0;
     }
     .button {
-      &:not(:last-child) {
-        margin-right: 2rem !important;
+      margin-left: 0;
+      &:not(:first-child) {
+        margin-left: 2rem !important;
       }
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+      margin-bottom: 0.5rem;
     }
   }
 
