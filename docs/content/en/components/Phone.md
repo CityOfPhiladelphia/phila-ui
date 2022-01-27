@@ -1,11 +1,11 @@
 ---
 
 title: Phone
-menuTitle: Phone (next)
+menuTitle: Phone
 description: Displays a phone number input. Currently this input is compatible with US numbers only.
 category: Components | Inputs
 position: 230
-badge: next
+badge:
 
 ---
 

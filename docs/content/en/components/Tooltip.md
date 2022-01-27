@@ -1,11 +1,11 @@
 ---
 
 title: Tooltip
-menuTitle: Tooltip (next)
+menuTitle: Tooltip
 description: A tooltip which display a custom message on hover or click.
 category: Components | Other
 position: 310
-badge: next
+badge:
 
 ---
 

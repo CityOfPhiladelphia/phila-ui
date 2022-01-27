@@ -1,9 +1,8 @@
 ---
 title: Overview
-menuTitle: Overview (next)
+menuTitle: Overview
 category: "Style Guide"
 position: 10
-badge: "next"
 ---
 
 PhilaUI styles are built on top of the [Bulma](https://bulma.io/) CSS framework and based off of the City of Philadelphia [Digital Standards](https://standards.phila.gov/).

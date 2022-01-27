@@ -1,9 +1,8 @@
 ---
 title: Tables
-menuTitle: Tables (next)
+menuTitle: Tables
 category: "Style Guide"
 position: 19
-badge: "next"
 ---
 
 Tables are automatically styled within the _.content_ class.

@@ -15,7 +15,6 @@ import { Tooltip } from "./tooltip.class";
  * @niceName Tooltip
  * @group Other
  * @position 310
- * @badge next
  */
 export default {
   name: "Tooltip",

@@ -1,9 +1,8 @@
 ---
 title: The Content Class
-menuTitle: Content Class (next)
+menuTitle: Content Class
 category: "Style Guide"
 position: 11
-badge: "next"
 ---
 
 PhilaUI uses Bulma's _.content_ class to automatically style certain elements.
