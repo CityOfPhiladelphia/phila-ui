@@ -41,6 +41,9 @@ export const inputMixins = {
       if (this.innerLabel) {
         classes.push('inner-label');
       }
+      if (this.forceInputBoxSize) {
+        classes.push('input-width');
+      }
       return classes.join(" ");
     },
   },
@@ -57,7 +60,7 @@ export const inputMixins = {
       let options = this.options;
 
       if (this.optgroup) {
-        options = this.ungrouppedOptions;
+        options = this.ungroupedOptions;
       }
 
       if (Array.isArray(options)) {

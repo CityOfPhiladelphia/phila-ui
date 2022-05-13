@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import DropdownNav from 'components/DropdownNav/DropdownNav.vue';
+import DropdownNav from '@/components/DropdownNav/DropdownNav.vue';
 
 /**
  * A language dropdopwn navigation.  Primarily used as a slot of the [Application Header](/components/AppHeader). <alert type="warning">Requires the third-party component [vue-i18n](https://kazupon.github.io/vue-i18n/) which is not included. See #[dependencies](#dependencies).</alert>

@@ -3,29 +3,30 @@ name: Deploy Docs
 on:
   push:
     branches:
-    - master
+      - master
+      - next
 
 jobs:
   build:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+      - uses: actions/checkout@v1
 
-    - name: Use Node.js 10.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
+      - name: Use Node.js 10.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
 
-    - name: generate
-      run: |
-        cd docs && npm install && npm run generate
+      - name: generate
+        run: |
+          cd docs && npm install && npm run generate
 
-    - name: Deploy to s3
-      env:
-        AWS_DEFAULT_REGION: 'us-east-1'
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: |
-        aws s3 sync docs/dist s3://phila-ui-docs --region us-east-1 --delete
-        aws cloudfront create-invalidation --distribution-id ELN6LO4HZUFT9 --paths "/*"
+      - name: Deploy to s3
+        env:
+          AWS_DEFAULT_REGION: "us-east-1"
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          aws s3 sync docs/dist s3://phila-ui-docs --region us-east-1 --delete
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CF_DIST }} --paths "/*"

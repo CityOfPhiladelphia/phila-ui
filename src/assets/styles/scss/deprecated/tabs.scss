@@ -1,0 +1,14 @@
+.tabs {
+  & + .fix-margin {
+    margin-top: -1.5rem;
+    padding-top: 1.5rem;
+  }
+  &.is-boxed + .tabs-container {
+    border: 1px solid $tabs-border-bottom-color;
+    border-top: 0;
+  }
+}
+
+.tabs-container {
+  padding: $tabs-link-padding;
+}

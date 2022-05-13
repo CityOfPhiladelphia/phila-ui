@@ -31,8 +31,7 @@
   </footer>
 </template>
 <script>
-import NavLink from 'components/NavLink/NavLink.vue';
-import Vue from 'vue';
+import NavLink from '@/components/NavLink/NavLink.vue';
 
 /**
  * This is the application's main footer. It displays a list of links via slot or props
@@ -75,22 +74,22 @@ export default {
     const main = document.querySelector('main');
     const footer = document.querySelector('#app-footer');
 
-    if (this.isSticky) {
-      if (main) {
-        main.style['padding-bottom'] = `${footer.offsetHeight}px`;
+    if (main) {
+      if (this.isSticky && footer) {
+        main.style.cssText = main.style.cssText + `padding-bottom: ${footer.offsetHeight}px`;
       } else {
-        console.warn('missing <main> tag for footer positioning');
-      }
-    } else {
-      if ((this.isMobile && !this.isHiddenMobile) || !this.isMobile) {
-        const header = document.querySelector('#app-header');
-        if (header) {
-          const mainHeight = header.offsetHeight + footer.offsetHeight;
-          main.style['min-height'] = `calc(100vh - ${mainHeight}px)`;
-        } else {
-          console.warn('missing <app-header> for footer positioning');
+        if ((this.isMobile && !this.isHiddenMobile) || !this.isMobile) {
+          const header = document.querySelector('#app-header');
+          if (header) {
+            const mainHeight = header.offsetHeight + footer.offsetHeight;
+            main.style.cssText = main.style.cssText + `min-height: calc(100vh - ${mainHeight}px)`;
+          } else {
+            console.warn('missing <app-header> for footer positioning');
+          }
         }
       }
+    } else {
+      console.warn('missing <main> tag for footer positioning');
     }
   },
 };
@@ -125,8 +124,18 @@ export default {
       li {
         display: inline-block;
         vertical-align: middle;
-        margin: 0 1rem;
+        margin: 0;
         padding: 0;
+        &:not(:last-child) {
+          &:after {
+            content: "|";
+            margin: 0 1rem;
+            display: inline-block;
+            position: relative;
+            color: $white;
+            font-weight: $weight-bold;
+          }
+        }
       }
     }
   }

@@ -11,7 +11,7 @@ badge:
 
 A `<form>` wrapper with error handling and submit button.
 
-<alert>Supports VeeValidate. See [VeeValidate Integration](/vee-validate-integration).</alert>
+<alert>Supports VeeValidate. See [VeeValidate Integration](/vendors/vee-validate-integration).</alert>
 
 ## Usage
 

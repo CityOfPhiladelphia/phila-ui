@@ -57,19 +57,11 @@ export default [ 'phila-ui' ].map((name) => ({
     'vue',
   ],
   plugins: [
-    image(),
-    nodeResolve({
-      extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
-    }),
     alias({
       entries: [
         {
-          find: 'utils',
-          replacement: path.resolve(projectRootDir, 'src/utils'),
-        },
-        {
-          find: 'components',
-          replacement: path.resolve(projectRootDir, 'src/components'),
+          find: '@',
+          replacement: path.resolve(projectRootDir, 'src'),
         },
         {
           find: 'assets',
@@ -81,6 +73,8 @@ export default [ 'phila-ui' ].map((name) => ({
         },
       ],
     }),
+    image(),
+    commonjs(),
     vue({
       css: true, // Dynamically inject css as a <style> tag
       compileTemplate: true, // Explicitly convert template to render function,
@@ -89,6 +83,7 @@ export default [ 'phila-ui' ].map((name) => ({
           scss: {
             data: `
               @import "src/assets/styles/scss/variables.scss";
+              @import "src/assets/styles/scss/mixins.scss";
               @import "src/assets/styles/scss/functions.scss";
               @import "src/assets/styles/scss/colors.scss";
               @import "node_modules/bulma/sass/utilities/_all.sass";
@@ -98,7 +93,6 @@ export default [ 'phila-ui' ].map((name) => ({
       },
       transformAssetUrls: true,
     }),
-    commonjs(),
     babel({
       exclude: 'node_modules/**',
       babelHelpers: 'runtime',
