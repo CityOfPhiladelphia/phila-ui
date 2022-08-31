@@ -13,6 +13,7 @@ import Phone from './components/Inputs/Phone';
 import TabsNav from './components/TabsNav';
 import MobileNav from './components/MobileNav';
 import DropdownNav from './components/DropdownNav';
+import DatePicker from './components/Inputs/DatePicker';
 import Tooltip from './components/Tooltip';
 import Modal from './components/Modal';
 import ResponsiveHelpers from './plugins/ResponsiveHelpers';
@@ -55,6 +56,7 @@ export {
   TabsNav,
   MobileNav,
   DropdownNav,
+  DatePicker,
   Tooltip,
   Modal,
   ResponsiveHelpers,
