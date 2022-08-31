@@ -1,12 +1,24 @@
 import { IMaskDirective } from 'vue-imask';
+
 export default {
+  props: {
+    imaskProps: {
+      type: Object,
+      default () {
+        return {
+          mask: '',
+          lazy: true,
+        };
+      },
+    },
+    returnValue: {
+      type: String,
+      default: 'masked',
+    },
+  },
   data() {
     return {
       localValue: '',
-      mask: {
-        mask: '(000) 000 - 0000',
-        lazy: true,
-      },
       onAccept: this.acceptEvent,
       onComplete: this.completeEvent,
     };
@@ -25,21 +37,30 @@ export default {
   methods: {
     acceptEvent(e) {
       const maskRef = e.detail;
-      this.$emit('input', maskRef._value);
+      if (this.returnValue === 'masked') {
+        this.$emit('input', maskRef._value);
+      } else if (this.returnValue === 'unmasked') {
+        this.$emit('input', maskRef._unmaskedValue);
+      }
       this.$emit('unmasked-input', maskRef._unmaskedValue);
     },
     completeEvent(e) {
       const maskRef = e.detail;
-      this.$emit('complete', maskRef._value);
+      if (this.returnValue === 'masked') {
+        this.$emit('input', maskRef._value);
+      } else if (this.returnValue === 'unmasked') {
+        this.$emit('input', maskRef._unmaskedValue);
+      }
+      this.$emit('unmasked-input', maskRef._unmaskedValue);
     },
     onFocus() {
       if (!this.localValue) {
-        this.mask.lazy = false;
+        this.imaskProps.lazy = false;
       }
     },
     onBlur(e) {
       if (!e.target.maskRef._unmaskedValue) {
-        this.mask.lazy = true;
+        this.imaskProps.lazy = true;
       }
     },
   },
