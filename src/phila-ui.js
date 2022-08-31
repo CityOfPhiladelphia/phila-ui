@@ -15,6 +15,7 @@ import MobileNav from './components/MobileNav';
 import DropdownNav from './components/DropdownNav';
 import DateText from './components/Inputs/DateText';
 import DatePicker from './components/Inputs/DatePicker';
+import MaskedInput from './components/Inputs/MaskedInput';
 import Tooltip from './components/Tooltip';
 import Modal from './components/Modal';
 import ResponsiveHelpers from './plugins/ResponsiveHelpers';
@@ -59,6 +60,7 @@ export {
   DropdownNav,
   DateText,
   DatePicker,
+  MaskedInput,
   Tooltip,
   Modal,
   ResponsiveHelpers,
