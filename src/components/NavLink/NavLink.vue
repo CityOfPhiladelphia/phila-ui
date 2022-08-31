@@ -6,7 +6,10 @@
     :class="{ 'is-active': link.active }"
     @click="callFunc"
   >
-    {{ link.text }}
+    <template v-if="$slots.length === 0">
+      {{ link.text }}
+    </template>
+    <slot />
   </a>
   <router-link
     v-else
@@ -19,7 +22,10 @@
       :class="{ 'is-active': isExactActive }"
       @click="navigate"
     >
-      {{ link.text }}
+      <template v-if="$slots.length === 0">
+        {{ link.text }}
+      </template>
+      <slot />
     </a>
   </router-link>
 </template>
