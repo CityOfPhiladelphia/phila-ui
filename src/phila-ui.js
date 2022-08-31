@@ -17,6 +17,7 @@ import ZipCode from './components/Inputs/ZipCode';
 import DateText from './components/Inputs/DateText';
 import DatePicker from './components/Inputs/DatePicker';
 import MaskedInput from './components/Inputs/MaskedInput';
+import SimpleCard from './components/SimpleCard';
 import Tooltip from './components/Tooltip';
 import Modal from './components/Modal';
 import ResponsiveHelpers from './plugins/ResponsiveHelpers';
@@ -63,6 +64,7 @@ export {
   DateText,
   DatePicker,
   MaskedInput,
+  SimpleCard,
   Tooltip,
   Modal,
   ResponsiveHelpers,
