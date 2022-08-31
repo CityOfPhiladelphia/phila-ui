@@ -13,6 +13,7 @@ import Phone from './components/Inputs/Phone';
 import TabsNav from './components/TabsNav';
 import MobileNav from './components/MobileNav';
 import DropdownNav from './components/DropdownNav';
+import ZipCode from './components/Inputs/ZipCode';
 import DateText from './components/Inputs/DateText';
 import DatePicker from './components/Inputs/DatePicker';
 import MaskedInput from './components/Inputs/MaskedInput';
@@ -58,6 +59,7 @@ export {
   TabsNav,
   MobileNav,
   DropdownNav,
+  ZipCode,
   DateText,
   DatePicker,
   MaskedInput,
