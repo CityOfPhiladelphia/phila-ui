@@ -3,9 +3,10 @@ on:
   push:
     branches:
       - master
+      - next
       - beta
       - alpha
-      - next
+      - dev
 
 jobs:
   release:
