@@ -1,15 +1,26 @@
 {
+  "debug": true,
+  "repositoryUrl": "git@github.com:CityOfPhiladelphia/phila-ui.git",
   "repository": "git@github.com:CityOfPhiladelphia/phila-ui.git",
   "plugins": [
-    ["@semantic-release/commit-analyzer", {
-      "preset": "conventionalcommits"
-    }],
-    ["@semantic-release/release-notes-generator", {
-      "preset": "conventionalcommits"
-    }],
-    ["@semantic-release/npm", {
-      "tarballDir": "dist",
-      "allowSameVersion": true
-    }]
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "conventionalcommits"
+      }
+    ],
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits"
+      }
+    ],
+    [
+      "@semantic-release/npm",
+      {
+        "tarballDir": "dist",
+        "allowSameVersion": true
+      }
+    ]
   ]
 }
