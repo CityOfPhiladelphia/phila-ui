@@ -30,7 +30,7 @@
     "@rollup/plugin-alias": "^3.1.1",
     "@rollup/plugin-babel": "^5.2.1",
     "@rollup/plugin-image": "^2.0.5",
-    "@semantic-release/git": "^7.0.18",
+    "@semantic-release/git": "^10.0.1",
     "@vue/cli-plugin-babel": "^4.5.15",
     "@vue/cli-plugin-eslint": "^4.5.15",
     "@vue/cli-service": "^4.5.15",
@@ -43,7 +43,7 @@
     "rollup-plugin-vue": "^5.0.1",
     "sass": "^1.45.0",
     "sass-loader": "^10.2.0",
-    "semantic-release": "^17.3.0",
+    "semantic-release": "^19.0.5",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
   }
