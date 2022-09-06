@@ -1,13 +1,13 @@
 <template>
   <div
-    class="input-wrap input-textbox input-date-mask"
+    class="input-wrap input-textbox input-date-text"
     :class="classes"
   >
     <div class="field">
       <label
         v-if="!innerLabel"
         class="label"
-        :for="`phone-${id}`"
+        :for="`date-text-${id}`"
       >
         {{ label }}
       </label>
@@ -16,7 +16,7 @@
         :class="inputModifierClasses"
       >
         <input
-          :id="`date-mask-${id}`"
+          :id="`date-text-${id}`"
           v-imask="dateProps"
           v-bind="$attrs"
           :placeholder="$attrs.required !== undefined && placeholder !== '' && innerLabel ? `${placeholder} *` : placeholder"
@@ -29,7 +29,7 @@
         >
         <label
           v-if="innerLabel"
-          :for="`date-mask-${id}`"
+          :for="`date-text-${id}`"
         >
           {{ label ? label : placeholder }}
         </label>
@@ -138,7 +138,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../../assets/styles/scss/textbox-inputs.scss";
-.input-date-mask {
+.input-date-text {
   max-width: 180px;
 }
 </style>
