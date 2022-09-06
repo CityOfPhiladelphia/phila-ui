@@ -1,14 +1,15 @@
 <template>
   <div
     class="simple-card"
-    :style="`height:${height}`"
+    :style="fixedHeight !== '' ? `height: ${fixedHeight}`: ''"
+    :class="fixedHeight !== '' ? `fixed-height`: ''"
   >
     <nav-link :link="link">
-      <h3 class="is-4 simple-card-title">
+      <h3 class="is-3 simple-card-title">
         {{ title }}
       </h3>
       <div class="simple-card-body">
-        {{ body }}
+        <p>{{ body }}</p>
       </div>
       <div class="simple-card-cta">
         {{ link.text }}
@@ -32,9 +33,9 @@ export default {
     NavLink,
   },
   props: {
-    height: {
+    fixedHeight: {
       type: String,
-      default: "200px",
+      default: '',
     },
     title: {
       type: String,
@@ -54,16 +55,35 @@ export default {
       },
     },
   },
+  mounted () {
+    if (this.fixedHeight === '') {
+      const cards = document.getElementsByClassName('simple-card');
+      let height = 0;
+      for(let i = 0; i < cards.length; i++){
+        if (cards[i].clientHeight > height) {
+          height = cards[i].clientHeight;
+        }
+      }
+      for(let x = 0; x < cards.length; x++){
+        cards[x].style.visibility = 'visible';
+        cards[x].style.height = height + 16 + 'px';
+      }
+    }
+  },
 };
 </script>
 
 <style lang="scss">
 .simple-card {
+  visibility: hidden;
   position: relative;
+  &.fixed-height {
+    visibility: visible;
+  }
   a {
     text-decoration: none;
     font-weight: $weight-normal;
-    padding: 0.938rem;
+    padding: 1rem 1rem 0.875rem 1rem;
     display: block;
     border: 0;
     height: 100%;
@@ -79,7 +99,7 @@ export default {
     position: absolute;
     bottom: 0;
     padding: 0 0 1rem 0;
-    font-weight: $weight-semibold;
+    font-weight: $weight-normal;
     &:after {
       font-family: "Font Awesome 5 Pro";
       font-size: large;
