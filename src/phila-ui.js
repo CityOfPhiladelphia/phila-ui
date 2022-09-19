@@ -4,6 +4,7 @@ import AppFooter from './components/AppFooter';
 import Callout from './components/Callout';
 import InputForm from './components/Inputs/InputForm';
 import Checkbox from './components/Inputs/Checkbox';
+import CheckboxSingle from './components/Inputs/CheckboxSingle';
 import Radio from './components/Inputs/Radio';
 import Dropdown from './components/Inputs/Dropdown';
 import LangSelector from './components/LangSelector';
@@ -51,6 +52,7 @@ export {
   Callout,
   InputForm,
   Checkbox,
+  CheckboxSingle,
   LangSelector,
   Radio,
   Dropdown,
