@@ -136,7 +136,7 @@ export default {
             }
 
             const year = dateFromStr.getFullYear();
-            const outputDate = `${year}-${month}-${day}`;
+            const outputDate = `${month}/${day}/${year}`;
             vm.$emit('input', outputDate);
           },
         },
@@ -148,7 +148,4 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../../assets/styles/scss/textbox-inputs.scss";
-.input-date-mask {
-  max-width: 180px;
-}
 </style>

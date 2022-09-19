@@ -105,8 +105,4 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../../assets/styles/scss/textbox-inputs.scss";
-
-.input-zip-code {
-  max-width: 180px;
-}
 </style>
