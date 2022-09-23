@@ -138,7 +138,4 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../../assets/styles/scss/textbox-inputs.scss";
-.input-date-text {
-  max-width: 180px;
-}
 </style>
