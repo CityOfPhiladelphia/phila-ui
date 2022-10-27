@@ -99,5 +99,9 @@ Styles built on top of the Bulma .content class
 
   table {
     @include table-styles;
+
+    &.table-light {
+      @include table-light-styles;
+    }
   }
 }

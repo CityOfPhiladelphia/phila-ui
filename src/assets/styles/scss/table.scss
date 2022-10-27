@@ -8,3 +8,7 @@ PhilaUI table styles applied to the .table class, and compatible with the vue-go
 table.table {
   @include table-styles;
 }
+
+table.table-light {
+  @include table-light-styles;
+}
