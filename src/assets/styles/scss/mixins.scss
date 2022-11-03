@@ -234,9 +234,9 @@
         border-bottom-width: 1.5px;
         color: rgb(96, 98, 102);
 
-        button {
-          display: none;
-        }
+        // button {
+        //   display: none;
+        // }
 
         div.center {
           text-align: center;
@@ -245,6 +245,27 @@
 
       th.center {
         text-align: center;
+      }
+
+      th.sortable:hover::before {
+        border-bottom-color: #606266;
+      }
+
+      th.sortable.sorting.sorting-asc:before {
+        border-bottom-color: #606266;
+      }
+
+      th.sortable:hover::after {
+        border-top-color: #606266;
+      }
+
+      th.sortable.sorting.sorting-desc:after {
+        border-top-color: #606266;
+      }
+
+      th.sortable.sorting {
+        background-color: #ffffff;
+        color: #606266;
       }
     }
   }
