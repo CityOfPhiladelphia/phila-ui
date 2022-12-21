@@ -62,7 +62,6 @@ export default {
       for(let i = 0; i < cards.length; i++){
         if (cards[i].clientHeight > height) {
           height = cards[i].clientHeight;
-          console.log(height);
         }
       }
       for(let x = 0; x < cards.length; x++){
