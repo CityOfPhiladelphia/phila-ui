@@ -62,11 +62,12 @@ export default {
       for(let i = 0; i < cards.length; i++){
         if (cards[i].clientHeight > height) {
           height = cards[i].clientHeight;
+          console.log(height);
         }
       }
       for(let x = 0; x < cards.length; x++){
         cards[x].style.visibility = 'visible';
-        cards[x].style.height = height + 16 + 'px';
+        cards[x].style.height = height + 'px';
       }
     }
   },
@@ -87,6 +88,8 @@ export default {
     display: block;
     border: 0;
     height: 100%;
+    display: flex;
+    flex-direction: column;
   }
   background-color: $ghost-grey;
   .simple-card-title {
@@ -94,11 +97,12 @@ export default {
   }
   .simple-card-body {
     color: $grey-dark !important;
+    position: relative;
+    flex-grow: 1;
   }
   .simple-card-cta {
-    position: absolute;
-    bottom: 0;
-    padding: 0 0 1rem 0;
+    position: relative;
+    padding: 1rem 0 0 0;
     font-weight: $weight-normal;
     &:after {
       font-family: "Font Awesome 5 Pro";
