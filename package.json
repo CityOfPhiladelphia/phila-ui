@@ -42,7 +42,7 @@
     "rollup-plugin-vue": "^5.0.1",
     "sass": "^1.45.0",
     "sass-loader": "^10.2.0",
-    "semantic-release": "^17.3.0",
+    "semantic-release": "^21.0.1",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
   }
