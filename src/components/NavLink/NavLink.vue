@@ -9,6 +9,7 @@
     <template v-if="!$slots.default">
       {{ link.text }}
     </template>
+    <slot />
   </a>
   <router-link
     v-else
