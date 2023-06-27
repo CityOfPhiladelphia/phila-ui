@@ -4,15 +4,6 @@
     :class="checkRadioClasses"
   >
     <fieldset>
-      <legend style="display: none">
-        <template v-if="label">
-          {{ label }}
-        </template>
-        <template v-else>
-          <!-- @slot Alternative label -->
-          <slot name="label" />
-        </template>
-      </legend>
       <template v-if="error">
         <div class="input-error-msg">
           <span class="icon"><i class="fas fa-exclamation-circle" /></span>
@@ -45,7 +36,13 @@
           <label
             :for="`compliance-cb-${id}`"
           >
-            {{ label }}
+            <template v-if="label">
+              {{ label }}
+            </template>
+            <template v-else>
+              <!-- @slot Alternative label -->
+              <slot name="label" />
+            </template>
           </label>
         </div>
       </div>
