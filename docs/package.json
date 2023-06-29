@@ -12,7 +12,7 @@
   "dependencies": {
     "@nuxt/content": "^1.11.1",
     "@nuxt/content-theme-docs": "^0.8.0",
-    "nuxt": "^2.14.7",
+    "nuxt": "^3.6.1",
     "theme-colors": "0.0.5",
     "vue": "^2.6.12",
     "vue-docgen-cli": "^4.33.9",
