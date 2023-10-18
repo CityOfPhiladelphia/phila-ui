@@ -16,8 +16,8 @@
         :class="inputModifierClasses"
       >
         <v-date-picker
-          :value="value"
-          v-bind="calOptions"
+          :value="localValue"
+          v-bind="defaultDatePickerProps"
           v-on="inputListeners"
         >
           <template v-slot="{ inputValue, inputEvents }">
@@ -89,11 +89,13 @@ export default {
   },
   mixins: [ inputMixins, textBoxMixins ],
   props: {
-    vCalendarProps: {
+    value: {
+      type: [ String, Number, Object, Date ],
+      default: "",
+    },
+    datePickerProps: {
       type: Object,
-      default () {
-        return {};
-      },
+      default: () => ({}),
     },
     /**
      * The input placeholder
@@ -108,9 +110,10 @@ export default {
   data () {
     return {
       dateProps: {},
-      calOptions: {
+      defaultDatePickerProps: {
         mode: 'date',
         isRange: false,
+        timezone: 'America/New_York',
         popover: {
           keepVisibleOnInput: false,
           visibility: 'focus',
@@ -119,29 +122,31 @@ export default {
     };
   },
   computed: {
+    localValue: {
+      get() {
+        return this.value;
+      },
+      set(value) {
+        this.$emit("input", value);
+      },
+    },
     inputListeners: function () {
       var vm = this;
       return Object.assign({},
         this.$listeners,
         {
-          input: function (date) {
-            const dateFromStr = new Date(date);
-            let day = dateFromStr.getDate();
-            let month = dateFromStr.getMonth() + 1;
-            if (month.toString().length === 1) {
-              month = `0${month}`;
-            }
-            if (day.toString().length === 1) {
-              day = `0${day}`;
-            }
-
-            const year = dateFromStr.getFullYear();
-            const outputDate = `${month}/${day}/${year}`;
-            vm.$emit('input', outputDate);
+          input: function (value) {
+            vm.$emit('input', value);
           },
         },
       );
     },
+  },
+  beforeMount () {
+    this.defaultDatePickerProps = {
+      ...this.defaultDatePickerProps,
+      ...this.datePickerProps,
+    };
   },
 };
 </script>
